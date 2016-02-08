@@ -1,0 +1,14 @@
+Small Circle Running
+1 - 60
+
+Big Circle
+
+65 - 110
+
+Running Straight
+
+116 - 130
+
+Turning 180
+
+135 - end

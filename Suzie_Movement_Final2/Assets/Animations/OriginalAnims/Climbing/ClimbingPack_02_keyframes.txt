@@ -1,0 +1,19 @@
+Climbing Idle
+
+1 - 100
+
+Moving Side-to-Side Climbing
+
+105 - 120
+
+Climbing Up
+
+150 - 190
+
+Climbing Over Ledge
+
+195 - 265
+
+Jumping From Climbing
+
+270 - 294

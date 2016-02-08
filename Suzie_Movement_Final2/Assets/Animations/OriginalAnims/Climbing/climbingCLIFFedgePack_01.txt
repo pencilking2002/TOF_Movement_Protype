@@ -1,0 +1,13 @@
+1 - 100 ----- idle hanging edge
+110 - 120 --- pointing up
+120 - 200 --- pointing up idle
+200 - 280 --- jumping up (x2 speed)
+290 - 300 --- pointing down
+300 - 375 --- pointing down idle
+380 - 460 --- falling edge-to-edge (x2 speed)
+470 - 475 --- pointing side
+475 - 530 --- pointing side idle
+530 - 620 --- jumping to side edge (x2 speed)
+
+import SuzieTPose avatar
+mask bones for tail and hair
