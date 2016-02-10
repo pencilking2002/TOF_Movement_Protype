@@ -75,14 +75,22 @@ public class FollowPlayer : MonoBehaviour {
 	{ 
 //		EventManager.onCharEvent += AttachFollow;
 //		EventManager.onInputEvent += AttachFollow; 
+		EventManager.onInputEvent += Test;
 	}
 
 	private void OnDisable() 
 	{ 
 //		EventManager.onCharEvent -= AttachFollow;
 //		EventManager.onInputEvent -= AttachFollow; 
+		EventManager.onInputEvent -= Test;
 	}
-	
+
+	private void Test (GameEvent e)
+	{
+		//if (e == GameEvent.Jump)
+			print("follow: Test jump");
+	}
+
 	private void AttachFollow (GameEvent gEvent)
 	{
 //		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing || gEvent == GameEvent.Land)

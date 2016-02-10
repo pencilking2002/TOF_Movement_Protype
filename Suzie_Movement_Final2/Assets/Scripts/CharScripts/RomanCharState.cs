@@ -84,7 +84,7 @@ public class RomanCharState : MonoBehaviour {
 //			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 	// TODO - Move to another class
 			
 		state = _state;
-		print("set state: " + _state);
+		//print("set state: " + _state);
 	}
 	
 	public State GetState ()

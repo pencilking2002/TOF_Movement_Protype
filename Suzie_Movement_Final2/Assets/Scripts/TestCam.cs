@@ -70,6 +70,8 @@ public class TestCam : MonoBehaviour
 	private RaycastHit hit;
 	private Vector3 vel;
 
+	private void Awake () {}
+
 	private void Start ()
 	{
 		// Record the private _moveLerpSpeed so we have the original value
@@ -146,12 +148,12 @@ public class TestCam : MonoBehaviour
 				transform.position = Vector3.Lerp(transform.position, targetPos, zoomInSpeed * Time.deltaTime);
 				transform.LookAt(follow);
 
-				print(Vector3.Distance(targetPos, transform.position));
+				//print(Vector3.Distance(targetPos, transform.position));
 
 				if (Vector3.Distance(targetPos, transform.position) < 0.05f)
 				{
 					SetState(CamState.Free);
-					print("free");
+					//print("free");
 				}
 				break;
 

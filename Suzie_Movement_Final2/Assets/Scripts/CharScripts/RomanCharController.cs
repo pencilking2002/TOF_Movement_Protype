@@ -121,12 +121,12 @@ public class RomanCharController : MonoBehaviour {
 		speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
 
 
+		// set the character's movement if the move stick is pressed
 		if (InputController.leftStickPressed)
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.fixedDeltaTime);
 		
 		else
 			animator.SetFloat (anim_Speed, 0);
-
 
 	}
 
@@ -185,15 +185,15 @@ public class RomanCharController : MonoBehaviour {
 //		}
 //	}
 
-	private void OnCollisionEnter (Collision coll)
-	{
-		if (Vector3.Dot(coll.contacts[0].normal, -transform.forward) > 0.5f)
-		{
-			EventManager.OnCharEvent(GameEvent.WallCollision);
-			Debug.DrawLine(transform.position, coll.contacts[0].normal, Color.red);
-		}
-	}
-
+//	private void OnCollisionEnter (Collision coll)
+//	{
+//		if (Vector3.Dot(coll.contacts[0].normal, -transform.forward) > 0.5f)
+//		{
+//			EventManager.OnCharEvent(GameEvent.WallCollision);
+//			Debug.DrawLine(transform.position, coll.contacts[0].normal, Color.red);
+//		}
+//	}
+//
 	/// <summary>
 	/// Force animator to trigger the falling animation 
 	/// on collision exit from a collider that is below the player
@@ -214,30 +214,32 @@ public class RomanCharController : MonoBehaviour {
 	// Hook on to Input event
 	private void OnEnable () 
 	{ 
-		EventManager.onInputEvent += Jump;
-		EventManager.onInputEvent += SprintModifierDown;
-		EventManager.onInputEvent += SprintModifierUp;
-
-		EventManager.onCharEvent += Enable;
-		//EventManager.onCharEvent += Disable;
-		EventManager.onCharEvent += Sprint;
-		EventManager.onCharEvent += CharIdle;
-		EventManager.onCharEvent += ExitIdle;
-		EventManager.onCharEvent += CharLanded;
+		print("char enable");
+		EventManager.onInputEvent += PerformJump;
+//		EventManager.onInputEvent += SprintModifierDown;
+//		EventManager.onInputEvent += SprintModifierUp;
+//
+//		EventManager.onCharEvent += Enable;
+//		//EventManager.onCharEvent += Disable;
+//		EventManager.onCharEvent += Sprint;
+//		EventManager.onCharEvent += CharIdle;
+//		EventManager.onCharEvent += ExitIdle;
+//		EventManager.onCharEvent += CharLanded;
 		
 	}
 	private void OnDisable () 
 	{ 
-		EventManager.onInputEvent -= Jump;
-		EventManager.onInputEvent -= SprintModifierDown;
-		EventManager.onInputEvent -= SprintModifierUp;
-
-		EventManager.onCharEvent -= Enable;
-		//EventManager.onCharEvent -= Disable;
-		EventManager.onCharEvent -= Sprint;
-		EventManager.onCharEvent -= CharIdle;
-		EventManager.onCharEvent -= ExitIdle;
-		EventManager.onCharEvent -= CharLanded;
+		print("char disable");	
+		EventManager.onInputEvent -= PerformJump;
+//		EventManager.onInputEvent -= SprintModifierDown;
+//		EventManager.onInputEvent -= SprintModifierUp;
+//
+//		EventManager.onCharEvent -= Enable;
+//		//EventManager.onCharEvent -= Disable;
+//		EventManager.onCharEvent -= Sprint;
+//		EventManager.onCharEvent -= CharIdle;
+//		EventManager.onCharEvent -= ExitIdle;
+//		EventManager.onCharEvent -= CharLanded;
 		
 	}
 	
@@ -250,7 +252,52 @@ public class RomanCharController : MonoBehaviour {
 			vineClimbCollider.detached = false;
 		}
 	}
+
+	// Trigger the jump animation and disable root motion
+	public void PerformJump (GameEvent gameEvent)
+	{
+		print("jump");
+//		if (gameEvent == GameEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
+//		{	
+//			
+//			float force = maxJumpForce;
+//			
+//			EventManager.OnCharEvent(GameEvent.DetachFollow);
+//			EventManager.OnCharEvent(GameEvent.Jump);
+//			
+//			//print (charState.GetState ());
+//			
+//			// Change the forward speed based on what kind of jump it is
+//			if (charState.IsIdle())
+//			{
+//				forwardSpeed = idleJumpForwardSpeed;
+//				charState.SetState(RomanCharState.State.IdleJumping);
+//				animator.SetTrigger (anim_idleJump);
+//				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+//			}
+//			else if (charState.IsJogging())
+//			{
+//				forwardSpeed = runningJumpForwardSpeed;
+//				charState.SetState(RomanCharState.State.RunningJumping);
+//				animator.SetTrigger (anim_runningJump);
+//				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+//			}
+//			else if (charState.IsSprinting())
+//			{
+//				// Override Y jump force to be a constant value when sprinting
+//				force = sprintJumpForce;									
+//				forwardSpeed = sprintJumpForwardSpeed;
+//				charState.SetState(RomanCharState.State.SprintJumping);
+//				animator.SetBool (anim_sprintJump, true);
+//				
+//				OrientCapsuleCollider(false);
+//				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+//			}
 	
+
+//		}
+	}
+
 	private void SprintModifierDown(GameEvent gameEvent)
 	{
 		if (charState.IsIdle() || charState.IsRunning() || charState.IsJumping())
@@ -282,50 +329,6 @@ public class RomanCharController : MonoBehaviour {
 		{	
 			OrientCapsuleCollider(true);
 	
-		}
-	}
-
-	// Trigger the jump animation and disable root motion
-	public void Jump (GameEvent gameEvent)
-	{
-		if (gameEvent == GameEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
-		{	
-			float force = maxJumpForce;
-			
-			EventManager.OnCharEvent(GameEvent.DetachFollow);
-			EventManager.OnCharEvent(GameEvent.Jump);
-			
-			//print (charState.GetState ());
-			
-			// Change the forward speed based on what kind of jump it is
-			if (charState.IsIdle())
-			{
-				forwardSpeed = idleJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.IdleJumping);
-				animator.SetTrigger (anim_idleJump);
-				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
-			}
-			else if (charState.IsJogging())
-			{
-				forwardSpeed = runningJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.RunningJumping);
-				animator.SetTrigger (anim_runningJump);
-				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
-			}
-			else if (charState.IsSprinting())
-			{
-				// Override Y jump force to be a constant value when sprinting
-				force = sprintJumpForce;									
-				forwardSpeed = sprintJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.SprintJumping);
-				animator.SetBool (anim_sprintJump, true);
-				
-				OrientCapsuleCollider(false);
-				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
-			}
-			//JumpUpAnim ();
-			//rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
-
 		}
 	}
 
