@@ -293,5 +293,6 @@
 'Assets/Scripts/SetState.cs'
 'Assets/Scripts/TestCam.cs'
 'Assets/Scripts/VineClimbController2.cs'
+'Assets/TestEvent.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

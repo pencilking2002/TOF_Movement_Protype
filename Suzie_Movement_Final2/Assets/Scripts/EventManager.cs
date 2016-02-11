@@ -80,6 +80,8 @@ public class EventManager : MonoBehaviour
 	{
 		if (onInputEvent != null)
 			onInputEvent(gameEvent);
+		else
+			print("onInputEvent is null");
 	}
 	
 	public static void OnDetectEvent (GameEvent gameEvent, RaycastHit hit)

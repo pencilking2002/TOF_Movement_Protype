@@ -28,18 +28,18 @@ public class ClimbOverEdge : MonoBehaviour {
 		animator = GetComponent<Animator>();
 
 		// Calculate the climbing tween's duration
-		tweenDuration = edgeTween.groupList[0].endTime - edgeTween.groupList[0].startTime;
+		//tweenDuration = edgeTween.groupList[0].endTime - edgeTween.groupList[0].startTime;
 		
 		//print (tweenDuration);
-		if (edgeTween == null)
-			Debug.LogError("tween not defined");
-		
-		if (edgePath == null || vinePath == null)
-			Debug.LogError("path not defined");
-//
+//		if (edgeTween == null)
+//			Debug.LogError("tween not defined");
+//		
+//		if (edgePath == null || vinePath == null)
+//			Debug.LogError("path not defined");
+////
 //		// Disable the tween and path at beginning
-		EnableClimbOverTween(edgePath, edgeTween, false);
-		EnableClimbOverTween(vinePath, vineTween, false);
+		//EnableClimbOverTween(edgePath, edgeTween, false);
+		//EnableClimbOverTween(vinePath, vineTween, false);
 	}
 
 	private void Start ()
@@ -84,30 +84,30 @@ public class ClimbOverEdge : MonoBehaviour {
 	{
 		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge && !noClimbOver)
 		{
-			LeanTweenPath path = new LeanTweenPath();
-			LeanTweenVisual tween = new LeanTweenVisual();
-//
+//			LeanTweenPath path = new LeanTweenPath();
+//			LeanTweenVisual tween = new LeanTweenVisual();
+////
 			if (charState.IsVineClimbing())
 			{
-				tween = vineTween;
-				path = vinePath;
-				print("ClimbOverVine: should start climbing over vine");
+//				tween = vineTween;
+//				path = vinePath;
+//				print("ClimbOverVine: should start climbing over vine");
 			}
 			else if(charState.IsEdgeClimbing())
 			{
-				tween = edgeTween;
-				path = edgePath;
+//				tween = edgeTween;
+//				path = edgePath;
 			}
 
-			EnableClimbOverTween(path, tween, true);
+			//EnableClimbOverTween(path, tween, true);
 
-			path.transform.parent = null;
+			//path.transform.parent = null;
 			animator.SetTrigger("ClimbOverEdge");
 
 			RSUtil.Instance.DelayedAction(() => {
-				path.transform.parent = transform;
-				path.transform.localPosition = Vector3.zero;
-				EnableClimbOverTween(path, tween, false);
+				//path.transform.parent = transform;
+				//path.transform.localPosition = Vector3.zero;
+				//EnableClimbOverTween(path, tween, false);
 				EventManager.OnCharEvent(GameEvent.FinishClimbOver);
 				noClimbOver = false;
 			}, tweenDuration);

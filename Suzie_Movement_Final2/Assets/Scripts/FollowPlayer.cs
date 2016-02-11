@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FollowPlayer : MonoBehaviour {
 
+	public Transform player;
+
 	public Vector3 offset;
 	public float damping = 10.0f;
 	public float climbSpeed = 20.0f;
@@ -17,7 +19,7 @@ public class FollowPlayer : MonoBehaviour {
 	private Vector3 targetPos;
 	private Vector3 targetRot;
 
-	private Transform player;
+
 
 	private RomanCharState charState;
 	private float _damping;
@@ -32,7 +34,10 @@ public class FollowPlayer : MonoBehaviour {
 	void Start ()
 	{
 		charState = GameObject.FindObjectOfType<RomanCharState>();
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+
+		if(player == null)
+			player = GameObject.FindGameObjectWithTag("Player").transform;
+
 		cam = GameObject.FindObjectOfType<TestCam>();
 	}
 	// Update is called once per frame

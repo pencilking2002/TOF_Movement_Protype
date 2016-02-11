@@ -9,28 +9,31 @@ public class TestEvent : MonoBehaviour {
 	private void OnEnable ()
 	{
 		//EventManager.onCharEvent += Test;
-		onClickEvent += Test;
+		//onClickEvent += Test;
+		EventManager.onInputEvent += Test;
 	}
 
 	private void OnDisable ()
 	{
 		//EventManager.onCharEvent -= Test;
-		onClickEvent -= Test;
+		//onClickEvent -= Test;
+		EventManager.onInputEvent -= Test;
+
 	}
 
 	private void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			if (onClickEvent != null)
-				onClickEvent();
-		}
+//		if (Input.GetKeyDown(KeyCode.Space))
+//		{
+//			if (onClickEvent != null)
+//				onClickEvent();
+//		}
 	}
 
-	private void Test ()
+	private void Test (GameEvent gEvent)
 	{
 		//print(e);
-		print("Event test");
+		print("TestEvent: yo");
 	}
 
 }

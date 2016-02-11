@@ -48,6 +48,10 @@ public class RomanCharState : MonoBehaviour {
 	{
 //		rb = GetComponent<Rigidbody>();
 	}
+	private void Start()
+	{
+
+	}
 
 	public void SetState (State _state)
 	{

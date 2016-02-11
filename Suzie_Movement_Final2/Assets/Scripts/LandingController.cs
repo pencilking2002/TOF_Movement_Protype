@@ -24,7 +24,7 @@ public class LandingController : MonoBehaviour {
 
 //			//Debug.Break();	 
 			animator.SetTrigger("Land");
-			print("Falling");
+			//print("Falling");
 			//EventManager.OnCharEvent(GameEvent.AttachFollow);
 			EventManager.OnCharEvent(GameEvent.Land);				
 		}

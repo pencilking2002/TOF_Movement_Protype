@@ -97,8 +97,9 @@ public class InputController : MonoBehaviour {
 		if (inputDevice.Action1.WasPressed)
 		{
 			EventManager.OnInputEvent(GameEvent.Jump);
-			//print("Jump pressed");
+			//print("InputController: Jump pressed");
 		}
+
 		else if (inputDevice.Action1.WasReleased)
 			jumpReleased = true;
 
