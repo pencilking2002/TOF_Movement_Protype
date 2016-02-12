@@ -195,6 +195,7 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == State.WallClimbing;
 	}
+
 	public bool IsEdgeClimbing()
 	{
 		return state == State.EdgeClimbing;

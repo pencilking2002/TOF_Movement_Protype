@@ -71,7 +71,7 @@ public class RomanCharController : MonoBehaviour {
 	//private bool holdShift = false;
 	private float speed;					// Temp var for locomotion 
 	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
-
+	private float lerpedJumpForce;
 	private Vector3 idlePos;
 
 	private VineClimbController2 vineClimbCollider;
@@ -134,23 +134,38 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetFloat (anim_Speed, 0);
 
 		LimitJump();
+
+		RotateJump();
+
 	}
 
 	/// <summary>
 	/// Limits the jump based on input
+	/// 
 	/// </summary>
 	private void LimitJump()
 	{
 		// Add a force downwards if the player releases the jump button
 		// when the character is jumping up
-		if (InputController.jumpReleased && !charState.IsSprintJumping())
+		if (InputController.jumpReleased && charState.IsJumping() /*&& !charState.IsSprintJumping()*/)
 		{
 			InputController.jumpReleased = false;
 
 			if (rb.velocity.y > 0)
 			{
-				rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
+				rb.AddForce (new Vector3 (0, -5, 0), ForceMode.Impulse);
 			}
+		}
+	}
+
+	private void RotateJump()
+	{
+		if (moveDirectionRaw != Vector3.zero)
+		{
+			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+			vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
+			vel.y = rb.velocity.y;
+			rb.velocity = vel;
 		}
 	}
 
@@ -175,7 +190,6 @@ public class RomanCharController : MonoBehaviour {
 				
 		}   
     }
-
 
 
 	/// <summary>
