@@ -133,6 +133,25 @@ public class RomanCharController : MonoBehaviour {
 		else
 			animator.SetFloat (anim_Speed, 0);
 
+		LimitJump();
+	}
+
+	/// <summary>
+	/// Limits the jump based on input
+	/// </summary>
+	private void LimitJump()
+	{
+		// Add a force downwards if the player releases the jump button
+		// when the character is jumping up
+		if (InputController.jumpReleased && !charState.IsSprintJumping())
+		{
+			InputController.jumpReleased = false;
+
+			if (rb.velocity.y > 0)
+			{
+				rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
+			}
+		}
 	}
 
 	/// <summary>
