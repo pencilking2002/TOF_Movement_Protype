@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9658cda499ae2764e8e0c89c67f1ce93
-timeCreated: 1446398304
+guid: 1fe881b5fddb64eb9b64807f5ef6fa86
+timeCreated: 1455551209
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -143,7 +143,7 @@ ModelImporter:
     400132: EditingMesh6:UpperTorso
     400134: SkeletonJoints
     400136: //RootNode
-    7400000: sprinting
+    7400000: sprint-fast
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -170,13 +170,13 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sprinting
+      name: sprint-fast
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 34
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
-      level: -0.25
+      level: -0.3
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -186,9 +186,9 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
-      heightFromFeet: 1
+      heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -243,13 +243,13 @@ ModelImporter:
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1
         weight: 1
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2
-        weight: 1
+        weight: 0
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_
-        weight: 1
+        weight: 0
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2
-        weight: 1
+        weight: 0
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2/EditingMesh6:HairJoint3
-        weight: 1
+        weight: 0
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2/EditingMesh6:HairJoint3/EditingMesh6:HairJoint4_end_
         weight: 0
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
@@ -356,7 +356,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 1
   humanDescription:

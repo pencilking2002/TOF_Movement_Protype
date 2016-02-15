@@ -1176,7 +1176,7 @@ MonoBehaviour:
   walkToRunDampTime: 0.25
   maxRunningRotation: 90
   runRotateSpeed: 12
-  sprintForce: 300
+  sprintForce: 10
   runForce: 2
   stopRunningSmoothingSpeed: 2.5
   maxJumpForce: 16

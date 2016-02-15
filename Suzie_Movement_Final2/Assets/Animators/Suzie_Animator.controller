@@ -645,10 +645,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9
-  m_HasExitTime: 0
+  m_TransitionDuration: 0.07456601
+  m_TransitionOffset: 0.62342286
+  m_ExitTime: 0.9576648
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -942,9 +942,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
+  m_TransitionDuration: 0.099999964
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: 0.028889589
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1512,7 +1512,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9658cda499ae2764e8e0c89c67f1ce93, type: 3}
+  m_Motion: {fileID: 7400000, guid: 1fe881b5fddb64eb9b64807f5ef6fa86, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1573,7 +1573,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: JumpLandingRun
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110117308}
@@ -1588,7 +1588,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400008, guid: 370d3959975f648a2bcb61997f4bceda, type: 3}
+  m_Motion: {fileID: 7400006, guid: 370d3959975f648a2bcb61997f4bceda, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -186,14 +186,15 @@ public class RomanCharController : MonoBehaviour {
 	/// </summary>
 	private void OnAnimatorMove ()
 	{
-		if (charState.IsIdleOrRunning())
+		// If is idle or isrunning and not sprinting)
+		if (charState.IsIdle() || charState.IsRunning())
 		{
 			if (moveDirectionRaw != Vector3.zero)
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
-				if (charState.IsSprinting() && speed != 0)
-					rb.AddRelativeForce(0, 0, sprintForce * Time.deltaTime);
+				//if (charState.IsSprinting() && speed != 0)
+					//rb.AddRelativeForce(0, 0, sprintForce * Time.deltaTime);
 
 				animator.ApplyBuiltinRootMotion();
 			}
