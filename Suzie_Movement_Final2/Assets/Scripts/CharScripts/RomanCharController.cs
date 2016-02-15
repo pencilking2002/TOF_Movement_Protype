@@ -127,15 +127,26 @@ public class RomanCharController : MonoBehaviour {
 
 
 		// set the character's movement if the move stick is pressed
-		if (InputController.leftStickPressed)
+		if (animator.GetBool(anim_sprintModDown) && speed > 0)
+		{
+			animator.SetFloat (anim_Speed, speed + 2);
+		}
+		else if (speed != 0)
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.fixedDeltaTime);
 		
 		else
 			animator.SetFloat (anim_Speed, 0);
 
+		// Stop sprinting
+		if (charState.IsSprinting() && speed == 0 && !inTube)
+		{
+			print("Get out of sprint mode");
+			animator.SetBool(anim_sprintModDown, false);
+		}
+
 		LimitJump();
 
-		RotateJump();
+		RotateAndMoveJump();
 
 	}
 
@@ -158,7 +169,7 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 
-	private void RotateJump()
+	private void RotateAndMoveJump()
 	{
 		if (moveDirectionRaw != Vector3.zero)
 		{
@@ -175,11 +186,14 @@ public class RomanCharController : MonoBehaviour {
 	/// </summary>
 	private void OnAnimatorMove ()
 	{
-		if ((charState.IsIdleOrRunning()))
+		if (charState.IsIdleOrRunning())
 		{
 			if (moveDirectionRaw != Vector3.zero)
 			{
-				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
+
+				if (charState.IsSprinting() && speed != 0)
+					rb.AddRelativeForce(0, 0, sprintForce * Time.deltaTime);
 
 				animator.ApplyBuiltinRootMotion();
 			}
