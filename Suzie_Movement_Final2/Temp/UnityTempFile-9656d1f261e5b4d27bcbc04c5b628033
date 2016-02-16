@@ -269,6 +269,7 @@
 'Assets/JMO Assets/Toony Colors Pro/Demo TCP2/TCP2 Demo Assets/Misc/TCP2_Demo.cs'
 'Assets/JMO Assets/Toony Colors Pro/Demo TCP2/TCP2 Demo Assets/Misc/TCP2_Demo_View.cs'
 'Assets/JMO Assets/Toony Colors Pro/Scripts/TCP2_RuntimeUtils.cs'
+'Assets/JumpController.cs'
 'Assets/LeanTweenEditor/Examples/Scripts/LTPathExampleCircleCS.cs'
 'Assets/LeanTweenEditor/Examples/Scripts/LTPathExampleIterateCS.cs'
 'Assets/LeanTweenEditor/Examples/Scripts/LTPathExampleMissilesCS.cs'

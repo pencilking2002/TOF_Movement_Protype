@@ -1052,6 +1052,7 @@ GameObject:
   - 114: {fileID: 644775532}
   - 114: {fileID: 644775534}
   - 143: {fileID: 644775533}
+  - 114: {fileID: 644775528}
   m_Layer: 8
   m_Name: SuzieMeshWithUVs
   m_TagString: Player
@@ -1160,6 +1161,25 @@ MonoBehaviour:
   vineTween: {fileID: 0}
   edgePath: {fileID: 0}
   vinePath: {fileID: 0}
+--- !u!114 &644775528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644775520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04580c22f1cd94d7ca304c736eaae108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJumpForce: 14
+  maxDoubleJumpForce: 10
+  sprintJumpForce: 15
+  jumpForceDeclineSpeed: 0.31
+  jumpTurnSpeed: 30.56
+  idleJumpForwardSpeed: 129
+  runningJumpForwardSpeed: 256.83
+  sprintJumpForwardSpeed: 153
 --- !u!114 &644775529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1207,7 @@ MonoBehaviour:
   idleJumpForwardSpeed: 129
   runningJumpForwardSpeed: 256.83
   sprintJumpForwardSpeed: 153
+  moveDirectionRaw: {x: 0, y: 0, z: 0}
   inTube: 0
 --- !u!114 &644775532
 MonoBehaviour:

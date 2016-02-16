@@ -692,7 +692,7 @@ ModelImporter:
       lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: 0.1
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -708,7 +708,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.89096564
+        functionName: JumpUp
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 8f6bd27a4acef46d5b3196b32f6b8ea5,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

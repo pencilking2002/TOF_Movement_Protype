@@ -6,11 +6,13 @@ public class LandingController : MonoBehaviour {
 	private RomanCharState charState;
 	private RaycastHit hit;
 	private Animator animator;
+	private Rigidbody rb;
 
 	private void Awake ()
 	{
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody>();
 	}
 
 	private void Update() {
@@ -19,14 +21,11 @@ public class LandingController : MonoBehaviour {
 		//TODO look for ground collision when the char is falling
 		if (charState.IsFalling() && Physics.Linecast(transform.position + new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.1f,0), out hit))
 		{
-			//print(hit.collider.gameObject.name);
-			//Debug.DrawLine(transform.position + new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.1f,0), Color.red);
-
-//			//Debug.Break();	 
-			animator.SetTrigger("Land");
-			//print("Falling");
-			//EventManager.OnCharEvent(GameEvent.AttachFollow);
-			EventManager.OnCharEvent(GameEvent.Land);				
+			if (rb.velocity.y <= 0)
+			{
+				animator.SetTrigger("Land");
+				EventManager.OnCharEvent(GameEvent.Land);
+			}				
 		}
 	}
 }
