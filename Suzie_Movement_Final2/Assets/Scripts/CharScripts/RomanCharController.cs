@@ -23,7 +23,10 @@ public class RomanCharController : MonoBehaviour {
 	[Header("JUMPING")]
 	[Range(0,100)]
 	public float maxJumpForce = 0.8f;					// Maximum Y force to Apply to Rigidbody when jumping
-	
+
+	[Range(0,100)]
+	public float maxDoubleJumpForce = 0.8f;		
+
 	[Range(0,100)]
 	public float sprintJumpForce = 2.0f;				// Y force to Apply to Rigidbody when sprint jumping
 	
@@ -73,6 +76,7 @@ public class RomanCharController : MonoBehaviour {
 	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
 	private float lerpedJumpForce;
 	private Vector3 idlePos;
+	private bool hasDoubleJumped = false;
 
 	private VineClimbController2 vineClimbCollider;
 
@@ -84,6 +88,7 @@ public class RomanCharController : MonoBehaviour {
 	int anim_idleJump = Animator.StringToHash("IdleJump");
 	int anim_runningJump = Animator.StringToHash("RunningJump");
 	int anim_sprintJump = Animator.StringToHash("SprintJump");
+	int anim_doubleJump = Animator.StringToHash("DoubleJump");
 
 	void Start ()
 	{
@@ -198,6 +203,7 @@ public class RomanCharController : MonoBehaviour {
 
 				animator.ApplyBuiltinRootMotion();
 			}
+			// Character has stopped, do a lerp
 			else
 			{
 				rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, stopRunningSmoothingSpeed * Time.deltaTime);
@@ -206,7 +212,7 @@ public class RomanCharController : MonoBehaviour {
 		}   
     }
 
-
+   
 	/// <summary>
 	/// - Get a vector of the camera's forward direction
 	/// - Create a rotation based on the forward direction of the camera
@@ -309,8 +315,18 @@ public class RomanCharController : MonoBehaviour {
 	private void DoJump (GameEvent gameEvent)
 	{
 		//print (gameEvent);
+		if (gameEvent == GameEvent.Jump && charState.IsJumping() && !hasDoubleJumped)
+		{
+			hasDoubleJumped = true;
+			float force = maxDoubleJumpForce;
 
-		if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunning()) 
+			print("Do double jump");
+			animator.SetTrigger(anim_doubleJump);
+			rb.velocity = Vector3.zero;
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+		}
+
+		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunning()) 
 		{	
 
 			float force = maxJumpForce;
@@ -393,7 +409,7 @@ public class RomanCharController : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
 			idlePos = transform.position;
-
+			//hasDoubleJumped = false;
 			//SetPhysicMaterial(true);
 			//print ("idle");
 		}
@@ -415,6 +431,7 @@ public class RomanCharController : MonoBehaviour {
 			OrientCapsuleCollider(true);
 			ResetYRotation();
 
+			hasDoubleJumped = false;
 			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
 
 			if (!charState.IsSprintFalling())

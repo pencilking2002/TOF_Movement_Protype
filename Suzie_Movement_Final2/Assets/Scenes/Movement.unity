@@ -1179,7 +1179,8 @@ MonoBehaviour:
   sprintForce: 10
   runForce: 2
   stopRunningSmoothingSpeed: 2.5
-  maxJumpForce: 16
+  maxJumpForce: 14
+  maxDoubleJumpForce: 10
   sprintJumpForce: 15
   jumpForceDeclineSpeed: 0.31
   jumpTurnSpeed: 24.1
