@@ -112,11 +112,39 @@ public class JumpController : MonoBehaviour {
 
 	public void JumpUp()
 	{
-		float force = maxJumpForce;
-		print("called by animation");
-		forwardSpeed = idleJumpForwardSpeed;
-		charState.SetState(RomanCharState.State.IdleJumping);
+		float force = 0;
+
+		if (charState.IsIdleJumping())
+		{
+			force = maxJumpForce;
+			forwardSpeed = idleJumpForwardSpeed;
+		}
+		else if (charState.IsRunningJumping())
+		{
+			force = maxJumpForce;
+			forwardSpeed = runningJumpForwardSpeed;
+		}
+		else if (charState.IsSprintJumping())
+		{
+			force = sprintJumpForce;									
+			forwardSpeed = sprintJumpForwardSpeed;
+		}
+
 		rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+
+	}
+
+	public void DoubleJumpUp()
+	{
+		if (!hasDoubleJumped)
+		{
+			hasDoubleJumped = true;
+			float force = maxDoubleJumpForce;
+
+			print("Do double jump");
+			rb.velocity = Vector3.zero;
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+		}
 	}
 
 	private void Jump (GameEvent gameEvent)
@@ -124,13 +152,7 @@ public class JumpController : MonoBehaviour {
 		print (gameEvent);
 		if (gameEvent == GameEvent.Jump && charState.IsJumping() && !hasDoubleJumped)
 		{
-			hasDoubleJumped = true;
-			float force = maxDoubleJumpForce;
-
-			print("Do double jump");
 			animator.SetTrigger(anim_doubleJump);
-			rb.velocity = Vector3.zero;
-			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 
 		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunning()) 
@@ -138,36 +160,23 @@ public class JumpController : MonoBehaviour {
 			print("do it");
 			float force = maxJumpForce;
 			
-			//EventManager.OnCharEvent(GameEvent.DetachFollow);
 			EventManager.OnCharEvent(GameEvent.Jump);
-			
-			//print (charState.GetState ());
-			
+
 			// Change the forward speed based on what kind of jump it is
 			if (charState.IsIdle())
 			{
-				//forwardSpeed = idleJumpForwardSpeed;
-				//charState.SetState(RomanCharState.State.IdleJumping);
 				animator.SetTrigger (anim_idleJump);
-				//rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
+
 			else if (charState.IsJogging())
 			{
-				forwardSpeed = runningJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.RunningJumping);
+		
 				animator.SetTrigger (anim_runningJump);
-				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 			else if (charState.IsSprinting())
 			{
-				// Override Y jump force to be a constant value when sprinting
-				force = sprintJumpForce;									
-				forwardSpeed = sprintJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.SprintJumping);
 				animator.SetBool (anim_sprintJump, true);
-				
 				charController.OrientCapsuleCollider(false);
-				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 	
 

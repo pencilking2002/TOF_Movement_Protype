@@ -370,7 +370,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.22356495
+        functionName: JumpUp
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 04580c22f1cd94d7ca304c736eaae108,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -684,7 +692,7 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 0.96
     - serializedVersion: 16
       name: Idle_Jump
       takeName: Take 001

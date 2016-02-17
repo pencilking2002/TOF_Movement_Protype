@@ -29,6 +29,8 @@ public class RomanCharState : MonoBehaviour {
 		SprintLanding,
 		VineClimbing,
 		VineAttaching,
+		RunningDoubleJumping,
+		IdleDoubleJumping
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -148,20 +150,41 @@ public class RomanCharState : MonoBehaviour {
 				
 				state == State.SprintJumping ||
 		        state == State.SprintFalling ||
-		        state == State.SprintLanding) 
+		        state == State.SprintLanding ||
+		        state == State.IdleDoubleJumping ||
+				state == State.RunningDoubleJumping) 
 		        && landedFirstTime;
 	}
 	
 	
 	public bool IsIdleJumping()
 	{
-		return (state == State.IdleJumping || state == State.IdleFalling);
+		return state == State.IdleJumping || state == State.IdleFalling;
 	}
 
 	public bool IsRunningJumping()
 	{
-		return (state == State.RunningJumping || state == State.RunningFalling);
+		return state == State.RunningJumping || state == State.RunningFalling;
 	}
+
+	// Double jumping -----------------------------
+
+	public bool IsIdleDoubleJumping()
+	{
+		return state == State.IdleDoubleJumping;
+	}
+
+	public bool IsRunningDoubleJumping()
+	{
+		return state == State.RunningDoubleJumping;
+	}
+
+	public bool IsDoubleJumping()
+	{
+		return state == State.RunningDoubleJumping || state == State.IdleDoubleJumping;
+	}
+
+	// END Double jumping -----------------------------
 
 	public bool IsLanding()
 	{

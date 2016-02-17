@@ -172,7 +172,7 @@ ModelImporter:
     - serializedVersion: 16
       name: RunningDoubleJump
       takeName: Take 001
-      firstFrame: 17
+      firstFrame: 9
       lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
@@ -192,7 +192,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.15709971
+        functionName: DoubleJumpUp
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 04580c22f1cd94d7ca304c736eaae108,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
