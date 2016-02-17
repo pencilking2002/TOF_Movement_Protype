@@ -118,20 +118,21 @@ public class JumpController : MonoBehaviour {
 		{
 			force = maxJumpForce;
 			forwardSpeed = idleJumpForwardSpeed;
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 		else if (charState.IsRunningJumping())
 		{
 			force = maxJumpForce;
 			forwardSpeed = runningJumpForwardSpeed;
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 		else if (charState.IsSprintJumping())
 		{
 			force = sprintJumpForce;									
 			forwardSpeed = sprintJumpForwardSpeed;
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
-
-		rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
-
+	
 	}
 
 	public void DoubleJumpUp()

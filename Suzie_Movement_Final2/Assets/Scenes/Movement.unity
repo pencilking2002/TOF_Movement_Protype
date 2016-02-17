@@ -1177,8 +1177,8 @@ MonoBehaviour:
   sprintJumpForce: 15
   jumpForceDeclineSpeed: 0.31
   jumpTurnSpeed: 30.56
-  idleJumpForwardSpeed: 129
-  runningJumpForwardSpeed: 256.83
+  idleJumpForwardSpeed: 75
+  runningJumpForwardSpeed: 220
   sprintJumpForwardSpeed: 153
 --- !u!114 &644775529
 MonoBehaviour:
@@ -1191,22 +1191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6bd27a4acef46d5b3196b32f6b8ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleRotateSpeed: 30.56
-  speedDampTime: 0.05
   walkToRunDampTime: 0.25
-  maxRunningRotation: 90
   runRotateSpeed: 12
-  sprintForce: 10
-  runForce: 2
   stopRunningSmoothingSpeed: 2.5
-  maxJumpForce: 14
-  maxDoubleJumpForce: 10
-  sprintJumpForce: 15
-  jumpForceDeclineSpeed: 0.31
-  jumpTurnSpeed: 24.1
-  idleJumpForwardSpeed: 129
-  runningJumpForwardSpeed: 256.83
-  sprintJumpForwardSpeed: 153
   moveDirectionRaw: {x: 0, y: 0, z: 0}
   inTube: 0
 --- !u!114 &644775532
