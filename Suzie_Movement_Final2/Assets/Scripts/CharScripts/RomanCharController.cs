@@ -113,12 +113,14 @@ public class RomanCharController : MonoBehaviour {
 	private void OnAnimatorMove ()
 	{
 		// If is idle or isrunning and not sprinting)
-		if (charState.IsIdle() || charState.IsRunning())
+		if (charState.IsIdleOrRunning())
 		{
 			if (moveDirectionRaw != Vector3.zero)
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
-				animator.ApplyBuiltinRootMotion();
+
+				if (charState.IsRunning())
+					animator.ApplyBuiltinRootMotion();
 			}
 			// Character has stopped, do a lerp
 			else

@@ -156,10 +156,7 @@ public class JumpController : MonoBehaviour {
 		}
 
 		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunning()) 
-		{	
-			print("do it");
-			float force = maxJumpForce;
-			
+		{				
 			EventManager.OnCharEvent(GameEvent.Jump);
 
 			// Change the forward speed based on what kind of jump it is
@@ -170,16 +167,14 @@ public class JumpController : MonoBehaviour {
 
 			else if (charState.IsJogging())
 			{
-		
 				animator.SetTrigger (anim_runningJump);
 			}
+
 			else if (charState.IsSprinting())
 			{
 				animator.SetBool (anim_sprintJump, true);
 				charController.OrientCapsuleCollider(false);
 			}
-	
-
 		}
 	}
 
