@@ -32,14 +32,14 @@ public class JumpController : MonoBehaviour {
 	// PRIVATE vars -----------------------
 
 	private float jumpTriggerLimitTimer = 5f;
-	private float forwardSpeed; 			// Temp var for forward speed
+	private float forwardSpeed; 					// Temp var for forward speed
 	private float lastJumpTime;
-	private float speed;					// Temp var for locomotion 
-	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
+	private float speed;							// Temp var for locomotion 
+	private Vector3 forwardVel;					    // Temp vector for calculating forward velocity while jumping
 	private float lerpedJumpForce;
-	private Vector3 idlePos;
 	private bool hasDoubleJumped = false;
 
+	// Animator variables
 	private int anim_idleJump = Animator.StringToHash("IdleJump");
 	private int anim_runningJump = Animator.StringToHash("RunningJump");
 	private int anim_sprintJump = Animator.StringToHash("SprintJump");
@@ -49,6 +49,8 @@ public class JumpController : MonoBehaviour {
 	private Rigidbody rb;
 	private RomanCharController charController;
 	private RomanCharState charState;
+
+	// Temp vars
 
 	// Use this for initialization
 	void Start () 
@@ -88,15 +90,16 @@ public class JumpController : MonoBehaviour {
 	{
 		// Add a force downwards if the player releases the jump button
 		// when the character is jumping up
-//		if (InputController.jumpReleased && charState.IsJumping() /*&& !charState.IsSprintJumping()*/)
-//		{
-//			InputController.jumpReleased = false;
-//
-//			if (rb.velocity.y > 0)
-//			{
-//				rb.AddForce (new Vector3 (0, -5, 0), ForceMode.Impulse);
-//			}
-//		}
+		if (InputController.jumpReleased && charState.IsJumping() /*&& !charState.IsSprintJumping()*/)
+		{
+			print ("Jump released. Y velocity: " + rb.velocity.y);
+			InputController.jumpReleased = false;
+
+			if (rb.velocity.y > 0)
+			{
+				rb.AddForce (new Vector3 (0, -rb.velocity.y/2, 0), ForceMode.Impulse);
+			}
+		}
 	}
 
 	private void RotateAndMoveJump()
@@ -104,9 +107,9 @@ public class JumpController : MonoBehaviour {
 		if (charController.moveDirectionRaw != Vector3.zero)
 		{
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), jumpTurnSpeed * Time.deltaTime));
-			vel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
-			vel.y = rb.velocity.y;
-			rb.velocity = vel;
+			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
+			forwardVel.y = rb.velocity.y;
+			rb.velocity = forwardVel;
 		}
 	}
 
@@ -151,7 +154,7 @@ public class JumpController : MonoBehaviour {
 
 	private void Jump (GameEvent gameEvent)
 	{
-		print (gameEvent);
+		//print (gameEvent);
 		if (gameEvent == GameEvent.Jump && charState.IsJumping() && !hasDoubleJumped)
 		{
 			animator.SetTrigger(anim_doubleJump);
