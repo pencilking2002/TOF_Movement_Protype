@@ -143,7 +143,8 @@ public class JumpController : MonoBehaviour {
 			float force = maxDoubleJumpForce;
 
 			print("Do double jump");
-			rb.velocity = Vector3.zero;
+			//rb.velocity = Vector3.zero;
+			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 	}
