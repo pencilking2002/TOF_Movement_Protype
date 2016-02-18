@@ -47,7 +47,7 @@ public class ClimbDetector : MonoBehaviour {
 
 	private void Update ()
 	{
-		if (GameManager.Instance.charState.IsJumping() && !detached)
+		if (GameManager.Instance.charState.IsIdleOrRunningJumping() && !detached)
 		{
 			Debug.DrawRay(transform.position + raycastOffset,  transform.forward * rayLength, Color.red); 
 			

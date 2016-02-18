@@ -113,14 +113,16 @@ public class RomanCharController : MonoBehaviour {
 	private void OnAnimatorMove ()
 	{
 		// If is idle or isrunning and not sprinting)
-		if (charState.IsIdleOrRunning())
+		if (charState.IsIdleOrRunning() || charState.IsSprinting())
 		{
 			if (moveDirectionRaw != Vector3.zero)
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
-				if (charState.IsRunning())
+				if (!charState.IsIdle())
 					animator.ApplyBuiltinRootMotion();
+
+				print("In OnAnimatormMove");
 			}
 			// Character has stopped, do a lerp
 			else
@@ -172,7 +174,7 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
-			if (charState.IsIdleOrRunning() || charState.IsJumping())
+			if (charState.IsIdleOrRunning() || charState.IsIdleOrRunningJumping())
 				animator.SetBool(anim_sprintModDown, true);
 		}
 	}

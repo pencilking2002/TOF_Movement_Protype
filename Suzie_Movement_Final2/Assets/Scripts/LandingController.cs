@@ -33,7 +33,7 @@ public class LandingController : MonoBehaviour {
 	{
 		if (charState.IsLanding() && other.gameObject.layer == 9)
 		{
-			print("force idle");
+			//print("force idle");
 			animator.SetTrigger("Idle");
 		}
 	}

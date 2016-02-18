@@ -49,10 +49,9 @@ public class FollowPlayer : MonoBehaviour {
 
 		// If the follow is not supposed to be attached to player
 		// retain existing y position (don't bounce)
-		if (charState.IsJumping() || charState.IsLanding())
+		if (charState.IsInAnyJumpingState())
 		{
 			targetPos.y = transform.position.y;
-			//print("blah");
 		}
 		if (charState.IsClimbing())
 		{
@@ -62,6 +61,7 @@ public class FollowPlayer : MonoBehaviour {
 		{
 			_damping = damping;
 		}
+
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, _damping * Time.deltaTime);
 //		
 		// Check if the follow object has caught up with the player and that the follow object is above the camera

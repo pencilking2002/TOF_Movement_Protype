@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxJumpForce: 14
   maxDoubleJumpForce: 10
-  sprintJumpForce: 15
+  sprintJumpForce: 34.4
   jumpForceDeclineSpeed: 0.31
   jumpTurnSpeed: 30.56
   idleJumpForwardSpeed: 75
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6bd27a4acef46d5b3196b32f6b8ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkToRunDampTime: 0.25
+  walkToRunDampTime: 0.15
   runRotateSpeed: 12
   stopRunningSmoothingSpeed: 2.5
   moveDirectionRaw: {x: 0, y: 0, z: 0}

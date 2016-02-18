@@ -154,7 +154,7 @@ public class RomanCharController2 : MonoBehaviour {
 
 		}
 		
-		else if (charState.IsJumping ())
+		else if (charState.IsIdleOrRunningJumping ())
 		{	
 
 			if (moveDirectionRaw != Vector3.zero)
@@ -333,7 +333,7 @@ public class RomanCharController2 : MonoBehaviour {
 	
 	private void SprintModifierDown(GameEvent gameEvent)
 	{
-		if (charState.IsIdle() || charState.IsRunning() || charState.IsJumping())
+		if (charState.IsIdleOrRunning() || charState.IsIdleOrRunningJumping())
 		{
 			if (gameEvent == GameEvent.SprintModifierDown)
 			{
@@ -385,7 +385,7 @@ public class RomanCharController2 : MonoBehaviour {
 				animator.SetTrigger (anim_idleJump);
 				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
-			else if (charState.IsJogging())
+			else if (charState.IsRunning())
 			{
 				forwardSpeed = runningJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.RunningJumping);

@@ -90,9 +90,9 @@ public class JumpController : MonoBehaviour {
 	{
 		// Add a force downwards if the player releases the jump button
 		// when the character is jumping up
-		if (InputController.jumpReleased && charState.IsJumping() /*&& !charState.IsSprintJumping()*/)
+		if (InputController.jumpReleased && charState.IsIdleOrRunningJumping() /*&& !charState.IsSprintJumping()*/)
 		{
-			print ("Jump released. Y velocity: " + rb.velocity.y);
+			//print ("Jump released. Y velocity: " + rb.velocity.y);
 			InputController.jumpReleased = false;
 
 			if (rb.velocity.y > 0)
@@ -155,7 +155,7 @@ public class JumpController : MonoBehaviour {
 	private void Jump (GameEvent gameEvent)
 	{
 		//print (gameEvent);
-		if (gameEvent == GameEvent.Jump && charState.IsJumping() && !hasDoubleJumped)
+		if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunningJumping() && !hasDoubleJumped)
 		{
 			animator.SetTrigger(anim_doubleJump);
 		}
@@ -170,7 +170,7 @@ public class JumpController : MonoBehaviour {
 				animator.SetTrigger (anim_idleJump);
 			}
 
-			else if (charState.IsJogging())
+			else if (charState.IsRunning())
 			{
 				animator.SetTrigger (anim_runningJump);
 			}

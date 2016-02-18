@@ -39,58 +39,19 @@ public class RomanCharState : MonoBehaviour {
 	
 	private State state = State.IdleFalling;
 	private static bool landedFirstTime = false;
-	
-//	private Rigidbody rb;
-	
+	private bool isJumping = false;
+
+
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
 	//---------------------------------------------------------------------------------------------------------------------------	
-	
-	private void Awake ()
-	{
-//		rb = GetComponent<Rigidbody>();
-	}
-	private void Start()
-	{
 
-	}
+	private void Start() {}
 
 	public void SetState (State _state)
 	{
-	
-		// If previous state is sprinting, fire StopSprinting event
-		if (IsSprinting())
-		{
-			EventManager.OnCharEvent(GameEvent.StopSprinting);
-			print("Stop sprinting");
-		}
-
-		else if (_state == State.Idle)
-		{
-			if (!landedFirstTime)
-				landedFirstTime = true;
-				
-			EventManager.OnCharEvent(GameEvent.IsIdle);
-			// TODO - Move to another class
-//			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
-			
-		}
-		else if (_state == State.Sprinting)
-		{
-			EventManager.OnCharEvent(GameEvent.StartSprinting);
-			print ("Start sprinting");
-		}
-		else if (_state == State.Running)
-		{
-			EventManager.OnCharEvent(GameEvent.StartRunning);
-			//print ("start running");
-		}
-		
-//		if (_state != State.Idle)
-//			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 	// TODO - Move to another class
-			
+		TriggerEvents(_state);
 		state = _state;
-		//print("set state: " + _state);
 	}
 	
 	public State GetState ()
@@ -103,60 +64,57 @@ public class RomanCharState : MonoBehaviour {
 		return state == _state;
 	}
 	
-	
-	// Idle ----------------------------------------------------
-	
+	/// <summary>
+	/// This method is called from a StateMachineBehaviour that's attached to the jumping substate machine
+	/// We use this so that we don't have to check for numerous amount of jumping states
+	/// </summary>
+	public void SetIsJumping (bool _isJumping)
+	{
+		this.isJumping = _isJumping;
+	}
+
+	/*------------------------------------------------------------------|
+	// 	IDLE STATES											            |
+	//-----------------------------------------------------------------*/
+
 	public bool IsIdle ()
 	{
 		return state == State.Idle;
 	}
-	
-	public bool IsIdleTurning ()
+
+	public bool IsIdleOrRunning()
 	{
-		return state == State.Idle && InputController.rawH != 0;
+		return  state == State.Idle || state == State.Running;
 	}
-	
-	
-	// Running ----------------------------------------------------
-	
-	public bool IsJogging ()
+
+	/*------------------------------------------------------------------|
+	// 	RUNNING STATES											        |
+	//-----------------------------------------------------------------*/
+
+	public bool IsRunning ()
 	{
 		return state == State.Running;
 	}
-	
+
 	public bool IsSprinting ()
 	{
 		return state == State.Sprinting;
 	}
-	
-	public bool IsRunning ()
+
+	public bool IsRunningOrSprinting ()
 	{
 		return state == State.Running || state == State.Sprinting;
 	}
 
-	public bool IsIdleOrRunning()
+	/*------------------------------------------------------------------|
+	// 	JUMPING STATES											        |
+	//-----------------------------------------------------------------*/
+
+	public bool IsInAnyJumpingState()
 	{
-		return  state == State.Idle || state == State.Running || state == State.Sprinting;
+		return isJumping;
 	}
 
-	// Jumping ----------------------------------------------------
-	
-	public bool IsJumping()
-	{
-		return (state == State.IdleJumping || 
-				state == State.RunningJumping || 
-				state == State.IdleFalling || 
-				state == State.RunningFalling ||
-				
-				state == State.SprintJumping ||
-		        state == State.SprintFalling ||
-		        state == State.SprintLanding ||
-		        state == State.IdleDoubleJumping ||
-				state == State.RunningDoubleJumping) 
-		        && landedFirstTime;
-	}
-	
-	
 	public bool IsIdleJumping()
 	{
 		return state == State.IdleJumping || state == State.IdleFalling;
@@ -167,25 +125,21 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.RunningJumping || state == State.RunningFalling;
 	}
 
-	// Double jumping -----------------------------
-
-	public bool IsIdleDoubleJumping()
+	public bool IsIdleOrRunningJumping()
 	{
-		return state == State.IdleDoubleJumping;
+		return IsIdleJumping() || IsRunningJumping();
 	}
 
-	public bool IsRunningDoubleJumping()
+	public bool IsSprintJumping ()
 	{
-		return state == State.RunningDoubleJumping;
+		return state == State.SprintJumping || state == State.SprintFalling;
 	}
 
-	public bool IsDoubleJumping()
-	{
-		return state == State.RunningDoubleJumping || state == State.IdleDoubleJumping;
-	}
+	/*------------------------------------------------------------------|
+	| 	FALLING AND LANDING STATES									    |
+	|------------------------------------------------------------------*/
 
-	// END Double jumping -----------------------------
-
+	//TODO - IS RUNNING LANDING
 	public bool IsLanding()
 	{
 		return state == State.Landing || state == State.SprintLanding;
@@ -201,13 +155,28 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.SprintFalling;
 	}
 
-
-	public bool IsSprintJumping ()
-	{
-		return state == State.SprintJumping || state == State.SprintFalling;
-	}
+	/*------------------------------------------------------------------|
+	| 	DOUBLE JUMPING STATES											|
+	|------------------------------------------------------------------*/
 	
-	// Climbing ----------------------------------------------------
+	public bool IsIdleDoubleJumping()
+	{
+		return state == State.IdleDoubleJumping;
+	}
+
+	public bool IsRunningDoubleJumping()
+	{
+		return state == State.RunningDoubleJumping;
+	}
+
+	public bool IsAnyDoubleJumping()
+	{
+		return state == State.RunningDoubleJumping || state == State.IdleDoubleJumping;
+	}
+
+	/*------------------------------------------------------------------|
+	| 	CLIMBING STATES									                |
+	|------------------------------------------------------------------*/
 
 	public bool IsClimbing ()
 	{
@@ -239,24 +208,39 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.VineAttaching;
 	}
 	
-	// Events ------------------------------------------------------
-	
-//	private void OnEnable () { EventManager.onCharEvent += Event_SetState; }
-//	private void OnDisable () { EventManager.onCharEvent -= Event_SetState; }
-//	
-	/// <summary>
-	/// Set a state through an event
-	/// </summary>
-	/// <param name="gameEvent">Game event.</param>
-//	private void Event_SetState (GameEvent gameEvent)
-//	{
-//		if (gameEvent == GameEvent.StartEdgeClimbing)
-//		{
-//			SetState(State.EdgeClimbing);
-//		}
-//	}
-	
+	/*------------------------------------------------------------------|
+	| 	PRIVATE METHODS          						                |
+	|------------------------------------------------------------------*/
 
+	/// <summary>
+	/// Triggers events from the EventManager when a state gets set
+	/// </summary>
+	/// <param name="_state">State.</param>
+	private void TriggerEvents(State _state)
+	{
+		// If previous state is sprinting, fire StopSprinting event
+		if (IsSprinting())
+		{
+			EventManager.OnCharEvent(GameEvent.StopSprinting);
+		}
+
+		else if (_state == State.Idle)
+		{
+			if (!landedFirstTime)
+				landedFirstTime = true;
+				
+			EventManager.OnCharEvent(GameEvent.IsIdle);
+			
+		}
+		else if (_state == State.Sprinting)
+		{
+			EventManager.OnCharEvent(GameEvent.StartSprinting);
+		}
+		else if (_state == State.Running)
+		{
+			EventManager.OnCharEvent(GameEvent.StartRunning);
+		}
+	}
 	
 	
 }
