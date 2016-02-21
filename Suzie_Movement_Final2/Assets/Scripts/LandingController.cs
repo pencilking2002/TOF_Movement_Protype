@@ -37,17 +37,12 @@ public class LandingController : MonoBehaviour {
 		if (other.gameObject.layer != 9)
 			return;
 
-		if (charState.IsSprintLanding())
-		{
-//			animator.SetTrigger("Sprint");
-//			print("sprint");
-		}
-
+	    // If char is landing, send trigger the idle animation ( used in sprint landing state)
+	    // in the animator. the animator also checks for other variables like speed before going to idle
 		if (charState.IsLanding())
 		{
 			//print("force idle");
-			//animator.SetTrigger("Idle");
-			//print ("land");
+			animator.SetTrigger("Idle");
 		}
 	}
 }

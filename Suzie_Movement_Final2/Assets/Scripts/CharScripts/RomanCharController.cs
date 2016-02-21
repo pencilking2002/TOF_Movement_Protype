@@ -181,7 +181,7 @@ public class RomanCharController : MonoBehaviour {
 
 	private void SprintModifierUp(GameEvent gEvent)
 	{
-		if (charState.IsSprinting() && gEvent == GameEvent.SprintModifierUp && !inTube)
+		if ((charState.IsSprinting() || charState.IsSprintJumping()) && gEvent == GameEvent.SprintModifierUp && !inTube)
 			animator.SetBool(anim_sprintModDown, false);	
 	}
 
