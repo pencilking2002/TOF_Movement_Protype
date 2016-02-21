@@ -18,9 +18,9 @@ public class RomanCharController : MonoBehaviour {
 	[HideInInspector]
 	public Vector3 moveDirectionRaw;					// The direction/displacement the character will move in
 		
-	//---------------------------------------------------------------------------------------------------------------------------
-	//	Private Variables
-	//---------------------------------------------------------------------------------------------------------------------------	
+	/*----------------------------------------------------------|
+	| PRIVATE VARIABLES			    	                        |
+	|----------------------------------------------------------*/
 
 	private RomanCharState charState;
 	private Animator animator;
@@ -29,15 +29,11 @@ public class RomanCharController : MonoBehaviour {
 	private CharacterController cController;
 	private CapsuleCollider cCollider;
 		
-	private float dir;							// The  result of the cross product of the player's rotation and the camera's rotation
-	private Quaternion targetRot;				// the target rotation to achieve while in idle or running
 	public bool inTube = false;
 
 	// Character rotation -------------
 	private Vector3 camForward;
-	private Quaternion camRot;
 	private float speed;					// Temp var for locomotion 
-	private Vector3 idlePos;
 
 	private VineClimbController2 vineClimbCollider;
 
@@ -202,7 +198,6 @@ public class RomanCharController : MonoBehaviour {
 			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
-			idlePos = transform.position;
 		}
 	}
 	

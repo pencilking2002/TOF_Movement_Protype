@@ -190,9 +190,8 @@ public class TestCam : MonoBehaviour
 		//Debug.Break();
 
 		// TODO when camera LERPs up, the raycast doesn't hit anything and that's why its jittery
-		if (Physics.Raycast(origin, direction * 5, out hit, 5))
+		if (Physics.Raycast(origin, direction * 5, out hit, 5, layerMask))
 		{
-
 			targetPos = new Vector3(hit.point.x, currentMaxY - 0.5f, hit.point.z);
 			transform.position = Vector3.Lerp(transform.position, targetPos, collisionSpeed * Time.deltaTime);
 			moveSpeed = collisionSpeed;

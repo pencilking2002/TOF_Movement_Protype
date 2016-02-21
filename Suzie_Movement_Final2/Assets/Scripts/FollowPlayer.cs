@@ -9,8 +9,6 @@ public class FollowPlayer : MonoBehaviour {
 	public float damping = 10.0f;
 	public float climbSpeed = 20.0f;
 
-	public bool Attach = true;
-	
 	[HideInInspector]
 	public bool followAtPlayerPos = false;
 	
@@ -19,17 +17,9 @@ public class FollowPlayer : MonoBehaviour {
 	private Vector3 targetPos;
 	private Vector3 targetRot;
 
-
-
 	private RomanCharState charState;
 	private float _damping;
 	private float climbSpeedSmoothVel;
-
-	private TestCam cam;
-
-	void Awake () 
-	{
-	}
 
 	void Start ()
 	{
@@ -37,8 +27,6 @@ public class FollowPlayer : MonoBehaviour {
 
 		if(player == null)
 			player = GameObject.FindGameObjectWithTag("Player").transform;
-
-		cam = GameObject.FindObjectOfType<TestCam>();
 	}
 	// Update is called once per frame
 	void Update () 
