@@ -1,33 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class Responsible for controlling the character during all jumps
+/// including Idle, Running and Sprint Jumping
+/// </summary>
 public class JumpController : MonoBehaviour {
 
-	// PUBLIC vars -----------------------
-	[Range(0,100)]
-	public float maxJumpForce = 0.8f;					// Maximum Y force to Apply to Rigidbody when jumping
+	/*----------------------------------------------------------|
+	| PUBLIC VARIABLES			    	                        |
+	|----------------------------------------------------------*/
 
-	[Range(0,100)]
-	public float maxDoubleJumpForce = 0.8f;		
-
-	[Range(0,100)]
-	public float sprintJumpForce = 2.0f;				// Y force to Apply to Rigidbody when sprint jumping
-	
-	[Range(0,1)]
-	public float jumpForceDeclineSpeed = 0.02f;			// How fast the jump force declines when jumping
-
-	[Range(0,50)]
-	public float jumpTurnSpeed = 20f;
-	
-	// Speed modifier of the character's Z movement wheile jumping
+	// Idle Jumping --------------------------
+	[Range(0,100)] 
+	public float idleJumpUpForce = 11.0f;				// Maximum Y force to Apply to Rigidbody when idle jumping
 	[Range(0,400)]
-	public float idleJumpForwardSpeed = 10f;
-	
-	[Range(0,400)]
-	public float runningJumpForwardSpeed = 10f;
-	
+	public float idleJumpForwardSpeed = 10f;		    // Speed modifier of the character's Z movement wheile jumping
+
+	// Running Jumping --------------------------
+	[Range(0,100)] 
+	public float runningJumpUpForce = 11.0f;			    // Maximum Y force to Apply to Rigidbody when jumping
+	[Range(0,100)] 
+	public float runningJumpForwardSpeed = 11.0f;	    // Maximum Y force to Apply to Rigidbody when jumping
+
+	// Sprint Jumping --------------------------
+	[Range(0,100)] 
+	public float sprintJumpUpForce = 11.0f;				// Y force to Apply to Rigidbody when sprint jumping
 	[Range(0,400)]
 	public float sprintJumpForwardSpeed = 40f;
+
+	[Range(0,100)]
+	public float doubleJumpForce = 10.0f;		
+
+	[Range(0,50)]
+	public float allJumpTurnSpeed = 30.56f;			    // Turning speed used for all jumps
+	
+
 
 	// PRIVATE vars -----------------------
 
@@ -90,7 +98,7 @@ public class JumpController : MonoBehaviour {
 	{
 		// Add a force downwards if the player releases the jump button
 		// when the character is jumping up
-		if (InputController.jumpReleased && charState.IsIdleOrRunningJumping() /*&& !charState.IsSprintJumping()*/)
+		if (InputController.jumpReleased && charState.IsInAnyJumpingState() && !charState.IsAnyDoubleJumping())
 		{
 			//print ("Jump released. Y velocity: " + rb.velocity.y);
 			InputController.jumpReleased = false;
@@ -104,34 +112,39 @@ public class JumpController : MonoBehaviour {
 
 	private void RotateAndMoveJump()
 	{
-		if (charController.moveDirectionRaw != Vector3.zero)
+		if (charController.moveDirectionRaw != Vector3.zero && charState.IsInAnyJumpingState())
 		{
-			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), jumpTurnSpeed * Time.deltaTime));
+			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
 			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 			forwardVel.y = rb.velocity.y;
 			rb.velocity = forwardVel;
 		}
 	}
 
+	/// <summary>
+	/// This method is called jumping animation events
+	/// </summary>
 	public void JumpUp()
 	{
+		//print ("runs");
 		float force = 0;
 
 		if (charState.IsIdleJumping())
 		{
-			force = maxJumpForce;
+			force = idleJumpUpForce;
 			forwardSpeed = idleJumpForwardSpeed;
 			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 		else if (charState.IsRunningJumping())
 		{
-			force = maxJumpForce;
+			force = idleJumpUpForce;
 			forwardSpeed = runningJumpForwardSpeed;
 			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
 		else if (charState.IsSprintJumping())
 		{
-			force = sprintJumpForce;									
+			print("sprint jump");
+			force = sprintJumpUpForce;									
 			forwardSpeed = sprintJumpForwardSpeed;
 			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 		}
@@ -143,7 +156,7 @@ public class JumpController : MonoBehaviour {
 		if (!hasDoubleJumped)
 		{
 			hasDoubleJumped = true;
-			float force = maxDoubleJumpForce;
+			float force = doubleJumpForce;
 
 			print("Do double jump");
 			//rb.velocity = Vector3.zero;
@@ -160,7 +173,7 @@ public class JumpController : MonoBehaviour {
 			animator.SetTrigger(anim_doubleJump);
 		}
 
-		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunning()) 
+		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrMoving()) 
 		{				
 			EventManager.OnCharEvent(GameEvent.Jump);
 

@@ -110,7 +110,7 @@ public class TestCam : MonoBehaviour
 				MoveCamera();
 
 				rightDir = follow.right * -offset.z;
-				backwardsDir = follow.forward * -offset.z;
+				backwardsDir = follow.forward * -offset.z; // get rid of this?
 				camDir = transform.position - follow.position;
 				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 		

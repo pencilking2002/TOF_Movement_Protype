@@ -113,7 +113,7 @@ public class RomanCharController : MonoBehaviour {
 	private void OnAnimatorMove ()
 	{
 		// If is idle or isrunning and not sprinting)
-		if (charState.IsIdleOrRunning() || charState.IsSprinting())
+		if (charState.IsIdleOrMoving())
 		{
 			if (moveDirectionRaw != Vector3.zero)
 			{
@@ -122,7 +122,7 @@ public class RomanCharController : MonoBehaviour {
 				if (!charState.IsIdle())
 					animator.ApplyBuiltinRootMotion();
 
-				print("In OnAnimatormMove");
+				//print("In OnAnimatormMove");
 			}
 			// Character has stopped, do a lerp
 			else

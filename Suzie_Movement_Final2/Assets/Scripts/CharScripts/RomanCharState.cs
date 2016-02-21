@@ -106,6 +106,15 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.Running || state == State.Sprinting;
 	}
 
+	/// <summary>
+	/// Determines whether the character is Idle or running or sprinting
+	/// </summary>
+	/// <returns><c>true</c> if this instance is idle or moving; otherwise, <c>false</c>.</returns>
+	public bool IsIdleOrMoving()
+	{
+		return state == State.Running || state == State.Idle || state == State.Sprinting;
+	}
+
 	/*------------------------------------------------------------------|
 	// 	JUMPING STATES											        |
 	//-----------------------------------------------------------------*/
@@ -153,6 +162,11 @@ public class RomanCharState : MonoBehaviour {
 	public bool IsSprintFalling()
 	{
 		return state == State.SprintFalling;
+	}
+
+	public bool IsSprintLanding()
+	{
+		return state == State.SprintLanding;
 	}
 
 	/*------------------------------------------------------------------|

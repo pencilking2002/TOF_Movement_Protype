@@ -1277,14 +1277,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04580c22f1cd94d7ca304c736eaae108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpForce: 14
-  maxDoubleJumpForce: 10
-  sprintJumpForce: 34.4
-  jumpForceDeclineSpeed: 0.31
-  jumpTurnSpeed: 30.56
-  idleJumpForwardSpeed: 75
+  idleJumpUpForce: 11
+  idleJumpForwardSpeed: 73.99
+  runningJumpUpForce: 11
   runningJumpForwardSpeed: 220
-  sprintJumpForwardSpeed: 153
+  sprintJumpUpForce: 11
+  sprintJumpForwardSpeed: 353
+  doubleJumpForce: 10
+  allJumpTurnSpeed: 30.56
 --- !u!114 &644775529
 MonoBehaviour:
   m_ObjectHideFlags: 0

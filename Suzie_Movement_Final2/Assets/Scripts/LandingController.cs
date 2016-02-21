@@ -16,10 +16,13 @@ public class LandingController : MonoBehaviour {
 	}
 
 	private void Update() {
+		Vector3 origin = transform.position + new Vector3(0,0.2f,0);
+		Vector3 endPoint = transform.position - new Vector3(0,0.2f + 0.1f,0);
 
-		//Debug.DrawLine(transform.position + new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.1f,0), Color.red);
+		Debug.DrawLine(origin, endPoint, Color.red);
+
 		//TODO look for ground collision when the char is falling
-		if (charState.IsFalling() && Physics.Linecast(transform.position + new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.1f,0), out hit))
+		if (charState.IsFalling() && Physics.Linecast(origin, endPoint, out hit))
 		{
 			if (rb.velocity.y <= 0)
 			{
@@ -31,10 +34,20 @@ public class LandingController : MonoBehaviour {
 
 	private void OnCollisionEnter (Collision other)
 	{
-		if (charState.IsLanding() && other.gameObject.layer == 9)
+		if (other.gameObject.layer != 9)
+			return;
+
+		if (charState.IsSprintLanding())
+		{
+//			animator.SetTrigger("Sprint");
+//			print("sprint");
+		}
+
+		if (charState.IsLanding())
 		{
 			//print("force idle");
-			animator.SetTrigger("Idle");
+			//animator.SetTrigger("Idle");
+			//print ("land");
 		}
 	}
 }
