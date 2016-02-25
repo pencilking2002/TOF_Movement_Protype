@@ -13,7 +13,6 @@ public class FollowPlayer : MonoBehaviour {
 	public bool followAtPlayerPos = false;
 	
 	private Vector3 vel;
-	private Vector3 rotVel;
 	private Vector3 targetPos;
 	private Vector3 targetRot;
 

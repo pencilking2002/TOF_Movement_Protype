@@ -19,6 +19,7 @@ public class TestCam : MonoBehaviour
 
 	private Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
 	private Vector3 startingPos;							// Position of the camera at the start of the game
+	private RomanCharState charState;
 
 	//Rotattion
 	private float xSpeed;
@@ -81,6 +82,8 @@ public class TestCam : MonoBehaviour
 
 		follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		charState = GameManager.Instance.charState;
+	
 
 		// Starting camera state and position
 		state = CamState.ZoomIn;
@@ -88,7 +91,6 @@ public class TestCam : MonoBehaviour
 		startingPos.y += offset.y + 2;
 
 		transform.position = startingPos;
-
 	}
 
 	private void LateUpdate()
@@ -140,20 +142,15 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ZoomIn:
 
-				//targetPos = follow.position + new Vector3(offset.x, offset.y, -offset.z);
-				//transform.position = Vector3.Lerp(transform.position, targetPos, zoomInSpeed * Time.deltaTime);
-
 				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 				targetPos.y = follow.position.y + 1;
 				transform.position = Vector3.Lerp(transform.position, targetPos, zoomInSpeed * Time.deltaTime);
+				transform.RotateAround (follow.position, transform.right, -15.0f * Time.deltaTime);
 				transform.LookAt(follow);
-
-				//print(Vector3.Distance(targetPos, transform.position));
 
 				if (Vector3.Distance(targetPos, transform.position) < 0.05f)
 				{
 					SetState(CamState.Free);
-					//print("free");
 				}
 				break;
 
@@ -172,9 +169,11 @@ public class TestCam : MonoBehaviour
 		// Make the camera follow the Follow GO like its a string attached to it
 		if (!colliding)
 		{ 
+//			if (!charState.IsIdle())
+//			{
 			moveSpeed = Mathf.SmoothDamp(moveSpeed, _moveLerpSpeed, ref moveSmoothVel, collisionToMoveSpeedDamping * Time.deltaTime);
 			offset.z = Mathf.SmoothDamp(offset.z, _zOffset, ref zOffsetVel, zOffsetDamping * Time.deltaTime);
-
+//			}
 			targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 			transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
 		}
@@ -193,10 +192,13 @@ public class TestCam : MonoBehaviour
 		if (Physics.Raycast(origin, direction * 5, out hit, 5, layerMask))
 		{
 			targetPos = new Vector3(hit.point.x, currentMaxY - 0.5f, hit.point.z);
+			//targetPos = targetPos + hit.normal * 0.1f;
+
 			transform.position = Vector3.Lerp(transform.position, targetPos, collisionSpeed * Time.deltaTime);
 			moveSpeed = collisionSpeed;
 			offset.z = Vector3.Distance(transform.position, follow.position);
 			colliding = true;
+			//Debug.DrawLine(transform.position, hit.point, Color.black);
 		}
 		else
 		{
@@ -216,12 +218,6 @@ public class TestCam : MonoBehaviour
 		// Get the min/max positions the camera should not exceed
 		currentMinY = follow.position.y - offset.y;
 		currentMaxY = follow.position.y + offset.y;
-
-		// If the cam is colliding, slow down the mouse movement
-//		mouseSpeedDamping = colliding ? 3.0f : 1.0f;
-
-//		if (colliding)
-//			print(xSpeed);
 
 		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
@@ -264,7 +260,6 @@ public class TestCam : MonoBehaviour
 			SetState(CamState.Free);
 		
 	}
-
 
 	private void SetState (CamState s) { state = s; }
 	private CamState GetState() { return state; }
