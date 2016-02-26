@@ -148,7 +148,8 @@ public class TestCam : MonoBehaviour
 				transform.RotateAround (follow.position, transform.right, -15.0f * Time.deltaTime);
 				transform.LookAt(follow);
 
-				if (Vector3.Distance(targetPos, transform.position) < 0.05f)
+				print (Vector3.Distance(targetPos, transform.position));
+			if (Vector3.Distance(targetPos, transform.position) < 0.6603f)
 				{
 					SetState(CamState.Free);
 				}
