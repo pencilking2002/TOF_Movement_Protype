@@ -46,7 +46,9 @@ public enum GameEvent
 	ExitIdle,
 	StopVineClimbing,
 	WallCollision,
-	FinishVineClimbing
+	FinishVineClimbing,
+	LandedFirstTime,
+	CamZoomedIn
 	
 }
 

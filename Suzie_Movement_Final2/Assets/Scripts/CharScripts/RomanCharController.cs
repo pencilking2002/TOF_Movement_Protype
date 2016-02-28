@@ -48,11 +48,13 @@ public class RomanCharController : MonoBehaviour {
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.Land, true },
+			//{ GameEvent.Land, true },
+			{ GameEvent.CamZoomedIn, true },
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
 			{ GameEvent.FinishClimbOver, true },
 
+			{ GameEvent.LandedFirstTime, false },
 			{ GameEvent.StartVineClimbing, false }, 
 			{ GameEvent.StartEdgeClimbing, false },
 

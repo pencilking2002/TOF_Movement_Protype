@@ -144,15 +144,15 @@ public class TestCam : MonoBehaviour
 
 				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 				targetPos.y = follow.position.y + 1;
-				transform.position = Vector3.Lerp(transform.position, targetPos, zoomInSpeed * Time.deltaTime);
-				transform.RotateAround (follow.position, transform.right, -15.0f * Time.deltaTime);
+				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref zoomVel, 25.0f * Time.deltaTime);
+
 				transform.LookAt(follow);
 
-				print (Vector3.Distance(targetPos, transform.position));
-			if (Vector3.Distance(targetPos, transform.position) < 0.6603f)
-				{
-					SetState(CamState.Free);
-				}
+			if (Vector3.Distance(targetPos, transform.position) < 0.028f)
+			{
+				SetState(CamState.Free);
+				EventManager.OnCharEvent(GameEvent.CamZoomedIn);
+			}
 				break;
 
 		}

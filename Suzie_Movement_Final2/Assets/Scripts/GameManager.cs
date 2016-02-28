@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour {
 
 	private void Start ()
 	{
-		EventManager.onCharEvent = null;
-		EventManager.onInputEvent = null;
-		EventManager.onDetectEvent = null;
+//		EventManager.onCharEvent = null;
+//		EventManager.onInputEvent = null;
+//		EventManager.onDetectEvent = null;
 		
 		if (Instance == null)
 			Instance = this;

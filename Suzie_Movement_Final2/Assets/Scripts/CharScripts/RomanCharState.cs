@@ -241,7 +241,10 @@ public class RomanCharState : MonoBehaviour {
 		else if (_state == State.Idle)
 		{
 			if (!landedFirstTime)
+			{
 				landedFirstTime = true;
+				EventManager.OnCharEvent(GameEvent.LandedFirstTime);
+			}
 				
 			EventManager.OnCharEvent(GameEvent.IsIdle);
 			
