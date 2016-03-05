@@ -44,17 +44,15 @@ public class RomanCharController : MonoBehaviour {
 
 	void Start ()
 	{
-		RegisterEvents();
-
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
 			//{ GameEvent.Land, true },
-			{ GameEvent.CamZoomedIn, true },
+			//{ GameEvent.CamZoomedIn, true },
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
 			{ GameEvent.FinishClimbOver, true },
 
-			{ GameEvent.LandedFirstTime, false },
+			//{ GameEvent.LandedFirstTime, false },
 			{ GameEvent.StartVineClimbing, false }, 
 			{ GameEvent.StartEdgeClimbing, false },
 
@@ -101,6 +99,8 @@ public class RomanCharController : MonoBehaviour {
 			print("Get out of sprint mode");
 			animator.SetBool(anim_sprintModDown, false);
 		}
+
+		//print (speed);
 	}
 
 
@@ -135,7 +135,7 @@ public class RomanCharController : MonoBehaviour {
 	| CUSTOM EVENTS						                        |
 	|----------------------------------------------------------*/
 
-	private void RegisterEvents ()
+	private void OnEnable ()
 	{
 		EventManager.onInputEvent += SprintModifierDown;
 		EventManager.onInputEvent += SprintModifierUp;
@@ -172,8 +172,12 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
+			print("mod down");
 			if (charState.IsIdleOrRunning() || charState.IsIdleOrRunningJumping())
+			{
 				animator.SetBool(anim_sprintModDown, true);
+
+			}
 		}
 	}
 

@@ -578,7 +578,6 @@ MonoBehaviour:
   offset: {x: 0, y: 2.13, z: 0}
   damping: 5
   climbSpeed: 20
-  Attach: 0
   followAtPlayerPos: 0
 --- !u!4 &162933013
 Transform:
@@ -1158,6 +1157,7 @@ GameObject:
   - 114: {fileID: 644775534}
   - 143: {fileID: 644775533}
   - 114: {fileID: 644775528}
+  - 114: {fileID: 644775530}
   m_Layer: 8
   m_Name: SuzieMeshWithUVs
   m_TagString: Player
@@ -1301,6 +1301,21 @@ MonoBehaviour:
   stopRunningSmoothingSpeed: 2.5
   moveDirectionRaw: {x: 0, y: 0, z: 0}
   inTube: 0
+--- !u!114 &644775530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644775520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea57de649ac5f4c47a522b6f52ef2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMaterial: {fileID: 13400000, guid: 870f53d68cbb2493488cb2a0a9c938fd, type: 2}
+  wallMaterial: {fileID: 13400000, guid: ba92fb44336020f40bdf294bb66bc9da, type: 2}
+  groundRayLenth: 0.1
+  wallRayLength: 0.5
 --- !u!114 &644775532
 MonoBehaviour:
   m_ObjectHideFlags: 0

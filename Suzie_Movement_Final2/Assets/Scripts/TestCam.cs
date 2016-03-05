@@ -86,7 +86,7 @@ public class TestCam : MonoBehaviour
 	
 
 		// Starting camera state and position
-		state = CamState.ZoomIn;
+		state = CamState.Free;
 		startingPos = follow.position + follow.forward * (-offset.z - 2);
 		startingPos.y += offset.y + 2;
 
