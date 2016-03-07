@@ -135,7 +135,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		//print(Vector3.Dot((pointOfContact - origin).normalized, transform.forward.normalized));
 
 		Debug.DrawLine(origin, pointOfContact, Color.black);
-		Debug.Break();	
+		//Debug.Break();	
 	}
 //	private void SetPhysicMaterial(Collider col, bool ground)
 //	{

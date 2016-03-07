@@ -17,6 +17,9 @@ public class RomanCharController : MonoBehaviour {
 
 	[HideInInspector]
 	public Vector3 moveDirectionRaw;					// The direction/displacement the character will move in
+
+	[HideInInspector]
+	public float speed;					// Temp var for locomotion 
 		
 	/*----------------------------------------------------------|
 	| PRIVATE VARIABLES			    	                        |
@@ -33,7 +36,8 @@ public class RomanCharController : MonoBehaviour {
 
 	// Character rotation -------------
 	private Vector3 camForward;
-	private float speed;					// Temp var for locomotion 
+
+
 
 	private VineClimbController2 vineClimbCollider;
 
@@ -85,19 +89,24 @@ public class RomanCharController : MonoBehaviour {
 
 		// set the character's movement if the move stick is pressed
 		if (animator.GetBool(anim_sprintModDown) && speed > 0)
+		{
 			animator.SetFloat (anim_Speed, speed + 2);
-		
+			//print("should sprint");
+		}
 		else if (speed != 0)
+		{
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.fixedDeltaTime);
-		
+		}
 		else
+		{
 			animator.SetFloat (anim_Speed, 0);
+		}
 
 		// Stop sprinting
 		if (charState.IsSprinting() && speed == 0 && !inTube)
 		{
 			print("Get out of sprint mode");
-			animator.SetBool(anim_sprintModDown, false);
+			//animator.SetBool(anim_sprintModDown, false);
 		}
 
 		//print (speed);
@@ -173,18 +182,21 @@ public class RomanCharController : MonoBehaviour {
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
 			print("mod down");
-			if (charState.IsIdleOrRunning() || charState.IsIdleOrRunningJumping())
-			{
+			//if (charState.IsIdleOrRunning() || charState.IsIdleOrRunningJumping())
+			//{
 				animator.SetBool(anim_sprintModDown, true);
 
-			}
+			//}
 		}
 	}
 
 	private void SprintModifierUp(GameEvent gEvent)
 	{
-		if ((charState.IsSprinting() || charState.IsSprintJumping()) && gEvent == GameEvent.SprintModifierUp && !inTube)
-			animator.SetBool(anim_sprintModDown, false);	
+		if (/*(charState.IsSprinting() || charState.IsSprintJumping()) && */gEvent == GameEvent.SprintModifierUp && !inTube)
+		{
+			animator.SetBool(anim_sprintModDown, false);
+			print("sprint mod UP");
+		}	
 	}
 
 	// Handle the collider size and position change when starting/stopping sprinting
@@ -222,7 +234,7 @@ public class RomanCharController : MonoBehaviour {
 			OrientCapsuleCollider(true);
 			ResetYRotation();
 		
-			if (!charState.IsSprintFalling())
+			if (!charState.IsFalling())
 				animator.SetBool (anim_sprintModDown, false);					// Reset sprint modifer trigger, Sometimes it gets stuck
 		}
 	}

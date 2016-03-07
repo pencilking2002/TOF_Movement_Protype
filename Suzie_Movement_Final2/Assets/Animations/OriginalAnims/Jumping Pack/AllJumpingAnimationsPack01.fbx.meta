@@ -1719,7 +1719,7 @@ ModelImporter:
       name: RunningJumpLanding
       takeName: Take 001
       firstFrame: 16
-      lastFrame: 20
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0.14

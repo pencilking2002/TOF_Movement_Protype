@@ -94,19 +94,16 @@ public class JumpController : MonoBehaviour {
 		RotateAndMoveJump();
 	}
 
+	/// <summary>
+	/// Apply a downward force to the character
+	/// if the player lets go of the jump button before the jump is over
+	/// </summary>
 	private void LimitJump()
 	{
-		// Add a force downwards if the player releases the jump button
-		// when the character is jumping up
-		if (InputController.jumpReleased && charState.IsInAnyJumpingState() && !charState.IsAnyDoubleJumping())
+		if (InputController.jumpReleased && charState.IsInAnyJumpingState() && !charState.IsAnyDoubleJumping() && rb.velocity.y > 0) 
 		{
-			//print ("Jump released. Y velocity: " + rb.velocity.y);
-			InputController.jumpReleased = false;
-
-			if (rb.velocity.y > 0)
-			{
-				rb.AddForce (new Vector3 (0, -rb.velocity.y/2, 0), ForceMode.Impulse);
-			}
+			print("Jump released");
+			rb.AddForce (new Vector3 (0, -rb.velocity.y/2, 0), ForceMode.Impulse);
 		}
 	}
 
@@ -200,9 +197,10 @@ public class JumpController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
+			print("land");
 			hasDoubleJumped = false;
 			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
-
+			InputController.jumpReleased = false;
 		}
 	}
 

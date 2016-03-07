@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour {
 	private RomanCharController charController;
 	private TestCam cam;
 
+	private int[] yPos = new int[]
+	{
+		0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 520, 550
+	};
+
 	private void Start ()
 	{
-//		EventManager.onCharEvent = null;
-//		EventManager.onInputEvent = null;
-//		EventManager.onDetectEvent = null;
 		
 		if (Instance == null)
 			Instance = this;
@@ -44,42 +46,30 @@ public class GameManager : MonoBehaviour {
 	{
 		if (debug)
 		{
-			GUI.Button(new Rect(Screen.width - 150, 30, 170, 30), "Squirrel State: " + charState.GetState());
-			GUI.Button(new Rect(Screen.width - 150, 60, 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
-			
-			if (GUI.Button(new Rect(Screen.width - 150, 90, 170, 30), "Spawn at Cliff "))
+			GUI.Button(new Rect(Screen.width - 150, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());
+			GUI.Button(new Rect(Screen.width - 150, yPos[1], 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
+			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
+			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + charController.inTube);
+			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "raw H: " + InputController.rawH);
+			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
+			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.colliding);
+			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);
+			GUI.Button(new Rect(Screen.width - 150, yPos[8], 170, 30), "Downward Force: " + InputController.jumpReleased);
+
+			if (GUI.Button(new Rect(0, yPos[0], 170, 30), "Spawn at Cliff "))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("CliffSpawnSpot").transform.position;
 			
-
-			//GUI.Button(new Rect(Screen.width - 150, 120, 170, 30), "CamState: " + camScript.state);
-
-			if (GUI.Button(new Rect(Screen.width - 150, 120, 170, 30), "Quit"))
+			if (GUI.Button(new Rect(0, yPos[1], 170, 30), "Quit"))
 				Application.Quit();
-			
 
-			if (GUI.Button(new Rect(Screen.width - 150, 150, 170, 30), "Restart"))
+			if (GUI.Button(new Rect(0, yPos[2], 170, 30), "Restart"))
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			
-			
-			GUI.Button(new Rect(Screen.width - 150, 180, 170, 30), "At player pos: " + follow.followAtPlayerPos);
-			
-			if (GUI.Button(new Rect(Screen.width - 150, 210, 170, 30), "Sprint"))
+			if (GUI.Button(new Rect(0, yPos[3], 170, 30), "Sprint"))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("SprintSpawnSpot").transform.position;
 			
-
-			if (GUI.Button(new Rect(Screen.width - 150, 240, 170, 30), "Climb"))
+			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Climb"))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("StartClimbSpot").transform.position;
-			
-
-			GUI.Button(new Rect(Screen.width - 150, 270, 170, 30), "Detached: " + vineClimbCollider.detached);
-			GUI.Button(new Rect(Screen.width - 150, 300, 170, 30), "In Tube: " + charController.inTube);
-
-			GUI.Button(new Rect(Screen.width - 150, 330, 170, 30), "raw H: " + InputController.rawH);
-			//GUI.Button(new Rect(Screen.width - 150, 360, 170, 30), "left stick pressed: " + InputController.leftStickPressed);
-			GUI.Button(new Rect(Screen.width - 150, 390, 170, 30), "CamState: " + cam.state);
-			GUI.Button(new Rect(Screen.width - 150, 420, 170, 30), "Cam colliding: " + cam.colliding);
-
-
 		}
 	}
 	

@@ -100,7 +100,8 @@ public class InputController : MonoBehaviour {
 			//print("InputController: Jump pressed");
 		}
 
-		else if (inputDevice.Action1.WasReleased)
+		// If the player let go of jump button and the character is still jumping
+		else if (inputDevice.Action1.WasReleased && charState.IsInAnyJumpingState())
 			jumpReleased = true;
 
 

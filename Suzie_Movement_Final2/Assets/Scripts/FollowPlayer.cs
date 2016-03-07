@@ -20,12 +20,22 @@ public class FollowPlayer : MonoBehaviour {
 	private float _damping;
 	private float climbSpeedSmoothVel;
 
+	private Animator animator;
+
 	void Start ()
 	{
-		charState = GameObject.FindObjectOfType<RomanCharState>();
 
-		if(player == null)
-			player = GameObject.FindGameObjectWithTag("Player").transform;
+		if (player != null)
+		{
+			animator = player.GetComponent<Animator>();
+			charState = player.GetComponent<RomanCharState>();
+		}
+		else
+		{
+			Debug.LogError("FollowPlayer: Player is null");
+		}
+
+		
 	}
 	// Update is called once per frame
 	void Update () 
@@ -34,9 +44,8 @@ public class FollowPlayer : MonoBehaviour {
 		//targetPos = cam.colliding ? player.position + offset - Vector3.up * 0.5f :
 		targetPos = player.position + offset;
 
-		// If the follow is not supposed to be attached to player
-		// retain existing y position (don't bounce)
-		if (charState.IsInAnyJumpingState())
+		// Don't follow the character's y position if the character is jumping or sprinting
+		if (charState.IsInAnyJumpingState() || charState.IsRunningOrSprinting())
 		{
 			targetPos.y = transform.position.y;
 		}
@@ -67,21 +76,21 @@ public class FollowPlayer : MonoBehaviour {
 	{ 
 //		EventManager.onCharEvent += AttachFollow;
 //		EventManager.onInputEvent += AttachFollow; 
-		EventManager.onInputEvent += Test;
+		//EventManager.onInputEvent += Test;
 	}
 
 	private void OnDisable() 
 	{ 
 //		EventManager.onCharEvent -= AttachFollow;
 //		EventManager.onInputEvent -= AttachFollow; 
-		EventManager.onInputEvent -= Test;
+		//EventManager.onInputEvent -= Test;
 	}
 
-	private void Test (GameEvent e)
-	{
-		//if (e == GameEvent.Jump)
-			print("follow: Test jump");
-	}
+//	private void Test (GameEvent e)
+//	{
+//		//if (e == GameEvent.Jump)
+//			//print("follow: Test jump");
+//	}
 
 	private void AttachFollow (GameEvent gEvent)
 	{

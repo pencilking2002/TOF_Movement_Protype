@@ -8,12 +8,14 @@ public class LandingController : MonoBehaviour {
 	|----------------------------------------------------------*/
 
 	private RomanCharState charState;
-	private RaycastHit hit;
 	private Animator animator;
 	private Rigidbody rb;
+	private RomanCharController charController;
 
-	private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
+	private RaycastHit hit;
 	private Vector3 origin, endPoint;
+	private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
+
 	private int anim_land = Animator.StringToHash("Land");
 	private int anim_Idle = Animator.StringToHash("Idle");
 
@@ -24,6 +26,7 @@ public class LandingController : MonoBehaviour {
 	private void Awake ()
 	{
 		charState = GetComponent<RomanCharState>();
+		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 	}
@@ -43,22 +46,22 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	private void LandCharacter ()
 	{
-		if (!charState.IsFalling())
-			return;
-
-		origin = transform.position + new Vector3(0, 0.2f, 0);
-		endPoint = origin;
-		endPoint.y -= 0.5f;
-
-		Debug.DrawLine(origin, endPoint, Color.red);
-
-		if (Physics.Linecast(origin, endPoint, out hit, layerMask))
+		if (charState.IsFalling())
 		{
-			if (rb.velocity.y <= 0)
+			origin = transform.position + new Vector3(0, 0.2f, 0);
+			endPoint = origin;
+			endPoint.y -= 0.5f;
+
+			Debug.DrawLine(origin, endPoint, Color.red);
+
+			if (Physics.Linecast(origin, endPoint, out hit, layerMask))
 			{
-				animator.SetTrigger(anim_land);
-				EventManager.OnCharEvent(GameEvent.Land);
-			}				
+				if (rb.velocity.y <= 0)
+				{
+					animator.SetTrigger(anim_land);
+					EventManager.OnCharEvent(GameEvent.Land);
+				}				
+			}
 		}
 	}
 
@@ -69,11 +72,10 @@ public class LandingController : MonoBehaviour {
 	/// <param name="other">Other.</param>
 	private void OnCollisionEnter (Collision other)
 	{
-		if (other.gameObject.layer != 9)
-			return;
-
-		else if (charState.IsLanding())
+		if (other.gameObject.layer == 9 && charState.IsLanding() && charController.speed < 0.1f)
+		{
 			animator.SetTrigger(anim_Idle);
+		}
 		
 	}
 }
