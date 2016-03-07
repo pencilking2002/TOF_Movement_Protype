@@ -31,6 +31,7 @@ Temporary Items
 ### Unity ###
 /[Ll]ibrary/
 /[Tt]emp/
+/[Tt]Temp/*
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
