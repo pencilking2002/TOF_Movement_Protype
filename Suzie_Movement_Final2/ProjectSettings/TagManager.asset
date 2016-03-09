@@ -26,6 +26,7 @@ TagManager:
   - SprintSpawnSpot
   - VineAttachPoint
   - Squirrel
+  - EdgeClimbSpot
   layers:
   - Default
   - TransparentFX
@@ -37,8 +38,8 @@ TagManager:
   - 
   - Player
   - Ground
-  - 
-  - 
+  - EdgeClimbColliders
+  - Test
   - 
   - 
   - 

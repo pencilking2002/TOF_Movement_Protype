@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	//private RomanCameraController camScript;
 	private ClimbDetector climbDetector;
 	private FollowPlayer follow;
+	private Transform currentChar;
 	private VineClimbController2 vineClimbCollider;
 	private RomanCharController charController;
 	private TestCam cam;
@@ -38,6 +39,9 @@ public class GameManager : MonoBehaviour {
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
+
+		// Get the character that is selected
+		currentChar = charController.transform;
 	}
 
 	#if UNITY_EDITOR
@@ -68,8 +72,10 @@ public class GameManager : MonoBehaviour {
 			if (GUI.Button(new Rect(0, yPos[3], 170, 30), "Sprint"))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("SprintSpawnSpot").transform.position;
 			
-			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Climb"))
-				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("StartClimbSpot").transform.position;
+			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Edge Climb"))
+			{
+				currentChar.position = GameObject.FindGameObjectWithTag("EdgeClimbSpot").transform.position;
+			}
 		}
 	}
 	

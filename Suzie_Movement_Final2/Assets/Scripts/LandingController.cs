@@ -14,7 +14,7 @@ public class LandingController : MonoBehaviour {
 
 	private RaycastHit hit;
 	private Vector3 origin, endPoint;
-	private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
+	//private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
 
 	private int anim_land = Animator.StringToHash("Land");
 	private int anim_Idle = Animator.StringToHash("Idle");
@@ -54,7 +54,7 @@ public class LandingController : MonoBehaviour {
 
 			Debug.DrawLine(origin, endPoint, Color.red);
 
-			if (Physics.Linecast(origin, endPoint, out hit, layerMask))
+			if (Physics.Linecast(origin, endPoint, out hit))
 			{
 				if (rb.velocity.y <= 0)
 				{
@@ -70,12 +70,12 @@ public class LandingController : MonoBehaviour {
 	/// in the animator. the animator also checks for other variables like speed before going to idle
 	/// </summary>
 	/// <param name="other">Other.</param>
-	private void OnCollisionEnter (Collision other)
-	{
-		if (other.gameObject.layer == 9 && charState.IsLanding() && charController.speed < 0.1f)
-		{
-			animator.SetTrigger(anim_Idle);
-		}
-		
-	}
+//	private void OnCollisionEnter (Collision other)
+//	{
+//		if (other.gameObject.layer == 9 && charState.IsLanding() && charController.speed < 0.1f)
+//		{
+//			animator.SetTrigger(anim_Idle);
+//		}
+//		
+//	}
 }

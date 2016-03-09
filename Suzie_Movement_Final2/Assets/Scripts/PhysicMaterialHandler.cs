@@ -32,12 +32,15 @@ public class PhysicMaterialHandler : MonoBehaviour {
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
+			{ GameEvent.Jump, true },
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
-			{ GameEvent.IsIdle, true },
+			{ GameEvent.StopWallClimbing, true },
+
 
 			{ GameEvent.StartVineClimbing, false },
-			{ GameEvent.StartEdgeClimbing, false }, 
+			{ GameEvent.StartEdgeClimbing, false },
+			{ GameEvent.StartWallClimbing, false }, 
 
 		});
 	}
@@ -88,8 +91,6 @@ public class PhysicMaterialHandler : MonoBehaviour {
 			ray = new Ray(origin, Vector3.down);
 			
 			Debug.DrawLine (origin, origin + new Vector3(0, -groundRayLenth, 0), Color.red);
-			//Debug.Break();
-			//Debug.LogError("blah");
 			if (Physics.Raycast (ray, out hit, groundRayLenth))
 			{
 				print ("is on ground");

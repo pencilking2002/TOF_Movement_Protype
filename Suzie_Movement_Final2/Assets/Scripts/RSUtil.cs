@@ -42,6 +42,8 @@ public class RSUtil : MonoBehaviour {
 	{
 		float height = collider.bounds.extents.y;
 		return new Vector3(collider.transform.position.x, collider.transform.position.y + height, collider.transform.position.z);
+		return new Vector3(collider.transform.position.x, collider.bounds.center.y + collider.bounds.extents.y, collider.transform.position.z);
+
 	}
 
 	/// <summary>
