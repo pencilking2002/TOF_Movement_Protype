@@ -20,6 +20,11 @@ public class EdgeClimbController : MonoBehaviour
 	// The threshold, to discard some of the normal value variations
 	public float threshold = 0.009f;
 
+	// Used to calculate the point at which to stop applying gravity
+	public float gravityThreshold = 0.01f;
+
+	public float rotLerpSpeed = 10.0f;
+
 	//public Transform leftHand;
 	private CapsuleCollider cCollider;
 	private Animator animator;
@@ -82,15 +87,13 @@ public class EdgeClimbController : MonoBehaviour
 
 				// If the character is further away then the threshold
 				// Calculate the gravity. Otherwise set it to zero
-				if (gravity > 0.2f)
-				{
-					gravity = Vector3.Distance(center, hitPoint);
-					print (gravity);
-				}
-				else
-				{
+		
+				gravity = Vector3.Distance(center, hitPoint);
+				//print (gravity);
+				
+				if (gravity < gravityThreshold)
 					gravity = 0;
-				}
+				
 //				if (gravity < 1.5f)
 //					gravity = 0;
 
@@ -105,7 +108,7 @@ public class EdgeClimbController : MonoBehaviour
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
 					//smoothly match the player's forward with the inverse of the normal
-					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 20 * Time.deltaTime);
+					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
 				}
 //				//store the current hit.normal inside the oldNormal
 				oldNormal = -hit.normal;
@@ -114,14 +117,18 @@ public class EdgeClimbController : MonoBehaviour
 			} 
 			else
 			{
+				EventManager.OnCharEvent(GameEvent.StopEdgeClimbing);
 				StopClimbing(GameEvent.StopEdgeClimbing);
 			} 
 
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
-			//moveDirection.z = 0; 
+
 			moveDirection = transform.TransformDirection(moveDirection);
 	
 			animator.SetFloat("HorEdgeClimbDir", InputController.h);
+
+			if (InputController.h == 0)
+				moveDirection = Vector3.zero;
 
 			if (cController.enabled)
 				cController.Move(moveDirection);
