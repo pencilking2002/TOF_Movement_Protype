@@ -1330,12 +1330,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d39811044004be7b34fce3bf30792a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpotYOffset: -0.81
-  climbSpotZOffset: 0.19
-  speed: 6
+  climbSpotYOffset: -0.82
+  climbSpotZOffset: 0.15
+  speed: 2
   gravity: 50
-  gravityMultiplier: 20
-  threshold: 0.009
+  gravityMultiplier: 40
+  threshold: 0.007
 --- !u!114 &644775532
 MonoBehaviour:
   m_ObjectHideFlags: 0

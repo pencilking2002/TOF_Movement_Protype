@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LandingController : MonoBehaviour {
 
@@ -29,6 +30,21 @@ public class LandingController : MonoBehaviour {
 		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+	}
+
+	private void Start ()
+	{
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
+
+			{ GameEvent.StartEdgeClimbing, false },
+			{ GameEvent.StartWallClimbing, false },
+			{ GameEvent.StartVineClimbing, false },
+
+			{ GameEvent.StopEdgeClimbing, true },
+			{ GameEvent.StopWallClimbing, true },
+			{ GameEvent.StopVineClimbing, true }
+
+		});
 	}
 
 	private void Update() 

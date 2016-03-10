@@ -13,163 +13,163 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Direction
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: RunningJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IdleJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Land
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Falling
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Angle
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: CanTurn
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StopRunning
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StartRunning
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StartSideRunning
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: WalkToRun
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: EdgeClimb
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StartSprinting
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StopSprinting
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StopClimbing
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ClimbOverEdge
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: HorEdgeClimbDir
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VineAttach
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SprintJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SprintModDown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VineClimbSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: vineClimbCurve
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Idle
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: DoubleJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Sprint
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onExit: 1
+  onEnter: 0
   isJumping: 0
 --- !u!114 &11407470
 MonoBehaviour:
@@ -218,7 +220,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
   isJumping: 0
+--- !u!114 &11408170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
+  isJumping: 1
 --- !u!114 &11418632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +309,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterState: 1
+--- !u!114 &11441874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
+  isJumping: 1
 --- !u!114 &11443768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,6 +347,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterState: 0
+--- !u!114 &11445188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
+  isJumping: 0
 --- !u!114 &11445972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 0
   isJumping: 0
 --- !u!114 &11448094
 MonoBehaviour:
@@ -399,6 +447,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterState: 16
+--- !u!114 &11459624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
+  isJumping: 1
 --- !u!114 &11460130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +485,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charState: {fileID: 0}
+--- !u!114 &11464854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c3dae2e08e43cbb814e17dbeb92ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onExit: 0
+  onEnter: 1
+  isJumping: 0
 --- !u!114 &11465612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,18 +523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charState: {fileID: 0}
---- !u!114 &11483880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae364aedc4da24dfc847ea60f0a45e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isJumping: 1
 --- !u!114 &11492774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,31 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146bc4034c7a94260bee29ef5495e132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterState: 14
---- !u!114 &11496412
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae364aedc4da24dfc847ea60f0a45e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isJumping: 1
---- !u!114 &11497466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae364aedc4da24dfc847ea60f0a45e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isJumping: 1
+  characterState: 13
 --- !u!114 &11497754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,15 +625,15 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2ccafeb238613467290db9a31f545062, type: 3}
+    m_Motion: {fileID: 7400000, guid: 4e0a73bb550af4e1cb73366f4f4e96ae, type: 3}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0.5
     m_DirectBlendParameter: Speed
     m_Mirror: 1
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: dc92151f2dc5fff40a158fe697a6290d, type: 3}
+    m_Motion: {fileID: 7400010, guid: 086186f96ab4048b590f21f366636e8e, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -601,10 +641,10 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2ccafeb238613467290db9a31f545062, type: 3}
+    m_Motion: {fileID: 7400000, guid: 4e0a73bb550af4e1cb73366f4f4e96ae, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
@@ -1220,17 +1260,20 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: EdgeClimb
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110286360}
   m_Solo: 0
-  m_Mute: 1
+  m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.9
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1323,7 +1366,7 @@ AnimatorStateTransition:
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110286360}
   m_Solo: 0
-  m_Mute: 1
+  m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.1
@@ -1983,7 +2026,7 @@ AnimatorState:
   - {fileID: 110127574}
   m_StateMachineBehaviours:
   - {fileID: 11439054}
-  - {fileID: 11447888}
+  - {fileID: 11445188}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2116,7 +2159,7 @@ AnimatorState:
   - {fileID: 110174760}
   m_StateMachineBehaviours:
   - {fileID: 11460130}
-  - {fileID: 11483880}
+  - {fileID: 11441874}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2143,6 +2186,7 @@ AnimatorState:
   - {fileID: 110122334}
   m_StateMachineBehaviours:
   - {fileID: 11492774}
+  - {fileID: 11464854}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2199,7 +2243,7 @@ AnimatorState:
   - {fileID: 110114422}
   m_StateMachineBehaviours:
   - {fileID: 11418632}
-  - {fileID: 11497466}
+  - {fileID: 11459624}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2254,7 +2298,7 @@ AnimatorState:
   - {fileID: 110189766}
   m_StateMachineBehaviours:
   - {fileID: 11498004}
-  - {fileID: 11496412}
+  - {fileID: 11408170}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2277,7 +2321,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110294792}
-    m_Position: {x: 252, y: 48, z: 0}
+    m_Position: {x: 252, y: 24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110209298}
     m_Position: {x: 408, y: 156, z: 0}

@@ -38,12 +38,21 @@ public class RSUtil : MonoBehaviour {
 	/// </summary>
 	/// <returns>The collider top point.</returns>
 	/// <param name="collider">Collider.</param>
-	static public Vector3 GetColliderTopPoint (Collider collider)
-	{
-		float height = collider.bounds.extents.y;
-		return new Vector3(collider.transform.position.x, collider.transform.position.y + height, collider.transform.position.z);
-		return new Vector3(collider.transform.position.x, collider.bounds.center.y + collider.bounds.extents.y, collider.transform.position.z);
+//	static public Vector3 GetColliderTopPoint (Collider collider)
+//	{
+//		float height = collider.bounds.extents.y;
+//		return new Vector3(collider.transform.position.x, collider.bounds.center.y + collider.bounds.extents.y, collider.transform.position.z);
+//
+//	}
 
+	/// <summary>
+	/// Gets the top collider top Y point of the given collider
+	/// </summary>
+	/// <returns>The collider's top Y point</returns>
+	/// <param name="collider">Collider.</param>
+	static public float GetTopColliderTopYPoint(Collider collider)
+	{
+		return collider.bounds.center.y + collider.bounds.extents.y;
 	}
 
 	/// <summary>

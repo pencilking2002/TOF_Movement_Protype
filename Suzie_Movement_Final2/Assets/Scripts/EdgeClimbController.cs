@@ -55,63 +55,78 @@ public class EdgeClimbController : MonoBehaviour
 		cCollider = GetComponent<CapsuleCollider>();
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-//			{ GameEvent.ClimbColliderDetected, true},
-//
-//			{ GameEvent.StopEdgeClimbing, false },
-//			{ GameEvent.FinishClimbOver, false },
-//			{ GameEvent.Land, false }
+			{ GameEvent.ClimbColliderDetected, true},
+
+			{ GameEvent.StopEdgeClimbing, false },
+			{ GameEvent.FinishClimbOver, false },
+			{ GameEvent.Land, false }
 
 		});
 	}
 	
 	private void Update ()
 	{
-//		if (charState.IsEdgeClimbing())
-//		{
-//		 
-//			//cast the ray 5 units at the specified direction  	
-//			if(Physics.Raycast(cCollider.bounds.center, transform.forward, out hit, 0.5f, layerMask))
-//			{  
-//				// Get the vertical center of the Squirrel
-//				Vector3 center = cCollider.bounds.center;
-//
-//				// Get the hit point of the the climb collider but use the player's Y center
-//				Vector3 hitPoint = new Vector3(hit.point.x, center.y, hit.point.z);
-//				Debug.DrawLine(center, hitPoint, Color.blue);
-//				Debug.Break();
-//
-//				//print(Vector3.Distance(leftHand.position, hitPoint));
-//				gravity = Vector3.Distance(new Vector3(center.x, center.y, center.z + cCollider.bounds.extents.z), hitPoint);
-//				//gravity = hitPoint - leftHand.position;
-//				//Debug.Break();
-//				
-//				//Debug.LogError("Pause");
-//
-////				//if the current transform's forward z value has passed the threshold test
-//				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
-//				{
-//					//smoothly match the player's forward with the inverse of the normal
-//					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 20 * Time.deltaTime);
-//				}
-////				//store the current hit.normal inside the oldNormal
-//				oldNormal = -hit.normal;
-//
-//
-//			} 
-//			else
-//			{
-//				StopClimbing(GameEvent.StopEdgeClimbing);
-//			} 
-//
-//			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime; 
-//			moveDirection = transform.TransformDirection(moveDirection);
-//	
-//			animator.SetFloat("HorEdgeClimbDir", InputController.h);
-//
-//			if (cController.enabled)
-//				cController.Move(moveDirection);
-//		}
-//	
+		if (charState.IsEdgeClimbing())
+		{
+		 
+			//cast the ray 5 units at the specified direction  	
+			if(Physics.Raycast(cCollider.bounds.center, transform.forward, out hit, 0.5f, layerMask))
+			{  
+				// Get the vertical center of the Squirrel
+				Vector3 center = cCollider.bounds.center;
+				center = center + transform.forward * cCollider.radius;
+			
+				// Get the hit point of the the climb collider but use the player's Y center
+				Vector3 hitPoint = new Vector3(hit.point.x, center.y, hit.point.z);
+				Debug.DrawLine(center, hitPoint, Color.blue);
+
+				// If the character is further away then the threshold
+				// Calculate the gravity. Otherwise set it to zero
+				if (gravity > 0.2f)
+				{
+					gravity = Vector3.Distance(center, hitPoint);
+					print (gravity);
+				}
+				else
+				{
+					gravity = 0;
+				}
+//				if (gravity < 1.5f)
+//					gravity = 0;
+
+				//print(gravity);
+				//Debug.Break();
+				//gravity = hitPoint - leftHand.position;
+				//Debug.Break();
+				
+				//Debug.LogError("Pause");
+
+				//if the current transform's forward z value has passed the threshold test
+				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
+				{
+					//smoothly match the player's forward with the inverse of the normal
+					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 20 * Time.deltaTime);
+				}
+//				//store the current hit.normal inside the oldNormal
+				oldNormal = -hit.normal;
+
+
+			} 
+			else
+			{
+				StopClimbing(GameEvent.StopEdgeClimbing);
+			} 
+
+			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
+			//moveDirection.z = 0; 
+			moveDirection = transform.TransformDirection(moveDirection);
+	
+			animator.SetFloat("HorEdgeClimbDir", InputController.h);
+
+			if (cController.enabled)
+				cController.Move(moveDirection);
+		}
+	
 		
 	}
 	
@@ -126,7 +141,8 @@ public class EdgeClimbController : MonoBehaviour
 			rb.angularVelocity = Vector3.zero;
 			rb.isKinematic = true;
 			animator.SetTrigger("EdgeClimb");
-			
+
+			// Posiiton and orient the player according to the hit point
 			SetPlayerPosition(hit);
 			SetPlayerOrientation (hit);
 		}
@@ -140,17 +156,20 @@ public class EdgeClimbController : MonoBehaviour
 	/// <param name="hit">Hit.</param>
 	private void SetPlayerPosition(RaycastHit hit)
 	{
-		Vector3 topPoint = RSUtil.GetColliderTopPoint(hit.collider);
-		topPoint.y += climbSpotYOffset;
-		topPoint = new Vector3(hit.point.x, topPoint.y, hit.point.z);
+		// Get the top most Y coordinate of the collider
+		float topPointYPoint = RSUtil.GetTopColliderTopYPoint(hit.collider);
+
+		// Apply an offset to the Y point
+		topPointYPoint += climbSpotYOffset;
+
+		// Create a Vector3 that is a mix of the hit point and the collider's top Y coordinate
+		topPoint = new Vector3(hit.point.x, topPointYPoint, hit.point.z);
+
+		// Apply a Z offset to the point so we can positon the 
+		// character correctly along their local forward axis
 		topPoint = topPoint - transform.forward * climbSpotZOffset;
 
 		transform.position = topPoint;
-
-//		GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-//      sphere.transform.position = new Vector3(hit.point.x, topPoint.y, hit.point.z);
-//		sphere.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
-        //Debug.Break();
 	}
 	
 	/// <summary>
@@ -178,7 +197,6 @@ public class EdgeClimbController : MonoBehaviour
 	// EVENTS -----------------------------------------------------------
 	private void OnEnable () 
 	{ 
-//		print ("runs");
 		EventManager.onCharEvent += StopClimbing;
 		EventManager.onInputEvent += StopClimbing;
 		EventManager.onDetectEvent += InitEdgeClimb;
