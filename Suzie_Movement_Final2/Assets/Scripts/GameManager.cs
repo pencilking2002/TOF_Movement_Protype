@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[1], 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
 			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + charController.inTube);
-			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "raw H: " + InputController.rawH);
+			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "H: " + InputController.h);
 			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
 			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.colliding);
 			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);

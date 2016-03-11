@@ -116,8 +116,8 @@ public class TestCam : MonoBehaviour
 				camDir = transform.position - follow.position;
 				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 		
-				Debug.DrawRay(follow.position, rightDir, Color.green);
-				Debug.DrawRay(follow.position, camDir, Color.red);
+//				Debug.DrawRay(follow.position, rightDir, Color.green);
+//				Debug.DrawRay(follow.position, camDir, Color.red);
 
 				RotateCamera();
 
@@ -220,11 +220,15 @@ public class TestCam : MonoBehaviour
 		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 
-		// Clamp Y rotation when climbing
-		if (GetState() == CamState.ClimbCam) 
+		// Create different camera rotation behavior for when the char is climbing
+		if (Cam_ClimbState()) 
 		{
-			if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
-				xSpeed = 0;
+			LimitClimbCamRotation();
+		}
+		else
+		{
+			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
+			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
 		}
 
 		// limit the mouse's Y posiiton. Make sure to invert the Y
@@ -237,13 +241,28 @@ public class TestCam : MonoBehaviour
 		else if (transform.position.y >= currentMaxY + 0.1f)
 			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
 		
-		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
-		transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
-
 		transform.LookAt (follow);
 			 				
 		lastYSpeed = ySpeed;
 		lastXSpeed = xSpeed;
+	}
+
+	/// <summary>
+	/// When the character is climbing:
+	/// 1) Limit the Y axsis rotation so you can't rotate in front of the character
+	/// 2) If there is not input on the horizontal axis revoke Y axis control from the player and position camera to be somewhat behind the player
+	/// </summary>
+	private void LimitClimbCamRotation()
+	{
+		if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
+			xSpeed = 0;
+
+		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
+
+		if (InputController.h != 0)
+			transform.RotateAround (follow.position, Vector3.up, Mathf.DeltaAngle(transform.eulerAngles.y, follow.eulerAngles.y) * 10.0f * Time.deltaTime);
+		else
+			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
 	}
 
 	private void OnEnable ()
@@ -268,6 +287,11 @@ public class TestCam : MonoBehaviour
 
 	private void SetState (CamState s) { state = s; }
 	private CamState GetState() { return state; }
+
+	private bool Cam_ClimbState ()
+	{
+		return state == CamState.ClimbCam;
+	}
 
 //	void OnDrawGizmos() 
 //	{
