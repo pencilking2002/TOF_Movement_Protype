@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Follow
+  - EdgeClibCollider
+  - ClimbCollider
+  - JumpCollider
+  - CliffSpawnSpot
+  - Vine
+  - LeftHand
+  - RightHand
+  - VineTopExit
+  - VineBottomExit
+  - VineClimbOverPoint
+  - Tube
+  - CrystalNut
+  - WallClimb
+  - SpawnSpot1
+  - BoxToRaise1
+  - NoClimbOver
+  - BoxToLower
+  - StartClimbSpot
+  - SprintSpawnSpot
+  - VineAttachPoint
+  - Squirrel
+  - EdgeClimbSpot
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Ground
+  - EdgeClimbColliders
+  - Test
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2588451755
+    locked: 0
