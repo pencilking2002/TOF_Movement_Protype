@@ -268,11 +268,13 @@ public class TestCam : MonoBehaviour
 	private void OnEnable ()
 	{
 		EventManager.onCharEvent += SetCameraMode;
+		EventManager.onInputEvent += SetCameraMode;
 	}
 	
 	private void OnDisable()
 	{
 		EventManager.onCharEvent -= SetCameraMode;
+		EventManager.onInputEvent -= SetCameraMode;
 	}
 
 	private void SetCameraMode (GameEvent gEvent)
@@ -281,8 +283,10 @@ public class TestCam : MonoBehaviour
 			SetState(CamState.ClimbingTransition);
 		
 		else if (gEvent == GameEvent.StopEdgeClimbing || gEvent == GameEvent.StopVineClimbing)
+		{
+			//print("Cam: stop edge climbing");
 			SetState(CamState.Free);
-		
+		}
 	}
 
 	private void SetState (CamState s) { state = s; }
