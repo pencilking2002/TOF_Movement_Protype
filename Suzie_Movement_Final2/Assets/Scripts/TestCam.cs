@@ -12,6 +12,11 @@ public class TestCam : MonoBehaviour
 	public float zoomInSpeed = 6.0f;						// Speed of camera zoom in at the beginning of the scene
 	public float zOffsetDamping = 40.0f;
 
+	// Climbing rotation
+	public float extraClimbRotation = 10.0f;
+	public float minClimbRotSpeed = 0.0f;
+	public float maxClimbRotSpeed = 20.0f;
+
 	// Collision
 	public float collisionSpeed = 15.0f;				
 	public float collisionToMoveSpeedDamping = 40.0f;	    // Amount of damping to apply when SmoothDamping the speed while exiting a collision
@@ -21,7 +26,7 @@ public class TestCam : MonoBehaviour
 	private Vector3 startingPos;							// Position of the camera at the start of the game
 	private RomanCharState charState;
 
-	//Rotattion
+	//Rotation
 	private float xSpeed;
 	private float ySpeed;
 	private float rotVel;
@@ -30,6 +35,10 @@ public class TestCam : MonoBehaviour
 	private float currentMinY;
 	private float lastYSpeed;
 	private float lastXSpeed;
+
+	//climbing rotation
+	private float rotateAroundSpeed;
+	private float angleDifference;							// How much the camera will rotate on the Y axis when the character is edge sliding
 
 	//private Movement
 	private Vector3 targetPos;
@@ -118,8 +127,9 @@ public class TestCam : MonoBehaviour
 		
 //				Debug.DrawRay(follow.position, rightDir, Color.green);
 //				Debug.DrawRay(follow.position, camDir, Color.red);
+				CollideCamera();
 
-				RotateCamera();
+				ClimbRotateCamera();
 
 				break;
 
@@ -220,16 +230,39 @@ public class TestCam : MonoBehaviour
 		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 
-		// Create different camera rotation behavior for when the char is climbing
-		if (Cam_ClimbState()) 
-		{
-			LimitClimbCamRotation();
-		}
-		else
-		{
-			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
-			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
-		}
+		// limit the mouse's Y posiiton. Make sure to invert the Y
+		ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
+
+		// Handle camera going exceeding min and max positions
+		if (transform.position.y <= currentMinY - 0.1f)
+			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMinY, transform.position.z), 10.0f * Time.deltaTime);
+	
+		else if (transform.position.y >= currentMaxY + 0.1f)
+			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
+
+		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
+		transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
+
+		transform.LookAt (follow);
+			 				
+		lastYSpeed = ySpeed;
+		lastXSpeed = xSpeed;
+	}
+
+	/// <summary>
+	/// RotatePlayer()
+	/// This is an altered version of the RotateCamera() method
+	/// Like that method, this one allows the player to orbit around the player but has some limitations:
+	/// 1) you can't
+	/// </summary>
+	private void ClimbRotateCamera()
+	{
+		// Get the min/max positions the camera should not exceed
+		currentMinY = follow.position.y - offset.y;
+		currentMaxY = follow.position.y + offset.y;
+
+		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
+		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 
 		// limit the mouse's Y posiiton. Make sure to invert the Y
 		ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
@@ -240,29 +273,31 @@ public class TestCam : MonoBehaviour
 	
 		else if (transform.position.y >= currentMaxY + 0.1f)
 			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
-		
-		transform.LookAt (follow);
-			 				
-		lastYSpeed = ySpeed;
-		lastXSpeed = xSpeed;
-	}
 
-	/// <summary>
-	/// When the character is climbing:
-	/// 1) Limit the Y axsis rotation so you can't rotate in front of the character
-	/// 2) If there is not input on the horizontal axis revoke Y axis control from the player and position camera to be somewhat behind the player
-	/// </summary>
-	private void LimitClimbCamRotation()
-	{
+		// Limit the Y rotation when climbing
 		if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
 			xSpeed = 0;
 
-		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
-
+		// if player moving and climbing, rotate along with
+		// them and revoke camera rotation control from the player
 		if (InputController.h != 0)
-			transform.RotateAround (follow.position, Vector3.up, Mathf.DeltaAngle(transform.eulerAngles.y, follow.eulerAngles.y) * 10.0f * Time.deltaTime);
+		{
+			rotateAroundSpeed = Mathf.Lerp(minClimbRotSpeed, maxClimbRotSpeed, 10.0f * Time.deltaTime);
+			angleDifference = Mathf.DeltaAngle(transform.eulerAngles.y, follow.eulerAngles.y);
+			transform.RotateAround (follow.position, Vector3.up, angleDifference * rotateAroundSpeed * Mathf.Abs(InputController.h) * Time.deltaTime);
+			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, maxClimbRotSpeed * Time.deltaTime));
+		}
 		else
-			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
+		{
+			rotateAroundSpeed = Mathf.Lerp(rotateAroundSpeed, maxClimbRotSpeed, 10.0f * Time.deltaTime);
+			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, rotateAroundSpeed * Time.deltaTime));
+			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, maxClimbRotSpeed * Time.deltaTime));
+			lastYSpeed = ySpeed;
+			lastXSpeed = xSpeed;
+		}
+
+		transform.LookAt (follow);	 				
+		
 	}
 
 	private void OnEnable ()

@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour {
 
 	public Vector3 offset;
 	public float damping = 10.0f;
-	public float climbSpeed = 20.0f;
+	public float climbDamping = 30.0f;
 
 	[HideInInspector]
 	public bool followAtPlayerPos = false;
@@ -51,7 +51,7 @@ public class FollowPlayer : MonoBehaviour {
 		}
 		if (charState.IsClimbing())
 		{
-			_damping = climbSpeed;
+			_damping = climbDamping;
 		}
 		else
 		{
