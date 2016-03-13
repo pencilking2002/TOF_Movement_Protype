@@ -51,6 +51,8 @@ public class EdgeClimbController : MonoBehaviour
 	private Vector3 oldNormal;
 	//private bool atContactPoint = false;
 
+	private Vector3 vel;
+
 	private void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -98,7 +100,8 @@ public class EdgeClimbController : MonoBehaviour
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
 					//smoothly match the player's forward with the inverse of the normal
-					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
+					//transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
+					transform.forward = Vector3.SmoothDamp(transform.forward, -hit.normal, ref vel, 0.3f);
 				}
 				//store the current hit.normal inside the oldNormal
 				oldNormal = -hit.normal;
@@ -113,11 +116,13 @@ public class EdgeClimbController : MonoBehaviour
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
 
 			moveDirection = transform.TransformDirection(moveDirection);
-	
-			animator.SetFloat("HorEdgeClimbDir", InputController.h);
+			//Vector3 finalDir = Vector3.Lerp(Vector3.zero, moveDirection, 5.0f * Time.deltaTime);
+			//print(moveDirection.magnitude);
+			moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
+			animator.SetFloat("HorEdgeClimbDir", InputController.rawH, 0.02f, Time.deltaTime);
 
 			if (cController.enabled)
-				cController.Move(moveDirection);
+				cController.Move(moveDirection); //cController.Move(finalDir); 
 		}
 	
 		

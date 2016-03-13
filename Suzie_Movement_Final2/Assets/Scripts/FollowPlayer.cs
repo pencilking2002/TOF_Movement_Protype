@@ -51,14 +51,15 @@ public class FollowPlayer : MonoBehaviour {
 		}
 		if (charState.IsClimbing())
 		{
-			_damping = climbDamping;
+			_damping = Mathf.Lerp(0.2f, climbDamping, 10.0f * Time.deltaTime);
+			//_damping = climbDamping;
 		}
 		else
 		{
 			_damping = damping;
 		}
 
-		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, _damping * Time.deltaTime);
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, _damping);
 //		
 		// Check if the follow object has caught up with the player and that the follow object is above the camera
 		if (Vector3.Distance(transform.position, targetPos) < 0.05f)
@@ -67,7 +68,7 @@ public class FollowPlayer : MonoBehaviour {
 		else
 			followAtPlayerPos = false;
 		
-		targetRot.y = Mathf.SmoothDampAngle(transform.eulerAngles.y, player.eulerAngles.y, ref climbSpeedSmoothVel, _damping * Time.deltaTime);
+		targetRot.y = Mathf.SmoothDampAngle(transform.eulerAngles.y, player.eulerAngles.y, ref climbSpeedSmoothVel, _damping);
 		transform.eulerAngles = targetRot;
 			
 	}

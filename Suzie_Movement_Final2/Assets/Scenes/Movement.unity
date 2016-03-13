@@ -557,6 +557,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 162933013}
   - 114: {fileID: 162933012}
+  - 23: {fileID: 162933014}
+  - 33: {fileID: 162933015}
   m_Layer: 0
   m_Name: Follow
   m_TagString: Follow
@@ -577,8 +579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 644775525}
   offset: {x: 0, y: 2.13, z: 0}
-  damping: 5
-  climbDamping: 30
+  damping: 0.2
+  climbDamping: 0.3
   followAtPlayerPos: 0
 --- !u!4 &162933013
 Transform:
@@ -587,11 +589,44 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 162933011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.11, y: 1.58, z: 2.86}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 13.49, y: 1.58, z: 13.42}
+  m_LocalScale: {x: 0.3656102, y: 0.86590445, z: 0.5764112}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!23 &162933014
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162933011}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 02a8bb137b3dc465e834a60da68b0faa, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &162933015
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162933011}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &255824595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1265,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 644775520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.11, y: 0, z: 2.86}
+  m_LocalPosition: {x: 13.49, y: 0, z: 13.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143147133}
@@ -1287,6 +1322,8 @@ MonoBehaviour:
   sprintJumpForwardSpeed: 353
   doubleJumpForce: 10
   allJumpTurnSpeed: 30.56
+  maxDownwardForce: -6
+  downwardForceSpeed: 5
 --- !u!114 &644775529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,9 +1372,9 @@ MonoBehaviour:
   speed: 2
   gravity: 50
   gravityMultiplier: 40
-  threshold: 0.007
+  threshold: 0.001
   gravityThreshold: 0.006
-  rotLerpSpeed: 10
+  rotLerpSpeed: 5
 --- !u!114 &644775532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,7 +1405,7 @@ CharacterController:
   m_Radius: 0.12
   m_SlopeLimit: 45
   m_StepOffset: 0
-  m_SkinWidth: 0.012
+  m_SkinWidth: 0.12
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!114 &644775534
@@ -1635,7 +1672,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 801821834}
   m_LocalRotation: {x: 0.16423635, y: 0.013910087, z: -0.0023170635, w: 0.9863202}
-  m_LocalPosition: {x: -0.9965957, y: 5.77, z: -4.15}
+  m_LocalPosition: {x: 13.61, y: 5.77, z: 6.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2762,8 +2799,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379600319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.33, y: 0.68, z: 21.65}
-  m_LocalScale: {x: 5.7024374, y: 2.0707705, z: 5.702444}
+  m_LocalPosition: {x: 13.85, y: -0.91, z: 21.65}
+  m_LocalScale: {x: 9.537473, y: 3.4634168, z: 9.537484}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10

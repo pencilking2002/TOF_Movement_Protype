@@ -16,6 +16,7 @@ public class TestCam : MonoBehaviour
 	public float extraClimbRotation = 10.0f;
 	public float minClimbRotSpeed = 0.0f;
 	public float maxClimbRotSpeed = 20.0f;
+	public float rotateDamping = 3.0f;
 
 	// Collision
 	public float collisionSpeed = 15.0f;				
@@ -23,6 +24,7 @@ public class TestCam : MonoBehaviour
 	public float collisionRaycastYOffset = 5.0f;			// How far up from should the collision raycast be offset from the player's y position
 
 	private Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
+	private FollowPlayer followPlayer;
 	private Vector3 startingPos;							// Position of the camera at the start of the game
 	private RomanCharState charState;
 
@@ -39,7 +41,9 @@ public class TestCam : MonoBehaviour
 	//climbing rotation
 	private float rotateAroundSpeed;
 	private float angleDifference;							// How much the camera will rotate on the Y axis when the character is edge sliding
+	private Vector3 lastCamPos;
 
+	//private Vector3 vel;
 	//private Movement
 	private Vector3 targetPos;
 	private float zOffsetVel;
@@ -92,7 +96,7 @@ public class TestCam : MonoBehaviour
 		follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		charState = GameManager.Instance.charState;
-	
+		followPlayer = follow.GetComponent<FollowPlayer>();
 
 		// Starting camera state and position
 		state = CamState.Free;
@@ -118,7 +122,7 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ClimbCam:
 
-				MoveCamera();
+				ClimbMoveCamera();
 
 				rightDir = follow.right * -offset.z;
 				//backwardsDir = follow.forward * -offset.z; // get rid of this?
@@ -135,13 +139,12 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ClimbingTransition:
 
-				targetPos = follow.position + follow.forward * -offset.z;
-				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref climbRotVel, 20.0f * Time.deltaTime);
+				ClimbMoveCamera();
+
 				transform.LookAt(follow);
 
-				if (transform.position.x > targetPos.x - 0.01f && transform.position.x < targetPos.x + 0.01f)
+				if (followPlayer.followAtPlayerPos)
 				{
-					print("finished");
 					SetState(CamState.ClimbCam);
 				}
 
@@ -177,11 +180,8 @@ public class TestCam : MonoBehaviour
 		// Make the camera follow the Follow GO like its a string attached to it
 		if (!colliding)
 		{ 
-//			if (!charState.IsIdle())
-//			{
 			moveSpeed = Mathf.SmoothDamp(moveSpeed, _moveLerpSpeed, ref moveSmoothVel, collisionToMoveSpeedDamping * Time.deltaTime);
 			offset.z = Mathf.SmoothDamp(offset.z, _zOffset, ref zOffsetVel, zOffsetDamping * Time.deltaTime);
-//			}
 			targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 			transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
 		}
@@ -250,6 +250,20 @@ public class TestCam : MonoBehaviour
 	}
 
 	/// <summary>
+	/// The same MoveCamera() but with a higher Y value (so that the camer is more overhead)
+	/// </summary>
+	private void ClimbMoveCamera()
+	{
+		if (colliding || InputController.h == 0)
+			return;
+
+		targetPos = follow.position + follow.forward * -offset.z;
+		transform.position = Vector3.Lerp(transform.position, targetPos, 3.0f * Time.deltaTime);
+		
+	}
+
+
+	/// <summary>
 	/// RotatePlayer()
 	/// This is an altered version of the RotateCamera() method
 	/// Like that method, this one allows the player to orbit around the player but has some limitations:
@@ -280,14 +294,15 @@ public class TestCam : MonoBehaviour
 
 		// if player moving and climbing, rotate along with
 		// them and revoke camera rotation control from the player
-		if (InputController.h != 0)
-		{
-			rotateAroundSpeed = Mathf.Lerp(minClimbRotSpeed, maxClimbRotSpeed, 10.0f * Time.deltaTime);
-			angleDifference = Mathf.DeltaAngle(transform.eulerAngles.y, follow.eulerAngles.y);
-			transform.RotateAround (follow.position, Vector3.up, angleDifference * rotateAroundSpeed * Mathf.Abs(InputController.h) * Time.deltaTime);
-			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, maxClimbRotSpeed * Time.deltaTime));
-		}
-		else
+//		if (InputController.h != 0)
+//		{
+////			angleDifference = Mathf.DeltaAngle(transform.eulerAngles.y, follow.eulerAngles.y);
+////			transform.RotateAround(follow.position, Vector3.up, Mathf.Lerp(0, angleDifference, 3f * Time.deltaTime));
+////			transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, maxClimbRotSpeed * Time.deltaTime));
+//		}
+//		else
+//		{
+		if (InputController.h == 0)
 		{
 			rotateAroundSpeed = Mathf.Lerp(rotateAroundSpeed, maxClimbRotSpeed, 10.0f * Time.deltaTime);
 			transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, rotateAroundSpeed * Time.deltaTime));
@@ -295,7 +310,6 @@ public class TestCam : MonoBehaviour
 			lastYSpeed = ySpeed;
 			lastXSpeed = xSpeed;
 		}
-
 		transform.LookAt (follow);	 				
 		
 	}
@@ -330,6 +344,11 @@ public class TestCam : MonoBehaviour
 	private bool Cam_ClimbState ()
 	{
 		return state == CamState.ClimbCam;
+	}
+
+	private bool Cam_ClimbTransition ()
+	{
+		return state == CamState.ClimbingTransition;
 	}
 
 //	void OnDrawGizmos() 
