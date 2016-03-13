@@ -17,16 +17,14 @@ public class TestCam : MonoBehaviour
 	public float minClimbRotSpeed = 0.0f;
 	public float maxClimbRotSpeed = 20.0f;
 	public float rotateDamping = 3.0f;
-
+	public float transThreshold = 0.02f;
 	// Collision
 	public float collisionSpeed = 15.0f;				
 	public float collisionToMoveSpeedDamping = 40.0f;	    // Amount of damping to apply when SmoothDamping the speed while exiting a collision
 	public float collisionRaycastYOffset = 5.0f;			// How far up from should the collision raycast be offset from the player's y position
 
 	private Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
-	private FollowPlayer followPlayer;
 	private Vector3 startingPos;							// Position of the camera at the start of the game
-	private RomanCharState charState;
 
 	//Rotation
 	private float xSpeed;
@@ -95,8 +93,6 @@ public class TestCam : MonoBehaviour
 
 		follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		charState = GameManager.Instance.charState;
-		followPlayer = follow.GetComponent<FollowPlayer>();
 
 		// Starting camera state and position
 		state = CamState.Free;
@@ -139,11 +135,13 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ClimbingTransition:
 
-				ClimbMoveCamera();
+				//ClimbMoveCamera();
+				targetPos = follow.position + follow.forward * -offset.z;
+				transform.position = Vector3.Lerp(transform.position, targetPos, 8.0f * Time.deltaTime);
 
 				transform.LookAt(follow);
 
-				if (followPlayer.followAtPlayerPos)
+				if (Vector3.Distance(transform.position, targetPos) < transThreshold)
 				{
 					SetState(CamState.ClimbCam);
 				}
