@@ -65,7 +65,7 @@ public class InputController : MonoBehaviour {
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
 		}
 
-		if (charState.IsEdgeClimbing() && inputDevice.LeftStickY.WasPressed)
+		if (charState.IsClimbing() && inputDevice.LeftStickY.WasPressed)
 		{
 			print ("edge climbing raw v: " + v);
 			
@@ -78,6 +78,8 @@ public class InputController : MonoBehaviour {
 			{
 	//			print ("InputController: stop climbing " + rawV);
 				EventManager.OnInputEvent(GameEvent.StopEdgeClimbing);
+				EventManager.OnInputEvent(GameEvent.StopWallClimbing);
+				print("InputController: Stop climbing");
 
 			}
 //			print ("Event sent: climboveredge");

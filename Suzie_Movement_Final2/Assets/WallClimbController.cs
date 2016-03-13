@@ -35,11 +35,15 @@ public class WallClimbController : MonoBehaviour {
 	private void OnEnable () 
 	{ 
 		EventManager.onDetectEvent += InitWallClimb;
+		EventManager.onCharEvent += StopClimbing;
+		EventManager.onInputEvent += StopClimbing;
 	}
 	private void OnDisable () 
 	{ 
 		
-		EventManager.onDetectEvent -= InitWallClimb;	
+		EventManager.onDetectEvent -= InitWallClimb;
+		EventManager.onCharEvent -= StopClimbing;
+		EventManager.onInputEvent -= StopClimbing;	
 	}
 
 	private void InitWallClimb (GameEvent gameEvent, RaycastHit hit)
@@ -57,6 +61,17 @@ public class WallClimbController : MonoBehaviour {
 			// Posiiton and orient the player according to the hit point
 			//SetPlayerPosition(hit);
 			//SetPlayerOrientation (hit);
+		}
+	}
+
+	private void StopClimbing (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.StopWallClimbing && GameManager.Instance.charState.IsClimbing())
+		{
+			rb.isKinematic = false;
+			animator.SetTrigger("StopClimbing");
+			cController.enabled = false;
+			print("stop wall climbing");
 		}
 	}
 }
