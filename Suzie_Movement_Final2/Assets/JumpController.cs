@@ -34,7 +34,10 @@ public class JumpController : MonoBehaviour {
 
 	[Range(0,50)]
 	public float allJumpTurnSpeed = 30.56f;			    // Turning speed used for all jumps
-	
+
+	[Header("Jump Limiting")]
+	public float maxDownwardForce = -6.0f;
+	public float downwardForceSpeed = 5.0f;
 
 
 	// PRIVATE vars -----------------------
@@ -46,6 +49,8 @@ public class JumpController : MonoBehaviour {
 	private Vector3 forwardVel;					    // Temp vector for calculating forward velocity while jumping
 	private float lerpedJumpForce;
 	private bool hasDoubleJumped = false;
+
+	private float downwardForce;					// Used to apply downward force when the player releases the jump button
 
 	// Animator variables
 	private int anim_idleJump = Animator.StringToHash("IdleJump");
@@ -95,15 +100,17 @@ public class JumpController : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Apply a downward force to the character
-	/// if the player lets go of the jump button before the jump is over
+	/// Apply a lerped downward force to the character
+	/// when the player releases the jump button
 	/// </summary>
 	private void LimitJump()
 	{
 		if (InputController.jumpReleased && charState.IsInAnyJumpingState() && !charState.IsAnyDoubleJumping() && rb.velocity.y > 0) 
 		{
 			print("Jump released");
-			rb.AddForce (new Vector3 (0, -rb.velocity.y/2, 0), ForceMode.Impulse);
+			// Old downward force:  -rb.velocity.y/2
+			downwardForce = Mathf.Lerp(0, maxDownwardForce, downwardForceSpeed * Time.fixedDeltaTime);
+			rb.AddForce (new Vector3 (0, downwardForce, 0), ForceMode.Impulse);
 		}
 	}
 
