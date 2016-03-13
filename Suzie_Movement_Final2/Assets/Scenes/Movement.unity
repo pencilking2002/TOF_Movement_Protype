@@ -443,6 +443,8 @@ Transform:
   - {fileID: 405830966}
   - {fileID: 1513232709}
   - {fileID: 1975457666}
+  - {fileID: 1978782642}
+  - {fileID: 1379600323}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!1 &100113190
@@ -808,7 +810,7 @@ GameObject:
   - 65: {fileID: 405830968}
   - 23: {fileID: 405830967}
   m_Layer: 10
-  m_Name: ClimbCube
+  m_Name: EdgeClimbCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,6 +1197,7 @@ GameObject:
   - 114: {fileID: 644775532}
   - 114: {fileID: 644775527}
   - 114: {fileID: 644775531}
+  - 114: {fileID: 644775535}
   m_Layer: 8
   m_Name: SuzieMeshWithUVs
   m_TagString: Player
@@ -1417,6 +1420,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92136ff4672be4616b6611fc3a6eecb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &644775535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644775520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9307d07fa4d54bc0b71af43d32ebb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &658393605
@@ -1696,7 +1710,9 @@ MonoBehaviour:
   extraClimbRotation: 10
   minClimbRotSpeed: 0
   maxClimbRotSpeed: 20
-  collisionSpeed: 10
+  rotateDamping: 0.0001
+  transThreshold: 0.025
+  collisionSpeed: 1.92
   collisionToMoveSpeedDamping: 60
   collisionRaycastYOffset: 2
   state: 0
@@ -2741,7 +2757,7 @@ GameObject:
   - 23: {fileID: 1379600320}
   - 64: {fileID: 1379600321}
   m_Layer: 10
-  m_Name: Cylinder
+  m_Name: EdgeClimbCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2799,11 +2815,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379600319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.85, y: -0.91, z: 21.65}
+  m_LocalPosition: {x: 6.3807435, y: 1, z: -2.9500008}
   m_LocalScale: {x: 9.537473, y: 3.4634168, z: 9.537484}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 94501481}
+  m_RootOrder: 5
 --- !u!1 &1420057292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3104,7 +3120,7 @@ GameObject:
   - 65: {fileID: 1513232711}
   - 23: {fileID: 1513232710}
   m_Layer: 0
-  m_Name: ClimbCube (2)
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4191,7 +4207,7 @@ GameObject:
   - 65: {fileID: 1975457668}
   - 23: {fileID: 1975457667}
   m_Layer: 10
-  m_Name: ClimbCube (1)
+  m_Name: EdgeClimbing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4204,7 +4220,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975457665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6, y: 0.8, z: 20.6}
+  m_LocalPosition: {x: 18.2, y: 0.8, z: 13.74}
   m_LocalScale: {x: 9.740012, y: 6.5731983, z: 9.927662}
   m_Children: []
   m_Father: {fileID: 94501481}
@@ -4253,6 +4269,81 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975457665}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1978782641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1978782642}
+  - 33: {fileID: 1978782645}
+  - 65: {fileID: 1978782644}
+  - 23: {fileID: 1978782643}
+  m_Layer: 11
+  m_Name: WallClimbing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978782642
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978782641}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 7.77, y: 5.73, z: -24.58}
+  m_LocalScale: {x: 2.7522821, y: 8.7908945, z: 9.838266}
+  m_Children: []
+  m_Father: {fileID: 94501481}
+  m_RootOrder: 4
+--- !u!23 &1978782643
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978782641}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 6afece46169ca45b0aa8021d975b5e90, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1978782644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978782641}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1978782645
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978782641}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1979742088
 GameObject:

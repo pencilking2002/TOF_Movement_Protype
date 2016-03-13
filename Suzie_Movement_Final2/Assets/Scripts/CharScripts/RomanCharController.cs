@@ -59,6 +59,7 @@ public class RomanCharController : MonoBehaviour {
 			//{ GameEvent.LandedFirstTime, false },
 			{ GameEvent.StartVineClimbing, false }, 
 			{ GameEvent.StartEdgeClimbing, false },
+			{ GameEvent.StartWallClimbing, false }
 
 		});
 

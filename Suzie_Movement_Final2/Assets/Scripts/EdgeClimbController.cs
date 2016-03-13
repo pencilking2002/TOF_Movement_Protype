@@ -62,8 +62,9 @@ public class EdgeClimbController : MonoBehaviour
 		cCollider = GetComponent<CapsuleCollider>();
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.ClimbColliderDetected, true},
+			{ GameEvent.EdgeClimbColliderDetected, true},
 
+			{ GameEvent.StartWallClimbing, false },
 			{ GameEvent.StopEdgeClimbing, false },
 			{ GameEvent.FinishClimbOver, false },
 			{ GameEvent.Land, false }
@@ -130,7 +131,7 @@ public class EdgeClimbController : MonoBehaviour
 	
 	private void InitEdgeClimb (GameEvent gameEvent, RaycastHit hit)
 	{
-		if (gameEvent == GameEvent.ClimbColliderDetected)
+		if (gameEvent == GameEvent.EdgeClimbColliderDetected)
 		{
 			InputController.h = 0;
 			cController.enabled = true;

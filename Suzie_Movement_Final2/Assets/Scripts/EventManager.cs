@@ -35,7 +35,7 @@ public enum GameEvent
 	
 	Land,
 	ResetJumpOff,
-	ClimbColliderDetected,
+	EdgeClimbColliderDetected,
 	StopWallClimbing,
 	StopClimbing,
 	StartClimbing,
@@ -48,7 +48,8 @@ public enum GameEvent
 	WallCollision,
 	FinishVineClimbing,
 	LandedFirstTime,
-	CamZoomedIn
+	CamZoomedIn,
+	WallClimbColliderDetected
 	
 }
 

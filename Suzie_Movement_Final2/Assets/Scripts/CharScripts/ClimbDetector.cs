@@ -19,7 +19,7 @@ public class ClimbDetector : MonoBehaviour {
 	private Ray ray;
 	private RaycastHit hit;
 	private float cColliderHeight;	
-	private int layerMask = 1 << 10; 						// Only raycast against edge climb colliders (layer 10)
+	private int layerMask = (1 << 10) | (1 << 11); 						// Only raycast against edge climb colliders (layer 10)
 	private Vector3 raycastOffset = new Vector3 (0, 1f, 0);
 	private Vector3 topOfClimbCollider;
 	private bool detached = false;
@@ -54,31 +54,48 @@ public class ClimbDetector : MonoBehaviour {
 			
 			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
 			{
-				float climbColTopY = hit.collider.bounds.center.y + hit.collider.bounds.extents.y;
-				float charTopY = cCollider.bounds.center.y + cCollider.bounds.extents.y;
-
-				if (charTopY > climbColTopY - 0.2f)
-				{
-					showGizmo = true;
-
-					topOfClimbCollider = new Vector3(hit.point.x, climbColTopY - 0.2f, hit.point.z);
-
-					EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
+				DetectEdgeClimbing(hit);
+				DetectWallClimbing(hit);
 //					Debug.Break();
 //					
 //					if (hit.collider.CompareTag("NoClimbOver"))
 //						climbOverEdge.noClimbOver = true;
 //					else 
 //						climbOverEdge.noClimbOver = false;
-				}
-				else
-				{
-					showGizmo = false;
-				}
-
+				
 			}
+
 		}
 	
+	}
+
+	private void DetectEdgeClimbing(RaycastHit hit)
+	{
+		if (hit.collider.gameObject.gameObject.layer != 10)
+			return;
+
+		float climbColTopY = hit.collider.bounds.center.y + hit.collider.bounds.extents.y;
+		float charTopY = cCollider.bounds.center.y + cCollider.bounds.extents.y;
+
+		if (charTopY > climbColTopY - 0.2f)
+		{
+			showGizmo = true;
+			topOfClimbCollider = new Vector3(hit.point.x, climbColTopY - 0.2f, hit.point.z);
+			EventManager.OnDetectEvent(GameEvent.EdgeClimbColliderDetected, hit);
+		}
+
+		else 
+			showGizmo = false;
+	}
+
+	private void DetectWallClimbing(RaycastHit hit)
+	{
+		if (hit.collider.gameObject.gameObject.layer != 11)
+			return;
+
+		EventManager.OnDetectEvent(GameEvent.WallClimbColliderDetected, hit);
+
+		//print("Wall collider");
 	}
 
 	private void OnEnable()
