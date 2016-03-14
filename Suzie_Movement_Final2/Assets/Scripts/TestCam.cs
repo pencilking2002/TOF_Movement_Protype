@@ -23,7 +23,7 @@ public class TestCam : MonoBehaviour
 	public float collisionToMoveSpeedDamping = 40.0f;	    // Amount of damping to apply when SmoothDamping the speed while exiting a collision
 	public float collisionRaycastYOffset = 5.0f;			// How far up from should the collision raycast be offset from the player's y position
 
-	private Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
+	public Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
 	private Vector3 startingPos;							// Position of the camera at the start of the game
 
 	//Rotation
@@ -91,8 +91,8 @@ public class TestCam : MonoBehaviour
 		_moveLerpSpeed = moveSpeed;
 		_zOffset = offset.z;
 
-		follow = GameObject.FindGameObjectWithTag("Follow").transform;
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		//follow = GameObject.FindGameObjectWithTag("Follow").transform;
+		//player = GameObject.FindGameObjectWithTag("Player").transform;
 
 		// Starting camera state and position
 		state = CamState.Free;
@@ -191,7 +191,7 @@ public class TestCam : MonoBehaviour
 		Vector3 direction = new Vector3(transform.position.x, origin.y + collisionRaycastYOffset, transform.position.z) - origin;
 		direction = direction.normalized;
 
-		//Debug.DrawRay(origin, direction * 5, Color.red);
+		Debug.DrawRay(origin, direction * 5, Color.red);
 		//Debug.Break();
 
 		// TODO when camera LERPs up, the raycast doesn't hit anything and that's why its jittery

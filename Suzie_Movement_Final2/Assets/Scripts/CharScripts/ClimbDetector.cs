@@ -14,7 +14,8 @@ public class ClimbDetector : MonoBehaviour {
 	
 	[HideInInspector]
 	public bool climbColliderDetected;
-	public float rayLength = 2.0f;							// How long the raycast to look for climbable objects should be
+	public float edgeRayLength = 0.8f;							// Length of ray to cast to detect edge colliders
+	public float wallRayLength = 0.3f;							// Length of ray to cast to detect wall colliders
 
 	private Ray ray;
 	private RaycastHit hit;
@@ -50,9 +51,9 @@ public class ClimbDetector : MonoBehaviour {
 	{
 		if (charState.IsIdleOrRunningJumping() && !detached)
 		{
-			Debug.DrawRay(transform.position + raycastOffset, transform.forward * rayLength, Color.red); 
+			Debug.DrawRay(transform.position + raycastOffset, transform.forward * edgeRayLength, Color.red); 
 			
-			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
+			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, edgeRayLength, layerMask))
 			{
 				DetectEdgeClimbing(hit);
 				DetectWallClimbing(hit);

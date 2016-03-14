@@ -48,7 +48,7 @@ public class WallClimbController : MonoBehaviour {
 
 	private void InitWallClimb (GameEvent gameEvent, RaycastHit hit)
 	{
-		if (gameEvent == GameEvent.WallClimbColliderDetected)
+		if (gameEvent == GameEvent.WallClimbColliderDetected && rb.velocity.y < 0)
 		{
 			InputController.h = 0;
 			cController.enabled = true;
