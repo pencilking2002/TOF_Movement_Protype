@@ -73,7 +73,7 @@ public class TestCam : MonoBehaviour
 	[HideInInspector]
 	public CamState state;
 
-	// Ignore ground and player layers
+	// Ignore ground/player layers
 	private int layerMask = ~((1 << 8) | (1 << 9));
 	[HideInInspector] 
 	public bool colliding = false;

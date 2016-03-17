@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour {
 	private Transform currentChar;
 	private VineClimbController2 vineClimbCollider;
 	private RomanCharController charController;
-	private PhysicMatJumper pmj;
 
 	private int[] yPos = new int[]
 	{
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour {
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
-		pmj = GameObject.FindObjectOfType<PhysicMatJumper>();
 		//cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
 
 		// Get the character that is selected
@@ -61,7 +59,7 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.colliding);
 			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);
 			GUI.Button(new Rect(Screen.width - 150, yPos[8], 170, 30), "Jump released: " + InputController.jumpReleased);
-			GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "PMJ colliding " + pmj.colliding);
+			//GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "PMJ colliding " + pmj.colliding);
 
 
 			if (GUI.Button(new Rect(0, yPos[0], 170, 30), "Spawn at Cliff "))

@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 */
 public class PhysicMaterialHandler : MonoBehaviour {
-	public PhysicMatJumper jumperCollider;
 
 	public PhysicMaterial groundMaterial;
 	public PhysicMaterial wallMaterial;
@@ -24,12 +23,14 @@ public class PhysicMaterialHandler : MonoBehaviour {
 //	private Vector3 bottomOrigin;
 	private Ray ray;
 //	private Ray rayFromBottom;
+	private RomanCharState charState;
 
 	private RaycastHit hit;
 	
 	private void Start ()
 	{
 		cCollider = GetComponent<CapsuleCollider>();
+		charState = GetComponent<RomanCharState>();
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
@@ -48,6 +49,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 
 	private void OnEnable () 
 	{ 
+
 		EventManager.onCharEvent += SetPhysicMaterial;
 	}
 	
@@ -62,27 +64,13 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	/// <param name="gEvent">G event.</param>
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.Jump)
-		{
-			origin = transform.position;
-			origin.y = transform.position.y + transform.lossyScale.y / 2;
-			ray = new Ray(origin, transform.forward);
-			if (Physics.Raycast (ray, out hit, wallRayLength))
-			{
-				cCollider.sharedMaterial = wallMaterial;
-			}
-			else
-			{
-				RSUtil.Instance.DelayedAction(() => {
-					cCollider.sharedMaterial = wallMaterial;
-				}, 0.2f);
-			}
-		}	
-		else if (gEvent == GameEvent.Land)
-		{
-			cCollider.sharedMaterial = groundMaterial;
+		if (gEvent == GameEvent.Jump || gEvent == GameEvent.StartRunning || gEvent == GameEvent.StartSprinting)
+			cCollider.sharedMaterial = wallMaterial;
 
-		}
+		else if (gEvent == GameEvent.Land || gEvent == GameEvent.IsIdle)
+			cCollider.sharedMaterial = groundMaterial;
+		
 
 	}
+
 }

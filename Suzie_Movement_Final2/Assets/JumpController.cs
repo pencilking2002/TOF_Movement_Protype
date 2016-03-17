@@ -109,7 +109,13 @@ public class JumpController : MonoBehaviour {
 			downwardForce = Mathf.Lerp(0, maxDownwardForce, downwardForceSpeed * Time.fixedDeltaTime);
 			rb.AddForce (new Vector3 (0, downwardForce, 0), ForceMode.Impulse);
 		}
-	}
+
+		// limit the zero out the x/z movement if idle jumping and there's no input
+		// This is a fix the the PhysicMaterialHandler's handling of changing materials
+		if (charState.IsIdleJumping() && charController.speed == 0)
+				rb.velocity = new Vector3(0, rb.velocity.y, 0);
+}
+
 
 	private void RotateAndMoveJump()
 	{
