@@ -9,20 +9,21 @@ using System.Collections.Generic;
 
 */
 public class PhysicMaterialHandler : MonoBehaviour {
-	
+	public PhysicMatJumper jumperCollider;
+
 	public PhysicMaterial groundMaterial;
 	public PhysicMaterial wallMaterial;
 
-	public float groundRayLenth = 0.1f;
+//	public float groundRayLenth = 0.1f;
 	public float wallRayLength = 0.5f;
 
 	private CapsuleCollider cCollider;
 
 	// Temp raycasting vars
 	private Vector3 origin;
-	private Vector3 bottomOrigin;
+//	private Vector3 bottomOrigin;
 	private Ray ray;
-	private Ray rayFromBottom;
+//	private Ray rayFromBottom;
 
 	private RaycastHit hit;
 	
@@ -45,32 +46,9 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		});
 	}
 
-
-	private void Update ()
-	{
-		if (GameManager.Instance.charState.IsInAnyJumpingState())
-		{
-			// Set the origin of the ray, which will be 
-			// coming out of the middle of the character (vertially)
-			origin = transform.position;
-			origin.y = transform.position.y + transform.lossyScale.y / 2;
-			ray = new Ray(origin, transform.forward);
-
-			Debug.DrawRay(ray.origin, ray.direction * wallRayLength, Color.green);
-
-			if (Physics.Raycast (ray, out hit, wallRayLength))
-			{
-				hit.collider.material = wallMaterial;
-				//Debug.Break();
-			}
-		}
-	}
-
 	private void OnEnable () 
 	{ 
 		EventManager.onCharEvent += SetPhysicMaterial;
-		
-		//print ("yoo");
 	}
 	
 	private void OnDisable () 
@@ -84,19 +62,27 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	/// <param name="gEvent">G event.</param>
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.Land)
+		if (gEvent == GameEvent.Jump)
 		{
-			//origin = cCollider.bounds.center - cCollider.bounds.extents;
 			origin = transform.position;
-			ray = new Ray(origin, Vector3.down);
-			
-			Debug.DrawLine (origin, origin + new Vector3(0, -groundRayLenth, 0), Color.red);
-			if (Physics.Raycast (ray, out hit, groundRayLenth))
+			origin.y = transform.position.y + transform.lossyScale.y / 2;
+			ray = new Ray(origin, transform.forward);
+			if (Physics.Raycast (ray, out hit, wallRayLength))
 			{
-				print ("is on ground");
-				hit.collider.material = groundMaterial;
-				GameManager.Instance.charState.SetState(RomanCharState.State.Idle);
+				cCollider.sharedMaterial = wallMaterial;
 			}
+			else
+			{
+				RSUtil.Instance.DelayedAction(() => {
+					cCollider.sharedMaterial = wallMaterial;
+				}, 0.2f);
+			}
+		}	
+		else if (gEvent == GameEvent.Land)
+		{
+			cCollider.sharedMaterial = groundMaterial;
+
 		}
+
 	}
 }

@@ -45,10 +45,10 @@ public class FollowPlayer : MonoBehaviour {
 		targetPos = player.position + offset;
 
 		// Don't follow the character's y position if the character is jumping or sprinting
-		if (charState.IsInAnyJumpingState() || charState.IsRunningOrSprinting())
-		{
-			targetPos.y = transform.position.y;
-		}
+//		if (charState.IsInAnyJumpingState() || charState.IsRunningOrSprinting())
+//		{
+//			targetPos.y = transform.position.y;
+//		}
 		if (charState.IsClimbing())
 		{
 			_damping = Mathf.Lerp(0.2f, climbDamping, 10.0f * Time.deltaTime);

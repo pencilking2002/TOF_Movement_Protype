@@ -184,15 +184,15 @@ public class RomanCharController2 : MonoBehaviour {
 
 			// Add a force downwards if the player releases the jump button
 			// when the character is jumping up
-			if (InputController.jumpReleased && !charState.IsSprintJumping())
-			{
-				InputController.jumpReleased = false;
-
-				if (rb.velocity.y > 0)
-				{
-					rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
-				}
-			}
+//			if (InputController.jumpReleased && !charState.IsSprintJumping())
+//			{
+//				InputController.jumpReleased = false;
+//
+//				if (rb.velocity.y > 0)
+//				{
+//					rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
+//				}
+//			}
 		}
 
 		//TODO look for ground collision when the char is falling
@@ -381,14 +381,14 @@ public class RomanCharController2 : MonoBehaviour {
 			if (charState.IsIdle())
 			{
 				forwardSpeed = idleJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.IdleJumping);
+				//charState.SetState(RomanCharState.State.IdleJumping);
 				animator.SetTrigger (anim_idleJump);
 				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 			else if (charState.IsRunning())
 			{
 				forwardSpeed = runningJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.RunningJumping);
+				//charState.SetState(RomanCharState.State.RunningJumping);
 				animator.SetTrigger (anim_runningJump);
 				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
@@ -397,7 +397,7 @@ public class RomanCharController2 : MonoBehaviour {
 				// Override Y jump force to be a constant value when sprinting
 				force = sprintJumpForce;									
 				forwardSpeed = sprintJumpForwardSpeed;
-				charState.SetState(RomanCharState.State.SprintJumping);
+				//charState.SetState(RomanCharState.State.SprintJumping);
 				animator.SetBool (anim_sprintJump, true);
 				
 				OrientCapsuleCollider(false);

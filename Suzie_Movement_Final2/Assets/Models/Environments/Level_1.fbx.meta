@@ -427,6 +427,9 @@ ModelImporter:
     100838: Waterfall
     100840: WaterPlane
     100842: WaterRocks
+    100844: CliffGround 13
+    100846: CliffWall 14
+    100848: CurvedCliff
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -849,6 +852,9 @@ ModelImporter:
     400838: Waterfall
     400840: WaterPlane
     400842: WaterRocks
+    400844: CliffGround 13
+    400846: CliffWall 14
+    400848: CurvedCliff
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1155,6 +1161,8 @@ ModelImporter:
     2300606: Waterfall
     2300608: WaterPlane
     2300610: WaterRocks
+    2300612: CliffGround 13
+    2300614: CliffWall 14
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -1461,6 +1469,8 @@ ModelImporter:
     3300606: Waterfall
     3300608: WaterPlane
     3300610: WaterRocks
+    3300612: CliffGround 13
+    3300614: CliffWall 14
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -1767,6 +1777,8 @@ ModelImporter:
     4300606: Log1
     4300608: Plants
     4300610: GroundPlane
+    4300612: CliffGround
+    4300614: CliffWall
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -2073,6 +2085,8 @@ ModelImporter:
     6400606: Waterfall
     6400608: WaterPlane
     6400610: WaterRocks
+    6400612: CliffGround 13
+    6400614: CliffWall 14
   materials:
     importMaterials: 1
     materialName: 0

@@ -104,7 +104,7 @@ public class VineClimbController2 : MonoBehaviour {
 		{
 			
 			EventManager.OnCharEvent(GameEvent.StartVineClimbing);
-			GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
+			//GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
 
 			vine = coll.transform.parent.transform;
 			vineCollider = coll;

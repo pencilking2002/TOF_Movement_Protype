@@ -68,8 +68,6 @@ public class JumpController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		RegisterEvents();
-
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		charController = GetComponent<RomanCharController>();
@@ -77,9 +75,8 @@ public class JumpController : MonoBehaviour {
 	}
 
 
-	private void RegisterEvents ()
+	private void OnEnable ()
 	{
-		print("registered events");
 		EventManager.onInputEvent += Jump;
 		EventManager.onCharEvent += CharLanded;
 	}
@@ -180,6 +177,7 @@ public class JumpController : MonoBehaviour {
 		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrMoving()) 
 		{				
 			EventManager.OnCharEvent(GameEvent.Jump);
+			InputController.jumpReleased = false;
 
 			// Change the forward speed based on what kind of jump it is
 			if (charState.IsIdle())
@@ -204,9 +202,13 @@ public class JumpController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
-			print("land");
+			print("JumpController:LAND");
 			hasDoubleJumped = false;
 			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
+			InputController.jumpReleased = false;
+		}
+		else if (gEvent == GameEvent.IsIdle)
+		{
 			InputController.jumpReleased = false;
 		}
 	}

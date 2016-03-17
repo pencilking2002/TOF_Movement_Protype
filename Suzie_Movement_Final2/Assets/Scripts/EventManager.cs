@@ -49,7 +49,8 @@ public enum GameEvent
 	FinishVineClimbing,
 	LandedFirstTime,
 	CamZoomedIn,
-	WallClimbColliderDetected
+	WallClimbColliderDetected,
+	EnterIdle
 	
 }
 

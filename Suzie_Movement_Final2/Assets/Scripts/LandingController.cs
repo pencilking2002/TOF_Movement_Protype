@@ -62,7 +62,7 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	private void LandCharacter ()
 	{
-		if (charState.IsFalling())
+		if (charState.IsFalling() || charState.IsLanding())
 		{
 			origin = transform.position + new Vector3(0, 0.2f, 0);
 			endPoint = origin;
@@ -74,8 +74,17 @@ public class LandingController : MonoBehaviour {
 			{
 				if (rb.velocity.y <= 0)
 				{
-					animator.SetTrigger(anim_land);
-					EventManager.OnCharEvent(GameEvent.Land);
+					//animator.SetTrigger(anim_land);
+					if (charState.IsFalling())
+					{
+						animator.SetTrigger(anim_land);
+						EventManager.OnCharEvent(GameEvent.Land);
+					}
+					else
+					{
+						animator.SetTrigger(anim_Idle);
+						print("Triggered idle animation from Landing Controller");
+					}
 				}				
 			}
 		}
