@@ -430,6 +430,7 @@ ModelImporter:
     100844: CliffGround 13
     100846: CliffWall 14
     100848: CurvedCliff
+    100850: Cliff9
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -855,6 +856,7 @@ ModelImporter:
     400844: CliffGround 13
     400846: CliffWall 14
     400848: CurvedCliff
+    400850: Cliff9
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body

@@ -134,7 +134,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 0.69
+  m_BounceIntensity: 0.86
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -370,7 +370,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400598, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
       propertyPath: m_RootOrder
@@ -388,97 +388,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 400104, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.116626434
+      objectReference: {fileID: 0}
+    - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99317586
+      objectReference: {fileID: 0}
+    - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.244301
+      objectReference: {fileID: 0}
+    - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42620498
+      objectReference: {fileID: 0}
+    - target: {fileID: 400596, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.9390426
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &1287790206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1287790210}
-  - 33: {fileID: 1287790209}
-  - 65: {fileID: 1287790208}
-  - 23: {fileID: 1287790207}
-  - 114: {fileID: 1287790211}
-  m_Layer: 12
-  m_Name: PhysicMatJumper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &1287790207
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1287790206}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!65 &1287790208
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1287790206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1287790209
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1287790206}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1287790210
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1287790206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.009999594, y: 0.48133326, z: 0.203}
-  m_LocalScale: {x: 0.3279705, y: 0.8058851, z: 0.28908345}
-  m_Children: []
-  m_Father: {fileID: 1161013959}
-  m_RootOrder: 4
---- !u!114 &1287790211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1287790206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb37e0d0642f4c758268f6f1a880c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliding: 0
 --- !u!1 &1445707027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,12 +2180,20 @@ Prefab:
     - target: {fileID: 11496754, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: jumperCollider
       value: 
-      objectReference: {fileID: 1287790211}
+      objectReference: {fileID: 0}
     - target: {fileID: 11496754, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: wallMaterial
       value: 
       objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
         type: 2}
+    - target: {fileID: 5425442, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488752, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: doubleJumpForce
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b03c81a81aec841318ae68547e046e20, type: 2}
   m_IsPrefabParent: 0
