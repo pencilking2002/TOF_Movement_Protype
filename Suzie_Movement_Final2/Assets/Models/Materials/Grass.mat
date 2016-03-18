@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Grass
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: 3e3093d2c3fb57f4483a13f48685e76c, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_SPEC_TOON _NORMALMAP
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -91,6 +98,10 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
+      data:
+        first:
+          name: _Shininess
+        second: 0.06
       data:
         first:
           name: _Parallax
@@ -127,6 +138,38 @@ Material:
         first:
           name: _Metallic
         second: 0.055
+      data:
+        first:
+          name: _RampThreshold
+        second: 0.5
+      data:
+        first:
+          name: _RampSmooth
+        second: 0.1
+      data:
+        first:
+          name: _Outline
+        second: 2
+      data:
+        first:
+          name: _TexLod
+        second: 5
+      data:
+        first:
+          name: _ZSmooth
+        second: -0.5
+      data:
+        first:
+          name: _Offset1
+        second: 0
+      data:
+        first:
+          name: _Offset2
+        second: 0
+      data:
+        first:
+          name: _SpecSmooth
+        second: 0.239
     m_Colors:
       data:
         first:
@@ -136,3 +179,19 @@ Material:
         first:
           name: _Color
         second: {r: 0.862069, g: 1, b: 0, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.066176474, g: 0.066176474, b: 0.066176474, a: 1}
+      data:
+        first:
+          name: _HColor
+        second: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}

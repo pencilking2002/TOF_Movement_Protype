@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: diffuse
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 3e3093d2c3fb57f4483a13f48685e76c, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_RAMPTEXT TCP2_SPEC_TOON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 38d03a1d433984488bbc6ff250dc1c8e, type: 3}
+          m_Texture: {fileID: 2800000, guid: f400f66635b0a49edbe09b6040ec4c96, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 60acec59a43164fe0b89a7a6f3de1dba, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 2800000, guid: e932c54d6500f9c46b63c4d9d03387d2, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -91,6 +98,10 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
+      data:
+        first:
+          name: _Shininess
+        second: 0.02
       data:
         first:
           name: _Parallax
@@ -127,6 +138,38 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _RampThreshold
+        second: 0.5
+      data:
+        first:
+          name: _RampSmooth
+        second: 0.1
+      data:
+        first:
+          name: _Outline
+        second: 2
+      data:
+        first:
+          name: _TexLod
+        second: 5
+      data:
+        first:
+          name: _ZSmooth
+        second: -0.5
+      data:
+        first:
+          name: _Offset1
+        second: 0
+      data:
+        first:
+          name: _Offset2
+        second: 0
+      data:
+        first:
+          name: _SpecSmooth
+        second: 0.677
     m_Colors:
       data:
         first:
@@ -135,4 +178,20 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.8455882, g: 0.8455882, b: 0.8455882, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 1}
+      data:
+        first:
+          name: _HColor
+        second: {r: 0.74264705, g: 0.5952098, b: 0.5952098, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0.1544118, g: 0.11694422, b: 0.11694422, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
