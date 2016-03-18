@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: oceanShader1
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_Shader: {fileID: 4800000, guid: 8121e327af2c14c82b0efb25af382224, type: 3}
+  m_ShaderKeywords: TCP2_RIM TCP2_SPEC_TOON _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Transparent
   m_SavedProperties:
@@ -22,12 +22,12 @@ Material:
         second:
           m_Texture: {fileID: 2800000, guid: 3a3df0a6e214841bdba628d9f7dffba8, type: 3}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0.8103156}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 1bc8fcc4fe2ee4e66a8b351fd75f4458, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -79,6 +79,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -92,6 +99,10 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
+      data:
+        first:
+          name: _Shininess
+        second: 0.15
       data:
         first:
           name: _Parallax
@@ -128,6 +139,26 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _RampThreshold
+        second: 0.5
+      data:
+        first:
+          name: _RampSmooth
+        second: 0.1
+      data:
+        first:
+          name: _SpecSmooth
+        second: 1
+      data:
+        first:
+          name: _RimMin
+        second: 0.5
+      data:
+        first:
+          name: _RimMax
+        second: 1
     m_Colors:
       data:
         first:
@@ -136,4 +167,24 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 0.834}
+        second: {r: 1, g: 1, b: 1, a: 0.709}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.45588237, g: 0.33640975, b: 0.22794119, a: 1}
+      data:
+        first:
+          name: _HColor
+        second: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
+      data:
+        first:
+          name: _RimDir
+        second: {r: 0, g: 0, b: 1, a: 0}

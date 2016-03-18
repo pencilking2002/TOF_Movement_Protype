@@ -7,10 +7,11 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: cystal
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
+  m_Shader: {fileID: 4800000, guid: f11440b9eedba46f494f4f3fafe0fc28, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_MCMASK TCP2_RAMPTEXT TCP2_RIM TCP2_SPEC_TOON _ALPHABLEND_ON
+    _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Transparent
   m_SavedProperties:
@@ -79,6 +80,20 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 2800000, guid: 7fe85df733e76164b912c7ade9e31f71, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MatCap
+        second:
+          m_Texture: {fileID: 2800000, guid: 2c29c08dd1c0b6749b7cd0fcff7a29fd, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -92,6 +107,10 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
+      data:
+        first:
+          name: _Shininess
+        second: 0.12
       data:
         first:
           name: _Parallax
@@ -128,6 +147,46 @@ Material:
         first:
           name: _Metallic
         second: 0.634
+      data:
+        first:
+          name: _RampThreshold
+        second: 0.727
+      data:
+        first:
+          name: _RampSmooth
+        second: 0.168
+      data:
+        first:
+          name: _Outline
+        second: 2
+      data:
+        first:
+          name: _TexLod
+        second: 5
+      data:
+        first:
+          name: _ZSmooth
+        second: -0.5
+      data:
+        first:
+          name: _Offset1
+        second: 0
+      data:
+        first:
+          name: _Offset2
+        second: 0
+      data:
+        first:
+          name: _SpecSmooth
+        second: 1
+      data:
+        first:
+          name: _RimMin
+        second: 0.447
+      data:
+        first:
+          name: _RimMax
+        second: 0.942
     m_Colors:
       data:
         first:
@@ -136,4 +195,28 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0.2720003, b: 1, a: 0.903}
+        second: {r: 0.5142069, g: 0, b: 1, a: 0.903}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.9117647, g: 0.5330032, b: 0.053633217, a: 1}
+      data:
+        first:
+          name: _HColor
+        second: {r: 0.5955882, g: 0.5955882, b: 0.5955882, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 0.625, g: 0.625, b: 0.625, a: 0.878}
+      data:
+        first:
+          name: _RimDir
+        second: {r: 0, g: 0, b: 1, a: 0}
