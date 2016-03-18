@@ -174,11 +174,11 @@ Material:
       data:
         first:
           name: _HColor
-        second: {r: 0.8014706, g: 0.747985, b: 0.5244918, a: 1}
+        second: {r: 0.9191176, g: 0.9191176, b: 0.9191176, a: 1}
       data:
         first:
           name: _SColor
-        second: {r: 0.5441177, g: 0.44809693, b: 0.44809693, a: 1}
+        second: {r: 0.20588237, g: 0.11505191, b: 0.11505191, a: 1}
       data:
         first:
           name: _OutlineColor
