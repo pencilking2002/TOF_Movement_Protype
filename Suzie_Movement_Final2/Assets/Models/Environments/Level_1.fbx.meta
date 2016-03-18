@@ -431,6 +431,13 @@ ModelImporter:
     100846: CliffWall 14
     100848: CurvedCliff
     100850: Cliff9
+    100852: Level
+    100854: polySurface983
+    100856: polySurface984
+    100858: Root1 1
+    100860: transform198
+    100862: transform199
+    100864: transform200
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -857,6 +864,13 @@ ModelImporter:
     400846: CliffWall 14
     400848: CurvedCliff
     400850: Cliff9
+    400852: Level
+    400854: polySurface983
+    400856: polySurface984
+    400858: Root1 1
+    400860: transform198
+    400862: transform199
+    400864: transform200
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1165,6 +1179,7 @@ ModelImporter:
     2300610: WaterRocks
     2300612: CliffGround 13
     2300614: CliffWall 14
+    2300616: polySurface984
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -1473,6 +1488,7 @@ ModelImporter:
     3300610: WaterRocks
     3300612: CliffGround 13
     3300614: CliffWall 14
+    3300616: polySurface984
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -1781,6 +1797,7 @@ ModelImporter:
     4300610: GroundPlane
     4300612: CliffGround
     4300614: CliffWall
+    4300616: polySurface984
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -2089,6 +2106,7 @@ ModelImporter:
     6400610: WaterRocks
     6400612: CliffGround 13
     6400614: CliffWall 14
+    6400616: polySurface984
   materials:
     importMaterials: 1
     materialName: 0
