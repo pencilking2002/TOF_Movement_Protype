@@ -50,7 +50,9 @@ public enum GameEvent
 	LandedFirstTime,
 	CamZoomedIn,
 	WallClimbColliderDetected,
-	EnterIdle
+	EnterIdle,
+	EnterTunnel,
+	ExitTunnel
 	
 }
 

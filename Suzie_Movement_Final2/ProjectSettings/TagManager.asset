@@ -41,8 +41,8 @@ TagManager:
   - EdgeClimbColliders
   - WallClimbColliders
   - IgnoreCamRaycasting
-  - 
-  - 
+  - TunnelColliders
+  - TunnelObserver
   - 
   - 
   - 

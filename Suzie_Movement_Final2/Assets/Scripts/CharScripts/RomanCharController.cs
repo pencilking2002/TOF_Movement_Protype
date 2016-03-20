@@ -10,7 +10,6 @@ public class RomanCharController : MonoBehaviour {
 	|----------------------------------------------------------*/
 
 	// movement
-
 	public float walkToRunDampTime = 1f;				// Damping to control how the speed of the "Locomotion" blend tree
 	public float runRotateSpeed = 10f;
 	public float stopRunningSmoothingSpeed = 2.5f;		// Speed to control how fast the character slides after they stop running
@@ -31,14 +30,13 @@ public class RomanCharController : MonoBehaviour {
 	private Transform cam;
 	private CharacterController cController;
 	private CapsuleCollider cCollider;
+	[HideInInspector]
+	public TunnelObserver tunnelObserver;
 		
-	public bool inTube = false;
+	//public bool inTube = false;
 
 	// Character rotation -------------
 	private Vector3 camForward;
-
-
-
 	private VineClimbController2 vineClimbCollider;
 
 	// Animator hashes - for optimization
@@ -70,6 +68,7 @@ public class RomanCharController : MonoBehaviour {
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
 		vineClimbCollider = GetComponent<VineClimbController2>();
+		tunnelObserver = GetComponent<TunnelObserver>();
 	}
 
 
@@ -104,10 +103,10 @@ public class RomanCharController : MonoBehaviour {
 		}
 
 		// Stop sprinting
-		if (charState.IsSprinting() && speed == 0 && !inTube)
+		if (charState.IsSprinting() && speed == 0 && !tunnelObserver.inTunnel)
 		{
 			print("Get out of sprint mode");
-			//animator.SetBool(anim_sprintModDown, false);
+			animator.SetBool(anim_sprintModDown, false);
 		}
 
 		//print (speed);
@@ -193,7 +192,7 @@ public class RomanCharController : MonoBehaviour {
 
 	private void SprintModifierUp(GameEvent gEvent)
 	{
-		if (/*(charState.IsSprinting() || charState.IsSprintJumping()) && */gEvent == GameEvent.SprintModifierUp && !inTube)
+		if (/*(charState.IsSprinting() || charState.IsSprintJumping()) && */gEvent == GameEvent.SprintModifierUp && !tunnelObserver.inTunnel)
 		{
 			animator.SetBool(anim_sprintModDown, false);
 			print("sprint mod UP");
@@ -283,19 +282,28 @@ public class RomanCharController : MonoBehaviour {
 	| UNITY EVENTS							                    |
 	|----------------------------------------------------------*/	
 
-	// Happens while character stays in a tube
-	private void OnTriggerStay(Collider col)
-	{
-		if (col.CompareTag("Tube") && charState.IsSprinting())
-			inTube = true;
-	}
-
-	// Tube exit trigger
-	private void OnTriggerExit(Collider col)
-	{
-		if (col.CompareTag("Tube") && charState.IsSprinting())
-			inTube = false;
-	}
+//	private void OnTriggerEnter(Collider col)
+//	{
+//		if (col.gameObject.layer == 13)
+//			EventManager.OnCharEvent(GameEvent.EnterTunnel);
+//	}
+//
+//	// Happens while character stays in a tube
+//	private void OnTriggerStay(Collider col)
+//	{
+//		if (col.gameObject.layer == 13)
+//			inTube = true;
+//	}
+//
+//	// Tube exit trigger
+//	private void OnTriggerExit(Collider col)
+//	{
+//		if (col.gameObject.layer == 13)
+//		{
+//			inTube = false;
+//			EventManager.OnCharEvent(GameEvent.ExitTunnel);
+//		}
+//	}
 
 
 	// Trigger the falling animation when the character "falls" of an edge

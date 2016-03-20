@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	private Transform currentChar;
 	private VineClimbController2 vineClimbCollider;
 	private RomanCharController charController;
+	public TunnelObserver tunnelObserver;
 
 	private int[] yPos = new int[]
 	{
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour {
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
+		tunnelObserver = charController.tunnelObserver;
 		//cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
 
 		// Get the character that is selected
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());
 			GUI.Button(new Rect(Screen.width - 150, yPos[1], 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
-			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + charController.inTube);
+			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + tunnelObserver.inTunnel);
 			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "H: " + InputController.h);
 			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
 			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.colliding);

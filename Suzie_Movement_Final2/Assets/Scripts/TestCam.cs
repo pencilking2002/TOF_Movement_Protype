@@ -18,13 +18,21 @@ public class TestCam : MonoBehaviour
 	public float maxClimbRotSpeed = 20.0f;
 	public float rotateDamping = 3.0f;
 	public float transThreshold = 0.02f;
+
 	// Collision
 	public float collisionSpeed = 15.0f;				
 	public float collisionToMoveSpeedDamping = 40.0f;	    // Amount of damping to apply when SmoothDamping the speed while exiting a collision
 	public float collisionRaycastYOffset = 5.0f;			// How far up from should the collision raycast be offset from the player's y position
 
 	public Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
+
+	[Header("Tunnel")]
+	public Vector3 zTunnelOffset = new Vector3(0, -1.0f, -2.5f);
+	public float tunnelDamping = 2.0f;
+
+	private Vector3 tunnelVel;
 	private Vector3 startingPos;							// Position of the camera at the start of the game
+	private TunnelObserver tunnelObserver;
 
 	//Rotation
 	private float xSpeed;
@@ -60,21 +68,23 @@ public class TestCam : MonoBehaviour
 	//Collision
 	private float _moveLerpSpeed = 40.0f;					// Original move lerp speed that we will use to set the public lerp speed to
 	private Vector3 collisionVel;
-	private float moveSmoothVel;						
+	private float moveSmoothVel;
+	private Vector3 collideDamp;
 
 	public enum CamState
 	{
 		ZoomIn,
 		Free,
 		ClimbingTransition,
-		ClimbCam
+		ClimbCam,
+		CloseBehindTransition
 	}
 	
 	[HideInInspector]
 	public CamState state;
 
 	// Ignore ground/player layers
-	private int layerMask = ~((1 << 8) | (1 << 9));
+	private int layerMask = ~((1 << 8) | (1 << 9) | (1 << 14));
 	[HideInInspector] 
 	public bool colliding = false;
 
@@ -100,6 +110,7 @@ public class TestCam : MonoBehaviour
 		startingPos.y += offset.y + 2;
 
 		transform.position = startingPos;
+		tunnelObserver = GameManager.Instance.tunnelObserver;
 	}
 
 	private void LateUpdate()
@@ -145,6 +156,17 @@ public class TestCam : MonoBehaviour
 				{
 					SetState(CamState.ClimbCam);
 				}
+
+				break;
+
+			case CamState.CloseBehindTransition:
+
+				Vector3 direction = (transform.position - follow.position).normalized * 2.5f;
+				targetPos = follow.position + direction;
+				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref tunnelVel, 0.5f);
+				transform.LookAt(follow);
+
+				//CollideCameraLog();
 
 				break;
 
@@ -201,6 +223,7 @@ public class TestCam : MonoBehaviour
 			//targetPos = targetPos + hit.normal * 0.1f;
 
 			transform.position = Vector3.Lerp(transform.position, targetPos, collisionSpeed * Time.deltaTime);
+			//transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref collideDamp, 4f);
 			moveSpeed = collisionSpeed;
 			offset.z = Vector3.Distance(transform.position, follow.position);
 			colliding = true;
@@ -221,12 +244,23 @@ public class TestCam : MonoBehaviour
 	/// </summary>
 	private void RotateCamera()
 	{
-		// Get the min/max positions the camera should not exceed
-		currentMinY = follow.position.y - offset.y;
-		currentMaxY = follow.position.y + offset.y;
+//		if (GameManager.Instance.tunnelObserver.inTunnel)
+//		{
+			currentMinY = follow.position.y - offset.y;
+			currentMaxY = follow.position.y + offset.y;
+//			print("cam:in tunnel");
+//		}
+//		else
+//		{
+			// Get the min/max positions the camera should not exceed
+			//currentMinY = follow.position.y - 0.0f;
+			//currentMaxY = follow.position.y + 0.0f;
+
+//		}
 
 		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
+		
 
 		// limit the mouse's Y posiiton. Make sure to invert the Y
 		ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
@@ -327,11 +361,20 @@ public class TestCam : MonoBehaviour
 	private void SetCameraMode (GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.StartEdgeClimbing || gEvent == GameEvent.StartVineClimbing)
+		{
 			SetState(CamState.ClimbingTransition);
-		
+		}
 		else if (gEvent == GameEvent.StopEdgeClimbing || gEvent == GameEvent.StopVineClimbing)
 		{
-			//print("Cam: stop edge climbing");
+			SetState(CamState.Free);
+		}
+		else if (gEvent == GameEvent.EnterTunnel)
+		{
+			print("cam: enter tunnel");
+			SetState(CamState.CloseBehindTransition);
+		}
+		else if (gEvent == GameEvent.ExitTunnel)
+		{
 			SetState(CamState.Free);
 		}
 	}

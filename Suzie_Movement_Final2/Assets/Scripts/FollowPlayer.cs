@@ -49,9 +49,16 @@ public class FollowPlayer : MonoBehaviour {
 //		{
 //			targetPos.y = transform.position.y;
 //		}
-		if (charState.IsClimbing())
+		if (GameManager.Instance.tunnelObserver.inTunnel)
 		{
-			_damping = Mathf.Lerp(0.2f, climbDamping, 10.0f * Time.deltaTime);
+			targetPos = player.position;
+			targetPos.y += 1.1f;
+			_damping = Mathf.Lerp(0.2f, climbDamping, 2);
+		}
+
+		else if (charState.IsClimbing())
+		{
+			_damping = Mathf.Lerp(0.2f, climbDamping, 2);
 			//_damping = climbDamping;
 		}
 		else
