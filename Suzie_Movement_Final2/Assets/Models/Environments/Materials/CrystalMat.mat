@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: cystal
+  m_Name: CrystalMat
   m_Shader: {fileID: 4800000, guid: f11440b9eedba46f494f4f3fafe0fc28, type: 3}
   m_ShaderKeywords: OUTLINES TCP2_MC TCP2_RIM TCP2_SPEC_TOON TCP2_ZSMOOTH_ON _ALPHABLEND_ON
     _EMISSION
@@ -34,6 +34,13 @@ Material:
       data:
         first:
           name: _DetailNormalMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -75,13 +82,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _Ramp
         second:
           m_Texture: {fileID: 2800000, guid: a54a836f027df3f4a8d894236589b700, type: 3}
@@ -113,10 +113,6 @@ Material:
         second: 0.22
       data:
         first:
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
           name: _ZWrite
         second: 1
       data:
@@ -125,8 +121,16 @@ Material:
         second: 0.542
       data:
         first:
+          name: _Metallic
+        second: 0.634
+      data:
+        first:
           name: _BumpScale
         second: 1
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
       data:
         first:
           name: _OcclusionStrength
@@ -143,10 +147,6 @@ Material:
         first:
           name: _Mode
         second: 2
-      data:
-        first:
-          name: _Metallic
-        second: 0.634
       data:
         first:
           name: _RampThreshold
