@@ -6,7 +6,7 @@ using System.Collections;
 public class TestCam : MonoBehaviour 
 {
 	// Movement
-	public Vector3 offset = new Vector3(0, 2, 5);
+	//public Vector3 offset = new Vector3(0, 2, 5);
 	public float climbXClampThreshold = 0.7f;				// Used to limit the rotation around the Y axis during climbing
 	public float moveSpeed = 40.0f;
 	public float zoomInSpeed = 6.0f;						// Speed of camera zoom in at the beginning of the scene
@@ -95,7 +95,7 @@ public class TestCam : MonoBehaviour
 
 	//movement -------------------
 	private Transform target;
-	public Vector3 targetPosOffset = new Vector3(0, 3.4f, 0);
+	public Vector3 targetYPosOffset = new Vector3(0, 3.4f, 0);
 	public float distanceFromtarget = -8;
 	public float lookSmooth = 100f;
 	public float zoomSmooth = 100;
@@ -107,13 +107,14 @@ public class TestCam : MonoBehaviour
 	// Orbit settings -------------------
 	public float xRotation = -20;
 	public float yRotation = -180;
+
+	// TODO: reverse the names of max/min
 	public float maxXRotation = 25;
 	public float minXRotation = -85;
 	public float vOrbitSmooth = 150;
 	public float hOrbitSmooth = 150;
 	private float vOrbitInput;
 	private float hOrbitInput;
-	private bool hOrbitSnapInput;
 	private float zoomInput;
 
 	public Quaternion targetRotation;
@@ -126,24 +127,9 @@ public class TestCam : MonoBehaviour
 
 	private void Start ()
 	{
+		SetState(CamState.Free);
 		SetTarget(follow);
-
-		// Record the private _moveLerpSpeed so we have the original value
-		// We'll use it later as we transition out of a collision to regular mode
-		_moveLerpSpeed = moveSpeed;
-		_zOffset = offset.z;
-
-		//follow = GameObject.FindGameObjectWithTag("Follow").transform;
-		//player = GameObject.FindGameObjectWithTag("Player").transform;
-
-		// Starting camera state and position
-		state = CamState.Free;
-		startingPos = follow.position + follow.forward * (-offset.z - 2);
-		startingPos.y += offset.y + 2;
-
-		transform.position = startingPos;
 		tunnelObserver = GameManager.Instance.tunnelObserver;
-
 		MoveToTarget();
 	}
 
@@ -155,26 +141,22 @@ public class TestCam : MonoBehaviour
 
 				MoveToTarget();
 				LookAtTarget();
-				//MoveCamera();
-
 				//CollideCamera();
 
-				//RotateCamera();
-					
 				break;
 
 			case CamState.ClimbCam:
 
 				ClimbMoveCamera();
 
-				rightDir = follow.right * -offset.z;
+				rightDir = follow.right * distanceFromtarget;
 				//backwardsDir = follow.forward * -offset.z; // get rid of this?
 				camDir = transform.position - follow.position;
 				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 		
 //				Debug.DrawRay(follow.position, rightDir, Color.green);
 //				Debug.DrawRay(follow.position, camDir, Color.red);
-				CollideCamera();
+				//CollideCamera();
 
 				ClimbRotateCamera();
 
@@ -183,7 +165,7 @@ public class TestCam : MonoBehaviour
 			case CamState.ClimbingTransition:
 
 				//ClimbMoveCamera();
-				targetPos = follow.position + follow.forward * -offset.z;
+				targetPos = follow.position + follow.forward * distanceFromtarget;
 				transform.position = Vector3.Lerp(transform.position, targetPos, 8.0f * Time.deltaTime);
 
 				transform.LookAt(follow);
@@ -208,7 +190,7 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ZoomIn:
 
-				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
+				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * distanceFromtarget;
 				targetPos.y = follow.position.y + 1;
 				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref zoomVel, 25.0f * Time.deltaTime);
 
@@ -237,19 +219,17 @@ public class TestCam : MonoBehaviour
 		target = t;
 	}
 
-
 	private void GetInput ()
 	{
 		vOrbitInput = Mathf.Clamp(InputController.orbitV, -1, 1);
 		hOrbitInput = Mathf.Clamp(InputController.orbitH, -1, 1);
-		hOrbitSnapInput = Input.GetKey(KeyCode.G);
 		zoomInput = Input.GetAxisRaw("Mouse ScrollWheel");
 	}
 
 	private void MoveToTarget()
 	{
 		// Set targetPos to be a bit above the player
-		targetPos = target.position + targetPosOffset;
+		targetPos = target.position + targetYPosOffset;
 
 		//Set destination to equal a rotation (based on input) and multiply that to go behind the target's forward
 		destination = Quaternion.Euler(xRotation, yRotation, 0) * -Vector3.forward * distanceFromtarget;
@@ -264,131 +244,46 @@ public class TestCam : MonoBehaviour
 
 	private void LookAtTarget ()
 	{
-		targetRotation = Quaternion.LookRotation(targetPos - transform.position);
-		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lookSmooth * Time.deltaTime);
+//		targetRotation = Quaternion.LookRotation(targetPos - transform.position);
+//		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lookSmooth * Time.deltaTime);
+		transform.LookAt(target);
 	}
 
 	private void OrbitTarget()
 	{
-		if (hOrbitSnapInput)
+		if (Input.GetKeyDown(KeyCode.G))
 		{
-			//print ("snap");
+			// TODO: Turn this into a lerp later
 			yRotation = 180;
 		}
-
-		xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
-		yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
-
-		if (xRotation > maxXRotation)
+		else
 		{
-			xRotation = maxXRotation;
+			xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
+			yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
+
+			if (xRotation > maxXRotation)
+				xRotation = maxXRotation;
+			
+			else if (xRotation < minXRotation)
+				xRotation = minXRotation;
 		}
-		if (xRotation < minXRotation)
-		{
-			xRotation = minXRotation;
-		}
+		
 
 	}
 
 	void ZoomInOnTarget()
 	{
+		distanceFromtarget += zoomInput * zoomSmooth * Time.deltaTime;
 
+		if (distanceFromtarget > maxZoom)
+			distanceFromtarget = maxZoom;
+
+		else if (distanceFromtarget < minZoom)
+			distanceFromtarget = minZoom;
 	}
 
 	//END  TUT ----------------------
 
-	/// <summary>
-	/// When the camera isn't colliding with anything
-	/// Use a SmoothDamp to animate the moveLerpSpeed. 
-	/// We do this because while colliding camera moves at a slower pace
-	/// Because of this when we exit the collision there is a quick jump in speed the camera makes because the lerp speed goes
-	/// back to the regular move lerp speed. With this method we can smooth that out.
-	/// </summary>
-	private void MoveCamera()
-	{
-		// Make the camera follow the Follow GO like its a string attached to it
-		if (!colliding)
-		{ 
-			moveSpeed = Mathf.SmoothDamp(moveSpeed, _moveLerpSpeed, ref moveSmoothVel, collisionToMoveSpeedDamping * Time.deltaTime);
-			offset.z = Mathf.SmoothDamp(offset.z, _zOffset, ref zOffsetVel, zOffsetDamping * Time.deltaTime);
-			targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
-			transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
-		}
-	}
-
-	private void CollideCamera ()
-	{
-		origin = player.position + Vector3.up;
-		Vector3 direction = new Vector3(transform.position.x, origin.y + collisionRaycastYOffset, transform.position.z) - origin;
-		direction = direction.normalized;
-
-		Debug.DrawRay(origin, direction * 5, Color.red);
-		//Debug.Break();
-
-		// TODO when camera LERPs up, the raycast doesn't hit anything and that's why its jittery
-		if (Physics.Raycast(origin, direction * 5, out hit, 5, layerMask))
-		{
-			targetPos = new Vector3(hit.point.x, currentMaxY - 0.5f, hit.point.z);
-			//targetPos = targetPos + hit.normal * 0.1f;
-
-			transform.position = Vector3.Lerp(transform.position, targetPos, collisionSpeed * Time.deltaTime);
-			//transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref collideDamp, 4f);
-			moveSpeed = collisionSpeed;
-			offset.z = Vector3.Distance(transform.position, follow.position);
-			colliding = true;
-			//Debug.DrawLine(transform.position, hit.point, Color.black);
-		}
-		else
-		{
-			colliding = false;
-		}
-
-	}
-
-	/// <summary>
-	/// RotatePlayer()
-	/// Used to Rotate the camera around the player during LateUpdate.
-	/// We limit X axis rotation by making sure the camera is never too far below or above the follow
-	/// There is also collision code that has to be taken into account here
-	/// </summary>
-	private void RotateCamera()
-	{
-//		if (GameManager.Instance.tunnelObserver.inTunnel)
-//		{
-			currentMinY = follow.position.y - offset.y;
-			currentMaxY = follow.position.y + offset.y;
-//			print("cam:in tunnel");
-//		}
-//		else
-//		{
-			// Get the min/max positions the camera should not exceed
-			//currentMinY = follow.position.y - 0.0f;
-			//currentMaxY = follow.position.y + 0.0f;
-
-//		}
-
-		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
-		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
-		
-
-		// limit the mouse's Y posiiton. Make sure to invert the Y
-		ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
-
-		// Handle camera going exceeding min and max positions
-		if (transform.position.y <= currentMinY - 0.1f)
-			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMinY, transform.position.z), 10.0f * Time.deltaTime);
-	
-		else if (transform.position.y >= currentMaxY + 0.1f)
-			transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
-
-		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
-		transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
-
-		transform.LookAt (follow);
-			 				
-		lastYSpeed = ySpeed;
-		lastXSpeed = xSpeed;
-	}
 
 	/// <summary>
 	/// The same MoveCamera() but with a higher Y value (so that the camer is more overhead)
@@ -398,7 +293,7 @@ public class TestCam : MonoBehaviour
 		if (colliding || InputController.h == 0)
 			return;
 
-		targetPos = follow.position + follow.forward * -offset.z;
+		targetPos = follow.position + follow.forward * distanceFromtarget;
 		transform.position = Vector3.Lerp(transform.position, targetPos, 3.0f * Time.deltaTime);
 		
 	}
@@ -413,8 +308,8 @@ public class TestCam : MonoBehaviour
 	private void ClimbRotateCamera()
 	{
 		// Get the min/max positions the camera should not exceed
-		currentMinY = follow.position.y - offset.y;
-		currentMaxY = follow.position.y + offset.y;
+		currentMinY = follow.position.y - targetYPosOffset.y;
+		currentMaxY = follow.position.y + targetYPosOffset.y;
 
 		xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
 		ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, mouseSpeedDamping * Time.deltaTime);
@@ -501,11 +396,11 @@ public class TestCam : MonoBehaviour
 		return state == CamState.ClimbingTransition;
 	}
 
-//	void OnDrawGizmos() 
-//	{
-//        Gizmos.color = Color.green;
-//		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMinY, transform.position.z), 0.2f);
-//
-//    }
+	void OnDrawGizmos() 
+	{
+        Gizmos.color = Color.green;
+		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMinY, transform.position.z), 0.2f);
+
+   }
 
 }

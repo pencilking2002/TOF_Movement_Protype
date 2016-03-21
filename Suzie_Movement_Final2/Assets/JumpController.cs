@@ -39,12 +39,11 @@ public class JumpController : MonoBehaviour {
 	public float maxDownwardForce = -6.0f;
 	public float downwardForceSpeed = 5.0f;
 
-
 	// PRIVATE vars -----------------------
 
 	private float jumpTriggerLimitTimer = 5f;
 	private float forwardSpeed; 					// Temp var for forward speed
-	private float lastJumpTime;
+	//private float lastJumpTime;
 	private float speed;							// Temp var for locomotion 
 	private Vector3 forwardVel;					    // Temp vector for calculating forward velocity while jumping
 	private float lerpedJumpForce;
@@ -184,6 +183,8 @@ public class JumpController : MonoBehaviour {
 		{				
 			EventManager.OnCharEvent(GameEvent.Jump);
 			InputController.jumpReleased = false;
+
+			//jumpTime = Time.time;
 
 			// Change the forward speed based on what kind of jump it is
 			if (charState.IsIdle())

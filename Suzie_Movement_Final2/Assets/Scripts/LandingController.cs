@@ -8,6 +8,8 @@ public class LandingController : MonoBehaviour {
 	| PRIVATE VARIABLES	             	                        |
 	|----------------------------------------------------------*/
 
+	public float lineLength = 0.2f;
+
 	private RomanCharState charState;
 	private Animator animator;
 	private Rigidbody rb;
@@ -19,6 +21,9 @@ public class LandingController : MonoBehaviour {
 
 	private int anim_land = Animator.StringToHash("Land");
 	private int anim_Idle = Animator.StringToHash("Idle");
+
+	[HideInInspector]
+	private float jumpTime = 0.0f;
 
 	/*----------------------------------------------------------|
 	| UNITY METHODS	      		    	                        |
@@ -66,28 +71,56 @@ public class LandingController : MonoBehaviour {
 		{
 			origin = transform.position + new Vector3(0, 0.2f, 0);
 			endPoint = origin;
-			endPoint.y -= 0.5f;
+			endPoint.y -= lineLength;
 
 			Debug.DrawLine(origin, endPoint, Color.red);
-
+			//Debug.Break();
 			if (Physics.Linecast(origin, endPoint, out hit))
 			{
-				if (rb.velocity.y <= 0)
-				{
+				//print(rb.GetRelativePointVelocity(hit.point));
+				//if (rb.velocity.y <= 0)
+				//{
 					//animator.SetTrigger(anim_land);
-					if (charState.IsFalling())
+					// TODO: Not checking the Y velocity fixes the prolongued langing bug but also makes
+					// brings another bug where the character immidiately goes into landing animation when 
+					// they jump
+
+					if (charState.IsFalling() && TimePassedSinceJump(0.2f))
 					{
 						animator.SetTrigger(anim_land);
 						EventManager.OnCharEvent(GameEvent.Land);
 					}
-					else
-					{
-						animator.SetTrigger(anim_Idle);
-						print("Triggered idle animation from Landing Controller");
-					}
-				}				
+//					else if (charState.IsLanding())
+//					{
+//						animator.SetTrigger(anim_Idle);
+//						print("Triggered idle animation from Landing Controller");
+//					}
+				//}
+								
 			}
 		}
+}
+
+	void OnEnable ()
+	{
+		EventManager.onCharEvent += RecordJumpTime;
+	}
+	void OnDisable()
+	{
+		EventManager.onCharEvent -= RecordJumpTime;
+	}
+
+	void RecordJumpTime(GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.Jump)
+		{
+			jumpTime = Time.time;
+		}
+	}
+
+	bool TimePassedSinceJump(float t)
+	{
+		return Time.time > jumpTime + t;
 	}
 
 	/// <summary>
