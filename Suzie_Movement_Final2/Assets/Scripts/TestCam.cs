@@ -51,7 +51,6 @@ public class TestCam : MonoBehaviour
 
 	//private Vector3 vel;
 	//private Movement
-	private Vector3 targetPos;
 	private float zOffsetVel;
 	private float _zOffset;	
 													// Keep track of original z offset
@@ -92,10 +91,43 @@ public class TestCam : MonoBehaviour
 	private RaycastHit hit;
 	private Vector3 vel;
 
+	// TUT ----------------------------
+
+	//movement -------------------
+	private Transform target;
+	public Vector3 targetPosOffset = new Vector3(0, 3.4f, 0);
+	public float distanceFromtarget = -8;
+	public float lookSmooth = 100f;
+	public float zoomSmooth = 100;
+
+	// Zooming -------------------
+	public float maxZoom = -2;
+	public float minZoom = -15;
+
+	// Orbit settings -------------------
+	public float xRotation = -20;
+	public float yRotation = -180;
+	public float maxXRotation = 25;
+	public float minXRotation = -85;
+	public float vOrbitSmooth = 150;
+	public float hOrbitSmooth = 150;
+	private float vOrbitInput;
+	private float hOrbitInput;
+	private bool hOrbitSnapInput;
+	private float zoomInput;
+
+	public Quaternion targetRotation;
+
+	private Vector3 targetPos = Vector3.zero;
+	private Vector3 destination = Vector3.zero;
+	private RomanCharController charController;
+
 	private void Awake () {}
 
 	private void Start ()
 	{
+		SetTarget(follow);
+
 		// Record the private _moveLerpSpeed so we have the original value
 		// We'll use it later as we transition out of a collision to regular mode
 		_moveLerpSpeed = moveSpeed;
@@ -111,6 +143,8 @@ public class TestCam : MonoBehaviour
 
 		transform.position = startingPos;
 		tunnelObserver = GameManager.Instance.tunnelObserver;
+
+		MoveToTarget();
 	}
 
 	private void LateUpdate()
@@ -119,11 +153,13 @@ public class TestCam : MonoBehaviour
 		{
 			case CamState.Free:
 
-				MoveCamera();
+				MoveToTarget();
+				LookAtTarget();
+				//MoveCamera();
 
-				CollideCamera();
+				//CollideCamera();
 
-				RotateCamera();
+				//RotateCamera();
 					
 				break;
 
@@ -187,6 +223,79 @@ public class TestCam : MonoBehaviour
 
 		}
 	}
+	// TUT ----------------------
+
+	private void Update ()
+	{
+		GetInput();
+		OrbitTarget();
+		ZoomInOnTarget();
+	}
+
+	private void SetTarget(Transform t)
+	{
+		target = t;
+	}
+
+
+	private void GetInput ()
+	{
+		vOrbitInput = Mathf.Clamp(InputController.orbitV, -1, 1);
+		hOrbitInput = Mathf.Clamp(InputController.orbitH, -1, 1);
+		hOrbitSnapInput = Input.GetKey(KeyCode.G);
+		zoomInput = Input.GetAxisRaw("Mouse ScrollWheel");
+	}
+
+	private void MoveToTarget()
+	{
+		// Set targetPos to be a bit above the player
+		targetPos = target.position + targetPosOffset;
+
+		//Set destination to equal a rotation (based on input) and multiply that to go behind the target's forward
+		destination = Quaternion.Euler(xRotation, yRotation, 0) * -Vector3.forward * distanceFromtarget;
+
+		// Add the targetPos to the destination to place the camera a bit above the target
+		destination += targetPos;
+
+		// Finall set the position
+		transform.position = destination;
+	}
+
+
+	private void LookAtTarget ()
+	{
+		targetRotation = Quaternion.LookRotation(targetPos - transform.position);
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lookSmooth * Time.deltaTime);
+	}
+
+	private void OrbitTarget()
+	{
+		if (hOrbitSnapInput)
+		{
+			//print ("snap");
+			yRotation = 180;
+		}
+
+		xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
+		yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
+
+		if (xRotation > maxXRotation)
+		{
+			xRotation = maxXRotation;
+		}
+		if (xRotation < minXRotation)
+		{
+			xRotation = minXRotation;
+		}
+
+	}
+
+	void ZoomInOnTarget()
+	{
+
+	}
+
+	//END  TUT ----------------------
 
 	/// <summary>
 	/// When the camera isn't colliding with anything

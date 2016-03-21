@@ -438,6 +438,166 @@ ModelImporter:
     100860: transform198
     100862: transform199
     100864: transform200
+    100866: Cliff10
+    100868: Cliff11
+    100870: CliffGround 14
+    100872: CliffGround 15
+    100874: CliffWall 15
+    100876: CliffWall 16
+    100878: Crystals57
+    100880: Crystals58
+    100882: Crystals59
+    100884: Crystals60
+    100886: Crystals61
+    100888: Crystals62
+    100890: Crystals63
+    100892: Crystals64
+    100894: Crystals65
+    100896: Crystals66
+    100898: Crystals67
+    100900: Crystals68
+    100902: Crystals69
+    100904: Crystals70
+    100906: Crystals71
+    100908: Crystals72
+    100910: Crystals73
+    100912: Crystals74
+    100914: Crystals75
+    100916: Crystals76
+    100918: Crystals77
+    100920: Crystals78
+    100922: Crystals79
+    100924: Crystals80
+    100926: Crystals81
+    100928: Crystals82
+    100930: Crystals83
+    100932: pCube1
+    100934: pCube1 1
+    100936: pCube2
+    100938: pCube2 1
+    100940: Plants21
+    100942: Plants22
+    100944: Platform17
+    100946: Platform18
+    100948: PlatformBottom 15
+    100950: PlatformBottom 16
+    100952: PlatformGround 10
+    100954: PlatformGround 11
+    100956: polySurface985
+    100958: polySurface986
+    100960: polySurface987
+    100962: polySurface987 1
+    100964: polySurface987 10
+    100966: polySurface987 11
+    100968: polySurface987 12
+    100970: polySurface987 13
+    100972: polySurface987 14
+    100974: polySurface987 2
+    100976: polySurface987 3
+    100978: polySurface987 4
+    100980: polySurface987 5
+    100982: polySurface987 6
+    100984: polySurface987 7
+    100986: polySurface987 8
+    100988: polySurface987 9
+    100990: polySurface988
+    100992: polySurface988 1
+    100994: polySurface988 10
+    100996: polySurface988 11
+    100998: polySurface988 12
+    101000: polySurface988 13
+    101002: polySurface988 14
+    101004: polySurface988 2
+    101006: polySurface988 3
+    101008: polySurface988 4
+    101010: polySurface988 5
+    101012: polySurface988 6
+    101014: polySurface988 7
+    101016: polySurface988 8
+    101018: polySurface988 9
+    101020: polySurface989
+    101022: polySurface989 1
+    101024: polySurface989 10
+    101026: polySurface989 11
+    101028: polySurface989 12
+    101030: polySurface989 13
+    101032: polySurface989 14
+    101034: polySurface989 2
+    101036: polySurface989 3
+    101038: polySurface989 4
+    101040: polySurface989 5
+    101042: polySurface989 6
+    101044: polySurface989 7
+    101046: polySurface989 8
+    101048: polySurface989 9
+    101050: polySurface990
+    101052: polySurface990 1
+    101054: polySurface990 10
+    101056: polySurface990 11
+    101058: polySurface990 12
+    101060: polySurface990 13
+    101062: polySurface990 14
+    101064: polySurface990 2
+    101066: polySurface990 3
+    101068: polySurface990 4
+    101070: polySurface990 5
+    101072: polySurface990 6
+    101074: polySurface990 7
+    101076: polySurface990 8
+    101078: polySurface990 9
+    101080: polySurface991
+    101082: polySurface991 1
+    101084: polySurface991 10
+    101086: polySurface991 11
+    101088: polySurface991 12
+    101090: polySurface991 13
+    101092: polySurface991 14
+    101094: polySurface991 2
+    101096: polySurface991 3
+    101098: polySurface991 4
+    101100: polySurface991 5
+    101102: polySurface991 6
+    101104: polySurface991 7
+    101106: polySurface991 8
+    101108: polySurface991 9
+    101110: polySurface992
+    101112: polySurface993
+    101114: polySurface994
+    101116: polySurface995
+    101118: polySurface996
+    101120: Rock 4
+    101122: Rocks10
+    101124: Rocks11
+    101126: Rocks12
+    101128: Rocks13
+    101130: Rocks14
+    101132: Rocks15
+    101134: Rocks16
+    101136: Rocks17
+    101138: Rocks18
+    101140: Rocks19
+    101142: Rocks20
+    101144: Rocks21
+    101146: Rocks22
+    101148: Rocks23
+    101150: Rocks24
+    101152: Rocks25
+    101154: Rocks26
+    101156: Rocks27
+    101158: Rocks28
+    101160: Rocks29
+    101162: Rocks3
+    101164: Rocks30
+    101166: Rocks4
+    101168: Rocks5
+    101170: Rocks6
+    101172: Rocks7
+    101174: Rocks8
+    101176: Rocks9
+    101178: sign
+    101180: sign2
+    101182: transform201
+    101184: transform202
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -871,6 +1031,166 @@ ModelImporter:
     400860: transform198
     400862: transform199
     400864: transform200
+    400866: Cliff10
+    400868: Cliff11
+    400870: CliffGround 14
+    400872: CliffGround 15
+    400874: CliffWall 15
+    400876: CliffWall 16
+    400878: Crystals57
+    400880: Crystals58
+    400882: Crystals59
+    400884: Crystals60
+    400886: Crystals61
+    400888: Crystals62
+    400890: Crystals63
+    400892: Crystals64
+    400894: Crystals65
+    400896: Crystals66
+    400898: Crystals67
+    400900: Crystals68
+    400902: Crystals69
+    400904: Crystals70
+    400906: Crystals71
+    400908: Crystals72
+    400910: Crystals73
+    400912: Crystals74
+    400914: Crystals75
+    400916: Crystals76
+    400918: Crystals77
+    400920: Crystals78
+    400922: Crystals79
+    400924: Crystals80
+    400926: Crystals81
+    400928: Crystals82
+    400930: Crystals83
+    400932: pCube1
+    400934: pCube1 1
+    400936: pCube2
+    400938: pCube2 1
+    400940: Plants21
+    400942: Plants22
+    400944: Platform17
+    400946: Platform18
+    400948: PlatformBottom 15
+    400950: PlatformBottom 16
+    400952: PlatformGround 10
+    400954: PlatformGround 11
+    400956: polySurface985
+    400958: polySurface986
+    400960: polySurface987
+    400962: polySurface987 1
+    400964: polySurface987 10
+    400966: polySurface987 11
+    400968: polySurface987 12
+    400970: polySurface987 13
+    400972: polySurface987 14
+    400974: polySurface987 2
+    400976: polySurface987 3
+    400978: polySurface987 4
+    400980: polySurface987 5
+    400982: polySurface987 6
+    400984: polySurface987 7
+    400986: polySurface987 8
+    400988: polySurface987 9
+    400990: polySurface988
+    400992: polySurface988 1
+    400994: polySurface988 10
+    400996: polySurface988 11
+    400998: polySurface988 12
+    401000: polySurface988 13
+    401002: polySurface988 14
+    401004: polySurface988 2
+    401006: polySurface988 3
+    401008: polySurface988 4
+    401010: polySurface988 5
+    401012: polySurface988 6
+    401014: polySurface988 7
+    401016: polySurface988 8
+    401018: polySurface988 9
+    401020: polySurface989
+    401022: polySurface989 1
+    401024: polySurface989 10
+    401026: polySurface989 11
+    401028: polySurface989 12
+    401030: polySurface989 13
+    401032: polySurface989 14
+    401034: polySurface989 2
+    401036: polySurface989 3
+    401038: polySurface989 4
+    401040: polySurface989 5
+    401042: polySurface989 6
+    401044: polySurface989 7
+    401046: polySurface989 8
+    401048: polySurface989 9
+    401050: polySurface990
+    401052: polySurface990 1
+    401054: polySurface990 10
+    401056: polySurface990 11
+    401058: polySurface990 12
+    401060: polySurface990 13
+    401062: polySurface990 14
+    401064: polySurface990 2
+    401066: polySurface990 3
+    401068: polySurface990 4
+    401070: polySurface990 5
+    401072: polySurface990 6
+    401074: polySurface990 7
+    401076: polySurface990 8
+    401078: polySurface990 9
+    401080: polySurface991
+    401082: polySurface991 1
+    401084: polySurface991 10
+    401086: polySurface991 11
+    401088: polySurface991 12
+    401090: polySurface991 13
+    401092: polySurface991 14
+    401094: polySurface991 2
+    401096: polySurface991 3
+    401098: polySurface991 4
+    401100: polySurface991 5
+    401102: polySurface991 6
+    401104: polySurface991 7
+    401106: polySurface991 8
+    401108: polySurface991 9
+    401110: polySurface992
+    401112: polySurface993
+    401114: polySurface994
+    401116: polySurface995
+    401118: polySurface996
+    401120: Rock 4
+    401122: Rocks10
+    401124: Rocks11
+    401126: Rocks12
+    401128: Rocks13
+    401130: Rocks14
+    401132: Rocks15
+    401134: Rocks16
+    401136: Rocks17
+    401138: Rocks18
+    401140: Rocks19
+    401142: Rocks20
+    401144: Rocks21
+    401146: Rocks22
+    401148: Rocks23
+    401150: Rocks24
+    401152: Rocks25
+    401154: Rocks26
+    401156: Rocks27
+    401158: Rocks28
+    401160: Rocks29
+    401162: Rocks3
+    401164: Rocks30
+    401166: Rocks4
+    401168: Rocks5
+    401170: Rocks6
+    401172: Rocks7
+    401174: Rocks8
+    401176: Rocks9
+    401178: sign
+    401180: sign2
+    401182: transform201
+    401184: transform202
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1180,6 +1500,141 @@ ModelImporter:
     2300612: CliffGround 13
     2300614: CliffWall 14
     2300616: polySurface984
+    2300618: CliffGround 14
+    2300620: CliffGround 15
+    2300622: CliffWall 15
+    2300624: CliffWall 16
+    2300626: Crystals74
+    2300628: Crystals75
+    2300630: Crystals76
+    2300632: Crystals77
+    2300634: Crystals78
+    2300636: Crystals79
+    2300638: Crystals80
+    2300640: Crystals81
+    2300642: Crystals82
+    2300644: Crystals83
+    2300646: pCube1
+    2300648: pCube1 1
+    2300650: pCube2
+    2300652: pCube2 1
+    2300654: Plants21
+    2300656: Plants22
+    2300658: PlatformBottom 15
+    2300660: PlatformBottom 16
+    2300662: PlatformGround 10
+    2300664: PlatformGround 11
+    2300666: polySurface985
+    2300668: polySurface986
+    2300670: polySurface987
+    2300672: polySurface987 1
+    2300674: polySurface987 10
+    2300676: polySurface987 11
+    2300678: polySurface987 12
+    2300680: polySurface987 13
+    2300682: polySurface987 14
+    2300684: polySurface987 2
+    2300686: polySurface987 3
+    2300688: polySurface987 4
+    2300690: polySurface987 5
+    2300692: polySurface987 6
+    2300694: polySurface987 7
+    2300696: polySurface987 8
+    2300698: polySurface987 9
+    2300700: polySurface988
+    2300702: polySurface988 1
+    2300704: polySurface988 10
+    2300706: polySurface988 11
+    2300708: polySurface988 12
+    2300710: polySurface988 13
+    2300712: polySurface988 14
+    2300714: polySurface988 2
+    2300716: polySurface988 3
+    2300718: polySurface988 4
+    2300720: polySurface988 5
+    2300722: polySurface988 6
+    2300724: polySurface988 7
+    2300726: polySurface988 8
+    2300728: polySurface988 9
+    2300730: polySurface989
+    2300732: polySurface989 1
+    2300734: polySurface989 10
+    2300736: polySurface989 11
+    2300738: polySurface989 12
+    2300740: polySurface989 13
+    2300742: polySurface989 14
+    2300744: polySurface989 2
+    2300746: polySurface989 3
+    2300748: polySurface989 4
+    2300750: polySurface989 5
+    2300752: polySurface989 6
+    2300754: polySurface989 7
+    2300756: polySurface989 8
+    2300758: polySurface989 9
+    2300760: polySurface990
+    2300762: polySurface990 1
+    2300764: polySurface990 10
+    2300766: polySurface990 11
+    2300768: polySurface990 12
+    2300770: polySurface990 13
+    2300772: polySurface990 14
+    2300774: polySurface990 2
+    2300776: polySurface990 3
+    2300778: polySurface990 4
+    2300780: polySurface990 5
+    2300782: polySurface990 6
+    2300784: polySurface990 7
+    2300786: polySurface990 8
+    2300788: polySurface990 9
+    2300790: polySurface991
+    2300792: polySurface991 1
+    2300794: polySurface991 10
+    2300796: polySurface991 11
+    2300798: polySurface991 12
+    2300800: polySurface991 13
+    2300802: polySurface991 14
+    2300804: polySurface991 2
+    2300806: polySurface991 3
+    2300808: polySurface991 4
+    2300810: polySurface991 5
+    2300812: polySurface991 6
+    2300814: polySurface991 7
+    2300816: polySurface991 8
+    2300818: polySurface991 9
+    2300820: polySurface992
+    2300822: polySurface993
+    2300824: polySurface994
+    2300826: polySurface995
+    2300828: polySurface996
+    2300830: Rock 4
+    2300832: Rocks10
+    2300834: Rocks11
+    2300836: Rocks12
+    2300838: Rocks13
+    2300840: Rocks14
+    2300842: Rocks15
+    2300844: Rocks16
+    2300846: Rocks17
+    2300848: Rocks18
+    2300850: Rocks19
+    2300852: Rocks20
+    2300854: Rocks21
+    2300856: Rocks22
+    2300858: Rocks23
+    2300860: Rocks24
+    2300862: Rocks25
+    2300864: Rocks26
+    2300866: Rocks27
+    2300868: Rocks28
+    2300870: Rocks29
+    2300872: Rocks3
+    2300874: Rocks30
+    2300876: Rocks4
+    2300878: Rocks5
+    2300880: Rocks6
+    2300882: Rocks7
+    2300884: Rocks8
+    2300886: Rocks9
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -1489,6 +1944,141 @@ ModelImporter:
     3300612: CliffGround 13
     3300614: CliffWall 14
     3300616: polySurface984
+    3300618: CliffGround 14
+    3300620: CliffGround 15
+    3300622: CliffWall 15
+    3300624: CliffWall 16
+    3300626: Crystals74
+    3300628: Crystals75
+    3300630: Crystals76
+    3300632: Crystals77
+    3300634: Crystals78
+    3300636: Crystals79
+    3300638: Crystals80
+    3300640: Crystals81
+    3300642: Crystals82
+    3300644: Crystals83
+    3300646: pCube1
+    3300648: pCube1 1
+    3300650: pCube2
+    3300652: pCube2 1
+    3300654: Plants21
+    3300656: Plants22
+    3300658: PlatformBottom 15
+    3300660: PlatformBottom 16
+    3300662: PlatformGround 10
+    3300664: PlatformGround 11
+    3300666: polySurface985
+    3300668: polySurface986
+    3300670: polySurface987
+    3300672: polySurface987 1
+    3300674: polySurface987 10
+    3300676: polySurface987 11
+    3300678: polySurface987 12
+    3300680: polySurface987 13
+    3300682: polySurface987 14
+    3300684: polySurface987 2
+    3300686: polySurface987 3
+    3300688: polySurface987 4
+    3300690: polySurface987 5
+    3300692: polySurface987 6
+    3300694: polySurface987 7
+    3300696: polySurface987 8
+    3300698: polySurface987 9
+    3300700: polySurface988
+    3300702: polySurface988 1
+    3300704: polySurface988 10
+    3300706: polySurface988 11
+    3300708: polySurface988 12
+    3300710: polySurface988 13
+    3300712: polySurface988 14
+    3300714: polySurface988 2
+    3300716: polySurface988 3
+    3300718: polySurface988 4
+    3300720: polySurface988 5
+    3300722: polySurface988 6
+    3300724: polySurface988 7
+    3300726: polySurface988 8
+    3300728: polySurface988 9
+    3300730: polySurface989
+    3300732: polySurface989 1
+    3300734: polySurface989 10
+    3300736: polySurface989 11
+    3300738: polySurface989 12
+    3300740: polySurface989 13
+    3300742: polySurface989 14
+    3300744: polySurface989 2
+    3300746: polySurface989 3
+    3300748: polySurface989 4
+    3300750: polySurface989 5
+    3300752: polySurface989 6
+    3300754: polySurface989 7
+    3300756: polySurface989 8
+    3300758: polySurface989 9
+    3300760: polySurface990
+    3300762: polySurface990 1
+    3300764: polySurface990 10
+    3300766: polySurface990 11
+    3300768: polySurface990 12
+    3300770: polySurface990 13
+    3300772: polySurface990 14
+    3300774: polySurface990 2
+    3300776: polySurface990 3
+    3300778: polySurface990 4
+    3300780: polySurface990 5
+    3300782: polySurface990 6
+    3300784: polySurface990 7
+    3300786: polySurface990 8
+    3300788: polySurface990 9
+    3300790: polySurface991
+    3300792: polySurface991 1
+    3300794: polySurface991 10
+    3300796: polySurface991 11
+    3300798: polySurface991 12
+    3300800: polySurface991 13
+    3300802: polySurface991 14
+    3300804: polySurface991 2
+    3300806: polySurface991 3
+    3300808: polySurface991 4
+    3300810: polySurface991 5
+    3300812: polySurface991 6
+    3300814: polySurface991 7
+    3300816: polySurface991 8
+    3300818: polySurface991 9
+    3300820: polySurface992
+    3300822: polySurface993
+    3300824: polySurface994
+    3300826: polySurface995
+    3300828: polySurface996
+    3300830: Rock 4
+    3300832: Rocks10
+    3300834: Rocks11
+    3300836: Rocks12
+    3300838: Rocks13
+    3300840: Rocks14
+    3300842: Rocks15
+    3300844: Rocks16
+    3300846: Rocks17
+    3300848: Rocks18
+    3300850: Rocks19
+    3300852: Rocks20
+    3300854: Rocks21
+    3300856: Rocks22
+    3300858: Rocks23
+    3300860: Rocks24
+    3300862: Rocks25
+    3300864: Rocks26
+    3300866: Rocks27
+    3300868: Rocks28
+    3300870: Rocks29
+    3300872: Rocks3
+    3300874: Rocks30
+    3300876: Rocks4
+    3300878: Rocks5
+    3300880: Rocks6
+    3300882: Rocks7
+    3300884: Rocks8
+    3300886: Rocks9
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -1798,6 +2388,141 @@ ModelImporter:
     4300612: CliffGround
     4300614: CliffWall
     4300616: polySurface984
+    4300618: Crystals80
+    4300620: Crystals81
+    4300622: polySurface995
+    4300624: polySurface996
+    4300626: Rocks27
+    4300628: Rocks28
+    4300630: Rocks29
+    4300632: Rocks30
+    4300634: Crystals77
+    4300636: Crystals78
+    4300638: Crystals79
+    4300640: Crystals75
+    4300642: Crystals76
+    4300644: pCube1
+    4300646: pCube2
+    4300648: Plants21
+    4300650: Plants22
+    4300652: Rocks23
+    4300654: Rocks24
+    4300656: Rocks25
+    4300658: Rocks26
+    4300660: Crystals82
+    4300662: Crystals83
+    4300664: polySurface985
+    4300666: polySurface986
+    4300668: Rock
+    4300670: PlatformGround
+    4300672: PlatformBottom
+    4300674: PlatformGround
+    4300676: PlatformBottom
+    4300678: CliffGround
+    4300680: CliffWall
+    4300682: polySurface991
+    4300684: polySurface990
+    4300686: polySurface989
+    4300688: polySurface987
+    4300690: polySurface988
+    4300692: polySurface992
+    4300694: polySurface991
+    4300696: polySurface990
+    4300698: polySurface989
+    4300700: polySurface987
+    4300702: polySurface988
+    4300704: polySurface991
+    4300706: polySurface990
+    4300708: polySurface989
+    4300710: polySurface987
+    4300712: polySurface988
+    4300714: polySurface993
+    4300716: polySurface994
+    4300718: polySurface991
+    4300720: polySurface990
+    4300722: polySurface989
+    4300724: polySurface987
+    4300726: polySurface988
+    4300728: polySurface991
+    4300730: polySurface990
+    4300732: polySurface989
+    4300734: polySurface987
+    4300736: polySurface988
+    4300738: polySurface991
+    4300740: polySurface990
+    4300742: polySurface989
+    4300744: polySurface987
+    4300746: polySurface988
+    4300748: polySurface991
+    4300750: polySurface990
+    4300752: polySurface989
+    4300754: polySurface987
+    4300756: polySurface988
+    4300758: polySurface991
+    4300760: polySurface990
+    4300762: polySurface989
+    4300764: polySurface987
+    4300766: polySurface988
+    4300768: polySurface991
+    4300770: polySurface990
+    4300772: polySurface989
+    4300774: polySurface987
+    4300776: polySurface988
+    4300778: polySurface991
+    4300780: polySurface990
+    4300782: polySurface989
+    4300784: polySurface987
+    4300786: polySurface988
+    4300788: polySurface991
+    4300790: polySurface990
+    4300792: polySurface989
+    4300794: polySurface987
+    4300796: polySurface988
+    4300798: polySurface991
+    4300800: polySurface990
+    4300802: polySurface989
+    4300804: polySurface987
+    4300806: polySurface988
+    4300808: polySurface991
+    4300810: polySurface990
+    4300812: polySurface989
+    4300814: polySurface987
+    4300816: polySurface988
+    4300818: polySurface991
+    4300820: polySurface990
+    4300822: polySurface989
+    4300824: polySurface987
+    4300826: polySurface988
+    4300828: Rocks3
+    4300830: Rocks4
+    4300832: Rocks5
+    4300834: Rocks6
+    4300836: Rocks7
+    4300838: Rocks8
+    4300840: Rocks9
+    4300842: Rocks10
+    4300844: Rocks11
+    4300846: Rocks12
+    4300848: Rocks13
+    4300850: Rocks14
+    4300852: Rocks15
+    4300854: polySurface991
+    4300856: polySurface990
+    4300858: polySurface989
+    4300860: polySurface987
+    4300862: polySurface988
+    4300864: Rocks16
+    4300866: Rocks17
+    4300868: Rocks18
+    4300870: Rocks19
+    4300872: Rocks20
+    4300874: Rocks21
+    4300876: Rocks22
+    4300878: Crystals74
+    4300880: pCube1
+    4300882: pCube2
+    4300884: CliffGround
+    4300886: CliffWall
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -2107,6 +2832,141 @@ ModelImporter:
     6400612: CliffGround 13
     6400614: CliffWall 14
     6400616: polySurface984
+    6400618: CliffGround 14
+    6400620: CliffGround 15
+    6400622: CliffWall 15
+    6400624: CliffWall 16
+    6400626: Crystals74
+    6400628: Crystals75
+    6400630: Crystals76
+    6400632: Crystals77
+    6400634: Crystals78
+    6400636: Crystals79
+    6400638: Crystals80
+    6400640: Crystals81
+    6400642: Crystals82
+    6400644: Crystals83
+    6400646: pCube1
+    6400648: pCube1 1
+    6400650: pCube2
+    6400652: pCube2 1
+    6400654: Plants21
+    6400656: Plants22
+    6400658: PlatformBottom 15
+    6400660: PlatformBottom 16
+    6400662: PlatformGround 10
+    6400664: PlatformGround 11
+    6400666: polySurface985
+    6400668: polySurface986
+    6400670: polySurface987
+    6400672: polySurface987 1
+    6400674: polySurface987 10
+    6400676: polySurface987 11
+    6400678: polySurface987 12
+    6400680: polySurface987 13
+    6400682: polySurface987 14
+    6400684: polySurface987 2
+    6400686: polySurface987 3
+    6400688: polySurface987 4
+    6400690: polySurface987 5
+    6400692: polySurface987 6
+    6400694: polySurface987 7
+    6400696: polySurface987 8
+    6400698: polySurface987 9
+    6400700: polySurface988
+    6400702: polySurface988 1
+    6400704: polySurface988 10
+    6400706: polySurface988 11
+    6400708: polySurface988 12
+    6400710: polySurface988 13
+    6400712: polySurface988 14
+    6400714: polySurface988 2
+    6400716: polySurface988 3
+    6400718: polySurface988 4
+    6400720: polySurface988 5
+    6400722: polySurface988 6
+    6400724: polySurface988 7
+    6400726: polySurface988 8
+    6400728: polySurface988 9
+    6400730: polySurface989
+    6400732: polySurface989 1
+    6400734: polySurface989 10
+    6400736: polySurface989 11
+    6400738: polySurface989 12
+    6400740: polySurface989 13
+    6400742: polySurface989 14
+    6400744: polySurface989 2
+    6400746: polySurface989 3
+    6400748: polySurface989 4
+    6400750: polySurface989 5
+    6400752: polySurface989 6
+    6400754: polySurface989 7
+    6400756: polySurface989 8
+    6400758: polySurface989 9
+    6400760: polySurface990
+    6400762: polySurface990 1
+    6400764: polySurface990 10
+    6400766: polySurface990 11
+    6400768: polySurface990 12
+    6400770: polySurface990 13
+    6400772: polySurface990 14
+    6400774: polySurface990 2
+    6400776: polySurface990 3
+    6400778: polySurface990 4
+    6400780: polySurface990 5
+    6400782: polySurface990 6
+    6400784: polySurface990 7
+    6400786: polySurface990 8
+    6400788: polySurface990 9
+    6400790: polySurface991
+    6400792: polySurface991 1
+    6400794: polySurface991 10
+    6400796: polySurface991 11
+    6400798: polySurface991 12
+    6400800: polySurface991 13
+    6400802: polySurface991 14
+    6400804: polySurface991 2
+    6400806: polySurface991 3
+    6400808: polySurface991 4
+    6400810: polySurface991 5
+    6400812: polySurface991 6
+    6400814: polySurface991 7
+    6400816: polySurface991 8
+    6400818: polySurface991 9
+    6400820: polySurface992
+    6400822: polySurface993
+    6400824: polySurface994
+    6400826: polySurface995
+    6400828: polySurface996
+    6400830: Rock 4
+    6400832: Rocks10
+    6400834: Rocks11
+    6400836: Rocks12
+    6400838: Rocks13
+    6400840: Rocks14
+    6400842: Rocks15
+    6400844: Rocks16
+    6400846: Rocks17
+    6400848: Rocks18
+    6400850: Rocks19
+    6400852: Rocks20
+    6400854: Rocks21
+    6400856: Rocks22
+    6400858: Rocks23
+    6400860: Rocks24
+    6400862: Rocks25
+    6400864: Rocks26
+    6400866: Rocks27
+    6400868: Rocks28
+    6400870: Rocks29
+    6400872: Rocks3
+    6400874: Rocks30
+    6400876: Rocks4
+    6400878: Rocks5
+    6400880: Rocks6
+    6400882: Rocks7
+    6400884: Rocks8
+    6400886: Rocks9
   materials:
     importMaterials: 1
     materialName: 0

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	private RomanCharController charController;
 	public TunnelObserver tunnelObserver;
 
+
 	private int[] yPos = new int[]
 	{
 		0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360, 390, 420, 450, 480, 520, 550
@@ -39,7 +40,8 @@ public class GameManager : MonoBehaviour {
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
-		tunnelObserver = charController.tunnelObserver;
+		tunnelObserver = GameObject.FindObjectOfType<TunnelObserver>();
+
 		//cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
 
 		// Get the character that is selected

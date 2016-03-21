@@ -68,7 +68,7 @@ public class RomanCharController : MonoBehaviour {
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
 		vineClimbCollider = GetComponent<VineClimbController2>();
-		tunnelObserver = GetComponent<TunnelObserver>();
+		tunnelObserver = GameManager.Instance.tunnelObserver;
 	}
 
 

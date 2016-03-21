@@ -19,6 +19,7 @@ public class FollowPlayer : MonoBehaviour {
 	private RomanCharState charState;
 	private float _damping;
 	private float climbSpeedSmoothVel;
+	private TunnelObserver tunnelObserver;
 
 	private Animator animator;
 
@@ -29,6 +30,7 @@ public class FollowPlayer : MonoBehaviour {
 		{
 			animator = player.GetComponent<Animator>();
 			charState = player.GetComponent<RomanCharState>();
+			tunnelObserver = GameManager.Instance.tunnelObserver;
 		}
 		else
 		{
@@ -49,11 +51,11 @@ public class FollowPlayer : MonoBehaviour {
 //		{
 //			targetPos.y = transform.position.y;
 //		}
-		if (GameManager.Instance.tunnelObserver.inTunnel)
+		if (tunnelObserver.inTunnel)
 		{
 			targetPos = player.position;
-			targetPos.y += 1.1f;
-			_damping = Mathf.Lerp(0.2f, climbDamping, 2);
+			targetPos.y = player.position.y + 0.7f;
+//			_damping = Mathf.Lerp(0.2f, climbDamping, 2);
 		}
 
 		else if (charState.IsClimbing())
