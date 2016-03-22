@@ -2992,7 +2992,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 100
-    meshCompression: 2
+    meshCompression: 3
     addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0

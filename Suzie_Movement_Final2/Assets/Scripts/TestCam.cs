@@ -95,6 +95,8 @@ public class TestCam : MonoBehaviour
 
 	//movement -------------------
 	private Transform target;
+	private RomanCharState charState;
+
 	public Vector3 targetYPosOffset = new Vector3(0, 3.4f, 0);
 	public float distanceFromtarget = -8;
 	public float lookSmooth = 100f;
@@ -121,12 +123,20 @@ public class TestCam : MonoBehaviour
 
 	private Vector3 targetPos = Vector3.zero;
 	private Vector3 destination = Vector3.zero;
-	private RomanCharController charController;
+	private float getBehindVel;
+	private float angleDelta;
+	private float targetRot;
+	private int signedDirection;
+	private float xRotVel;
+	private float yRotVel;
 
+	private RomanCharController charController;
+	
 	private void Awake () {}
 
 	private void Start ()
 	{
+		charState = GameManager.Instance.charState;
 		SetState(CamState.Free);
 		SetTarget(follow);
 		tunnelObserver = GameManager.Instance.tunnelObserver;
@@ -231,14 +241,65 @@ public class TestCam : MonoBehaviour
 		// Set targetPos to be a bit above the player
 		targetPos = target.position + targetYPosOffset;
 
+		if (charState.IsRunningOrSprinting())
+		{
+			Debug.DrawRay(target.position, target.forward * 5.0f, Color.blue);
+			Debug.DrawRay(transform.position, transform.right * 5.0f, Color.red);
+
+			dot = Vector3.Dot(transform.right.normalized, target.forward.normalized);
+			// -1 = left, 1 = right
+			signedDirection = dot < 0 ? -1 : 1;
+
+			// used to check to see if camera is behind player
+			angleDelta = Mathf.Abs(Vector3.Angle(transform.forward, target.transform.forward) - 180);
+
+			print(hOrbitInput);
+
+			if (Mathf.Abs(dot) > 0.01f && angleDelta > 60 && hOrbitInput == 0)
+			{
+				//targetRot += 30.0f * signedDirection * Time.deltaTime;
+				targetRot = Mathf.SmoothDamp(targetRot, targetRot + 60.0f * signedDirection, ref rotVel, 2.0f); 
+				print("sweet spot");
+			}
+		
+		}
+		
 		//Set destination to equal a rotation (based on input) and multiply that to go behind the target's forward
-		destination = Quaternion.Euler(xRotation, yRotation, 0) * -Vector3.forward * distanceFromtarget;
+		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromtarget;
 
 		// Add the targetPos to the destination to place the camera a bit above the target
 		destination += targetPos;
 
 		// Finall set the position
 		transform.position = destination;
+
+		targetPos = transform.position + (target.position - transform.position).normalized * distanceFromtarget;
+		transform.position = targetPos;
+
+
+//		targetPos = target.position + (target.position - transform.position).normalized * distanceFromtarget;
+//		targetPos.y = target.position.y + targetYPosOffset.y + yDifference;
+//		transform.position = targetPos;
+//		transform.eulerAngles = Quaternion.AngleAxis(Input.GetAxis("Mouse X"), target.up) * targetPos;
+
+		//transform.RotateAround(target.position, transform.up, hOrbitInput * hOrbitSmooth * Time.deltaTime);
+		//transform.RotateAround(target.position, transform.right, -vOrbitInput * vOrbitSmooth * Time.deltaTime);
+		//transform.RotateAround(target.position, target.up, yRotation - transform.eulerAngles.y);
+		//transform.RotateAround(target.position, transform.right, -xRotation - transform.eulerAngles.x);
+
+	
+		// Subtract the current position (after its been rotated) from the previous targetPos.y
+		// and add that to the y difference. We add instead of setting it so that we can maintain the offset
+		// as opposed to constantly resetting it
+//		yDifference += transform.position.y - targetPos.y;
+
+//		transform.position = target.position + targetYPosOffset;
+//		transform.eulerAngles += target.eulerAngles * Input.GetAxis("Mouse X") * hOrbitSmooth * Time.deltaTime;
+//		print(hOrbitInput);
+//		transform.position += transform.forward * distanceFromtarget;
+
+
+	
 	}
 
 
@@ -251,6 +312,13 @@ public class TestCam : MonoBehaviour
 
 	private void OrbitTarget()
 	{
+//		if (charState.IsRunningOrSprinting() && hOrbitInput == 0)
+//		{
+//			yRotation = Mathf.SmoothDamp(yRotation, 180, ref getBehindVel, 30.0f);
+//			//yRotation = 180;
+//		}
+//		else 
+
 		if (Input.GetKeyDown(KeyCode.G))
 		{
 			// TODO: Turn this into a lerp later
@@ -258,8 +326,10 @@ public class TestCam : MonoBehaviour
 		}
 		else
 		{
-			xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
-			yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
+			//xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
+			//yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
+			xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSmooth, ref xRotVel, 0.5f);
+			yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSmooth, ref yRotVel, 0.5f);
 
 			if (xRotation > maxXRotation)
 				xRotation = maxXRotation;

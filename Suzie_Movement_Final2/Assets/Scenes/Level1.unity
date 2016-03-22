@@ -4423,7 +4423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431778, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.49490112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 431778, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4431,7 +4431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431778, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8689493
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431778, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: m_RootOrder
@@ -4484,6 +4484,30 @@ Prefab:
     - target: {fileID: 11416672, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: targetYPosOffset.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: minXRotation
+      value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 486936, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486936, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433432, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: damping
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: rotateDamping
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b03c81a81aec841318ae68547e046e20, type: 2}
