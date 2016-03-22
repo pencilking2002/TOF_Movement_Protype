@@ -20,8 +20,8 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Priate Variables
 	//---------------------------------------------------------------------------------------------------------------------------
-	
-	private InputDevice inputDevice;
+	[HideInInspector]
+	public InputDevice inputDevice;
 	private static float _rawV, _rawH;
 
 	private void Awake ()

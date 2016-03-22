@@ -4463,7 +4463,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: distanceFromtarget
-      value: -5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: targetPosOffset.y
@@ -4508,6 +4508,10 @@ Prefab:
     - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
       propertyPath: rotateDamping
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458980, guid: b03c81a81aec841318ae68547e046e20, type: 2}
+      propertyPath: minZoom
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b03c81a81aec841318ae68547e046e20, type: 2}

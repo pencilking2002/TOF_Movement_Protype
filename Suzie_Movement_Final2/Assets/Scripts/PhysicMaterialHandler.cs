@@ -23,14 +23,14 @@ public class PhysicMaterialHandler : MonoBehaviour {
 //	private Vector3 bottomOrigin;
 	private Ray ray;
 //	private Ray rayFromBottom;
-	private RomanCharState charState;
+//	private RomanCharState charState;
 
 	private RaycastHit hit;
 	
 	private void Start ()
 	{
 		cCollider = GetComponent<CapsuleCollider>();
-		charState = GetComponent<RomanCharState>();
+//		charState = GetComponent<RomanCharState>();
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 

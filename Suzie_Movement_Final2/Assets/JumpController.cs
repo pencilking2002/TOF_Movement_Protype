@@ -41,7 +41,7 @@ public class JumpController : MonoBehaviour {
 
 	// PRIVATE vars -----------------------
 
-	private float jumpTriggerLimitTimer = 5f;
+//	private float jumpTriggerLimitTimer = 5f;
 	private float forwardSpeed; 					// Temp var for forward speed
 	//private float lastJumpTime;
 	private float speed;							// Temp var for locomotion 

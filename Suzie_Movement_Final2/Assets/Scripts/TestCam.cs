@@ -16,7 +16,7 @@ public class TestCam : MonoBehaviour
 	public float extraClimbRotation = 10.0f;
 	public float minClimbRotSpeed = 0.0f;
 	public float maxClimbRotSpeed = 20.0f;
-	public float rotateDamping = 3.0f;
+	public float rotateDamping = 2.0f;
 	public float transThreshold = 0.02f;
 
 	// Collision
@@ -32,7 +32,7 @@ public class TestCam : MonoBehaviour
 
 	private Vector3 tunnelVel;
 	private Vector3 startingPos;							// Position of the camera at the start of the game
-	private TunnelObserver tunnelObserver;
+//	private TunnelObserver tunnelObserver;
 
 	//Rotation
 	private float xSpeed;
@@ -65,7 +65,7 @@ public class TestCam : MonoBehaviour
 	private Vector3 zoomVel;
 
 	//Collision
-	private float _moveLerpSpeed = 40.0f;					// Original move lerp speed that we will use to set the public lerp speed to
+//	private float _moveLerpSpeed = 40.0f;					// Original move lerp speed that we will use to set the public lerp speed to
 	private Vector3 collisionVel;
 	private float moveSmoothVel;
 	private Vector3 collideDamp;
@@ -113,8 +113,8 @@ public class TestCam : MonoBehaviour
 	// TODO: reverse the names of max/min
 	public float maxXRotation = 25;
 	public float minXRotation = -85;
-	public float vOrbitSmooth = 150;
-	public float hOrbitSmooth = 150;
+	public float vOrbitSpeed = 150;
+	public float hOrbitSpeed = 150;
 	private float vOrbitInput;
 	private float hOrbitInput;
 	private float zoomInput;
@@ -139,7 +139,7 @@ public class TestCam : MonoBehaviour
 		charState = GameManager.Instance.charState;
 		SetState(CamState.Free);
 		SetTarget(follow);
-		tunnelObserver = GameManager.Instance.tunnelObserver;
+//		tunnelObserver = GameManager.Instance.tunnelObserver;
 		MoveToTarget();
 	}
 
@@ -233,6 +233,7 @@ public class TestCam : MonoBehaviour
 	{
 		vOrbitInput = Mathf.Clamp(InputController.orbitV, -1, 1);
 		hOrbitInput = Mathf.Clamp(InputController.orbitH, -1, 1);
+		// TODO: Fix this to work with a controller
 		zoomInput = Input.GetAxisRaw("Mouse ScrollWheel");
 	}
 
@@ -243,24 +244,25 @@ public class TestCam : MonoBehaviour
 
 		if (charState.IsRunningOrSprinting())
 		{
-			Debug.DrawRay(target.position, target.forward * 5.0f, Color.blue);
-			Debug.DrawRay(transform.position, transform.right * 5.0f, Color.red);
+			//Debug.DrawRay(target.position, target.forward * 5.0f, Color.blue);
+			//Debug.DrawRay(transform.position, transform.right * 5.0f, Color.red);
 
-			dot = Vector3.Dot(transform.right.normalized, target.forward.normalized);
+			// Check to see if camera is on the left or right of the player
 			// -1 = left, 1 = right
+			dot = Vector3.Dot(transform.right.normalized, target.forward.normalized);
 			signedDirection = dot < 0 ? -1 : 1;
 
 			// used to check to see if camera is behind player
 			angleDelta = Mathf.Abs(Vector3.Angle(transform.forward, target.transform.forward) - 180);
 
-			print(hOrbitInput);
+			//print(hOrbitInput);
 
+			// if Camera is not directly behind the player && 
+			// if player is facing away from the camera &&
+			// if they are using not rotating the camera
+			// then slowly rotate the camera to be behind the player
 			if (Mathf.Abs(dot) > 0.01f && angleDelta > 60 && hOrbitInput == 0)
-			{
-				//targetRot += 30.0f * signedDirection * Time.deltaTime;
-				targetRot = Mathf.SmoothDamp(targetRot, targetRot + 60.0f * signedDirection, ref rotVel, 2.0f); 
-				print("sweet spot");
-			}
+				targetRot = Mathf.SmoothDamp(targetRot, targetRot + 60.0f * signedDirection, ref rotVel, rotateDamping); 
 		
 		}
 		
@@ -275,49 +277,18 @@ public class TestCam : MonoBehaviour
 
 		targetPos = transform.position + (target.position - transform.position).normalized * distanceFromtarget;
 		transform.position = targetPos;
-
-
-//		targetPos = target.position + (target.position - transform.position).normalized * distanceFromtarget;
-//		targetPos.y = target.position.y + targetYPosOffset.y + yDifference;
-//		transform.position = targetPos;
-//		transform.eulerAngles = Quaternion.AngleAxis(Input.GetAxis("Mouse X"), target.up) * targetPos;
-
-		//transform.RotateAround(target.position, transform.up, hOrbitInput * hOrbitSmooth * Time.deltaTime);
-		//transform.RotateAround(target.position, transform.right, -vOrbitInput * vOrbitSmooth * Time.deltaTime);
-		//transform.RotateAround(target.position, target.up, yRotation - transform.eulerAngles.y);
-		//transform.RotateAround(target.position, transform.right, -xRotation - transform.eulerAngles.x);
-
-	
-		// Subtract the current position (after its been rotated) from the previous targetPos.y
-		// and add that to the y difference. We add instead of setting it so that we can maintain the offset
-		// as opposed to constantly resetting it
-//		yDifference += transform.position.y - targetPos.y;
-
-//		transform.position = target.position + targetYPosOffset;
-//		transform.eulerAngles += target.eulerAngles * Input.GetAxis("Mouse X") * hOrbitSmooth * Time.deltaTime;
-//		print(hOrbitInput);
-//		transform.position += transform.forward * distanceFromtarget;
-
-
 	
 	}
 
 
 	private void LookAtTarget ()
 	{
-//		targetRotation = Quaternion.LookRotation(targetPos - transform.position);
-//		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lookSmooth * Time.deltaTime);
+
 		transform.LookAt(target);
 	}
 
 	private void OrbitTarget()
 	{
-//		if (charState.IsRunningOrSprinting() && hOrbitInput == 0)
-//		{
-//			yRotation = Mathf.SmoothDamp(yRotation, 180, ref getBehindVel, 30.0f);
-//			//yRotation = 180;
-//		}
-//		else 
 
 		if (Input.GetKeyDown(KeyCode.G))
 		{
@@ -328,8 +299,8 @@ public class TestCam : MonoBehaviour
 		{
 			//xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
 			//yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
-			xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSmooth, ref xRotVel, 0.5f);
-			yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSmooth, ref yRotVel, 0.5f);
+			xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSpeed, ref xRotVel, 0.5f);
+			yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSpeed, ref yRotVel, 0.5f);
 
 			if (xRotation > maxXRotation)
 				xRotation = maxXRotation;

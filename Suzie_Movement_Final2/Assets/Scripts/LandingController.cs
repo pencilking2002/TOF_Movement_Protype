@@ -12,15 +12,15 @@ public class LandingController : MonoBehaviour {
 
 	private RomanCharState charState;
 	private Animator animator;
-	private Rigidbody rb;
-	private RomanCharController charController;
+//	private Rigidbody rb;
+//	private RomanCharController charController;
 
-	private RaycastHit hit;
+//	private RaycastHit hit;
 	private Vector3 origin, endPoint;
 	//private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
 
 	private int anim_land = Animator.StringToHash("Land");
-	private int anim_Idle = Animator.StringToHash("Idle");
+//	private int anim_Idle = Animator.StringToHash("Idle");
 
 	[HideInInspector]
 	private float jumpTime = 0.0f;
@@ -32,9 +32,9 @@ public class LandingController : MonoBehaviour {
 	private void Awake ()
 	{
 		charState = GetComponent<RomanCharState>();
-		charController = GetComponent<RomanCharController>();
+//		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
-		rb = GetComponent<Rigidbody>();
+//		rb = GetComponent<Rigidbody>();
 	}
 
 	private void Start ()
@@ -75,7 +75,7 @@ public class LandingController : MonoBehaviour {
 
 			Debug.DrawLine(origin, endPoint, Color.red);
 			//Debug.Break();
-			if (Physics.Linecast(origin, endPoint, out hit))
+			if (Physics.Linecast(origin, endPoint))
 			{
 				//print(rb.GetRelativePointVelocity(hit.point));
 				//if (rb.velocity.y <= 0)

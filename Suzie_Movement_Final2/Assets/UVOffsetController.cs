@@ -28,7 +28,7 @@ public class UVOffsetController : MonoBehaviour {
 		{
 			yOffset = Time.time * yScrollSpeed;
 			xOffset = Time.time * xScrollSpeed;  
-			rend.material.mainTextureOffset = new Vector2 (yOffset % 1, yOffset % 1);
+			rend.material.mainTextureOffset = new Vector2 (yOffset % 1, xOffset % 1);
 		} 
 	}
 }

@@ -21,14 +21,14 @@ public class FollowPlayer : MonoBehaviour {
 	private float climbSpeedSmoothVel;
 	private TunnelObserver tunnelObserver;
 
-	private Animator animator;
+//	private Animator animator;
 
 	void Start ()
 	{
 
 		if (player != null)
 		{
-			animator = player.GetComponent<Animator>();
+//			animator = player.GetComponent<Animator>();
 			charState = player.GetComponent<RomanCharState>();
 			tunnelObserver = GameManager.Instance.tunnelObserver;
 		}
