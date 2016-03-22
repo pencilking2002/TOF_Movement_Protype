@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: diffuse
-  m_Shader: {fileID: 4800000, guid: 1d050845713c8431c804c750754dda6e, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_RAMPTEXT TCP2_RIM TCP2_SPEC
+  m_Shader: {fileID: 4800000, guid: f09926a0359cc4604979f94da9ee590f, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_RAMPTEXT TCP2_RIM
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
   stringTagMap: {}

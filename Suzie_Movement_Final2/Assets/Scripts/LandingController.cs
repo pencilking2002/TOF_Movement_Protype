@@ -87,6 +87,7 @@ public class LandingController : MonoBehaviour {
 
 					if (charState.IsFalling() && TimePassedSinceJump(0.2f))
 					{
+						print("landing triggered");
 						animator.SetTrigger(anim_land);
 						EventManager.OnCharEvent(GameEvent.Land);
 					}
