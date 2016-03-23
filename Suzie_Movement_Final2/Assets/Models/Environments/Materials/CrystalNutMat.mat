@@ -158,7 +158,7 @@ Material:
       data:
         first:
           name: _Outline
-        second: 1.76
+        second: 0.99
       data:
         first:
           name: _TexLod
@@ -166,7 +166,7 @@ Material:
       data:
         first:
           name: _ZSmooth
-        second: -0.5
+        second: -1
       data:
         first:
           name: _Offset1
