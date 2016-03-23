@@ -43,8 +43,8 @@ TagManager:
   - IgnoreCamRaycasting
   - TunnelColliders
   - TunnelObserver
-  - 
-  - 
+  - Pickups
+  - IgnorePlayerCollisions
   - 
   - 
   - 

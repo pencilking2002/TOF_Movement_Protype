@@ -11,42 +11,14 @@ GameObject:
   - 33: {fileID: 3354828}
   - 23: {fileID: 2353394}
   - 114: {fileID: 11487692}
-  m_Layer: 0
+  - 136: {fileID: 13628456}
+  m_Layer: 15
   m_Name: CrystalNutPrefab
-  m_TagString: Untagged
+  m_TagString: CrystalNut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &198814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 429170}
-  - 136: {fileID: 13642056}
-  - 114: {fileID: 11491250}
-  m_Layer: 0
-  m_Name: CapsuleCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &429170
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3248491, y: 1.324849, z: 1.324849}
-  m_Children: []
-  m_Father: {fileID: 431834}
-  m_RootOrder: 0
 --- !u!4 &431834
 Transform:
   m_ObjectHideFlags: 1
@@ -54,10 +26,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.57, y: 4.25, z: -15.925}
+  m_LocalPosition: {x: 66.37382, y: 3.56, z: -18.52737}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 429170}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2353394
@@ -107,30 +78,17 @@ MonoBehaviour:
   maxUpAndDown: 0.002
   speed: 120
   angle: 0
---- !u!114 &11491250
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a573abe842244138bf0f092b1a62aa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleSpeed: 0.6
-  moveDamp: 0.5
---- !u!136 &13642056
+--- !u!136 &13628456
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198814}
+  m_GameObject: {fileID: 102620}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.51
-  m_Height: 0.92
+  m_Height: 1.61
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
