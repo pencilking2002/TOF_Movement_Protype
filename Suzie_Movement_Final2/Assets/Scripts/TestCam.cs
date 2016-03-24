@@ -39,6 +39,7 @@ public class TestCam : MonoBehaviour
 	private float xSpeed;
 	private float ySpeed;
 	private float rotVel;
+	private float autoRotVel;
 	private float mouseSpeedDamping = 1.0f;							// How much to damp the mouse movement for rotation
 	private float currentMaxY;
 	private float currentMinY;
@@ -98,7 +99,7 @@ public class TestCam : MonoBehaviour
 	private Transform target;
 
 	public Vector3 targetYPosOffset = new Vector3(0, 3.4f, 0);
-	public float distanceFromTarget = -8;
+	public float distanceFromTarget = -6;
 	public float zoomSmooth = 100;
 	public float zoomStep = 2;
 	public float maxZoom = -2;
@@ -108,7 +109,7 @@ public class TestCam : MonoBehaviour
 	public float lookSmooth = 100f;
 
 	[HideInInspector]
-	public float newDistance = -8; 			// Set by zoom input
+	public float newDistance = -6; 			// Set by zoom input
 
 	[HideInInspector]
 	public float adjustmentDistance = -8;
@@ -255,28 +256,24 @@ public class TestCam : MonoBehaviour
 	{
 		GetInput();
 		ZoomInOnTarget();
-
-//	}
-
-//	private void FixedUpdate ()
-//	{
-//
 		MoveToTarget();
 		LookAtTarget();
-
 		OrbitTarget();
 
 		collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
 		collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
 
-		for (int i = 0; i < 5; i++)
-		{
-			if (debug.drawDesiredCollisionLines)
-				Debug.DrawLine(targetPos, collision.desiredCameraClipPoints[i], Color.white);
-			
-			if (debug.drawAdjustedCollisionLines)
-				Debug.DrawLine(targetPos, collision.adjustedCameraClipPoints[i], Color.green);
-			
+		if (GameManager.Instance.debug)
+			{
+			for (int i = 0; i < 5; i++)
+			{
+				if (debug.drawDesiredCollisionLines)
+					Debug.DrawLine(targetPos, collision.desiredCameraClipPoints[i], Color.white);
+				
+				if (debug.drawAdjustedCollisionLines)
+					Debug.DrawLine(targetPos, collision.adjustedCameraClipPoints[i], Color.green);
+				
+			}
 		}
 
 		collision.CheckColliding(targetPos);
@@ -301,30 +298,22 @@ public class TestCam : MonoBehaviour
 			// used to check to see if camera is behind player
 			angleDelta = Mathf.Abs(Vector3.Angle(transform.forward, target.transform.forward) - 180);
 
-			//print(hOrbitInput);
-
+			//print(dot);
+			//print(angleDelta);
 			// if Camera is not directly behind the player && 
 			// if player is facing away from the camera &&
 			// if they are using not rotating the camera
 			// then slowly rotate the camera to be behind the player
-			if (Mathf.Abs(dot) > 0.01f && angleDelta > 90 && hOrbitInput == 0)
-				targetRot = Mathf.SmoothDamp(targetRot, targetRot + 60.0f * signedDirection, ref rotVel, rotateDamping); 
+			if (Mathf.Abs(dot) > 0.01f && angleDelta > 85 && hOrbitInput == 0)
+			{
+				targetRot = Mathf.SmoothDamp(targetRot, 60.0f * signedDirection, ref autoRotVel, rotateDamping);
+			}
+
+			print(angleDelta);
 		
 		}
-		
-		//Set destination to equal a rotation (based on input) and multiply that to go behind the target's forward
-//		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromTarget;
 
-		// Add the targetPos to the destination to place the camera a bit above the target
-//		destination += targetPos;
-
-		// Finall set the position
-		//transform.position = destination;
-
-//		targetPos = transform.position + (target.position - transform.position).normalized * distanceFromTarget;
-//		transform.position = targetPos;
-
-		targetPos = target.position + Vector3.up * targetYPosOffset.y + Vector3.up * targetYPosOffset.z /*+ transform.TransformDirection(Vector3.forward)*/;
+		targetPos = target.position + Vector3.up * targetYPosOffset.y + Vector3.up; //* targetYPosOffset.z /*+ transform.TransformDirection(Vector3.forward)*/;
 		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromTarget;
 		destination += targetPos;
 
@@ -338,7 +327,7 @@ public class TestCam : MonoBehaviour
 				transform.position = Vector3.SmoothDamp(transform.position, adjustedDestination, ref camVel, smooth);
 			}
 			else 
-				transform.position = Vector3.Lerp(transform.position, adjustedDestination, 8.0f * Time.deltaTime); //transform.position = adjustedDestination;
+				transform.position = Vector3.Lerp(transform.position, adjustedDestination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
 		}
 		else
 		{
@@ -348,8 +337,7 @@ public class TestCam : MonoBehaviour
 
 			}
 			else 
-				transform.position = Vector3.Lerp(transform.position, destination, 8.0f * Time.deltaTime); //transform.position = adjustedDestination;
-				//transform.position = destination;
+				transform.position = Vector3.Lerp(transform.position, destination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
 		}
 	
 	}
@@ -499,15 +487,15 @@ public class TestCam : MonoBehaviour
 		{
 			SetState(CamState.Free);
 		}
-		else if (gEvent == GameEvent.EnterTunnel)
-		{
-			print("cam: enter tunnel");
-			SetState(CamState.CloseBehindTransition);
-		}
-		else if (gEvent == GameEvent.ExitTunnel)
-		{
-			SetState(CamState.Free);
-		}
+//		else if (gEvent == GameEvent.EnterTunnel)
+//		{
+//			print("cam: enter tunnel");
+//			SetState(CamState.CloseBehindTransition);
+//		}
+//		else if (gEvent == GameEvent.ExitTunnel)
+//		{
+//			SetState(CamState.Free);
+//		}
 	}
 
 	private void SetState (CamState s) { state = s; }

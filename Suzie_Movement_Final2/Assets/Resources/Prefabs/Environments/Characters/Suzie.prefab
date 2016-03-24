@@ -459,6 +459,7 @@ GameObject:
   - 114: {fileID: 11430638}
   - 114: {fileID: 11408192}
   - 114: {fileID: 11423090}
+  - 114: {fileID: 11452960}
   m_Layer: 8
   m_Name: Suzie
   m_TagString: Player
@@ -1236,6 +1237,7 @@ GameObject:
   - 114: {fileID: 11458980}
   - 114: {fileID: 11404368}
   - 114: {fileID: 11442090}
+  - 114: {fileID: 11482038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1816,8 +1818,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131470}
-  m_LocalRotation: {x: 0, y: -0.6617027, z: 0, w: 0.74976635}
-  m_LocalPosition: {x: 59.36287, y: 4.45, z: -14.604935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 62.98, y: 4.45, z: -20.41}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 486936}
@@ -2415,8 +2417,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182892}
-  m_LocalRotation: {x: 0.16423635, y: 0.013910087, z: -0.0023170635, w: 0.9863202}
-  m_LocalPosition: {x: -0.161, y: 0.809, z: -2.754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.809, z: -2.754}
   m_LocalScale: {x: 0.6666666, y: 0.66666657, z: 0.6666666}
   m_Children: []
   m_Father: {fileID: 431778}
@@ -2609,7 +2611,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93933105, y: 0.998, z: -0.42666754}
+  m_LocalPosition: {x: 0, y: 0.998, z: 0}
   m_LocalScale: {x: 0.24374014, y: 0.5772697, z: 0.38427413}
   m_Children: []
   m_Father: {fileID: 431778}
@@ -2901,7 +2903,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182892}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
   m_Name: 
@@ -2973,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 431778}
-  offset: {x: 0, y: 2.13, z: 0}
+  offset: {x: 0, y: 1, z: 0}
   damping: 0.1
   climbDamping: 30
   followAtPlayerPos: 0
@@ -2995,6 +2997,21 @@ MonoBehaviour:
   downsample: 0
   rand: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
   aoShader: {fileID: 4800000, guid: 95616c020c5604dda96cf76afbbc0272, type: 3}
+--- !u!114 &11452960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599eba6f6da8746a9bea31f52cf8d15f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleTime: 0.29
+  scaleUpTime: 0.1
+  moveDamp: 0.1
+  scaleUpVector: {x: 1.2, y: 1.2, z: 1.2}
 --- !u!114 &11454432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3040,7 +3057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e012c37dbd4204c1c9784cee8136cc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 1.6, z: 5}
   climbXClampThreshold: 0.7
   moveSpeed: 40
   zoomInSpeed: 2
@@ -3048,7 +3064,7 @@ MonoBehaviour:
   extraClimbRotation: 10
   minClimbRotSpeed: 0
   maxClimbRotSpeed: 20
-  rotateDamping: 0.0001
+  rotateDamping: 2
   transThreshold: 0.025
   collisionSpeed: 5.92
   collisionToMoveSpeedDamping: 60
@@ -3059,6 +3075,34 @@ MonoBehaviour:
   tunnelDamping: 2
   state: 0
   colliding: 0
+  targetYPosOffset: {x: 0, y: 1.5, z: 0}
+  distanceFromTarget: -6
+  zoomSmooth: 100
+  zoomStep: 2
+  maxZoom: -2
+  minZoom: -4
+  smoothFollow: 0
+  smooth: 0.5
+  lookSmooth: 100
+  newDistance: -8
+  adjustmentDistance: -8
+  xRotation: -20
+  yRotation: -180
+  maxXRotation: 55
+  minXRotation: -75
+  vOrbitSpeed: 150
+  hOrbitSpeed: 150
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  debug:
+    drawDesiredCollisionLines: 0
+    drawAdjustedCollisionLines: 0
+  collision:
+    collisionLayer:
+      serializedVersion: 2
+      m_Bits: 4294860543
+    colliding: 0
+    adjustedCameraClipPoints: []
+    desiredCameraClipPoints: []
 --- !u!114 &11459238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3087,6 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92136ff4672be4616b6611fc3a6eecb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineLength: 0.5
 --- !u!114 &11475074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3098,6 +3143,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2487b0a90be244764bf386f4ed1007c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11482038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182892}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3ff4a1bef2e8d47a1dfb734aa54de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    basicSettings:
+      reflectionMultiplier: 1
+      maxDistance: 10
+      fadeDistance: 10
+      screenEdgeFading: 0
+      enableHDR: 0
+      additiveReflection: 0
+    reflectionSettings:
+      maxSteps: 64
+      rayStepSize: 4
+      widthModifier: 0.5
+      smoothFallbackThreshold: 0.4
+      smoothFallbackDistance: 0.05
+      fresnelFade: 0.2
+      fresnelFadePower: 2
+      distanceBlur: 1
+    advancedSettings:
+      temporalFilterStrength: 0
+      useTemporalConfidence: 0
+      traceBehindObjects: 1
+      highQualitySharpReflections: 0
+      traceEverywhere: 0
+      treatBackfaceHitAsMiss: 0
+      allowBackwardsRays: 0
+      improveCorners: 0
+      resolution: 2
+      bilateralUpsample: 0
+      reduceBanding: 0
+      highlightSuppression: 0
+    debugSettings:
+      debugMode: 0
+  ssrShader: {fileID: 4800000, guid: 7e2fcc83af19e744787647ec0ac5d42c, type: 3}
 --- !u!114 &11488752
 MonoBehaviour:
   m_ObjectHideFlags: 1

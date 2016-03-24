@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour {
 			Instance = this;
 		else
 			Destroy(this);
-		
+
+		if (cam == null)
+			cam = Camera.main.GetComponent<TestCam>();
+
 		charState = GameObject.FindObjectOfType<RomanCharState> ();
 		//camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
