@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3335922}
   - 23: {fileID: 2318750}
   - 114: {fileID: 11413118}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: control1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3306628}
   - 23: {fileID: 2381774}
   - 114: {fileID: 11464438}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: control2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 4: {fileID: 401268}
   - 114: {fileID: 11475838}
   - 114: {fileID: 11462696}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: NutBezierPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 33: {fileID: 3379016}
   - 23: {fileID: 2373478}
   - 114: {fileID: 11449918}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: node1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - 33: {fileID: 3378418}
   - 23: {fileID: 2378996}
   - 114: {fileID: 11420766}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: node2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,6 +23,7 @@ public class TestCam : MonoBehaviour
 	public float collisionSpeed = 15.0f;				
 	public float collisionToMoveSpeedDamping = 40.0f;	    // Amount of damping to apply when SmoothDamping the speed while exiting a collision
 	public float collisionRaycastYOffset = 5.0f;			// How far up from should the collision raycast be offset from the player's y position
+	//public LayerMask collisionLayer;						// the layers the camera will collide against
 
 	public Transform follow, player;						// Transforms that we use to follow and look at. Follow follows the player
 
@@ -95,16 +96,22 @@ public class TestCam : MonoBehaviour
 
 	//movement -------------------
 	private Transform target;
-	private RomanCharState charState;
 
 	public Vector3 targetYPosOffset = new Vector3(0, 3.4f, 0);
-	public float distanceFromtarget = -8;
-	public float lookSmooth = 100f;
+	public float distanceFromTarget = -8;
 	public float zoomSmooth = 100;
-
-	// Zooming -------------------
+	public float zoomStep = 2;
 	public float maxZoom = -2;
 	public float minZoom = -15;
+	public bool smoothFollow = false;
+	public float smooth = 0.05f;
+	public float lookSmooth = 100f;
+
+	[HideInInspector]
+	public float newDistance = -8; 			// Set by zoom input
+
+	[HideInInspector]
+	public float adjustmentDistance = -8;
 
 	// Orbit settings -------------------
 	public float xRotation = -20;
@@ -118,17 +125,32 @@ public class TestCam : MonoBehaviour
 	private float vOrbitInput;
 	private float hOrbitInput;
 	private float zoomInput;
-
 	public Quaternion targetRotation;
+
+	[System.Serializable]
+   	public class DebugSettings
+   	{
+   		public bool drawDesiredCollisionLines = true;
+   		public bool drawAdjustedCollisionLines = true;
+   	}
+
+	public DebugSettings debug = new DebugSettings();
+	public CollisionHandler collision = new CollisionHandler();
+
 
 	private Vector3 targetPos = Vector3.zero;
 	private Vector3 destination = Vector3.zero;
+	private Vector3 adjustedDestination = Vector3.zero; // for collision
+	private Vector3 camVel = Vector3.zero;
+	private RomanCharState charState;				
 	private float getBehindVel;
 	private float angleDelta;
 	private float targetRot;
 	private int signedDirection;
 	private float xRotVel;
 	private float yRotVel;
+	private Vector3 previousMousePos = Vector3.zero;
+	private Vector3 currentMousePos = Vector3.zero;
 
 	private RomanCharController charController;
 	
@@ -141,6 +163,12 @@ public class TestCam : MonoBehaviour
 		SetTarget(follow);
 //		tunnelObserver = GameManager.Instance.tunnelObserver;
 		MoveToTarget();
+
+		collision.Initialize(Camera.main);
+		collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+		collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
+
+		previousMousePos = currentMousePos = Input.mousePosition;
 	}
 
 	private void LateUpdate()
@@ -149,8 +177,8 @@ public class TestCam : MonoBehaviour
 		{
 			case CamState.Free:
 
-				MoveToTarget();
-				LookAtTarget();
+//				MoveToTarget();
+//				LookAtTarget();
 				//CollideCamera();
 
 				break;
@@ -159,7 +187,7 @@ public class TestCam : MonoBehaviour
 
 				ClimbMoveCamera();
 
-				rightDir = follow.right * distanceFromtarget;
+				rightDir = follow.right * distanceFromTarget;
 				//backwardsDir = follow.forward * -offset.z; // get rid of this?
 				camDir = transform.position - follow.position;
 				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
@@ -175,7 +203,7 @@ public class TestCam : MonoBehaviour
 			case CamState.ClimbingTransition:
 
 				//ClimbMoveCamera();
-				targetPos = follow.position + follow.forward * distanceFromtarget;
+				targetPos = follow.position + follow.forward * distanceFromTarget;
 				transform.position = Vector3.Lerp(transform.position, targetPos, 8.0f * Time.deltaTime);
 
 				transform.LookAt(follow);
@@ -200,7 +228,7 @@ public class TestCam : MonoBehaviour
 
 			case CamState.ZoomIn:
 
-				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * distanceFromtarget;
+				targetPos = follow.position + Vector3.Normalize(follow.position - transform.position) * distanceFromTarget;
 				targetPos.y = follow.position.y + 1;
 				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref zoomVel, 25.0f * Time.deltaTime);
 
@@ -217,30 +245,48 @@ public class TestCam : MonoBehaviour
 	}
 	// TUT ----------------------
 
+//	private void FixedUpdate ()
+//	{
+//		collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+//		collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
+//	}
+
 	private void Update ()
 	{
 		GetInput();
-		OrbitTarget();
 		ZoomInOnTarget();
-	}
 
-	private void SetTarget(Transform t)
-	{
-		target = t;
-	}
+//	}
 
-	private void GetInput ()
-	{
-		vOrbitInput = Mathf.Clamp(InputController.orbitV, -1, 1);
-		hOrbitInput = Mathf.Clamp(InputController.orbitH, -1, 1);
-		// TODO: Fix this to work with a controller
-		zoomInput = Input.GetAxisRaw("Mouse ScrollWheel");
+//	private void FixedUpdate ()
+//	{
+//
+		MoveToTarget();
+		LookAtTarget();
+
+		OrbitTarget();
+
+		collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+		collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
+
+		for (int i = 0; i < 5; i++)
+		{
+			if (debug.drawDesiredCollisionLines)
+				Debug.DrawLine(targetPos, collision.desiredCameraClipPoints[i], Color.white);
+			
+			if (debug.drawAdjustedCollisionLines)
+				Debug.DrawLine(targetPos, collision.adjustedCameraClipPoints[i], Color.green);
+			
+		}
+
+		collision.CheckColliding(targetPos);
+		adjustmentDistance = collision.GetAdjustedDistanceWithRayFrom(targetPos);
 	}
 
 	private void MoveToTarget()
 	{
 		// Set targetPos to be a bit above the player
-		targetPos = target.position + targetYPosOffset;
+//		targetPos = target.position + targetYPosOffset;
 
 		if (charState.IsRunningOrSprinting())
 		{
@@ -261,25 +307,65 @@ public class TestCam : MonoBehaviour
 			// if player is facing away from the camera &&
 			// if they are using not rotating the camera
 			// then slowly rotate the camera to be behind the player
-			if (Mathf.Abs(dot) > 0.01f && angleDelta > 60 && hOrbitInput == 0)
+			if (Mathf.Abs(dot) > 0.01f && angleDelta > 90 && hOrbitInput == 0)
 				targetRot = Mathf.SmoothDamp(targetRot, targetRot + 60.0f * signedDirection, ref rotVel, rotateDamping); 
 		
 		}
 		
 		//Set destination to equal a rotation (based on input) and multiply that to go behind the target's forward
-		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromtarget;
+//		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromTarget;
 
 		// Add the targetPos to the destination to place the camera a bit above the target
-		destination += targetPos;
+//		destination += targetPos;
 
 		// Finall set the position
-		transform.position = destination;
+		//transform.position = destination;
 
-		targetPos = transform.position + (target.position - transform.position).normalized * distanceFromtarget;
-		transform.position = targetPos;
+//		targetPos = transform.position + (target.position - transform.position).normalized * distanceFromTarget;
+//		transform.position = targetPos;
+
+		targetPos = target.position + Vector3.up * targetYPosOffset.y + Vector3.up * targetYPosOffset.z /*+ transform.TransformDirection(Vector3.forward)*/;
+		destination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * -Vector3.forward * distanceFromTarget;
+		destination += targetPos;
+
+		if (collision.colliding)
+		{
+			adjustedDestination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * Vector3.forward * adjustmentDistance;
+			adjustedDestination += targetPos;
+
+			if (smoothFollow)
+			{
+				transform.position = Vector3.SmoothDamp(transform.position, adjustedDestination, ref camVel, smooth);
+			}
+			else 
+				transform.position = Vector3.Lerp(transform.position, adjustedDestination, 8.0f * Time.deltaTime); //transform.position = adjustedDestination;
+		}
+		else
+		{
+			if (smoothFollow)
+			{
+				transform.position = Vector3.SmoothDamp(transform.position, destination, ref camVel, smooth);
+
+			}
+			else 
+				transform.position = Vector3.Lerp(transform.position, destination, 8.0f * Time.deltaTime); //transform.position = adjustedDestination;
+				//transform.position = destination;
+		}
 	
 	}
 
+	private void SetTarget(Transform t)
+	{
+		target = t;
+	}
+
+	private void GetInput ()
+	{
+		vOrbitInput = Mathf.Clamp(InputController.orbitV, -1, 1);
+		hOrbitInput = Mathf.Clamp(InputController.orbitH, -1, 1);
+		// TODO: Fix this to work with a controller
+		zoomInput = Input.GetAxisRaw("Mouse ScrollWheel");
+	}
 
 	private void LookAtTarget ()
 	{
@@ -297,8 +383,8 @@ public class TestCam : MonoBehaviour
 		}
 		else
 		{
-			//xRotation += vOrbitInput * vOrbitSmooth * Time.deltaTime;
-			//yRotation += hOrbitInput * hOrbitSmooth * Time.deltaTime;
+//			xRotation += vOrbitInput * vOrbitSpeed * Time.deltaTime;
+//			yRotation += hOrbitInput * hOrbitSpeed * Time.deltaTime;
 			xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSpeed, ref xRotVel, 0.5f);
 			yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSpeed, ref yRotVel, 0.5f);
 
@@ -314,13 +400,13 @@ public class TestCam : MonoBehaviour
 
 	void ZoomInOnTarget()
 	{
-		distanceFromtarget += zoomInput * zoomSmooth * Time.deltaTime;
-
-		if (distanceFromtarget > maxZoom)
-			distanceFromtarget = maxZoom;
-
-		else if (distanceFromtarget < minZoom)
-			distanceFromtarget = minZoom;
+//		distanceFromTarget += zoomInput * zoomSmooth * Time.deltaTime;
+//
+//		if (distanceFromTarget > maxZoom)
+//			distanceFromTarget = maxZoom;
+//
+//		else if (distanceFromTarget < minZoom)
+//			distanceFromTarget = minZoom;
 	}
 
 	//END  TUT ----------------------
@@ -334,7 +420,7 @@ public class TestCam : MonoBehaviour
 		if (colliding || InputController.h == 0)
 			return;
 
-		targetPos = follow.position + follow.forward * distanceFromtarget;
+		targetPos = follow.position + follow.forward * distanceFromTarget;
 		transform.position = Vector3.Lerp(transform.position, targetPos, 3.0f * Time.deltaTime);
 		
 	}
@@ -442,6 +528,118 @@ public class TestCam : MonoBehaviour
         Gizmos.color = Color.green;
 		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMinY, transform.position.z), 0.2f);
 
+   }
+
+   [System.Serializable]
+   public class CollisionHandler
+   {
+   		public LayerMask collisionLayer;
+
+   		[HideInInspector]
+   		public bool colliding = false;
+
+   		[HideInInspector]
+   		public Vector3[] adjustedCameraClipPoints;
+
+   		[HideInInspector]
+   		public Vector3[] desiredCameraClipPoints;
+
+   		Camera camera;
+
+   		public void Initialize(Camera cam)
+   		{
+   			camera = cam;
+   			adjustedCameraClipPoints = new Vector3[5];
+   			desiredCameraClipPoints = new Vector3[5];
+   		}
+
+		public void UpdateCameraClipPoints(Vector3 cameraPosition, Quaternion atRotation, ref Vector3[] intoArray)
+   		{
+   			if (!camera)
+   			{
+				Debug.LogError("No camera");
+   				return; 
+   			}
+   			// Clear the contents of intoArray
+   			intoArray = new Vector3[5];
+
+   			float z = camera.nearClipPlane;
+   			float x = Mathf.Tan(camera.fieldOfView / 3.41f) * z;
+   			float y = x / camera.aspect;
+
+   			//Top left
+   			intoArray[0] = (atRotation * new Vector3(-x, y, z)) + cameraPosition; // Added and rotated point relative to camera
+
+   			//Top right
+			intoArray[1] = (atRotation * new Vector3(x, y, z)) + cameraPosition; 
+
+   			//Bottom left
+			intoArray[2] = (atRotation * new Vector3(-x, -y, z)) + cameraPosition; 
+
+   			//Bottom right
+			intoArray[3] = (atRotation * new Vector3(x, -y, z)) + cameraPosition; 
+
+			// Camera's position - subtract the cam's forward to bring the position back a bit
+			intoArray[4] = cameraPosition - camera.transform.forward;
+   		}
+
+   		// Cast rays from the player to the clip points
+   		bool CollisionDetectedAtClipPoints(Vector3[] clipPoints, Vector3 fromPosition)
+   		{
+   			for(int i = 0; i < clipPoints.Length; i++)
+   			{
+   				Ray ray = new Ray(fromPosition, clipPoints[i] - fromPosition);
+   				float distance = Vector3.Distance(clipPoints[i], fromPosition);
+				if (Physics.Raycast(ray, distance, collisionLayer))
+   				{
+   					return true;
+   				}
+   			}
+
+			return false;
+
+   		}
+
+   		// Returns the distance the camera needs to be from the target
+   		public float GetAdjustedDistanceWithRayFrom(Vector3 from)
+   		{
+   			float distance = -1;
+
+   			for (int i = 0; i < desiredCameraClipPoints.Length; i++)
+   			{
+   				// cast the ray from the target to each desired clip point
+   				Ray ray = new Ray(from, desiredCameraClipPoints[i] - from);
+   				RaycastHit hit;
+				if (Physics.Raycast(ray, out hit, Vector3.Distance(desiredCameraClipPoints[i],from), collisionLayer))
+   				{
+   					//print (hit.collider.gameObject.name);
+   					//if (hit.collider.gameObject.layer == 15)
+   						//return 0;
+
+   					if (distance == -1)				// If the distance hasn't been set yet, set
+   						distance = hit.distance;
+   					else   							// If it has been set, check if the hti distance is smaller than the previous distance, if so set it
+   					{
+   						if (hit.distance < distance)
+   							distance = hit.distance;
+   					}
+   				}
+   			}
+
+   			// If distance never got set, return 0, else return the distance
+   			if (distance == -1)
+   				return 0;
+   			else
+   				return distance;
+   		}
+
+   		public void CheckColliding(Vector3 targetPosition)
+   		{
+   			if (CollisionDetectedAtClipPoints(desiredCameraClipPoints, targetPosition))
+   				colliding = true;
+   			else
+   				colliding = false;
+   		}
    }
 
 }

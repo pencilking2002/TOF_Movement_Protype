@@ -24,13 +24,16 @@ public class NutCollector : MonoBehaviour
 			print("nut triggered");
 			// Switch pickup to a layer that ignores all player collisions
 			pickup.layer = 16;
+			float yOffset = 1.8f;
 
 			LeanTween.scale(pickup, scaleUpVector,scaleUpTime)
 			.setOnComplete(() => {
 				LeanTween.scale(pickup, Vector3.zero, scaleTime)
 					.setEase(LeanTweenType.easeInBack)
 					.setOnUpdate((float pos) => {
-						pickup.transform.position = Vector3.SmoothDamp(pickup.transform.position, transform.position, ref moveVel, moveDamp);	
+							yOffset -= 0.17f;
+							Vector3 targetPos = new Vector3(transform.position.x, pickup.transform.position.y + yOffset, transform.position.z);
+							pickup.transform.position = Vector3.SmoothDamp(pickup.transform.position, targetPos, ref moveVel, moveDamp);	
 				})
 				.setOnComplete(() => {
 					pickup.SetActive(false);
