@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;
 	public bool debug = false;			// Toggle debug mode
-	public TestCam cam;
+	//public TestCam cam;
+
+	public PhatRobit.SimpleRpgCamera simpleRpgCam;
 
 	// debug
 	[HideInInspector]
@@ -34,8 +36,9 @@ public class GameManager : MonoBehaviour {
 		else
 			Destroy(this);
 
-		if (cam == null)
-			cam = Camera.main.GetComponent<TestCam>();
+//		if (cam == null)
+//			cam = Camera.main.GetComponent<TestCam>();
+		simpleRpgCam = Camera.main.GetComponent<PhatRobit.SimpleRpgCamera>();
 
 		charState = GameObject.FindObjectOfType<RomanCharState> ();
 		//camScript = GameObject.FindObjectOfType<RomanCameraController> ();
@@ -61,9 +64,9 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[1], 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
 			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + tunnelObserver.inTunnel);
-			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "H: " + InputController.h);
-			//GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
-			//GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.collision.colliding);
+			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "rawH: " + InputController.rawH);
+			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamPlayer pos: " + simpleRpgCam.GetSignedDirection());
+			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam auto rot: " + simpleRpgCam.autoRotate);
 			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);
 			GUI.Button(new Rect(Screen.width - 150, yPos[8], 170, 30), "Jump released: " + InputController.jumpReleased);
 			//GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "PMJ colliding " + pmj.colliding);

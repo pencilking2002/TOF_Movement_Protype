@@ -759,18 +759,18 @@ MonoBehaviour:
   setOriginLeft: 0
   setOriginMiddle: 0
   setOriginRight: 1
-  minAngle: 1
+  minAngle: -7
   maxAngle: 45
   rotationSmoothing: 5
   autoSmoothing: 1
-  returnSmoothing: 5
+  returnSmoothing: 0.83
   returnDelay: 0
   rotationSensitivity: {x: 5, y: 5}
   lockCursor: 0
   lockLeft: 1
   lockMiddle: 1
   lockRight: 1
-  allowRotationKeys: 1
+  allowRotationKeys: 0
   keyRotateUp: 261
   keyRotateDown: 258
   keyRotateLeft: 257
@@ -818,6 +818,8 @@ MonoBehaviour:
   mobilePanSwipeDistance: {x: 5, y: 5}
   mobileZoomDeadzone: 7
   mobileZoomSpeed: 0.25
+  autoRotate: 0
+  signedDirection: 0
 --- !u!1 &263665709
 GameObject:
   m_ObjectHideFlags: 0

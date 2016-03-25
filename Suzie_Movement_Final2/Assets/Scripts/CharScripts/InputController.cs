@@ -9,7 +9,27 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	public static InputController Instance;
-	public static float v, h, orbitV, orbitH, rawV, rawH;
+	public static float v, h, orbitV, orbitH;
+
+	public static float rawH
+	{
+		get { return _rawH; }
+		set
+		{
+			_rawH = Mathf.RoundToInt(value);
+		}
+	}
+	public static float rawV
+	{
+		get { return _rawV; }
+		set
+		{
+			_rawV = Mathf.RoundToInt(value);
+		}
+	}
+
+	private static int _rawH;
+	private static int _rawV;
 
 	public static bool jumpReleased = false;
 	private RomanCharState charState;
@@ -22,7 +42,7 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	[HideInInspector]
 	public InputDevice inputDevice;
-	private static float _rawV, _rawH;
+	//private static float _rawV, _rawH;
 
 	private void Awake ()
 	{

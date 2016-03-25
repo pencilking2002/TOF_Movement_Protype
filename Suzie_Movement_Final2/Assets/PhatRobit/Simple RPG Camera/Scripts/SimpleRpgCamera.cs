@@ -252,11 +252,12 @@ namespace PhatRobit
 			set
 			{
 				_angle = value;
-
+				
 				Quaternion angleRotation = Quaternion.Euler(_angle.y, _angle.x, 0);
 				Quaternion cameraRotation = (useTargetAxis && target ? target.rotation * angleRotation : angleRotation);
 
 				_oldRotation = cameraRotation;
+
 			}
 		}
 
@@ -316,6 +317,7 @@ namespace PhatRobit
 
 		void Update()
 		{
+
 			#region Rotation Input
 
 			_userInControl = false;
@@ -450,23 +452,25 @@ namespace PhatRobit
 								  (allowRotationMiddle && Input.GetMouseButton(2)) ||
 								  (allowRotationRight && Input.GetMouseButton(1)))
 					{
-						// Get the mouse axis for camera rotation
-						inputX = Input.GetAxis(mouseHorizontalAxis) * rotationSensitivity.x;
-						inputY = Input.GetAxis(mouseVerticalAxis) * rotationSensitivity.y;
+						// Roman check character needs to be auto-rotated
+						if (GameManager.Instance.charState.IsRunningOrSprinting() && Mathf.Abs(InputController.h) == 1)
+							autoRotate = true;
+						else 
+							autoRotate = false;
+						
+						inputX = InputController.orbitH * rotationSensitivity.x;
+						inputY = InputController.orbitV * rotationSensitivity.y;
 					}
 				}
 
-				if(useJoystick)
-				{
-					//Roman
-					//inputX += Input.GetAxis(joystickHorizontalAxis) * joystickSensitivity.x;
-					//inputY += Input.GetAxis(joystickVerticalAxis) * joystickSensitivity.y;
+				// Roman
+				// automatically rotate the camera to get behind the player 
+				// if they are running and using horizontal axis
+				if (autoRotate)
+					_angle.x += autoRotateSpeed * Time.deltaTime * GetSignedDirection() + inputX;
+				else
+					_angle.x += inputX * (invertRotationX ? -1 : 1);
 
-					inputX += InputController.orbitH * joystickSensitivity.x;
-					inputY += InputController.orbitV * joystickSensitivity.y;
-				}
-
-				_angle.x += inputX * (invertRotationX ? -1 : 1);
 				// Limit the Y rotation angle
 				_angle.y = Mathf.Clamp(_angle.y - inputY * (invertRotationY ? -1 : 1), minAngle, maxAngle);
 
@@ -1146,8 +1150,11 @@ namespace PhatRobit
 
 				// Smoothly rotate the camera based on input angle
 				Quaternion angleRotation = Quaternion.Euler(_angle.y, _angle.x, 0);
-				Quaternion cameraRotation = (useTargetAxis ? target.rotation * angleRotation : angleRotation);
 
+				//AutoRotateBehindMovingTarget(ref angleRotation);
+
+				Quaternion cameraRotation = (useTargetAxis ? target.rotation * angleRotation : angleRotation);
+					
 				Quaternion currentRotation = Quaternion.Lerp(_oldRotation, cameraRotation, Time.deltaTime * (_userInControl || _returnTimer < returnDelay ? rotationSmoothing : ((returnToOrigin || stayBehindTarget) ? returnSmoothing : rotationSmoothing)));
 
 				_oldRotation = currentRotation;
@@ -1452,5 +1459,19 @@ namespace PhatRobit
 		}
 
 		#endregion
+
+		// Roman 
+		public bool autoRotate = false;					// used to determine whether to auto-rotate while the player's moving
+		public float autoRotateSpeed = 40.0f;			// How fast the cam auto-rotates around the player
+
+		// Roman
+		/// <summary>
+		/// Check if camera is to the right or left or the player
+		/// </summary>
+		/// <returns>The signed direction.</returns>
+		public int GetSignedDirection ()
+		{
+			return Vector3.Dot(transform.right.normalized, target.forward.normalized) < 0 ? -1 : 1;
+		}
 	}
 }
