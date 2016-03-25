@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour {
 			if (GUI.Button(new Rect(0, yPos[3], 170, 30), "Sprint"))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("SprintSpawnSpot").transform.position;
 			
-			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Edge Climb"))
+			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Wall Climb"))
 			{
-				currentChar.position = GameObject.FindGameObjectWithTag("EdgeClimbSpot").transform.position;
+				currentChar.position = GameObject.FindGameObjectWithTag("WallClimbSpot").transform.position;
 			}
 		}
 	}

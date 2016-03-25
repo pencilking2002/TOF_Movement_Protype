@@ -624,6 +624,9 @@ ModelImporter:
     101232: Root3
     101234: Root4
     101236: transform203
+    101238: ClimbingWallSurface
+    101240: Rock 5
+    101242: transform204
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -1243,6 +1246,9 @@ ModelImporter:
     401232: Root3
     401234: Root4
     401236: transform203
+    401238: ClimbingWallSurface
+    401240: Rock 5
+    401242: transform204
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1713,6 +1719,8 @@ ModelImporter:
     2300934: Root2
     2300936: Root3
     2300938: Root4
+    2300940: ClimbingWallSurface
+    2300942: Rock 5
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -2183,6 +2191,8 @@ ModelImporter:
     3300934: Root2
     3300936: Root3
     3300938: Root4
+    3300940: ClimbingWallSurface
+    3300942: Rock 5
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -2652,6 +2662,8 @@ ModelImporter:
     4300932: PlatformGround2
     4300934: PlatformBottom3
     4300936: PlatformGround3
+    4300938: ClimbingWallSurface
+    4300940: Rock
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -3122,6 +3134,8 @@ ModelImporter:
     6400934: Root2
     6400936: Root3
     6400938: Root4
+    6400940: ClimbingWallSurface
+    6400942: Rock 5
   materials:
     importMaterials: 1
     materialName: 0

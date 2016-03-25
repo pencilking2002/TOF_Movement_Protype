@@ -74,59 +74,57 @@ public class EdgeClimbController : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (charState.IsEdgeClimbing())
-		{
-		 
-			//cast the ray 5 units at the specified direction  	
-			if(Physics.Raycast(cCollider.bounds.center, transform.forward, out hit, 0.5f, layerMask))
-			{  
-				// Get the vertical center of the Squirrel
-				Vector3 center = cCollider.bounds.center;
-				center = center + transform.forward * cCollider.radius;
-			
-				// Get the hit point of the the climb collider but use the player's Y center
-				Vector3 hitPoint = new Vector3(hit.point.x, center.y, hit.point.z);
-				Debug.DrawLine(center, hitPoint, Color.blue);
-
-				// If the character is further away then the threshold
-				// Calculate the gravity. Otherwise set it to zero
-				gravity = Vector3.Distance(center, hitPoint);
-
-				// If the character is to close to the climbing mesh or if there is no horizontal input
-				// Zero out the gravity
-				if (gravity < gravityThreshold || InputController.h == 0)
-					gravity = 0;
-
-				//if the current transform's forward z value has passed the threshold test
-				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
-				{
-					//smoothly match the player's forward with the inverse of the normal
-					//transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
-					transform.forward = Vector3.SmoothDamp(transform.forward, -hit.normal, ref vel, 0.3f);
-				}
-				//store the current hit.normal inside the oldNormal
-				oldNormal = -hit.normal;
-
-			} 
-			else
-			{
-				EventManager.OnCharEvent(GameEvent.StopEdgeClimbing);
-				StopClimbing(GameEvent.StopEdgeClimbing);
-			} 
-
-			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
-
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Vector3 finalDir = Vector3.Lerp(Vector3.zero, moveDirection, 5.0f * Time.deltaTime);
-			//print(moveDirection.magnitude);
-			moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
-			animator.SetFloat("HorEdgeClimbDir", InputController.rawH, 0.02f, Time.deltaTime);
-
-			if (cController.enabled)
-				cController.Move(moveDirection); //cController.Move(finalDir); 
-		}
-	
+		if (!charState.IsEdgeClimbing())
+			return;
 		
+		//cast the ray 5 units at the specified direction  	
+		if(Physics.Raycast(cCollider.bounds.center, transform.forward, out hit, 0.5f, layerMask))
+		{  
+			// Get the vertical center of the Squirrel
+			Vector3 center = cCollider.bounds.center;
+			center = center + transform.forward * cCollider.radius;
+		
+			// Get the hit point of the the climb collider but use the player's Y center
+			Vector3 hitPoint = new Vector3(hit.point.x, center.y, hit.point.z);
+			Debug.DrawLine(center, hitPoint, Color.blue);
+
+			// If the character is further away then the threshold
+			// Calculate the gravity. Otherwise set it to zero
+			gravity = Vector3.Distance(center, hitPoint);
+
+			// If the character is to close to the climbing mesh or if there is no horizontal input
+			// Zero out the gravity
+			if (gravity < gravityThreshold || InputController.h == 0)
+				gravity = 0;
+
+			//if the current transform's forward z value has passed the threshold test
+			if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
+			{
+				//smoothly match the player's forward with the inverse of the normal
+				//transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
+				transform.forward = Vector3.SmoothDamp(transform.forward, -hit.normal, ref vel, 0.3f);
+			}
+			//store the current hit.normal inside the oldNormal
+			oldNormal = -hit.normal;
+
+		} 
+		else
+		{
+			EventManager.OnCharEvent(GameEvent.StopEdgeClimbing);
+			StopClimbing(GameEvent.StopEdgeClimbing);
+		} 
+
+		moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
+
+		moveDirection = transform.TransformDirection(moveDirection);
+		//Vector3 finalDir = Vector3.Lerp(Vector3.zero, moveDirection, 5.0f * Time.deltaTime);
+		//print(moveDirection.magnitude);
+		moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
+		animator.SetFloat("HorEdgeClimbDir", InputController.rawH, 0.02f, Time.deltaTime);
+
+		if (cController.enabled)
+			cController.Move(moveDirection); //cController.Move(finalDir); 
+	
 	}
 	
 	private void InitEdgeClimb (GameEvent gameEvent, RaycastHit hit)
