@@ -819,7 +819,7 @@ MonoBehaviour:
   mobileZoomDeadzone: 7
   mobileZoomSpeed: 0.25
   autoRotate: 0
-  signedDirection: 0
+  autoRotateSpeed: 40
 --- !u!1 &263665709
 GameObject:
   m_ObjectHideFlags: 0
