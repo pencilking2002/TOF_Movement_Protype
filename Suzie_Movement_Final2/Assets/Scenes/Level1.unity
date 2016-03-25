@@ -693,7 +693,7 @@ MonoBehaviour:
   showCollisionDebugLines: 0
   target: {fileID: 511196682}
   targetTag: 
-  targetOffset: {x: 0, y: 0.1, z: 0}
+  targetOffset: {x: 0, y: 2.5, z: 0}
   smoothOffset: 1
   smoothOffsetSpeed: 5
   relativeOffset: 1
@@ -759,7 +759,7 @@ MonoBehaviour:
   setOriginLeft: 0
   setOriginMiddle: 0
   setOriginRight: 1
-  minAngle: -7
+  minAngle: -21
   maxAngle: 45
   rotationSmoothing: 5
   autoSmoothing: 1
@@ -785,7 +785,7 @@ MonoBehaviour:
   allowZoom: 1
   distance: 7
   minDistance: 2
-  maxDistance: 7
+  maxDistance: 6
   autoAdjustZoomSpeed: 0
   zoomSpeed: 1
   minZoomSpeed: 1
