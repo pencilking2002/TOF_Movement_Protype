@@ -62,8 +62,8 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
 			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + tunnelObserver.inTunnel);
 			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "H: " + InputController.h);
-			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
-			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.colliding);
+			//GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamState: " + cam.state);
+			//GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam colliding: " + cam.collision.colliding);
 			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);
 			GUI.Button(new Rect(Screen.width - 150, yPos[8], 170, 30), "Jump released: " + InputController.jumpReleased);
 			//GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "PMJ colliding " + pmj.colliding);

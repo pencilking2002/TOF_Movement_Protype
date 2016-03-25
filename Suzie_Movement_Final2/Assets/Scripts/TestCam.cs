@@ -69,7 +69,7 @@ public class TestCam : MonoBehaviour
 	//Collision
 //	private float _moveLerpSpeed = 40.0f;					// Original move lerp speed that we will use to set the public lerp speed to
 	private Vector3 collisionVel;
-	private float moveSmoothVel;
+	private Vector3 moveSmoothVel;
 	private Vector3 collideDamp;
 
 	public enum CamState
@@ -105,7 +105,7 @@ public class TestCam : MonoBehaviour
 	public float maxZoom = -2;
 	public float minZoom = -15;
 	public bool smoothFollow = false;
-	public float smooth = 0.05f;
+	public float moveSmoothDamp = 0.05f;
 	public float lookSmooth = 100f;
 
 	[HideInInspector]
@@ -154,7 +154,8 @@ public class TestCam : MonoBehaviour
 	private Vector3 currentMousePos = Vector3.zero;
 
 	private RomanCharController charController;
-	
+
+
 	private void Awake () {}
 
 	private void Start ()
@@ -168,8 +169,7 @@ public class TestCam : MonoBehaviour
 		collision.Initialize(Camera.main);
 		collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
 		collision.UpdateCameraClipPoints(destination, transform.rotation, ref collision.desiredCameraClipPoints);
-
-		previousMousePos = currentMousePos = Input.mousePosition;
+		//previousMousePos = currentMousePos = Input.mousePosition;
 	}
 
 	private void LateUpdate()
@@ -277,6 +277,8 @@ public class TestCam : MonoBehaviour
 		}
 
 		collision.CheckColliding(targetPos);
+		//float pos = collision.GetAdjustedDistanceWithRayFrom(targetPos);
+		//adjustmentDistance = Mathf.Lerp(adjustmentDistance, pos, 2.0f * Time.deltaTime);
 		adjustmentDistance = collision.GetAdjustedDistanceWithRayFrom(targetPos);
 	}
 
@@ -322,22 +324,14 @@ public class TestCam : MonoBehaviour
 			adjustedDestination = Quaternion.Euler(xRotation, yRotation + targetRot, 0) * Vector3.forward * adjustmentDistance;
 			adjustedDestination += targetPos;
 
-			if (smoothFollow)
-			{
-				transform.position = Vector3.SmoothDamp(transform.position, adjustedDestination, ref camVel, smooth);
-			}
-			else 
-				transform.position = Vector3.Lerp(transform.position, adjustedDestination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
+			//transform.position = Vector3.Lerp(transform.position, adjustedDestination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
+			transform.position = Vector3.SmoothDamp(transform.position, adjustedDestination, ref moveSmoothVel, moveSmoothDamp);
 		}
 		else
 		{
-			if (smoothFollow)
-			{
-				transform.position = Vector3.SmoothDamp(transform.position, destination, ref camVel, smooth);
+			//transform.position = Vector3.Lerp(transform.position, destination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
+			transform.position = Vector3.SmoothDamp(transform.position, destination, ref moveSmoothVel, moveSmoothDamp);
 
-			}
-			else 
-				transform.position = Vector3.Lerp(transform.position, destination, 10 * Time.deltaTime); //transform.position = adjustedDestination;
 		}
 	
 	}
@@ -371,10 +365,14 @@ public class TestCam : MonoBehaviour
 		}
 		else
 		{
-//			xRotation += vOrbitInput * vOrbitSpeed * Time.deltaTime;
-//			yRotation += hOrbitInput * hOrbitSpeed * Time.deltaTime;
-			xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSpeed, ref xRotVel, 0.5f);
-			yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSpeed, ref yRotVel, 0.5f);
+			xRotation += InputController.orbitV * vOrbitSpeed * Time.deltaTime;
+			yRotation += InputController.orbitH * hOrbitSpeed * Time.deltaTime;
+
+			//xRotation = Mathf.SmoothDamp(xRotation, xRotation + vOrbitInput * vOrbitSpeed, ref xRotVel, 0.5f);
+			//yRotation = Mathf.SmoothDamp(yRotation, yRotation + hOrbitInput * hOrbitSpeed, ref yRotVel, 0.5f);
+
+			//xRotation = Mathf.Lerp(xRotation, xRotation + vOrbitInput * vOrbitSpeed, 5.0f * Time.deltaTime);
+			//yRotation = Mathf.Lerp(yRotation, yRotation + hOrbitInput * hOrbitSpeed, 5.0f * Time.deltaTime);
 
 			if (xRotation > maxXRotation)
 				xRotation = maxXRotation;
@@ -388,13 +386,13 @@ public class TestCam : MonoBehaviour
 
 	void ZoomInOnTarget()
 	{
-//		distanceFromTarget += zoomInput * zoomSmooth * Time.deltaTime;
-//
-//		if (distanceFromTarget > maxZoom)
-//			distanceFromTarget = maxZoom;
-//
-//		else if (distanceFromTarget < minZoom)
-//			distanceFromTarget = minZoom;
+		distanceFromTarget += zoomInput * zoomSmooth * Time.deltaTime;
+
+		if (distanceFromTarget > maxZoom)
+			distanceFromTarget = maxZoom;
+
+		else if (distanceFromTarget < minZoom)
+			distanceFromTarget = minZoom;
 	}
 
 	//END  TUT ----------------------
@@ -534,20 +532,22 @@ public class TestCam : MonoBehaviour
 
    		Camera camera;
 
+		private Vector3 camPos;
+		private Vector3 someVel;
+
    		public void Initialize(Camera cam)
    		{
-   			camera = cam;
+			
+		   	camera = cam;
+			camPos = cam.transform.position;
    			adjustedCameraClipPoints = new Vector3[5];
    			desiredCameraClipPoints = new Vector3[5];
    		}
 
 		public void UpdateCameraClipPoints(Vector3 cameraPosition, Quaternion atRotation, ref Vector3[] intoArray)
    		{
-   			if (!camera)
-   			{
-				Debug.LogError("No camera");
-   				return; 
-   			}
+
+			//camPos = Vector3.SmoothDamp(camPos, cameraPosition, ref someVel, 0.2f);   
    			// Clear the contents of intoArray
    			intoArray = new Vector3[5];
 
