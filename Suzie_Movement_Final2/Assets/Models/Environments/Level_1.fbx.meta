@@ -598,6 +598,32 @@ ModelImporter:
     101180: sign2
     101182: transform201
     101184: transform202
+    101186: Crystals84
+    101188: Crystals85
+    101190: Crystals86
+    101192: Crystals87
+    101194: Crystals88
+    101196: Crystals89
+    101198: Crystals90
+    101200: Crystals91
+    101202: Crystals92
+    101204: Crystals93
+    101206: PlatformBottom1
+    101208: PlatformBottom2
+    101210: PlatformBottom3
+    101212: PlatformGround1
+    101214: PlatformGround2
+    101216: PlatformGround3
+    101218: polySurface1000
+    101220: polySurface997
+    101222: polySurface998
+    101224: polySurface999
+    101226: Rocks31
+    101228: Rocks32
+    101230: Root2
+    101232: Root3
+    101234: Root4
+    101236: transform203
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -1191,6 +1217,32 @@ ModelImporter:
     401180: sign2
     401182: transform201
     401184: transform202
+    401186: Crystals84
+    401188: Crystals85
+    401190: Crystals86
+    401192: Crystals87
+    401194: Crystals88
+    401196: Crystals89
+    401198: Crystals90
+    401200: Crystals91
+    401202: Crystals92
+    401204: Crystals93
+    401206: PlatformBottom1
+    401208: PlatformBottom2
+    401210: PlatformBottom3
+    401212: PlatformGround1
+    401214: PlatformGround2
+    401216: PlatformGround3
+    401218: polySurface1000
+    401220: polySurface997
+    401222: polySurface998
+    401224: polySurface999
+    401226: Rocks31
+    401228: Rocks32
+    401230: Root2
+    401232: Root3
+    401234: Root4
+    401236: transform203
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1635,6 +1687,32 @@ ModelImporter:
     2300882: Rocks7
     2300884: Rocks8
     2300886: Rocks9
+    2300888: Crystals84
+    2300890: Crystals85
+    2300892: Crystals86
+    2300894: Crystals87
+    2300896: Crystals88
+    2300898: Crystals89
+    2300900: Crystals90
+    2300902: Crystals91
+    2300904: Crystals92
+    2300906: Crystals93
+    2300908: PlatformBottom 13
+    2300910: PlatformBottom1
+    2300912: PlatformBottom2
+    2300914: PlatformBottom3
+    2300916: PlatformGround1
+    2300918: PlatformGround2
+    2300920: PlatformGround3
+    2300922: polySurface1000
+    2300924: polySurface997
+    2300926: polySurface998
+    2300928: polySurface999
+    2300930: Rocks31
+    2300932: Rocks32
+    2300934: Root2
+    2300936: Root3
+    2300938: Root4
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -2079,6 +2157,32 @@ ModelImporter:
     3300882: Rocks7
     3300884: Rocks8
     3300886: Rocks9
+    3300888: Crystals84
+    3300890: Crystals85
+    3300892: Crystals86
+    3300894: Crystals87
+    3300896: Crystals88
+    3300898: Crystals89
+    3300900: Crystals90
+    3300902: Crystals91
+    3300904: Crystals92
+    3300906: Crystals93
+    3300908: PlatformBottom 13
+    3300910: PlatformBottom1
+    3300912: PlatformBottom2
+    3300914: PlatformBottom3
+    3300916: PlatformGround1
+    3300918: PlatformGround2
+    3300920: PlatformGround3
+    3300922: polySurface1000
+    3300924: polySurface997
+    3300926: polySurface998
+    3300928: polySurface999
+    3300930: Rocks31
+    3300932: Rocks32
+    3300934: Root2
+    3300936: Root3
+    3300938: Root4
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -2523,6 +2627,31 @@ ModelImporter:
     4300882: pCube2
     4300884: CliffGround
     4300886: CliffWall
+    4300888: Crystals93
+    4300890: Root2
+    4300892: polySurface999
+    4300894: polySurface1000
+    4300896: Root3
+    4300898: Root4
+    4300900: Rocks31
+    4300902: Rocks32
+    4300904: Crystals89
+    4300906: Crystals90
+    4300908: Crystals91
+    4300910: Crystals92
+    4300912: Crystals84
+    4300914: Crystals85
+    4300916: Crystals86
+    4300918: Crystals87
+    4300920: Crystals88
+    4300922: polySurface997
+    4300924: polySurface998
+    4300926: PlatformBottom1
+    4300928: PlatformGround1
+    4300930: PlatformBottom2
+    4300932: PlatformGround2
+    4300934: PlatformBottom3
+    4300936: PlatformGround3
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -2967,6 +3096,32 @@ ModelImporter:
     6400882: Rocks7
     6400884: Rocks8
     6400886: Rocks9
+    6400888: Crystals84
+    6400890: Crystals85
+    6400892: Crystals86
+    6400894: Crystals87
+    6400896: Crystals88
+    6400898: Crystals89
+    6400900: Crystals90
+    6400902: Crystals91
+    6400904: Crystals92
+    6400906: Crystals93
+    6400908: PlatformBottom 13
+    6400910: PlatformBottom1
+    6400912: PlatformBottom2
+    6400914: PlatformBottom3
+    6400916: PlatformGround1
+    6400918: PlatformGround2
+    6400920: PlatformGround3
+    6400922: polySurface1000
+    6400924: polySurface997
+    6400926: polySurface998
+    6400928: polySurface999
+    6400930: Rocks31
+    6400932: Rocks32
+    6400934: Root2
+    6400936: Root3
+    6400938: Root4
   materials:
     importMaterials: 1
     materialName: 0
