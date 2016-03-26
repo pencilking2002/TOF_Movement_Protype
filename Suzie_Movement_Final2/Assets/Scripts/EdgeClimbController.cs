@@ -4,24 +4,23 @@ using System.Collections.Generic;
 
 public class EdgeClimbController : MonoBehaviour 
 {
+	public LayerMask layerMask;
+	// Gravity pulling the player into the climb collider
+	public float gravity = 50.0f;
+	public float gravityMultiplier = 20.0f;
+	public float gravityThreshold = 0.01f;				// Used to calculate the point at which to stop applying gravity
+	public float normalThreshold = 0.009f;				// The threshold, to discard some of the normal value variations
+	public float movementSpeed = 6.0f;					// the speed to move the game object
+
+	private RaycastHit hit;						
+	private Vector3 oldNormal;							//a class to store the previous normal value
+
 	[Range(-5.0f,5.0f)]
 	public float climbSpotYOffset = 1.0f;
 	
 	[Range(-5.0f,5.0f)]
 	public float climbSpotZOffset = 1.0f;
 	
-	// the speed to move the game object
-	public float speed = 6.0f;
-	
-	// Gravity pulling the player into the climb collider
-	public float gravity = 50.0f;
-	public float gravityMultiplier = 20.0f;
-
-	// The threshold, to discard some of the normal value variations
-	public float threshold = 0.009f;
-
-	// Used to calculate the point at which to stop applying gravity
-	public float gravityThreshold = 0.01f;
 
 	public float rotLerpSpeed = 10.0f;
 
@@ -37,21 +36,9 @@ public class EdgeClimbController : MonoBehaviour
 
 	private Collider parentCol;
 	private Vector3 climbPos;
-	private int layerMask = 1 << 10;
-	
-	//the direction to move the character
-	private Vector3 moveDirection = Vector3.zero;
-	
-	//a ray to be cast 
-	//private Ray ray;
-	//A class that stores ray collision info
-	private RaycastHit hit;
-	
-	//a class to store the previous normal value
-	private Vector3 oldNormal;
-	//private bool atContactPoint = false;
 
-	private Vector3 vel;
+	private Vector3 moveDirection = Vector3.zero;		//the direction to move the character
+	private Vector3 normalVel;							// Vel for smooth damping to a different forward/normal rotation
 
 	private void Start ()
 	{
@@ -98,11 +85,11 @@ public class EdgeClimbController : MonoBehaviour
 				gravity = 0;
 
 			//if the current transform's forward z value has passed the threshold test
-			if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
+			if(oldNormal.z >= transform.forward.z + normalThreshold || oldNormal.z <= transform.forward.z - normalThreshold)
 			{
 				//smoothly match the player's forward with the inverse of the normal
 				//transform.forward = Vector3.Lerp (transform.forward, -hit.normal, rotLerpSpeed * Time.deltaTime);
-				transform.forward = Vector3.SmoothDamp(transform.forward, -hit.normal, ref vel, 0.3f);
+				transform.forward = Vector3.SmoothDamp(transform.forward, -hit.normal, ref normalVel, 0.3f);
 			}
 			//store the current hit.normal inside the oldNormal
 			oldNormal = -hit.normal;
@@ -114,12 +101,10 @@ public class EdgeClimbController : MonoBehaviour
 			StopClimbing(GameEvent.StopEdgeClimbing);
 		} 
 
-		moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
-
+		moveDirection = new Vector3(InputController.h * movementSpeed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
 		moveDirection = transform.TransformDirection(moveDirection);
-		//Vector3 finalDir = Vector3.Lerp(Vector3.zero, moveDirection, 5.0f * Time.deltaTime);
-		//print(moveDirection.magnitude);
 		moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
+
 		animator.SetFloat("HorEdgeClimbDir", InputController.rawH, 0.02f, Time.deltaTime);
 
 		if (cController.enabled)
@@ -182,7 +167,7 @@ public class EdgeClimbController : MonoBehaviour
 	
 	private void StopClimbing (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.StopEdgeClimbing && charState.IsClimbing())
+		if (gEvent == GameEvent.StopEdgeClimbing && charState.IsWallClimbing())
 		{
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");

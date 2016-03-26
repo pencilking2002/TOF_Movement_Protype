@@ -1285,6 +1285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9307d07fa4d54bc0b71af43d32ebb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  gravity: 50
+  gravityMultiplier: 40
+  gravityThreshold: 0.006
+  normalThreshold: 0.009
+  movementSpeed: 6
 --- !u!114 &511196687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,13 +1305,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d39811044004be7b34fce3bf30792a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpotYOffset: -0.77
-  climbSpotZOffset: 0.12
-  speed: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   gravity: 50
   gravityMultiplier: 40
-  threshold: 0.001
   gravityThreshold: 0.006
+  normalThreshold: 0.009
+  movementSpeed: 6
+  climbSpotYOffset: -0.77
+  climbSpotZOffset: 0.12
   rotLerpSpeed: 5
 --- !u!114 &511196688
 MonoBehaviour:
