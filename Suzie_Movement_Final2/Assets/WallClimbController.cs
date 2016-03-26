@@ -91,7 +91,7 @@ public class WallClimbController : MonoBehaviour {
 			StopClimbing(GameEvent.StopWallClimbing);
 		}
 
-		moveDirection = new Vector3(InputController.h * movementSpeed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
+		moveDirection = new Vector3(InputController.h * movementSpeed, InputController.v * movementSpeed, gravity * gravityMultiplier)  * Time.deltaTime;
 		moveDirection = transform.TransformDirection(moveDirection);
 		moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
 
@@ -160,11 +160,11 @@ public class WallClimbController : MonoBehaviour {
 
 	private void StopClimbing (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.StopWallClimbing && charState.IsWallClimbing())
+		if (gEvent == GameEvent.StopClimbing && charState.IsWallClimbing())
 		{
-//			rb.isKinematic = false;
-//			animator.SetTrigger("StopClimbing");
-//			cController.enabled = false;
+			rb.isKinematic = false;
+			animator.SetTrigger("StopClimbing");
+			cController.enabled = false;
 			print("stop wall climbing");
 		}
 	}

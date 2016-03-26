@@ -1293,6 +1293,7 @@ MonoBehaviour:
   gravityThreshold: 0.006
   normalThreshold: 0.009
   movementSpeed: 6
+  wallClimbPosOffset: -0.04
 --- !u!114 &511196687
 MonoBehaviour:
   m_ObjectHideFlags: 0

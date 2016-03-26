@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Class Responsible for controlling the character during all jumps
@@ -41,9 +42,7 @@ public class JumpController : MonoBehaviour {
 
 	// PRIVATE vars -----------------------
 
-//	private float jumpTriggerLimitTimer = 5f;
 	private float forwardSpeed; 					// Temp var for forward speed
-	//private float lastJumpTime;
 	private float speed;							// Temp var for locomotion 
 	private Vector3 forwardVel;					    // Temp vector for calculating forward velocity while jumping
 	private float lerpedJumpForce;
@@ -71,6 +70,11 @@ public class JumpController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		charController = GetComponent<RomanCharController>();
 		charState = GetComponent<RomanCharState>();
+
+//		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
+//			{ GameEvent.StartWallClimbing, false }
+//
+//		});
 	}
 
 
@@ -90,9 +94,11 @@ public class JumpController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		LimitJump();
-
-		RotateAndMoveJump();
+		if (charState.IsInAnyJumpingState())
+		{
+			LimitJump();
+			RotateAndMoveJump();
+		}
 	}
 
 	/// <summary>
@@ -101,9 +107,9 @@ public class JumpController : MonoBehaviour {
 	/// </summary>
 	private void LimitJump()
 	{
-		if (InputController.jumpReleased && charState.IsInAnyJumpingState() && !charState.IsAnyDoubleJumping() && rb.velocity.y > 0) 
+		if (InputController.jumpReleased && !charState.IsAnyDoubleJumping() && rb.velocity.y > 0) 
 		{
-			print("Jump released");
+			//print("Jump released");
 			// Old downward force:  -rb.velocity.y/2
 			downwardForce = Mathf.Lerp(0, maxDownwardForce, downwardForceSpeed * Time.fixedDeltaTime);
 			rb.AddForce (new Vector3 (0, downwardForce, 0), ForceMode.Impulse);
@@ -118,7 +124,7 @@ public class JumpController : MonoBehaviour {
 
 	private void RotateAndMoveJump()
 	{
-		if (charController.moveDirectionRaw != Vector3.zero && charState.IsInAnyJumpingState())
+		if (charController.moveDirectionRaw != Vector3.zero)
 		{
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
 			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;

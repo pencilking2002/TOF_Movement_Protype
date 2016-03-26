@@ -89,26 +89,26 @@ public class InputController : MonoBehaviour {
 		{
 			print ("edge climbing raw v: " + v);
 			
-			if (rawV == 1 || v > 0)
-			{
-				EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
-			}
-			// TODO - doesnt work with controller
-			else if (rawV == -1 || v < 0)
-			{
-	//			print ("InputController: stop climbing " + rawV);
-				EventManager.OnInputEvent(GameEvent.StopEdgeClimbing);
-				EventManager.OnInputEvent(GameEvent.StopWallClimbing);
-				print("InputController: Stop climbing");
-
-			}
+//			if (rawV == 1 || v > 0)
+//			{
+//				EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
+//			}
+//			// TODO - doesnt work with controller
+//			else if (rawV == -1 || v < 0)
+//			{
+//	//			print ("InputController: stop climbing " + rawV);
+//				EventManager.OnInputEvent(GameEvent.StopEdgeClimbing);
+//				EventManager.OnInputEvent(GameEvent.StopWallClimbing);
+//				print("InputController: Stop climbing");
+//
+//			}
 //			print ("Event sent: climboveredge");
 		}
 		
-		if (charState.IsVineClimbing() && inputDevice.Action1.WasPressed/*rawV == -1 || v < 0*/)
+		if (charState.IsClimbing() && inputDevice.Action1.WasPressed/*rawV == -1 || v < 0*/)
 		{
-			EventManager.OnInputEvent(GameEvent.StopVineClimbing);	
-			//print("stop vine climbing");		
+			EventManager.OnInputEvent(GameEvent.StopClimbing);
+			print("stop climbing");		
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------
