@@ -108,7 +108,7 @@ public class InputController : MonoBehaviour {
 		if (charState.IsClimbing() && inputDevice.Action1.WasPressed/*rawV == -1 || v < 0*/)
 		{
 			EventManager.OnInputEvent(GameEvent.StopClimbing);
-			print("stop climbing");		
+			//print("stop climbing");		
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

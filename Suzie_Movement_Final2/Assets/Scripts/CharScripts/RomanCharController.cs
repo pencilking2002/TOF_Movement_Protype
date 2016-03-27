@@ -50,8 +50,7 @@ public class RomanCharController : MonoBehaviour {
 
 			//{ GameEvent.Land, true },
 			//{ GameEvent.CamZoomedIn, true },
-			{ GameEvent.StopVineClimbing, true },
-			{ GameEvent.StopEdgeClimbing, true },
+			{ GameEvent.StopClimbing, true },
 			{ GameEvent.FinishClimbOver, true },
 
 			//{ GameEvent.LandedFirstTime, false },

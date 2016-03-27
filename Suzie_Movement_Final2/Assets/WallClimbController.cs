@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WallClimbController : MonoBehaviour {
-
+	public Transform cColliderFrontTransf;
 	public LayerMask layerMask;
 	public float gravity = 50.0f;
 	public float gravityMultiplier = 20.0f;
@@ -11,6 +11,7 @@ public class WallClimbController : MonoBehaviour {
 	public float normalThreshold = 0.009f;				// The threshold, to discard some of the normal value variations
 	public float movementSpeed = 6.0f;					// the speed to move the game object
 	public float wallClimbPosOffset = -0.5f;			// Helps with positioning Squirrel closer to climb collider when beginning to wall climb
+	public float centerOffset = 0.68f;
 
 	private RaycastHit hit;						
 	private Vector3 oldNormal;							//a class to store the previous normal value
@@ -24,6 +25,8 @@ public class WallClimbController : MonoBehaviour {
 	private Vector3 normalVel;							// Vel for smooth damping to a different forward/normal rotation
 	private Vector3 moveDirection = Vector3.zero;		//the direction to move the character
 	private Vector3 initialWallClimbingPos = Vector3.zero;
+	private Vector3 initialClimbCenterPos = Vector3.zero;
+	private bool climbReleased = false;
 
 	// Use this for initialization
 	void Start () 
@@ -38,7 +41,7 @@ public class WallClimbController : MonoBehaviour {
 
 			{ GameEvent.WallClimbColliderDetected, true},
 
-			{ GameEvent.StopWallClimbing, false },
+			//{ GameEvent.StopClimbing, false },
 			{ GameEvent.FinishClimbOver, false },
 			{ GameEvent.Land, false }
 
@@ -108,20 +111,22 @@ public class WallClimbController : MonoBehaviour {
 		EventManager.onDetectEvent += InitWallClimb;
 		EventManager.onCharEvent += StopClimbing;
 		EventManager.onInputEvent += StopClimbing;
+		EventManager.onCharEvent += Land;
 	}
 	private void OnDisable () 
 	{ 
 		
 		EventManager.onDetectEvent -= InitWallClimb;
 		EventManager.onCharEvent -= StopClimbing;
-		EventManager.onInputEvent -= StopClimbing;	
+		EventManager.onInputEvent -= StopClimbing;
+		EventManager.onCharEvent -= Land;
 	}
 
 	private void InitWallClimb (GameEvent gameEvent, RaycastHit hit)
 	{
-		if (gameEvent == GameEvent.WallClimbColliderDetected && rb.velocity.y < 0)
+		if (gameEvent == GameEvent.WallClimbColliderDetected && rb.velocity.y < 0 && climbReleased == false)
 		{
-			print ("init wall climb");
+			//print ("init wall climb");
 			InputController.h = 0;
 			cController.enabled = true;
 			EventManager.OnCharEvent(GameEvent.StartWallClimbing);
@@ -142,19 +147,14 @@ public class WallClimbController : MonoBehaviour {
 	/// <param name="hit">Hit.</param>
 	private void SetPlayerPosition(RaycastHit hit)
 	{
-		// Get the top most Y coordinate of the collider
-		//float topPointYPoint = RSUtil.GetTopColliderTopYPoint(hit.collider);
 
-		// Apply an offset to the Y point
-		//topPointYPoint += climbSpotYOffset;
+		//DebugSphere (initialClimbCenterPos);
 
-		// Create a Vector3 that is a mix of the hit point and the collider's top Y coordinate
-		//topPoint = new Vector3(hit.point.x, topPointYPoint, hit.point.z);
+		initialWallClimbingPos = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+		float dist = Vector3.Distance (hit.point, cColliderFrontTransf.position);
+		initialWallClimbingPos += transform.forward * (dist - 0.7f);
 
-		// Apply a Z offset to the point so we can positon the 
-		// character correctly along their local forward axis
-		//topPoint = topPoint - transform.forward * climbSpotZOffset;
-		initialWallClimbingPos = new Vector3(hit.point.x, transform.position.y, hit.point.z) + transform.forward * wallClimbPosOffset;
+		//Debug.Break ();	
 		transform.position = initialWallClimbingPos;
 	}
 
@@ -162,11 +162,40 @@ public class WallClimbController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.StopClimbing && charState.IsWallClimbing())
 		{
-			rb.isKinematic = false;
+			climbReleased = true;
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;
-			print("stop wall climbing");
+			rb.isKinematic = false;
+			print("allClimbCOntroller: StopClimbing");
 		}
 	}
+
+	private void DebugSphere (Vector3 pos)
+	{
+		GameObject sphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
+		sphere.transform.position = pos;
+		sphere.transform.localScale = Vector3.one * 0.2f;
+		Debug.Break ();
+	}
+
+	/// <summary>
+	/// Reeset rclimbReleased when Squirrel lands
+	/// </summary>
+	/// <param name="gEvent">G event.</param>
+	private void Land (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.Land)
+			climbReleased = false;
+	}
+
+//	private void OnDrawGizmos()
+//	{
+//		if (initialWallClimbingPos != Vector3.zero) 
+//		{
+//			Gizmos.color = Color.red;
+//			Gizmos.DrawSphere (initialClimbCenterPos, 0.5f);
+//			Debug.Break ();	
+//		}
+//	}
 }
 

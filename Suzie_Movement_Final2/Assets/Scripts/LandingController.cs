@@ -45,9 +45,7 @@ public class LandingController : MonoBehaviour {
 			{ GameEvent.StartWallClimbing, false },
 			{ GameEvent.StartVineClimbing, false },
 
-			{ GameEvent.StopEdgeClimbing, true },
-			{ GameEvent.StopWallClimbing, true },
-			{ GameEvent.StopVineClimbing, true }
+			{ GameEvent.StopClimbing, true }
 
 		});
 	}
