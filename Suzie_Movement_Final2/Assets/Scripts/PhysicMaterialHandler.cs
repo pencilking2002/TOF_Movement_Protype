@@ -38,7 +38,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
 			{ GameEvent.StopWallClimbing, true },
-
+			{ GameEvent.ClimbOverEdge, true },
 
 			{ GameEvent.StartVineClimbing, false },
 			{ GameEvent.StartEdgeClimbing, false },

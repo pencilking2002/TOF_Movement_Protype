@@ -12,7 +12,7 @@ public class LandingController : MonoBehaviour {
 
 	private RomanCharState charState;
 	private Animator animator;
-//	private Rigidbody rb;
+	private Rigidbody rb;
 //	private RomanCharController charController;
 
 //	private RaycastHit hit;
@@ -34,16 +34,16 @@ public class LandingController : MonoBehaviour {
 		charState = GetComponent<RomanCharState>();
 //		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
-//		rb = GetComponent<Rigidbody>();
+		rb = GetComponent<Rigidbody>();
 	}
 
 	private void Start ()
 	{
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
 
-			{ GameEvent.StartEdgeClimbing, false },
-			{ GameEvent.StartWallClimbing, false },
-			{ GameEvent.StartVineClimbing, false },
+//			{ GameEvent.StartEdgeClimbing, false },
+//			{ GameEvent.StartWallClimbing, false },
+//			{ GameEvent.StartVineClimbing, false },
 
 			{ GameEvent.StopClimbing, true }
 
@@ -53,6 +53,7 @@ public class LandingController : MonoBehaviour {
 	private void Update() 
 	{
 		LandCharacter();
+
 	}
 
 	/*----------------------------------------------------------|
@@ -98,6 +99,7 @@ public class LandingController : MonoBehaviour {
 								
 			}
 		}
+
 }
 
 	void OnEnable ()

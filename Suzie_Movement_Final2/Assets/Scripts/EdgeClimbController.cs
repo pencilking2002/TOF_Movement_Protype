@@ -103,7 +103,7 @@ public class EdgeClimbController : MonoBehaviour
 
 		moveDirection = new Vector3(InputController.h * movementSpeed, 0, gravity * gravityMultiplier)  * Time.deltaTime;
 		moveDirection = transform.TransformDirection(moveDirection);
-		moveDirection = Vector3.ClampMagnitude(moveDirection, 0.028f);
+		moveDirection = Vector3.ClampMagnitude(moveDirection, 0.03f);
 
 		animator.SetFloat("HorEdgeClimbDir", InputController.rawH, 0.02f, Time.deltaTime);
 
