@@ -48,7 +48,7 @@ TagManager:
   - IgnorePlayerCollisions
   - ShallowWater
   - CamAvoidance
-  - 
+  - SpherePickupCollider
   - 
   - 
   - 

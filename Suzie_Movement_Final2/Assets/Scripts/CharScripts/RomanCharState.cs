@@ -38,7 +38,7 @@ public class RomanCharState : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	private State state = State.IdleFalling;
-	private static bool landedFirstTime = false;
+	public static bool landedFirstTime = false;
 	private bool isJumping = false;
 
 
