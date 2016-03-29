@@ -51,7 +51,7 @@ public class ClimbDetector : MonoBehaviour {
 	{
 		if (charState.IsIdleOrRunningJumping() && !detached)
 		{
-			Debug.DrawRay(transform.position + raycastOffset, transform.forward * edgeRayLength, Color.red); 
+			//Debug.DrawRay(transform.position + raycastOffset, transform.forward * edgeRayLength, Color.red); 
 			
 			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, edgeRayLength, layerMask))
 			{

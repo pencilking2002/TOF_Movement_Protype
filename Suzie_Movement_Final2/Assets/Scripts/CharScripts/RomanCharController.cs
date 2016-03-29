@@ -125,7 +125,7 @@ public class RomanCharController : MonoBehaviour {
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
-				if (!charState.IsIdle())
+				if (!charState.IsIdle() && !AntiWallSlideController.Instance.colliding)
 					animator.ApplyBuiltinRootMotion();
 
 				//print("In OnAnimatormMove");

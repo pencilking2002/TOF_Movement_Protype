@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	private VineClimbController2 vineClimbCollider;
 	private RomanCharController charController;
 	public TunnelObserver tunnelObserver;
-
+	public AntiWallSlideController antiWallSlideController;
 
 	private int[] yPos = new int[]
 	{
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
 		tunnelObserver = GameObject.FindObjectOfType<TunnelObserver>();
+		antiWallSlideController = GameObject.FindObjectOfType<AntiWallSlideController>();
 
 		//cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
 
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam auto rot: " + simpleRpgCam.autoRotate);
 			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);
 			GUI.Button(new Rect(Screen.width - 150, yPos[8], 170, 30), "Jump released: " + InputController.jumpReleased);
-			//GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "PMJ colliding " + pmj.colliding);
+			GUI.Button(new Rect(Screen.width - 150, yPos[9], 170, 30), "collidng with wall " + antiWallSlideController.colliding);
 
 
 			if (GUI.Button(new Rect(0, yPos[0], 170, 30), "Spawn at Cliff "))

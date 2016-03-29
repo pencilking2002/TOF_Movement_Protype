@@ -39,6 +39,8 @@ public class JumpController : MonoBehaviour {
 	[Header("Jump Limiting")]
 	public float maxDownwardForce = -6.0f;
 	public float downwardForceSpeed = 5.0f;
+	public Transform cColliderFrontTransf;
+	public float jumpWallLimitRayLength = 0.3f;
 
 	// PRIVATE vars -----------------------
 
@@ -61,7 +63,9 @@ public class JumpController : MonoBehaviour {
 	private RomanCharController charController;
 	private RomanCharState charState;
 
-	// Temp vars
+	// wallJumpLimiting
+	private Ray wallJumpRayLeft, wallJumpRayRight;
+	private RaycastHit hit;
 
 	// Use this for initialization
 	void Start () 
@@ -70,6 +74,9 @@ public class JumpController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		charController = GetComponent<RomanCharController>();
 		charState = GetComponent<RomanCharState>();
+
+		if (cColliderFrontTransf == null)
+			Debug.LogError("collider front point not defined");
 
 //		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
 //			{ GameEvent.StartWallClimbing, false }
@@ -118,8 +125,18 @@ public class JumpController : MonoBehaviour {
 		// limit the zero out the x/z movement if idle jumping and there's no input
 		// This is a fix the the PhysicMaterialHandler's handling of changing materials
 		if (charState.IsIdleJumping() && charController.speed == 0)
-				rb.velocity = new Vector3(0, rb.velocity.y, 0);
-}
+      		rb.velocity = new Vector3(0, rb.velocity.y, 0);
+  
+		
+	}
+//	private void OnCollisionStay (Collision coll)
+//	{
+//		//Debug.DrawRay(cColliderFrontTransf.position - transform.forward * 0.1f, transform.forward * 0.2f, Color.white);
+//		//Debug.DrawRay(cColliderFrontTransf.position, coll.contacts[0].point - cColliderFrontTransf.position, Color.white);
+//		//Debug.DrawRay(cColliderFrontTransf.position + Vector3.up, coll.contacts[0].point - cColliderFrontTransf.position, Color.white);
+//
+//	}
+
 
 
 	private void RotateAndMoveJump()
@@ -127,10 +144,17 @@ public class JumpController : MonoBehaviour {
 		if (charController.moveDirectionRaw != Vector3.zero)
 		{
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
-			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
+			forwardVel = transform.forward * GetForwardSpeed() * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 			forwardVel.y = rb.velocity.y;
+
 			rb.velocity = forwardVel;
 		}
+	}
+
+	// Check if character is colliding with wall, so zero out the forward speed
+	private float GetForwardSpeed ()
+	{
+		return AntiWallSlideController.Instance.colliding ? 0 : forwardSpeed;
 	}
 
 	/// <summary>
@@ -225,5 +249,10 @@ public class JumpController : MonoBehaviour {
 			InputController.jumpReleased = false;
 		}
 	}
+
+//	private void OnCollisionStay (Collision Collision)
+//	{
+//		//Debug.DrawRay(cColliderFrontTransf.position, transform.forward * 0.3f, Color.white);
+//	}
 
 }

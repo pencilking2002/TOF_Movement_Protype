@@ -193,14 +193,18 @@ public class WallClimbController : MonoBehaviour {
 			animator.SetTrigger(anim_ClimbOverEdge);
 	
 			Vector3 targetPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z) + transform.forward * 0.5f;
+			Vector3 targetPos2 = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z) + transform.forward * 1f;
 			LeanTween.move(gameObject, targetPos, 1.5f)
-				.setOnComplete(() => {
 
-					climbReleased = true;
-					cController.enabled = false;
-					rb.isKinematic = false;
-					rb.useGravity = true;
-					EventManager.OnCharEvent(GameEvent.IsIdle);
+				.setOnComplete(() => {
+					LeanTween.move(gameObject, targetPos2, 1f)
+						.setOnComplete(() => {
+							climbReleased = true;
+							cController.enabled = false;
+							rb.isKinematic = false;
+							rb.useGravity = true;
+							EventManager.OnCharEvent(GameEvent.IsIdle);
+						});
 				});
 
 		}
