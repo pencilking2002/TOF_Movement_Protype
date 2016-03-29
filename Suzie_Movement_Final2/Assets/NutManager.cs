@@ -21,8 +21,9 @@ public class NutManager : MonoBehaviour {
 	{
 		if (col.gameObject.layer == 15)
 		{
-			col.gameObject.SetActive(true);
-			print("nut activated");
+			//col.gameObject.SetActive(true);
+			//print("nut activated");
+			col.gameObject.GetComponent<Float>().Activate(true);
 		}
 	}
 
@@ -30,8 +31,10 @@ public class NutManager : MonoBehaviour {
 	{
 		if (col.gameObject.layer == 15)
 		{
-			col.gameObject.SetActive(false);
-			print("nut deactivated");
+			//col.gameObject.SetActive(false);
+			//print("nut deactivated");
+			col.gameObject.GetComponent<Float>().Activate(false);
+
 		}
 	}	
 }

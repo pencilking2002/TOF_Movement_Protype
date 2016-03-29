@@ -24,6 +24,21 @@ public class Float : MonoBehaviour {
 		}
 	}
 
+	public void Activate (bool activate)
+	{
+		if (activate)
+		{
+			rend.enabled = true;
+			this.enabled = true;
+		}
+		else
+		{
+			rend.enabled = false;
+			this.enabled = false;
+		}
+
+	}
+
 }
 
 
