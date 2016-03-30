@@ -16,4 +16,30 @@ public class TOFCamAdjuster : MonoBehaviour {
 	{
 		//if (
 	}
+
+	void OnEnable()
+	{
+		EventManager.onCharEvent += TunnelCam;
+	}
+
+	void OnDisable()
+	{
+		EventManager.onCharEvent -= TunnelCam;
+	}
+
+	void TunnelCam (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.EnterTunnel)
+		{
+			rpgCam.allowRotation = false;
+			rpgCam.stayBehindTarget = true;
+			print("enter tunnel");
+		}
+		else if (gEvent == GameEvent.ExitTunnel)
+		{
+			rpgCam.allowRotation = true;
+			rpgCam.stayBehindTarget = false;
+
+		}
+	}
 }

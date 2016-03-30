@@ -157,7 +157,7 @@ public class JumpController : MonoBehaviour {
 	// if so zero out the forward speed
 	private float GetForwardSpeed ()
 	{
-		if (AntiWallSlideController.Instance.colliding && Time.time > lastJumpTime + 2.0f)
+		if (AntiWallSlideController.Instance.colliding && Time.time > lastJumpTime + 1.0f)
 			 return 0;
 		else 
 			return forwardSpeed;	
