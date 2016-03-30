@@ -67,6 +67,7 @@ public class JumpController : MonoBehaviour {
 	private Ray wallJumpRayLeft, wallJumpRayRight;
 	private RaycastHit hit;
 
+	private float lastJumpTime;								//Time stamp of the last time the char jumped
 	// Use this for initialization
 	void Start () 
 	{
@@ -151,10 +152,15 @@ public class JumpController : MonoBehaviour {
 		}
 	}
 
-	// Check if character is colliding with wall, so zero out the forward speed
+	// Check if character is colliding with wall
+	// and that its less than 2 seconds since the jump
+	// if so zero out the forward speed
 	private float GetForwardSpeed ()
 	{
-		return AntiWallSlideController.Instance.colliding ? 0 : forwardSpeed;
+		if (AntiWallSlideController.Instance.colliding && Time.time > lastJumpTime + 2.0f)
+			 return 0;
+		else 
+			return forwardSpeed;	
 	}
 
 	/// <summary>
@@ -164,7 +170,7 @@ public class JumpController : MonoBehaviour {
 	{
 		//print ("runs");
 		float force = 0;
-
+		lastJumpTime = Time.time;
 		if (charState.IsIdleJumping())
 		{
 			force = idleJumpUpForce;

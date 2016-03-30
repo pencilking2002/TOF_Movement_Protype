@@ -20,11 +20,12 @@ public class LandingController : MonoBehaviour {
 	//private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
 
 	private int anim_land = Animator.StringToHash("Land");
+	private int anim_Falling = Animator.StringToHash("Falling");
 //	private int anim_Idle = Animator.StringToHash("Idle");
 
 	[HideInInspector]
 	private float jumpTime = 0.0f;
-
+	private float lastYPos;
 	/*----------------------------------------------------------|
 	| UNITY METHODS	      		    	                        |
 	|----------------------------------------------------------*/
@@ -122,6 +123,22 @@ public class LandingController : MonoBehaviour {
 	bool TimePassedSinceJump(float t)
 	{
 		return Time.time > jumpTime + t;
+	}
+
+	/// <summary>
+	/// Force animator to trigger the falling animation 
+	/// on collision exit from a collider that is below the player
+	/// </summary>
+	private void OnCollisionExit ()
+	{
+		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
+		if (charState.IsIdleOrRunning() && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.5f))
+		{	
+			Debug.DrawRay(startPos, Vector3.down * 0.5f, Color.blue);
+			//Debug.Break();
+			animator.SetTrigger (anim_Falling);
+		}
+
 	}
 
 	/// <summary>
