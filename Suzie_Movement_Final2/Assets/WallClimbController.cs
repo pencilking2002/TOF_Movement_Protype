@@ -194,10 +194,10 @@ public class WallClimbController : MonoBehaviour {
 	
 			Vector3 targetPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z) + transform.forward * 0.5f;
 			Vector3 targetPos2 = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z) + transform.forward * 1f;
-			LeanTween.move(gameObject, targetPos, 1.5f)
+			LeanTween.move(gameObject, targetPos, 1.2f)
 
 				.setOnComplete(() => {
-					LeanTween.move(gameObject, targetPos2, 1f)
+					LeanTween.move(gameObject, targetPos2, 0.8f)
 						.setOnComplete(() => {
 							climbReleased = true;
 							cController.enabled = false;

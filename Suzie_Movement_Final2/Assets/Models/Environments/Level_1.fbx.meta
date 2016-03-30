@@ -627,6 +627,647 @@ ModelImporter:
     101238: ClimbingWallSurface
     101240: Rock 5
     101242: transform204
+    101244: CliffGround3
+    101246: CliffGround4
+    101248: CliffGround5
+    101250: CliffGround6
+    101252: CliffGround7
+    101254: CliffGround8
+    101256: CliffWall1
+    101258: CliffWall2
+    101260: CliffWall3
+    101262: CliffWall4
+    101264: CliffWall5
+    101266: CliffWall6
+    101268: Crystals100
+    101270: Crystals94
+    101272: Crystals95
+    101274: Crystals96
+    101276: Crystals97
+    101278: Crystals98
+    101280: Crystals99
+    101282: Plants23
+    101284: Plants24
+    101286: Plants25
+    101288: PlatformBottom4
+    101290: PlatformBottom5
+    101292: PlatformGround4
+    101294: PlatformGround5
+    101296: platforms
+    101298: polySurface1001
+    101300: polySurface1002
+    101302: polySurface1003
+    101304: polySurface1004
+    101306: polySurface1005
+    101308: polySurface1006
+    101310: polySurface1008
+    101312: polySurface1009
+    101314: polySurface1010
+    101316: Rocks33
+    101318: Rocks34
+    101320: Rocks35
+    101322: Rocks36
+    101324: Level_8:Archway
+    101326: Level_8:ArchwayGround
+    101328: Level_8:ArchwayWall
+    101330: Level_8:Base
+    101332: Level_8:Base 1
+    101334: Level_8:BaseTreeIsland
+    101336: Level_8:big_tree
+    101338: Level_8:Body
+    101340: Level_8:Branch
+    101342: Level_8:Branch 1
+    101344: Level_8:Branch 2
+    101346: Level_8:Branch 3
+    101348: Level_8:Bush
+    101350: Level_8:Bush 1
+    101352: Level_8:Cliff
+    101354: Level_8:Cliff 1
+    101356: Level_8:Cliff 2
+    101358: Level_8:Cliff 3
+    101360: Level_8:Cliff1
+    101362: Level_8:Cliff10
+    101364: Level_8:Cliff11
+    101366: Level_8:Cliff2
+    101368: Level_8:Cliff3
+    101370: Level_8:Cliff4
+    101372: Level_8:Cliff5
+    101374: Level_8:Cliff6
+    101376: Level_8:Cliff7
+    101378: Level_8:Cliff8
+    101380: Level_8:Cliff9
+    101382: Level_8:CliffBase
+    101384: Level_8:CliffGround
+    101386: Level_8:CliffGround 1
+    101388: Level_8:CliffGround 10
+    101390: Level_8:CliffGround 11
+    101392: Level_8:CliffGround 12
+    101394: Level_8:CliffGround 13
+    101396: Level_8:CliffGround 14
+    101398: Level_8:CliffGround 15
+    101400: Level_8:CliffGround 2
+    101402: Level_8:CliffGround 3
+    101404: Level_8:CliffGround 4
+    101406: Level_8:CliffGround 5
+    101408: Level_8:CliffGround 6
+    101410: Level_8:CliffGround 7
+    101412: Level_8:CliffGround 8
+    101414: Level_8:CliffGround 9
+    101416: Level_8:CliffGround1
+    101418: Level_8:CliffGround2
+    101420: Level_8:CliffGround3
+    101422: Level_8:CliffGround4
+    101424: Level_8:CliffGround5
+    101426: Level_8:CliffGround6
+    101428: Level_8:CliffGround7
+    101430: Level_8:CliffGround8
+    101432: Level_8:CliffPlatform
+    101434: Level_8:Cliffs
+    101436: Level_8:CliffTop
+    101438: Level_8:CliffWall
+    101440: Level_8:CliffWall 1
+    101442: Level_8:CliffWall 10
+    101444: Level_8:CliffWall 11
+    101446: Level_8:CliffWall 12
+    101448: Level_8:CliffWall 13
+    101450: Level_8:CliffWall 14
+    101452: Level_8:CliffWall 15
+    101454: Level_8:CliffWall 16
+    101456: Level_8:CliffWall 2
+    101458: Level_8:CliffWall 3
+    101460: Level_8:CliffWall 4
+    101462: Level_8:CliffWall 5
+    101464: Level_8:CliffWall 6
+    101466: Level_8:CliffWall 7
+    101468: Level_8:CliffWall 8
+    101470: Level_8:CliffWall 9
+    101472: Level_8:CliffWall1
+    101474: Level_8:CliffWall2
+    101476: Level_8:CliffWall3
+    101478: Level_8:CliffWall4
+    101480: Level_8:CliffWall5
+    101482: Level_8:CliffWall6
+    101484: Level_8:ClimbingWallSurface
+    101486: Level_8:crystal14
+    101488: Level_8:crystal3
+    101490: Level_8:crystal4
+    101492: Level_8:crystal7
+    101494: Level_8:crystal8
+    101496: Level_8:Crystal_grp
+    101498: Level_8:Crystal_grp1
+    101500: Level_8:crystalPlatform1
+    101502: Level_8:Crystals
+    101504: Level_8:Crystals 1
+    101506: Level_8:Crystals 2
+    101508: Level_8:Crystals1
+    101510: Level_8:Crystals10
+    101512: Level_8:Crystals10 1
+    101514: Level_8:Crystals100
+    101516: Level_8:Crystals11
+    101518: Level_8:Crystals11 1
+    101520: Level_8:Crystals14
+    101522: Level_8:crystals15
+    101524: Level_8:Crystals16
+    101526: Level_8:Crystals17
+    101528: Level_8:Crystals18
+    101530: Level_8:crystals18
+    101532: Level_8:Crystals19
+    101534: Level_8:Crystals2
+    101536: Level_8:Crystals20
+    101538: Level_8:crystals23
+    101540: Level_8:Crystals26
+    101542: Level_8:Crystals29
+    101544: Level_8:Crystals3
+    101546: Level_8:Crystals30
+    101548: Level_8:Crystals31
+    101550: Level_8:Crystals32
+    101552: Level_8:Crystals33
+    101554: Level_8:Crystals34
+    101556: Level_8:Crystals36
+    101558: Level_8:Crystals37
+    101560: Level_8:Crystals38
+    101562: Level_8:Crystals39
+    101564: Level_8:Crystals4
+    101566: Level_8:Crystals41
+    101568: Level_8:Crystals44
+    101570: Level_8:Crystals46
+    101572: Level_8:Crystals47
+    101574: Level_8:Crystals48
+    101576: Level_8:Crystals5
+    101578: Level_8:crystals5
+    101580: Level_8:Crystals50
+    101582: Level_8:Crystals51
+    101584: Level_8:Crystals53
+    101586: Level_8:Crystals54
+    101588: Level_8:Crystals55
+    101590: Level_8:Crystals57
+    101592: Level_8:Crystals58
+    101594: Level_8:Crystals59
+    101596: Level_8:Crystals6
+    101598: Level_8:Crystals60
+    101600: Level_8:Crystals61
+    101602: Level_8:Crystals62
+    101604: Level_8:Crystals63
+    101606: Level_8:Crystals64
+    101608: Level_8:Crystals65
+    101610: Level_8:Crystals66
+    101612: Level_8:Crystals67
+    101614: Level_8:Crystals68
+    101616: Level_8:Crystals69
+    101618: Level_8:Crystals70
+    101620: Level_8:Crystals71
+    101622: Level_8:Crystals72
+    101624: Level_8:Crystals73
+    101626: Level_8:Crystals74
+    101628: Level_8:Crystals75
+    101630: Level_8:Crystals76
+    101632: Level_8:Crystals77
+    101634: Level_8:Crystals78
+    101636: Level_8:Crystals79
+    101638: Level_8:Crystals8
+    101640: Level_8:Crystals80
+    101642: Level_8:Crystals81
+    101644: Level_8:Crystals82
+    101646: Level_8:Crystals83
+    101648: Level_8:Crystals85
+    101650: Level_8:Crystals86
+    101652: Level_8:Crystals87
+    101654: Level_8:Crystals88
+    101656: Level_8:Crystals89
+    101658: Level_8:Crystals9
+    101660: Level_8:Crystals90
+    101662: Level_8:Crystals91
+    101664: Level_8:Crystals92
+    101666: Level_8:Crystals93
+    101668: Level_8:Crystals94
+    101670: Level_8:Crystals95
+    101672: Level_8:Crystals96
+    101674: Level_8:Crystals97
+    101676: Level_8:Crystals98
+    101678: Level_8:Crystals99
+    101680: Level_8:Crystals_grp
+    101682: Level_8:CurvedCliff
+    101684: Level_8:floatingDirt_grp
+    101686: Level_8:FlyingPlatform
+    101688: Level_8:FlyingPlatform1
+    101690: Level_8:FlyingPlatform2
+    101692: Level_8:FlyingPlatform4
+    101694: Level_8:FlyingPlatform5
+    101696: Level_8:FlyingPlatform_grp
+    101698: Level_8:Foilage
+    101700: Level_8:Foilage1
+    101702: Level_8:Foilage2
+    101704: Level_8:Foilage3
+    101706: Level_8:FoilagePlatform
+    101708: Level_8:FoilagePlatform 1
+    101710: Level_8:FoilagePlatform 2
+    101712: Level_8:FoilagePlatform 3
+    101714: Level_8:FoilagePlatform1
+    101716: Level_8:FoilagePlatform2
+    101718: Level_8:FoilagePlatform3
+    101720: Level_8:FoilagePlatform4
+    101722: Level_8:FoilagePlatform5
+    101724: Level_8:FoilagePlatform6
+    101726: Level_8:FoilagePlatforms
+    101728: Level_8:FoilagePlatforms 1
+    101730: Level_8:FoilagePlatforms 2
+    101732: Level_8:FoilagePlatforms1
+    101734: Level_8:FoilagePlatforms2
+    101736: Level_8:Grass2
+    101738: Level_8:grass2
+    101740: Level_8:grass3
+    101742: Level_8:grass4
+    101744: Level_8:grass5
+    101746: Level_8:grass6
+    101748: Level_8:grass7
+    101750: Level_8:GrassWalkWay
+    101752: Level_8:GrassWalkWay 1
+    101754: Level_8:GrassWalkWay 2
+    101756: Level_8:Ground
+    101758: Level_8:Ground 1
+    101760: Level_8:Ground 2
+    101762: Level_8:group82
+    101764: Level_8:group90
+    101766: Level_8:group91
+    101768: Level_8:group92
+    101770: Level_8:group95
+    101772: Level_8:Head
+    101774: Level_8:Island
+    101776: Level_8:Island 1
+    101778: Level_8:Island 2
+    101780: Level_8:Island1
+    101782: Level_8:Island2
+    101784: Level_8:Island3
+    101786: Level_8:IslandGround
+    101788: Level_8:IslandGround 1
+    101790: Level_8:IslandGround 2
+    101792: Level_8:IslandGround 3
+    101794: Level_8:IslandGround1
+    101796: Level_8:IslandWall
+    101798: Level_8:LevelBorders_grp
+    101800: Level_8:Log
+    101802: Level_8:Log 1
+    101804: Level_8:Log1
+    101806: Level_8:Log2
+    101808: Level_8:LogVine
+    101810: Level_8:LogVine1
+    101812: Level_8:Mushroom
+    101814: Level_8:Mushroom2
+    101816: Level_8:Mushroom_grp
+    101818: Level_8:Mushroom_grp1
+    101820: Level_8:pCube1
+    101822: Level_8:pCube1 1
+    101824: Level_8:pCube2
+    101826: Level_8:pCube2 1
+    101828: Level_8:Planks
+    101830: Level_8:Plants
+    101832: Level_8:Plants1
+    101834: Level_8:Plants10
+    101836: Level_8:Plants11
+    101838: Level_8:Plants12
+    101840: Level_8:Plants13
+    101842: Level_8:Plants15
+    101844: Level_8:Plants16
+    101846: Level_8:Plants17
+    101848: Level_8:Plants18
+    101850: Level_8:Plants19
+    101852: Level_8:Plants2
+    101854: Level_8:Plants20
+    101856: Level_8:Plants21
+    101858: Level_8:Plants22
+    101860: Level_8:Plants23
+    101862: Level_8:Plants24
+    101864: Level_8:Plants25
+    101866: Level_8:Plants3
+    101868: Level_8:Plants4
+    101870: Level_8:Plants9
+    101872: Level_8:Plants_grp
+    101874: Level_8:Plants_grp 1
+    101876: Level_8:Plat_grp
+    101878: Level_8:Platform
+    101880: Level_8:Platform 1
+    101882: Level_8:Platform 2
+    101884: Level_8:Platform 3
+    101886: Level_8:Platform 4
+    101888: Level_8:Platform 5
+    101890: Level_8:Platform 6
+    101892: Level_8:Platform 7
+    101894: Level_8:Platform 8
+    101896: Level_8:Platform 9
+    101898: Level_8:Platform1
+    101900: Level_8:Platform10
+    101902: Level_8:Platform11
+    101904: Level_8:Platform12
+    101906: Level_8:Platform13
+    101908: Level_8:Platform14
+    101910: Level_8:Platform15
+    101912: Level_8:Platform16
+    101914: Level_8:Platform17
+    101916: Level_8:Platform18
+    101918: Level_8:Platform3
+    101920: Level_8:Platform4
+    101922: Level_8:Platform5
+    101924: Level_8:Platform6
+    101926: Level_8:Platform7
+    101928: Level_8:Platform9
+    101930: Level_8:Platform_grp
+    101932: Level_8:PlatformBottom
+    101934: Level_8:PlatformBottom 1
+    101936: Level_8:PlatformBottom 10
+    101938: Level_8:PlatformBottom 11
+    101940: Level_8:PlatformBottom 12
+    101942: Level_8:PlatformBottom 13
+    101944: Level_8:PlatformBottom 2
+    101946: Level_8:PlatformBottom 3
+    101948: Level_8:PlatformBottom 4
+    101950: Level_8:PlatformBottom 5
+    101952: Level_8:PlatformBottom 6
+    101954: Level_8:PlatformBottom 7
+    101956: Level_8:PlatformBottom 8
+    101958: Level_8:PlatformBottom 9
+    101960: Level_8:PlatformBottom1
+    101962: Level_8:PlatformBottom2
+    101964: Level_8:PlatformBottom3
+    101966: Level_8:PlatformBottom4
+    101968: Level_8:PlatformBottom5
+    101970: Level_8:PlatformBranch
+    101972: Level_8:PlatformGround
+    101974: Level_8:PlatformGround 1
+    101976: Level_8:PlatformGround 2
+    101978: Level_8:PlatformGround 3
+    101980: Level_8:PlatformGround 4
+    101982: Level_8:PlatformGround 5
+    101984: Level_8:PlatformGround 6
+    101986: Level_8:PlatformGround 7
+    101988: Level_8:PlatformGround1
+    101990: Level_8:PlatformGround2
+    101992: Level_8:PlatformGround3
+    101994: Level_8:PlatformGround4
+    101996: Level_8:PlatformGround5
+    101998: Level_8:PlatformGroup
+    102000: Level_8:platforms
+    102002: Level_8:PlatformTop
+    102004: Level_8:PlatformTop 1
+    102006: Level_8:PlatformTop 2
+    102008: Level_8:PlatformTop 3
+    102010: Level_8:PlatfprmGround
+    102012: Level_8:polySurface1000
+    102014: Level_8:polySurface1001
+    102016: Level_8:polySurface1002
+    102018: Level_8:polySurface1003
+    102020: Level_8:polySurface1004
+    102022: Level_8:polySurface1005
+    102024: Level_8:polySurface1006
+    102026: Level_8:polySurface1008
+    102028: Level_8:polySurface1009
+    102030: Level_8:polySurface1010
+    102032: Level_8:polySurface116
+    102034: Level_8:polySurface441
+    102036: Level_8:polySurface448
+    102038: Level_8:polySurface477
+    102040: Level_8:polySurface478
+    102042: Level_8:polySurface796
+    102044: Level_8:polySurface80
+    102046: Level_8:polySurface800
+    102048: Level_8:polySurface801
+    102050: Level_8:polySurface804
+    102052: Level_8:polySurface807
+    102054: Level_8:polySurface837
+    102056: Level_8:polySurface842
+    102058: Level_8:polySurface843
+    102060: Level_8:polySurface86
+    102062: Level_8:polySurface87
+    102064: Level_8:polySurface880
+    102066: Level_8:polySurface880 1
+    102068: Level_8:polySurface880 2
+    102070: Level_8:polySurface881
+    102072: Level_8:polySurface881 1
+    102074: Level_8:polySurface882
+    102076: Level_8:polySurface882 1
+    102078: Level_8:polySurface883
+    102080: Level_8:polySurface883 1
+    102082: Level_8:polySurface884
+    102084: Level_8:polySurface885
+    102086: Level_8:polySurface887
+    102088: Level_8:polySurface889
+    102090: Level_8:polySurface891
+    102092: Level_8:polySurface892
+    102094: Level_8:polySurface893
+    102096: Level_8:polySurface894
+    102098: Level_8:polySurface895
+    102100: Level_8:polySurface896
+    102102: Level_8:polySurface897
+    102104: Level_8:polySurface898
+    102106: Level_8:polySurface899
+    102108: Level_8:polySurface900
+    102110: Level_8:polySurface901
+    102112: Level_8:polySurface902
+    102114: Level_8:polySurface904
+    102116: Level_8:polySurface906
+    102118: Level_8:polySurface928
+    102120: Level_8:polySurface936
+    102122: Level_8:polySurface937
+    102124: Level_8:polySurface938
+    102126: Level_8:polySurface939
+    102128: Level_8:polySurface940
+    102130: Level_8:polySurface941
+    102132: Level_8:polySurface942
+    102134: Level_8:polySurface943
+    102136: Level_8:polySurface944
+    102138: Level_8:polySurface945
+    102140: Level_8:polySurface946
+    102142: Level_8:polySurface947
+    102144: Level_8:polySurface948
+    102146: Level_8:polySurface949
+    102148: Level_8:polySurface950
+    102150: Level_8:polySurface951
+    102152: Level_8:polySurface952
+    102154: Level_8:polySurface953
+    102156: Level_8:polySurface954
+    102158: Level_8:polySurface955
+    102160: Level_8:polySurface956
+    102162: Level_8:polySurface957
+    102164: Level_8:polySurface958
+    102166: Level_8:polySurface959
+    102168: Level_8:polySurface960
+    102170: Level_8:polySurface961
+    102172: Level_8:polySurface962
+    102174: Level_8:polySurface963
+    102176: Level_8:polySurface964
+    102178: Level_8:polySurface975
+    102180: Level_8:polySurface976
+    102182: Level_8:polySurface977
+    102184: Level_8:polySurface978
+    102186: Level_8:polySurface979
+    102188: Level_8:polySurface980
+    102190: Level_8:polySurface981
+    102192: Level_8:polySurface982
+    102194: Level_8:polySurface983
+    102196: Level_8:polySurface984
+    102198: Level_8:polySurface985
+    102200: Level_8:polySurface987
+    102202: Level_8:polySurface987 1
+    102204: Level_8:polySurface987 10
+    102206: Level_8:polySurface987 11
+    102208: Level_8:polySurface987 12
+    102210: Level_8:polySurface987 13
+    102212: Level_8:polySurface987 14
+    102214: Level_8:polySurface987 2
+    102216: Level_8:polySurface987 3
+    102218: Level_8:polySurface987 4
+    102220: Level_8:polySurface987 5
+    102222: Level_8:polySurface987 6
+    102224: Level_8:polySurface987 7
+    102226: Level_8:polySurface987 8
+    102228: Level_8:polySurface987 9
+    102230: Level_8:polySurface988
+    102232: Level_8:polySurface988 1
+    102234: Level_8:polySurface988 10
+    102236: Level_8:polySurface988 11
+    102238: Level_8:polySurface988 12
+    102240: Level_8:polySurface988 13
+    102242: Level_8:polySurface988 14
+    102244: Level_8:polySurface988 2
+    102246: Level_8:polySurface988 3
+    102248: Level_8:polySurface988 4
+    102250: Level_8:polySurface988 5
+    102252: Level_8:polySurface988 6
+    102254: Level_8:polySurface988 7
+    102256: Level_8:polySurface988 8
+    102258: Level_8:polySurface988 9
+    102260: Level_8:polySurface989
+    102262: Level_8:polySurface989 1
+    102264: Level_8:polySurface989 10
+    102266: Level_8:polySurface989 11
+    102268: Level_8:polySurface989 12
+    102270: Level_8:polySurface989 13
+    102272: Level_8:polySurface989 14
+    102274: Level_8:polySurface989 2
+    102276: Level_8:polySurface989 3
+    102278: Level_8:polySurface989 4
+    102280: Level_8:polySurface989 5
+    102282: Level_8:polySurface989 6
+    102284: Level_8:polySurface989 7
+    102286: Level_8:polySurface989 8
+    102288: Level_8:polySurface989 9
+    102290: Level_8:polySurface990
+    102292: Level_8:polySurface990 1
+    102294: Level_8:polySurface990 10
+    102296: Level_8:polySurface990 11
+    102298: Level_8:polySurface990 12
+    102300: Level_8:polySurface990 13
+    102302: Level_8:polySurface990 14
+    102304: Level_8:polySurface990 2
+    102306: Level_8:polySurface990 3
+    102308: Level_8:polySurface990 4
+    102310: Level_8:polySurface990 5
+    102312: Level_8:polySurface990 6
+    102314: Level_8:polySurface990 7
+    102316: Level_8:polySurface990 8
+    102318: Level_8:polySurface990 9
+    102320: Level_8:polySurface991
+    102322: Level_8:polySurface991 1
+    102324: Level_8:polySurface991 10
+    102326: Level_8:polySurface991 11
+    102328: Level_8:polySurface991 12
+    102330: Level_8:polySurface991 13
+    102332: Level_8:polySurface991 14
+    102334: Level_8:polySurface991 2
+    102336: Level_8:polySurface991 3
+    102338: Level_8:polySurface991 4
+    102340: Level_8:polySurface991 5
+    102342: Level_8:polySurface991 6
+    102344: Level_8:polySurface991 7
+    102346: Level_8:polySurface991 8
+    102348: Level_8:polySurface991 9
+    102350: Level_8:polySurface992
+    102352: Level_8:polySurface993
+    102354: Level_8:polySurface994
+    102356: Level_8:polySurface995
+    102358: Level_8:polySurface996
+    102360: Level_8:polySurface997
+    102362: Level_8:polySurface998
+    102364: Level_8:polySurface999
+    102366: Level_8:Rock
+    102368: Level_8:Rock 1
+    102370: Level_8:Rock 2
+    102372: Level_8:Rock 3
+    102374: Level_8:Rock 4
+    102376: Level_8:Rock 5
+    102378: Level_8:Rocks
+    102380: Level_8:Rocks 1
+    102382: Level_8:Rocks 2
+    102384: Level_8:Rocks 3
+    102386: Level_8:Rocks1
+    102388: Level_8:Rocks10
+    102390: Level_8:Rocks11
+    102392: Level_8:Rocks12
+    102394: Level_8:Rocks13
+    102396: Level_8:Rocks14
+    102398: Level_8:Rocks15
+    102400: Level_8:Rocks16
+    102402: Level_8:Rocks17
+    102404: Level_8:Rocks18
+    102406: Level_8:Rocks19
+    102408: Level_8:Rocks2
+    102410: Level_8:Rocks20
+    102412: Level_8:Rocks21
+    102414: Level_8:Rocks22
+    102416: Level_8:Rocks23
+    102418: Level_8:Rocks24
+    102420: Level_8:Rocks25
+    102422: Level_8:Rocks26
+    102424: Level_8:Rocks27
+    102426: Level_8:Rocks28
+    102428: Level_8:Rocks29
+    102430: Level_8:Rocks3
+    102432: Level_8:Rocks30
+    102434: Level_8:Rocks31
+    102436: Level_8:Rocks32
+    102438: Level_8:Rocks33
+    102440: Level_8:Rocks34
+    102442: Level_8:Rocks35
+    102444: Level_8:Rocks36
+    102446: Level_8:Rocks4
+    102448: Level_8:Rocks5
+    102450: Level_8:Rocks6
+    102452: Level_8:Rocks7
+    102454: Level_8:Rocks8
+    102456: Level_8:Rocks9
+    102458: Level_8:RomanGroundPlane
+    102460: Level_8:RomanWaterPlane
+    102462: Level_8:Root
+    102464: Level_8:Root1
+    102466: Level_8:Root1 1
+    102468: Level_8:Root2
+    102470: Level_8:Root3
+    102472: Level_8:Root4
+    102474: Level_8:sign
+    102476: Level_8:sign2
+    102478: Level_8:SlideLog
+    102480: Level_8:SuzieMesh1
+    102482: Level_8:transform197
+    102484: Level_8:transform198
+    102486: Level_8:transform199
+    102488: Level_8:transform200
+    102490: Level_8:transform201
+    102492: Level_8:transform202
+    102494: Level_8:transform203
+    102496: Level_8:transform204
+    102498: Level_8:TreeFoilage
+    102500: Level_8:Trunk
+    102502: Level_8:Vines
+    102504: Level_8:Wall
+    102506: Level_8:Wall 1
+    102508: Level_8:Wall 2
+    102510: Level_8:Wall1
+    102512: Level_8:Wall2
+    102514: Level_8:Wall4
+    102516: Level_8:Wall5
+    102518: Level_8:WallClimbingIsland
+    102520: Level_8:WaterElements_grp
+    102522: Level_8:Waterfall
+    102524: Level_8:WaterRocks
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -1249,6 +1890,647 @@ ModelImporter:
     401238: ClimbingWallSurface
     401240: Rock 5
     401242: transform204
+    401244: CliffGround3
+    401246: CliffGround4
+    401248: CliffGround5
+    401250: CliffGround6
+    401252: CliffGround7
+    401254: CliffGround8
+    401256: CliffWall1
+    401258: CliffWall2
+    401260: CliffWall3
+    401262: CliffWall4
+    401264: CliffWall5
+    401266: CliffWall6
+    401268: Crystals100
+    401270: Crystals94
+    401272: Crystals95
+    401274: Crystals96
+    401276: Crystals97
+    401278: Crystals98
+    401280: Crystals99
+    401282: Plants23
+    401284: Plants24
+    401286: Plants25
+    401288: PlatformBottom4
+    401290: PlatformBottom5
+    401292: PlatformGround4
+    401294: PlatformGround5
+    401296: platforms
+    401298: polySurface1001
+    401300: polySurface1002
+    401302: polySurface1003
+    401304: polySurface1004
+    401306: polySurface1005
+    401308: polySurface1006
+    401310: polySurface1008
+    401312: polySurface1009
+    401314: polySurface1010
+    401316: Rocks33
+    401318: Rocks34
+    401320: Rocks35
+    401322: Rocks36
+    401324: Level_8:Archway
+    401326: Level_8:ArchwayGround
+    401328: Level_8:ArchwayWall
+    401330: Level_8:Base
+    401332: Level_8:Base 1
+    401334: Level_8:BaseTreeIsland
+    401336: Level_8:big_tree
+    401338: Level_8:Body
+    401340: Level_8:Branch
+    401342: Level_8:Branch 1
+    401344: Level_8:Branch 2
+    401346: Level_8:Branch 3
+    401348: Level_8:Bush
+    401350: Level_8:Bush 1
+    401352: Level_8:Cliff
+    401354: Level_8:Cliff 1
+    401356: Level_8:Cliff 2
+    401358: Level_8:Cliff 3
+    401360: Level_8:Cliff1
+    401362: Level_8:Cliff10
+    401364: Level_8:Cliff11
+    401366: Level_8:Cliff2
+    401368: Level_8:Cliff3
+    401370: Level_8:Cliff4
+    401372: Level_8:Cliff5
+    401374: Level_8:Cliff6
+    401376: Level_8:Cliff7
+    401378: Level_8:Cliff8
+    401380: Level_8:Cliff9
+    401382: Level_8:CliffBase
+    401384: Level_8:CliffGround
+    401386: Level_8:CliffGround 1
+    401388: Level_8:CliffGround 10
+    401390: Level_8:CliffGround 11
+    401392: Level_8:CliffGround 12
+    401394: Level_8:CliffGround 13
+    401396: Level_8:CliffGround 14
+    401398: Level_8:CliffGround 15
+    401400: Level_8:CliffGround 2
+    401402: Level_8:CliffGround 3
+    401404: Level_8:CliffGround 4
+    401406: Level_8:CliffGround 5
+    401408: Level_8:CliffGround 6
+    401410: Level_8:CliffGround 7
+    401412: Level_8:CliffGround 8
+    401414: Level_8:CliffGround 9
+    401416: Level_8:CliffGround1
+    401418: Level_8:CliffGround2
+    401420: Level_8:CliffGround3
+    401422: Level_8:CliffGround4
+    401424: Level_8:CliffGround5
+    401426: Level_8:CliffGround6
+    401428: Level_8:CliffGround7
+    401430: Level_8:CliffGround8
+    401432: Level_8:CliffPlatform
+    401434: Level_8:Cliffs
+    401436: Level_8:CliffTop
+    401438: Level_8:CliffWall
+    401440: Level_8:CliffWall 1
+    401442: Level_8:CliffWall 10
+    401444: Level_8:CliffWall 11
+    401446: Level_8:CliffWall 12
+    401448: Level_8:CliffWall 13
+    401450: Level_8:CliffWall 14
+    401452: Level_8:CliffWall 15
+    401454: Level_8:CliffWall 16
+    401456: Level_8:CliffWall 2
+    401458: Level_8:CliffWall 3
+    401460: Level_8:CliffWall 4
+    401462: Level_8:CliffWall 5
+    401464: Level_8:CliffWall 6
+    401466: Level_8:CliffWall 7
+    401468: Level_8:CliffWall 8
+    401470: Level_8:CliffWall 9
+    401472: Level_8:CliffWall1
+    401474: Level_8:CliffWall2
+    401476: Level_8:CliffWall3
+    401478: Level_8:CliffWall4
+    401480: Level_8:CliffWall5
+    401482: Level_8:CliffWall6
+    401484: Level_8:ClimbingWallSurface
+    401486: Level_8:crystal14
+    401488: Level_8:crystal3
+    401490: Level_8:crystal4
+    401492: Level_8:crystal7
+    401494: Level_8:crystal8
+    401496: Level_8:Crystal_grp
+    401498: Level_8:Crystal_grp1
+    401500: Level_8:crystalPlatform1
+    401502: Level_8:Crystals
+    401504: Level_8:Crystals 1
+    401506: Level_8:Crystals 2
+    401508: Level_8:Crystals1
+    401510: Level_8:Crystals10
+    401512: Level_8:Crystals10 1
+    401514: Level_8:Crystals100
+    401516: Level_8:Crystals11
+    401518: Level_8:Crystals11 1
+    401520: Level_8:Crystals14
+    401522: Level_8:crystals15
+    401524: Level_8:Crystals16
+    401526: Level_8:Crystals17
+    401528: Level_8:Crystals18
+    401530: Level_8:crystals18
+    401532: Level_8:Crystals19
+    401534: Level_8:Crystals2
+    401536: Level_8:Crystals20
+    401538: Level_8:crystals23
+    401540: Level_8:Crystals26
+    401542: Level_8:Crystals29
+    401544: Level_8:Crystals3
+    401546: Level_8:Crystals30
+    401548: Level_8:Crystals31
+    401550: Level_8:Crystals32
+    401552: Level_8:Crystals33
+    401554: Level_8:Crystals34
+    401556: Level_8:Crystals36
+    401558: Level_8:Crystals37
+    401560: Level_8:Crystals38
+    401562: Level_8:Crystals39
+    401564: Level_8:Crystals4
+    401566: Level_8:Crystals41
+    401568: Level_8:Crystals44
+    401570: Level_8:Crystals46
+    401572: Level_8:Crystals47
+    401574: Level_8:Crystals48
+    401576: Level_8:Crystals5
+    401578: Level_8:crystals5
+    401580: Level_8:Crystals50
+    401582: Level_8:Crystals51
+    401584: Level_8:Crystals53
+    401586: Level_8:Crystals54
+    401588: Level_8:Crystals55
+    401590: Level_8:Crystals57
+    401592: Level_8:Crystals58
+    401594: Level_8:Crystals59
+    401596: Level_8:Crystals6
+    401598: Level_8:Crystals60
+    401600: Level_8:Crystals61
+    401602: Level_8:Crystals62
+    401604: Level_8:Crystals63
+    401606: Level_8:Crystals64
+    401608: Level_8:Crystals65
+    401610: Level_8:Crystals66
+    401612: Level_8:Crystals67
+    401614: Level_8:Crystals68
+    401616: Level_8:Crystals69
+    401618: Level_8:Crystals70
+    401620: Level_8:Crystals71
+    401622: Level_8:Crystals72
+    401624: Level_8:Crystals73
+    401626: Level_8:Crystals74
+    401628: Level_8:Crystals75
+    401630: Level_8:Crystals76
+    401632: Level_8:Crystals77
+    401634: Level_8:Crystals78
+    401636: Level_8:Crystals79
+    401638: Level_8:Crystals8
+    401640: Level_8:Crystals80
+    401642: Level_8:Crystals81
+    401644: Level_8:Crystals82
+    401646: Level_8:Crystals83
+    401648: Level_8:Crystals85
+    401650: Level_8:Crystals86
+    401652: Level_8:Crystals87
+    401654: Level_8:Crystals88
+    401656: Level_8:Crystals89
+    401658: Level_8:Crystals9
+    401660: Level_8:Crystals90
+    401662: Level_8:Crystals91
+    401664: Level_8:Crystals92
+    401666: Level_8:Crystals93
+    401668: Level_8:Crystals94
+    401670: Level_8:Crystals95
+    401672: Level_8:Crystals96
+    401674: Level_8:Crystals97
+    401676: Level_8:Crystals98
+    401678: Level_8:Crystals99
+    401680: Level_8:Crystals_grp
+    401682: Level_8:CurvedCliff
+    401684: Level_8:floatingDirt_grp
+    401686: Level_8:FlyingPlatform
+    401688: Level_8:FlyingPlatform1
+    401690: Level_8:FlyingPlatform2
+    401692: Level_8:FlyingPlatform4
+    401694: Level_8:FlyingPlatform5
+    401696: Level_8:FlyingPlatform_grp
+    401698: Level_8:Foilage
+    401700: Level_8:Foilage1
+    401702: Level_8:Foilage2
+    401704: Level_8:Foilage3
+    401706: Level_8:FoilagePlatform
+    401708: Level_8:FoilagePlatform 1
+    401710: Level_8:FoilagePlatform 2
+    401712: Level_8:FoilagePlatform 3
+    401714: Level_8:FoilagePlatform1
+    401716: Level_8:FoilagePlatform2
+    401718: Level_8:FoilagePlatform3
+    401720: Level_8:FoilagePlatform4
+    401722: Level_8:FoilagePlatform5
+    401724: Level_8:FoilagePlatform6
+    401726: Level_8:FoilagePlatforms
+    401728: Level_8:FoilagePlatforms 1
+    401730: Level_8:FoilagePlatforms 2
+    401732: Level_8:FoilagePlatforms1
+    401734: Level_8:FoilagePlatforms2
+    401736: Level_8:Grass2
+    401738: Level_8:grass2
+    401740: Level_8:grass3
+    401742: Level_8:grass4
+    401744: Level_8:grass5
+    401746: Level_8:grass6
+    401748: Level_8:grass7
+    401750: Level_8:GrassWalkWay
+    401752: Level_8:GrassWalkWay 1
+    401754: Level_8:GrassWalkWay 2
+    401756: Level_8:Ground
+    401758: Level_8:Ground 1
+    401760: Level_8:Ground 2
+    401762: Level_8:group82
+    401764: Level_8:group90
+    401766: Level_8:group91
+    401768: Level_8:group92
+    401770: Level_8:group95
+    401772: Level_8:Head
+    401774: Level_8:Island
+    401776: Level_8:Island 1
+    401778: Level_8:Island 2
+    401780: Level_8:Island1
+    401782: Level_8:Island2
+    401784: Level_8:Island3
+    401786: Level_8:IslandGround
+    401788: Level_8:IslandGround 1
+    401790: Level_8:IslandGround 2
+    401792: Level_8:IslandGround 3
+    401794: Level_8:IslandGround1
+    401796: Level_8:IslandWall
+    401798: Level_8:LevelBorders_grp
+    401800: Level_8:Log
+    401802: Level_8:Log 1
+    401804: Level_8:Log1
+    401806: Level_8:Log2
+    401808: Level_8:LogVine
+    401810: Level_8:LogVine1
+    401812: Level_8:Mushroom
+    401814: Level_8:Mushroom2
+    401816: Level_8:Mushroom_grp
+    401818: Level_8:Mushroom_grp1
+    401820: Level_8:pCube1
+    401822: Level_8:pCube1 1
+    401824: Level_8:pCube2
+    401826: Level_8:pCube2 1
+    401828: Level_8:Planks
+    401830: Level_8:Plants
+    401832: Level_8:Plants1
+    401834: Level_8:Plants10
+    401836: Level_8:Plants11
+    401838: Level_8:Plants12
+    401840: Level_8:Plants13
+    401842: Level_8:Plants15
+    401844: Level_8:Plants16
+    401846: Level_8:Plants17
+    401848: Level_8:Plants18
+    401850: Level_8:Plants19
+    401852: Level_8:Plants2
+    401854: Level_8:Plants20
+    401856: Level_8:Plants21
+    401858: Level_8:Plants22
+    401860: Level_8:Plants23
+    401862: Level_8:Plants24
+    401864: Level_8:Plants25
+    401866: Level_8:Plants3
+    401868: Level_8:Plants4
+    401870: Level_8:Plants9
+    401872: Level_8:Plants_grp
+    401874: Level_8:Plants_grp 1
+    401876: Level_8:Plat_grp
+    401878: Level_8:Platform
+    401880: Level_8:Platform 1
+    401882: Level_8:Platform 2
+    401884: Level_8:Platform 3
+    401886: Level_8:Platform 4
+    401888: Level_8:Platform 5
+    401890: Level_8:Platform 6
+    401892: Level_8:Platform 7
+    401894: Level_8:Platform 8
+    401896: Level_8:Platform 9
+    401898: Level_8:Platform1
+    401900: Level_8:Platform10
+    401902: Level_8:Platform11
+    401904: Level_8:Platform12
+    401906: Level_8:Platform13
+    401908: Level_8:Platform14
+    401910: Level_8:Platform15
+    401912: Level_8:Platform16
+    401914: Level_8:Platform17
+    401916: Level_8:Platform18
+    401918: Level_8:Platform3
+    401920: Level_8:Platform4
+    401922: Level_8:Platform5
+    401924: Level_8:Platform6
+    401926: Level_8:Platform7
+    401928: Level_8:Platform9
+    401930: Level_8:Platform_grp
+    401932: Level_8:PlatformBottom
+    401934: Level_8:PlatformBottom 1
+    401936: Level_8:PlatformBottom 10
+    401938: Level_8:PlatformBottom 11
+    401940: Level_8:PlatformBottom 12
+    401942: Level_8:PlatformBottom 13
+    401944: Level_8:PlatformBottom 2
+    401946: Level_8:PlatformBottom 3
+    401948: Level_8:PlatformBottom 4
+    401950: Level_8:PlatformBottom 5
+    401952: Level_8:PlatformBottom 6
+    401954: Level_8:PlatformBottom 7
+    401956: Level_8:PlatformBottom 8
+    401958: Level_8:PlatformBottom 9
+    401960: Level_8:PlatformBottom1
+    401962: Level_8:PlatformBottom2
+    401964: Level_8:PlatformBottom3
+    401966: Level_8:PlatformBottom4
+    401968: Level_8:PlatformBottom5
+    401970: Level_8:PlatformBranch
+    401972: Level_8:PlatformGround
+    401974: Level_8:PlatformGround 1
+    401976: Level_8:PlatformGround 2
+    401978: Level_8:PlatformGround 3
+    401980: Level_8:PlatformGround 4
+    401982: Level_8:PlatformGround 5
+    401984: Level_8:PlatformGround 6
+    401986: Level_8:PlatformGround 7
+    401988: Level_8:PlatformGround1
+    401990: Level_8:PlatformGround2
+    401992: Level_8:PlatformGround3
+    401994: Level_8:PlatformGround4
+    401996: Level_8:PlatformGround5
+    401998: Level_8:PlatformGroup
+    402000: Level_8:platforms
+    402002: Level_8:PlatformTop
+    402004: Level_8:PlatformTop 1
+    402006: Level_8:PlatformTop 2
+    402008: Level_8:PlatformTop 3
+    402010: Level_8:PlatfprmGround
+    402012: Level_8:polySurface1000
+    402014: Level_8:polySurface1001
+    402016: Level_8:polySurface1002
+    402018: Level_8:polySurface1003
+    402020: Level_8:polySurface1004
+    402022: Level_8:polySurface1005
+    402024: Level_8:polySurface1006
+    402026: Level_8:polySurface1008
+    402028: Level_8:polySurface1009
+    402030: Level_8:polySurface1010
+    402032: Level_8:polySurface116
+    402034: Level_8:polySurface441
+    402036: Level_8:polySurface448
+    402038: Level_8:polySurface477
+    402040: Level_8:polySurface478
+    402042: Level_8:polySurface796
+    402044: Level_8:polySurface80
+    402046: Level_8:polySurface800
+    402048: Level_8:polySurface801
+    402050: Level_8:polySurface804
+    402052: Level_8:polySurface807
+    402054: Level_8:polySurface837
+    402056: Level_8:polySurface842
+    402058: Level_8:polySurface843
+    402060: Level_8:polySurface86
+    402062: Level_8:polySurface87
+    402064: Level_8:polySurface880
+    402066: Level_8:polySurface880 1
+    402068: Level_8:polySurface880 2
+    402070: Level_8:polySurface881
+    402072: Level_8:polySurface881 1
+    402074: Level_8:polySurface882
+    402076: Level_8:polySurface882 1
+    402078: Level_8:polySurface883
+    402080: Level_8:polySurface883 1
+    402082: Level_8:polySurface884
+    402084: Level_8:polySurface885
+    402086: Level_8:polySurface887
+    402088: Level_8:polySurface889
+    402090: Level_8:polySurface891
+    402092: Level_8:polySurface892
+    402094: Level_8:polySurface893
+    402096: Level_8:polySurface894
+    402098: Level_8:polySurface895
+    402100: Level_8:polySurface896
+    402102: Level_8:polySurface897
+    402104: Level_8:polySurface898
+    402106: Level_8:polySurface899
+    402108: Level_8:polySurface900
+    402110: Level_8:polySurface901
+    402112: Level_8:polySurface902
+    402114: Level_8:polySurface904
+    402116: Level_8:polySurface906
+    402118: Level_8:polySurface928
+    402120: Level_8:polySurface936
+    402122: Level_8:polySurface937
+    402124: Level_8:polySurface938
+    402126: Level_8:polySurface939
+    402128: Level_8:polySurface940
+    402130: Level_8:polySurface941
+    402132: Level_8:polySurface942
+    402134: Level_8:polySurface943
+    402136: Level_8:polySurface944
+    402138: Level_8:polySurface945
+    402140: Level_8:polySurface946
+    402142: Level_8:polySurface947
+    402144: Level_8:polySurface948
+    402146: Level_8:polySurface949
+    402148: Level_8:polySurface950
+    402150: Level_8:polySurface951
+    402152: Level_8:polySurface952
+    402154: Level_8:polySurface953
+    402156: Level_8:polySurface954
+    402158: Level_8:polySurface955
+    402160: Level_8:polySurface956
+    402162: Level_8:polySurface957
+    402164: Level_8:polySurface958
+    402166: Level_8:polySurface959
+    402168: Level_8:polySurface960
+    402170: Level_8:polySurface961
+    402172: Level_8:polySurface962
+    402174: Level_8:polySurface963
+    402176: Level_8:polySurface964
+    402178: Level_8:polySurface975
+    402180: Level_8:polySurface976
+    402182: Level_8:polySurface977
+    402184: Level_8:polySurface978
+    402186: Level_8:polySurface979
+    402188: Level_8:polySurface980
+    402190: Level_8:polySurface981
+    402192: Level_8:polySurface982
+    402194: Level_8:polySurface983
+    402196: Level_8:polySurface984
+    402198: Level_8:polySurface985
+    402200: Level_8:polySurface987
+    402202: Level_8:polySurface987 1
+    402204: Level_8:polySurface987 10
+    402206: Level_8:polySurface987 11
+    402208: Level_8:polySurface987 12
+    402210: Level_8:polySurface987 13
+    402212: Level_8:polySurface987 14
+    402214: Level_8:polySurface987 2
+    402216: Level_8:polySurface987 3
+    402218: Level_8:polySurface987 4
+    402220: Level_8:polySurface987 5
+    402222: Level_8:polySurface987 6
+    402224: Level_8:polySurface987 7
+    402226: Level_8:polySurface987 8
+    402228: Level_8:polySurface987 9
+    402230: Level_8:polySurface988
+    402232: Level_8:polySurface988 1
+    402234: Level_8:polySurface988 10
+    402236: Level_8:polySurface988 11
+    402238: Level_8:polySurface988 12
+    402240: Level_8:polySurface988 13
+    402242: Level_8:polySurface988 14
+    402244: Level_8:polySurface988 2
+    402246: Level_8:polySurface988 3
+    402248: Level_8:polySurface988 4
+    402250: Level_8:polySurface988 5
+    402252: Level_8:polySurface988 6
+    402254: Level_8:polySurface988 7
+    402256: Level_8:polySurface988 8
+    402258: Level_8:polySurface988 9
+    402260: Level_8:polySurface989
+    402262: Level_8:polySurface989 1
+    402264: Level_8:polySurface989 10
+    402266: Level_8:polySurface989 11
+    402268: Level_8:polySurface989 12
+    402270: Level_8:polySurface989 13
+    402272: Level_8:polySurface989 14
+    402274: Level_8:polySurface989 2
+    402276: Level_8:polySurface989 3
+    402278: Level_8:polySurface989 4
+    402280: Level_8:polySurface989 5
+    402282: Level_8:polySurface989 6
+    402284: Level_8:polySurface989 7
+    402286: Level_8:polySurface989 8
+    402288: Level_8:polySurface989 9
+    402290: Level_8:polySurface990
+    402292: Level_8:polySurface990 1
+    402294: Level_8:polySurface990 10
+    402296: Level_8:polySurface990 11
+    402298: Level_8:polySurface990 12
+    402300: Level_8:polySurface990 13
+    402302: Level_8:polySurface990 14
+    402304: Level_8:polySurface990 2
+    402306: Level_8:polySurface990 3
+    402308: Level_8:polySurface990 4
+    402310: Level_8:polySurface990 5
+    402312: Level_8:polySurface990 6
+    402314: Level_8:polySurface990 7
+    402316: Level_8:polySurface990 8
+    402318: Level_8:polySurface990 9
+    402320: Level_8:polySurface991
+    402322: Level_8:polySurface991 1
+    402324: Level_8:polySurface991 10
+    402326: Level_8:polySurface991 11
+    402328: Level_8:polySurface991 12
+    402330: Level_8:polySurface991 13
+    402332: Level_8:polySurface991 14
+    402334: Level_8:polySurface991 2
+    402336: Level_8:polySurface991 3
+    402338: Level_8:polySurface991 4
+    402340: Level_8:polySurface991 5
+    402342: Level_8:polySurface991 6
+    402344: Level_8:polySurface991 7
+    402346: Level_8:polySurface991 8
+    402348: Level_8:polySurface991 9
+    402350: Level_8:polySurface992
+    402352: Level_8:polySurface993
+    402354: Level_8:polySurface994
+    402356: Level_8:polySurface995
+    402358: Level_8:polySurface996
+    402360: Level_8:polySurface997
+    402362: Level_8:polySurface998
+    402364: Level_8:polySurface999
+    402366: Level_8:Rock
+    402368: Level_8:Rock 1
+    402370: Level_8:Rock 2
+    402372: Level_8:Rock 3
+    402374: Level_8:Rock 4
+    402376: Level_8:Rock 5
+    402378: Level_8:Rocks
+    402380: Level_8:Rocks 1
+    402382: Level_8:Rocks 2
+    402384: Level_8:Rocks 3
+    402386: Level_8:Rocks1
+    402388: Level_8:Rocks10
+    402390: Level_8:Rocks11
+    402392: Level_8:Rocks12
+    402394: Level_8:Rocks13
+    402396: Level_8:Rocks14
+    402398: Level_8:Rocks15
+    402400: Level_8:Rocks16
+    402402: Level_8:Rocks17
+    402404: Level_8:Rocks18
+    402406: Level_8:Rocks19
+    402408: Level_8:Rocks2
+    402410: Level_8:Rocks20
+    402412: Level_8:Rocks21
+    402414: Level_8:Rocks22
+    402416: Level_8:Rocks23
+    402418: Level_8:Rocks24
+    402420: Level_8:Rocks25
+    402422: Level_8:Rocks26
+    402424: Level_8:Rocks27
+    402426: Level_8:Rocks28
+    402428: Level_8:Rocks29
+    402430: Level_8:Rocks3
+    402432: Level_8:Rocks30
+    402434: Level_8:Rocks31
+    402436: Level_8:Rocks32
+    402438: Level_8:Rocks33
+    402440: Level_8:Rocks34
+    402442: Level_8:Rocks35
+    402444: Level_8:Rocks36
+    402446: Level_8:Rocks4
+    402448: Level_8:Rocks5
+    402450: Level_8:Rocks6
+    402452: Level_8:Rocks7
+    402454: Level_8:Rocks8
+    402456: Level_8:Rocks9
+    402458: Level_8:RomanGroundPlane
+    402460: Level_8:RomanWaterPlane
+    402462: Level_8:Root
+    402464: Level_8:Root1
+    402466: Level_8:Root1 1
+    402468: Level_8:Root2
+    402470: Level_8:Root3
+    402472: Level_8:Root4
+    402474: Level_8:sign
+    402476: Level_8:sign2
+    402478: Level_8:SlideLog
+    402480: Level_8:SuzieMesh1
+    402482: Level_8:transform197
+    402484: Level_8:transform198
+    402486: Level_8:transform199
+    402488: Level_8:transform200
+    402490: Level_8:transform201
+    402492: Level_8:transform202
+    402494: Level_8:transform203
+    402496: Level_8:transform204
+    402498: Level_8:TreeFoilage
+    402500: Level_8:Trunk
+    402502: Level_8:Vines
+    402504: Level_8:Wall
+    402506: Level_8:Wall 1
+    402508: Level_8:Wall 2
+    402510: Level_8:Wall1
+    402512: Level_8:Wall2
+    402514: Level_8:Wall4
+    402516: Level_8:Wall5
+    402518: Level_8:WallClimbingIsland
+    402520: Level_8:WaterElements_grp
+    402522: Level_8:Waterfall
+    402524: Level_8:WaterRocks
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -1721,6 +3003,492 @@ ModelImporter:
     2300938: Root4
     2300940: ClimbingWallSurface
     2300942: Rock 5
+    2300944: CliffGround3
+    2300946: CliffGround4
+    2300948: CliffGround5
+    2300950: CliffGround6
+    2300952: CliffGround7
+    2300954: CliffGround8
+    2300956: CliffWall1
+    2300958: CliffWall2
+    2300960: CliffWall3
+    2300962: CliffWall4
+    2300964: CliffWall5
+    2300966: CliffWall6
+    2300968: Crystals100
+    2300970: Crystals94
+    2300972: Crystals95
+    2300974: Crystals96
+    2300976: Crystals97
+    2300978: Crystals98
+    2300980: Crystals99
+    2300982: Plants23
+    2300984: Plants24
+    2300986: Plants25
+    2300988: PlatformBottom4
+    2300990: PlatformBottom5
+    2300992: PlatformGround4
+    2300994: PlatformGround5
+    2300996: polySurface1001
+    2300998: polySurface1002
+    2301000: polySurface1003
+    2301002: polySurface1004
+    2301004: polySurface1005
+    2301006: polySurface1006
+    2301008: polySurface1008
+    2301010: polySurface1009
+    2301012: polySurface1010
+    2301014: Rocks33
+    2301016: Rocks34
+    2301018: Rocks35
+    2301020: Rocks36
+    2301022: Level_8:ArchwayGround
+    2301024: Level_8:ArchwayWall
+    2301026: Level_8:Body
+    2301028: Level_8:Branch
+    2301030: Level_8:Branch 1
+    2301032: Level_8:Branch 2
+    2301034: Level_8:Branch 3
+    2301036: Level_8:Bush 1
+    2301038: Level_8:CliffBase
+    2301040: Level_8:CliffGround
+    2301042: Level_8:CliffGround 1
+    2301044: Level_8:CliffGround 10
+    2301046: Level_8:CliffGround 11
+    2301048: Level_8:CliffGround 12
+    2301050: Level_8:CliffGround 13
+    2301052: Level_8:CliffGround 14
+    2301054: Level_8:CliffGround 15
+    2301056: Level_8:CliffGround 2
+    2301058: Level_8:CliffGround 3
+    2301060: Level_8:CliffGround 5
+    2301062: Level_8:CliffGround 6
+    2301064: Level_8:CliffGround 7
+    2301066: Level_8:CliffGround 8
+    2301068: Level_8:CliffGround 9
+    2301070: Level_8:CliffGround1
+    2301072: Level_8:CliffGround2
+    2301074: Level_8:CliffGround3
+    2301076: Level_8:CliffGround4
+    2301078: Level_8:CliffGround5
+    2301080: Level_8:CliffGround6
+    2301082: Level_8:CliffGround7
+    2301084: Level_8:CliffGround8
+    2301086: Level_8:CliffTop
+    2301088: Level_8:CliffWall 1
+    2301090: Level_8:CliffWall 10
+    2301092: Level_8:CliffWall 11
+    2301094: Level_8:CliffWall 12
+    2301096: Level_8:CliffWall 13
+    2301098: Level_8:CliffWall 14
+    2301100: Level_8:CliffWall 15
+    2301102: Level_8:CliffWall 16
+    2301104: Level_8:CliffWall 3
+    2301106: Level_8:CliffWall 4
+    2301108: Level_8:CliffWall 5
+    2301110: Level_8:CliffWall 6
+    2301112: Level_8:CliffWall 7
+    2301114: Level_8:CliffWall 8
+    2301116: Level_8:CliffWall 9
+    2301118: Level_8:CliffWall1
+    2301120: Level_8:CliffWall2
+    2301122: Level_8:CliffWall3
+    2301124: Level_8:CliffWall4
+    2301126: Level_8:CliffWall5
+    2301128: Level_8:CliffWall6
+    2301130: Level_8:ClimbingWallSurface
+    2301132: Level_8:Crystals
+    2301134: Level_8:Crystals 1
+    2301136: Level_8:Crystals 2
+    2301138: Level_8:Crystals1
+    2301140: Level_8:Crystals10
+    2301142: Level_8:Crystals10 1
+    2301144: Level_8:Crystals100
+    2301146: Level_8:Crystals11
+    2301148: Level_8:Crystals11 1
+    2301150: Level_8:Crystals14
+    2301152: Level_8:Crystals16
+    2301154: Level_8:Crystals17
+    2301156: Level_8:Crystals18
+    2301158: Level_8:Crystals19
+    2301160: Level_8:Crystals2
+    2301162: Level_8:Crystals29
+    2301164: Level_8:Crystals3
+    2301166: Level_8:Crystals30
+    2301168: Level_8:Crystals31
+    2301170: Level_8:Crystals32
+    2301172: Level_8:Crystals33
+    2301174: Level_8:Crystals34
+    2301176: Level_8:Crystals36
+    2301178: Level_8:Crystals37
+    2301180: Level_8:Crystals38
+    2301182: Level_8:Crystals39
+    2301184: Level_8:Crystals4
+    2301186: Level_8:Crystals41
+    2301188: Level_8:Crystals44
+    2301190: Level_8:Crystals46
+    2301192: Level_8:Crystals47
+    2301194: Level_8:Crystals48
+    2301196: Level_8:Crystals5
+    2301198: Level_8:Crystals50
+    2301200: Level_8:Crystals51
+    2301202: Level_8:Crystals53
+    2301204: Level_8:Crystals54
+    2301206: Level_8:Crystals55
+    2301208: Level_8:Crystals6
+    2301210: Level_8:Crystals74
+    2301212: Level_8:Crystals75
+    2301214: Level_8:Crystals76
+    2301216: Level_8:Crystals77
+    2301218: Level_8:Crystals78
+    2301220: Level_8:Crystals79
+    2301222: Level_8:Crystals8
+    2301224: Level_8:Crystals80
+    2301226: Level_8:Crystals81
+    2301228: Level_8:Crystals82
+    2301230: Level_8:Crystals83
+    2301232: Level_8:Crystals85
+    2301234: Level_8:Crystals86
+    2301236: Level_8:Crystals87
+    2301238: Level_8:Crystals88
+    2301240: Level_8:Crystals89
+    2301242: Level_8:Crystals9
+    2301244: Level_8:Crystals90
+    2301246: Level_8:Crystals91
+    2301248: Level_8:Crystals92
+    2301250: Level_8:Crystals93
+    2301252: Level_8:Crystals94
+    2301254: Level_8:Crystals95
+    2301256: Level_8:Crystals96
+    2301258: Level_8:Crystals97
+    2301260: Level_8:Crystals98
+    2301262: Level_8:Crystals99
+    2301264: Level_8:Foilage
+    2301266: Level_8:Foilage1
+    2301268: Level_8:Foilage2
+    2301270: Level_8:Foilage3
+    2301272: Level_8:FoilagePlatform 1
+    2301274: Level_8:FoilagePlatform 2
+    2301276: Level_8:FoilagePlatform 3
+    2301278: Level_8:FoilagePlatform1
+    2301280: Level_8:FoilagePlatform2
+    2301282: Level_8:FoilagePlatform3
+    2301284: Level_8:FoilagePlatform4
+    2301286: Level_8:FoilagePlatform5
+    2301288: Level_8:FoilagePlatform6
+    2301290: Level_8:Grass2
+    2301292: Level_8:GrassWalkWay
+    2301294: Level_8:GrassWalkWay 1
+    2301296: Level_8:GrassWalkWay 2
+    2301298: Level_8:Ground 1
+    2301300: Level_8:Ground 2
+    2301302: Level_8:Head
+    2301304: Level_8:IslandGround 1
+    2301306: Level_8:IslandGround 3
+    2301308: Level_8:IslandGround1
+    2301310: Level_8:IslandWall
+    2301312: Level_8:Log
+    2301314: Level_8:Log 1
+    2301316: Level_8:Log1
+    2301318: Level_8:LogVine
+    2301320: Level_8:LogVine1
+    2301322: Level_8:Mushroom
+    2301324: Level_8:Mushroom2
+    2301326: Level_8:pCube1
+    2301328: Level_8:pCube1 1
+    2301330: Level_8:pCube2
+    2301332: Level_8:pCube2 1
+    2301334: Level_8:Plants
+    2301336: Level_8:Plants1
+    2301338: Level_8:Plants10
+    2301340: Level_8:Plants11
+    2301342: Level_8:Plants12
+    2301344: Level_8:Plants13
+    2301346: Level_8:Plants15
+    2301348: Level_8:Plants16
+    2301350: Level_8:Plants17
+    2301352: Level_8:Plants18
+    2301354: Level_8:Plants19
+    2301356: Level_8:Plants2
+    2301358: Level_8:Plants20
+    2301360: Level_8:Plants21
+    2301362: Level_8:Plants22
+    2301364: Level_8:Plants23
+    2301366: Level_8:Plants24
+    2301368: Level_8:Plants25
+    2301370: Level_8:Plants3
+    2301372: Level_8:Plants4
+    2301374: Level_8:Plants9
+    2301376: Level_8:Platform 5
+    2301378: Level_8:Platform 6
+    2301380: Level_8:Platform 7
+    2301382: Level_8:Platform 8
+    2301384: Level_8:Platform 9
+    2301386: Level_8:Platform3
+    2301388: Level_8:Platform4
+    2301390: Level_8:Platform5
+    2301392: Level_8:Platform6
+    2301394: Level_8:Platform7
+    2301396: Level_8:PlatformBottom
+    2301398: Level_8:PlatformBottom 1
+    2301400: Level_8:PlatformBottom 11
+    2301402: Level_8:PlatformBottom 12
+    2301404: Level_8:PlatformBottom 13
+    2301406: Level_8:PlatformBottom 2
+    2301408: Level_8:PlatformBottom 3
+    2301410: Level_8:PlatformBottom 4
+    2301412: Level_8:PlatformBottom 5
+    2301414: Level_8:PlatformBottom 6
+    2301416: Level_8:PlatformBottom 7
+    2301418: Level_8:PlatformBottom 8
+    2301420: Level_8:PlatformBottom 9
+    2301422: Level_8:PlatformBottom1
+    2301424: Level_8:PlatformBottom2
+    2301426: Level_8:PlatformBottom3
+    2301428: Level_8:PlatformBottom4
+    2301430: Level_8:PlatformBottom5
+    2301432: Level_8:PlatformBranch
+    2301434: Level_8:PlatformGround
+    2301436: Level_8:PlatformGround 1
+    2301438: Level_8:PlatformGround 2
+    2301440: Level_8:PlatformGround 3
+    2301442: Level_8:PlatformGround 4
+    2301444: Level_8:PlatformGround 5
+    2301446: Level_8:PlatformGround 6
+    2301448: Level_8:PlatformGround 7
+    2301450: Level_8:PlatformGround1
+    2301452: Level_8:PlatformGround2
+    2301454: Level_8:PlatformGround3
+    2301456: Level_8:PlatformGround4
+    2301458: Level_8:PlatformGround5
+    2301460: Level_8:PlatformTop
+    2301462: Level_8:PlatformTop 1
+    2301464: Level_8:PlatformTop 2
+    2301466: Level_8:PlatformTop 3
+    2301468: Level_8:PlatfprmGround
+    2301470: Level_8:polySurface1000
+    2301472: Level_8:polySurface1001
+    2301474: Level_8:polySurface1002
+    2301476: Level_8:polySurface1003
+    2301478: Level_8:polySurface1004
+    2301480: Level_8:polySurface1005
+    2301482: Level_8:polySurface1006
+    2301484: Level_8:polySurface1008
+    2301486: Level_8:polySurface1009
+    2301488: Level_8:polySurface1010
+    2301490: Level_8:polySurface116
+    2301492: Level_8:polySurface441
+    2301494: Level_8:polySurface448
+    2301496: Level_8:polySurface477
+    2301498: Level_8:polySurface478
+    2301500: Level_8:polySurface796
+    2301502: Level_8:polySurface80
+    2301504: Level_8:polySurface800
+    2301506: Level_8:polySurface801
+    2301508: Level_8:polySurface804
+    2301510: Level_8:polySurface807
+    2301512: Level_8:polySurface842
+    2301514: Level_8:polySurface843
+    2301516: Level_8:polySurface87
+    2301518: Level_8:polySurface880
+    2301520: Level_8:polySurface880 1
+    2301522: Level_8:polySurface880 2
+    2301524: Level_8:polySurface881
+    2301526: Level_8:polySurface881 1
+    2301528: Level_8:polySurface882
+    2301530: Level_8:polySurface882 1
+    2301532: Level_8:polySurface883
+    2301534: Level_8:polySurface883 1
+    2301536: Level_8:polySurface884
+    2301538: Level_8:polySurface891
+    2301540: Level_8:polySurface893
+    2301542: Level_8:polySurface895
+    2301544: Level_8:polySurface897
+    2301546: Level_8:polySurface898
+    2301548: Level_8:polySurface900
+    2301550: Level_8:polySurface901
+    2301552: Level_8:polySurface928
+    2301554: Level_8:polySurface936
+    2301556: Level_8:polySurface937
+    2301558: Level_8:polySurface938
+    2301560: Level_8:polySurface939
+    2301562: Level_8:polySurface940
+    2301564: Level_8:polySurface941
+    2301566: Level_8:polySurface942
+    2301568: Level_8:polySurface943
+    2301570: Level_8:polySurface944
+    2301572: Level_8:polySurface945
+    2301574: Level_8:polySurface946
+    2301576: Level_8:polySurface947
+    2301578: Level_8:polySurface948
+    2301580: Level_8:polySurface949
+    2301582: Level_8:polySurface950
+    2301584: Level_8:polySurface951
+    2301586: Level_8:polySurface952
+    2301588: Level_8:polySurface953
+    2301590: Level_8:polySurface954
+    2301592: Level_8:polySurface955
+    2301594: Level_8:polySurface956
+    2301596: Level_8:polySurface957
+    2301598: Level_8:polySurface958
+    2301600: Level_8:polySurface959
+    2301602: Level_8:polySurface960
+    2301604: Level_8:polySurface961
+    2301606: Level_8:polySurface962
+    2301608: Level_8:polySurface963
+    2301610: Level_8:polySurface964
+    2301612: Level_8:polySurface975
+    2301614: Level_8:polySurface976
+    2301616: Level_8:polySurface977
+    2301618: Level_8:polySurface978
+    2301620: Level_8:polySurface979
+    2301622: Level_8:polySurface980
+    2301624: Level_8:polySurface981
+    2301626: Level_8:polySurface982
+    2301628: Level_8:polySurface985
+    2301630: Level_8:polySurface987
+    2301632: Level_8:polySurface987 1
+    2301634: Level_8:polySurface987 10
+    2301636: Level_8:polySurface987 11
+    2301638: Level_8:polySurface987 12
+    2301640: Level_8:polySurface987 13
+    2301642: Level_8:polySurface987 14
+    2301644: Level_8:polySurface987 2
+    2301646: Level_8:polySurface987 3
+    2301648: Level_8:polySurface987 4
+    2301650: Level_8:polySurface987 5
+    2301652: Level_8:polySurface987 6
+    2301654: Level_8:polySurface987 7
+    2301656: Level_8:polySurface987 8
+    2301658: Level_8:polySurface987 9
+    2301660: Level_8:polySurface988
+    2301662: Level_8:polySurface988 1
+    2301664: Level_8:polySurface988 10
+    2301666: Level_8:polySurface988 11
+    2301668: Level_8:polySurface988 12
+    2301670: Level_8:polySurface988 13
+    2301672: Level_8:polySurface988 14
+    2301674: Level_8:polySurface988 2
+    2301676: Level_8:polySurface988 3
+    2301678: Level_8:polySurface988 4
+    2301680: Level_8:polySurface988 5
+    2301682: Level_8:polySurface988 6
+    2301684: Level_8:polySurface988 7
+    2301686: Level_8:polySurface988 8
+    2301688: Level_8:polySurface988 9
+    2301690: Level_8:polySurface989
+    2301692: Level_8:polySurface989 1
+    2301694: Level_8:polySurface989 10
+    2301696: Level_8:polySurface989 11
+    2301698: Level_8:polySurface989 12
+    2301700: Level_8:polySurface989 13
+    2301702: Level_8:polySurface989 14
+    2301704: Level_8:polySurface989 2
+    2301706: Level_8:polySurface989 3
+    2301708: Level_8:polySurface989 4
+    2301710: Level_8:polySurface989 5
+    2301712: Level_8:polySurface989 6
+    2301714: Level_8:polySurface989 7
+    2301716: Level_8:polySurface989 8
+    2301718: Level_8:polySurface989 9
+    2301720: Level_8:polySurface990
+    2301722: Level_8:polySurface990 1
+    2301724: Level_8:polySurface990 10
+    2301726: Level_8:polySurface990 11
+    2301728: Level_8:polySurface990 12
+    2301730: Level_8:polySurface990 13
+    2301732: Level_8:polySurface990 14
+    2301734: Level_8:polySurface990 2
+    2301736: Level_8:polySurface990 3
+    2301738: Level_8:polySurface990 4
+    2301740: Level_8:polySurface990 5
+    2301742: Level_8:polySurface990 6
+    2301744: Level_8:polySurface990 7
+    2301746: Level_8:polySurface990 8
+    2301748: Level_8:polySurface990 9
+    2301750: Level_8:polySurface991
+    2301752: Level_8:polySurface991 1
+    2301754: Level_8:polySurface991 10
+    2301756: Level_8:polySurface991 11
+    2301758: Level_8:polySurface991 12
+    2301760: Level_8:polySurface991 13
+    2301762: Level_8:polySurface991 14
+    2301764: Level_8:polySurface991 2
+    2301766: Level_8:polySurface991 3
+    2301768: Level_8:polySurface991 4
+    2301770: Level_8:polySurface991 5
+    2301772: Level_8:polySurface991 6
+    2301774: Level_8:polySurface991 7
+    2301776: Level_8:polySurface991 8
+    2301778: Level_8:polySurface991 9
+    2301780: Level_8:polySurface992
+    2301782: Level_8:polySurface993
+    2301784: Level_8:polySurface994
+    2301786: Level_8:polySurface995
+    2301788: Level_8:polySurface996
+    2301790: Level_8:polySurface997
+    2301792: Level_8:polySurface998
+    2301794: Level_8:polySurface999
+    2301796: Level_8:Rock
+    2301798: Level_8:Rock 1
+    2301800: Level_8:Rock 2
+    2301802: Level_8:Rock 3
+    2301804: Level_8:Rock 4
+    2301806: Level_8:Rock 5
+    2301808: Level_8:Rocks
+    2301810: Level_8:Rocks 1
+    2301812: Level_8:Rocks 2
+    2301814: Level_8:Rocks 3
+    2301816: Level_8:Rocks1
+    2301818: Level_8:Rocks10
+    2301820: Level_8:Rocks11
+    2301822: Level_8:Rocks12
+    2301824: Level_8:Rocks13
+    2301826: Level_8:Rocks14
+    2301828: Level_8:Rocks15
+    2301830: Level_8:Rocks16
+    2301832: Level_8:Rocks17
+    2301834: Level_8:Rocks18
+    2301836: Level_8:Rocks19
+    2301838: Level_8:Rocks2
+    2301840: Level_8:Rocks20
+    2301842: Level_8:Rocks21
+    2301844: Level_8:Rocks22
+    2301846: Level_8:Rocks23
+    2301848: Level_8:Rocks24
+    2301850: Level_8:Rocks25
+    2301852: Level_8:Rocks26
+    2301854: Level_8:Rocks27
+    2301856: Level_8:Rocks28
+    2301858: Level_8:Rocks29
+    2301860: Level_8:Rocks3
+    2301862: Level_8:Rocks30
+    2301864: Level_8:Rocks31
+    2301866: Level_8:Rocks32
+    2301868: Level_8:Rocks33
+    2301870: Level_8:Rocks34
+    2301872: Level_8:Rocks35
+    2301874: Level_8:Rocks36
+    2301876: Level_8:Rocks4
+    2301878: Level_8:Rocks5
+    2301880: Level_8:Rocks6
+    2301882: Level_8:Rocks7
+    2301884: Level_8:Rocks8
+    2301886: Level_8:Rocks9
+    2301888: Level_8:RomanGroundPlane
+    2301890: Level_8:RomanWaterPlane
+    2301892: Level_8:Root
+    2301894: Level_8:Root1
+    2301896: Level_8:Root2
+    2301898: Level_8:Root3
+    2301900: Level_8:Root4
+    2301902: Level_8:SlideLog
+    2301904: Level_8:SuzieMesh1
+    2301906: Level_8:Trunk
+    2301908: Level_8:Vines
+    2301910: Level_8:Wall 1
+    2301912: Level_8:Waterfall
+    2301914: Level_8:WaterRocks
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -2193,6 +3961,492 @@ ModelImporter:
     3300938: Root4
     3300940: ClimbingWallSurface
     3300942: Rock 5
+    3300944: CliffGround3
+    3300946: CliffGround4
+    3300948: CliffGround5
+    3300950: CliffGround6
+    3300952: CliffGround7
+    3300954: CliffGround8
+    3300956: CliffWall1
+    3300958: CliffWall2
+    3300960: CliffWall3
+    3300962: CliffWall4
+    3300964: CliffWall5
+    3300966: CliffWall6
+    3300968: Crystals100
+    3300970: Crystals94
+    3300972: Crystals95
+    3300974: Crystals96
+    3300976: Crystals97
+    3300978: Crystals98
+    3300980: Crystals99
+    3300982: Plants23
+    3300984: Plants24
+    3300986: Plants25
+    3300988: PlatformBottom4
+    3300990: PlatformBottom5
+    3300992: PlatformGround4
+    3300994: PlatformGround5
+    3300996: polySurface1001
+    3300998: polySurface1002
+    3301000: polySurface1003
+    3301002: polySurface1004
+    3301004: polySurface1005
+    3301006: polySurface1006
+    3301008: polySurface1008
+    3301010: polySurface1009
+    3301012: polySurface1010
+    3301014: Rocks33
+    3301016: Rocks34
+    3301018: Rocks35
+    3301020: Rocks36
+    3301022: Level_8:ArchwayGround
+    3301024: Level_8:ArchwayWall
+    3301026: Level_8:Body
+    3301028: Level_8:Branch
+    3301030: Level_8:Branch 1
+    3301032: Level_8:Branch 2
+    3301034: Level_8:Branch 3
+    3301036: Level_8:Bush 1
+    3301038: Level_8:CliffBase
+    3301040: Level_8:CliffGround
+    3301042: Level_8:CliffGround 1
+    3301044: Level_8:CliffGround 10
+    3301046: Level_8:CliffGround 11
+    3301048: Level_8:CliffGround 12
+    3301050: Level_8:CliffGround 13
+    3301052: Level_8:CliffGround 14
+    3301054: Level_8:CliffGround 15
+    3301056: Level_8:CliffGround 2
+    3301058: Level_8:CliffGround 3
+    3301060: Level_8:CliffGround 5
+    3301062: Level_8:CliffGround 6
+    3301064: Level_8:CliffGround 7
+    3301066: Level_8:CliffGround 8
+    3301068: Level_8:CliffGround 9
+    3301070: Level_8:CliffGround1
+    3301072: Level_8:CliffGround2
+    3301074: Level_8:CliffGround3
+    3301076: Level_8:CliffGround4
+    3301078: Level_8:CliffGround5
+    3301080: Level_8:CliffGround6
+    3301082: Level_8:CliffGround7
+    3301084: Level_8:CliffGround8
+    3301086: Level_8:CliffTop
+    3301088: Level_8:CliffWall 1
+    3301090: Level_8:CliffWall 10
+    3301092: Level_8:CliffWall 11
+    3301094: Level_8:CliffWall 12
+    3301096: Level_8:CliffWall 13
+    3301098: Level_8:CliffWall 14
+    3301100: Level_8:CliffWall 15
+    3301102: Level_8:CliffWall 16
+    3301104: Level_8:CliffWall 3
+    3301106: Level_8:CliffWall 4
+    3301108: Level_8:CliffWall 5
+    3301110: Level_8:CliffWall 6
+    3301112: Level_8:CliffWall 7
+    3301114: Level_8:CliffWall 8
+    3301116: Level_8:CliffWall 9
+    3301118: Level_8:CliffWall1
+    3301120: Level_8:CliffWall2
+    3301122: Level_8:CliffWall3
+    3301124: Level_8:CliffWall4
+    3301126: Level_8:CliffWall5
+    3301128: Level_8:CliffWall6
+    3301130: Level_8:ClimbingWallSurface
+    3301132: Level_8:Crystals
+    3301134: Level_8:Crystals 1
+    3301136: Level_8:Crystals 2
+    3301138: Level_8:Crystals1
+    3301140: Level_8:Crystals10
+    3301142: Level_8:Crystals10 1
+    3301144: Level_8:Crystals100
+    3301146: Level_8:Crystals11
+    3301148: Level_8:Crystals11 1
+    3301150: Level_8:Crystals14
+    3301152: Level_8:Crystals16
+    3301154: Level_8:Crystals17
+    3301156: Level_8:Crystals18
+    3301158: Level_8:Crystals19
+    3301160: Level_8:Crystals2
+    3301162: Level_8:Crystals29
+    3301164: Level_8:Crystals3
+    3301166: Level_8:Crystals30
+    3301168: Level_8:Crystals31
+    3301170: Level_8:Crystals32
+    3301172: Level_8:Crystals33
+    3301174: Level_8:Crystals34
+    3301176: Level_8:Crystals36
+    3301178: Level_8:Crystals37
+    3301180: Level_8:Crystals38
+    3301182: Level_8:Crystals39
+    3301184: Level_8:Crystals4
+    3301186: Level_8:Crystals41
+    3301188: Level_8:Crystals44
+    3301190: Level_8:Crystals46
+    3301192: Level_8:Crystals47
+    3301194: Level_8:Crystals48
+    3301196: Level_8:Crystals5
+    3301198: Level_8:Crystals50
+    3301200: Level_8:Crystals51
+    3301202: Level_8:Crystals53
+    3301204: Level_8:Crystals54
+    3301206: Level_8:Crystals55
+    3301208: Level_8:Crystals6
+    3301210: Level_8:Crystals74
+    3301212: Level_8:Crystals75
+    3301214: Level_8:Crystals76
+    3301216: Level_8:Crystals77
+    3301218: Level_8:Crystals78
+    3301220: Level_8:Crystals79
+    3301222: Level_8:Crystals8
+    3301224: Level_8:Crystals80
+    3301226: Level_8:Crystals81
+    3301228: Level_8:Crystals82
+    3301230: Level_8:Crystals83
+    3301232: Level_8:Crystals85
+    3301234: Level_8:Crystals86
+    3301236: Level_8:Crystals87
+    3301238: Level_8:Crystals88
+    3301240: Level_8:Crystals89
+    3301242: Level_8:Crystals9
+    3301244: Level_8:Crystals90
+    3301246: Level_8:Crystals91
+    3301248: Level_8:Crystals92
+    3301250: Level_8:Crystals93
+    3301252: Level_8:Crystals94
+    3301254: Level_8:Crystals95
+    3301256: Level_8:Crystals96
+    3301258: Level_8:Crystals97
+    3301260: Level_8:Crystals98
+    3301262: Level_8:Crystals99
+    3301264: Level_8:Foilage
+    3301266: Level_8:Foilage1
+    3301268: Level_8:Foilage2
+    3301270: Level_8:Foilage3
+    3301272: Level_8:FoilagePlatform 1
+    3301274: Level_8:FoilagePlatform 2
+    3301276: Level_8:FoilagePlatform 3
+    3301278: Level_8:FoilagePlatform1
+    3301280: Level_8:FoilagePlatform2
+    3301282: Level_8:FoilagePlatform3
+    3301284: Level_8:FoilagePlatform4
+    3301286: Level_8:FoilagePlatform5
+    3301288: Level_8:FoilagePlatform6
+    3301290: Level_8:Grass2
+    3301292: Level_8:GrassWalkWay
+    3301294: Level_8:GrassWalkWay 1
+    3301296: Level_8:GrassWalkWay 2
+    3301298: Level_8:Ground 1
+    3301300: Level_8:Ground 2
+    3301302: Level_8:Head
+    3301304: Level_8:IslandGround 1
+    3301306: Level_8:IslandGround 3
+    3301308: Level_8:IslandGround1
+    3301310: Level_8:IslandWall
+    3301312: Level_8:Log
+    3301314: Level_8:Log 1
+    3301316: Level_8:Log1
+    3301318: Level_8:LogVine
+    3301320: Level_8:LogVine1
+    3301322: Level_8:Mushroom
+    3301324: Level_8:Mushroom2
+    3301326: Level_8:pCube1
+    3301328: Level_8:pCube1 1
+    3301330: Level_8:pCube2
+    3301332: Level_8:pCube2 1
+    3301334: Level_8:Plants
+    3301336: Level_8:Plants1
+    3301338: Level_8:Plants10
+    3301340: Level_8:Plants11
+    3301342: Level_8:Plants12
+    3301344: Level_8:Plants13
+    3301346: Level_8:Plants15
+    3301348: Level_8:Plants16
+    3301350: Level_8:Plants17
+    3301352: Level_8:Plants18
+    3301354: Level_8:Plants19
+    3301356: Level_8:Plants2
+    3301358: Level_8:Plants20
+    3301360: Level_8:Plants21
+    3301362: Level_8:Plants22
+    3301364: Level_8:Plants23
+    3301366: Level_8:Plants24
+    3301368: Level_8:Plants25
+    3301370: Level_8:Plants3
+    3301372: Level_8:Plants4
+    3301374: Level_8:Plants9
+    3301376: Level_8:Platform 5
+    3301378: Level_8:Platform 6
+    3301380: Level_8:Platform 7
+    3301382: Level_8:Platform 8
+    3301384: Level_8:Platform 9
+    3301386: Level_8:Platform3
+    3301388: Level_8:Platform4
+    3301390: Level_8:Platform5
+    3301392: Level_8:Platform6
+    3301394: Level_8:Platform7
+    3301396: Level_8:PlatformBottom
+    3301398: Level_8:PlatformBottom 1
+    3301400: Level_8:PlatformBottom 11
+    3301402: Level_8:PlatformBottom 12
+    3301404: Level_8:PlatformBottom 13
+    3301406: Level_8:PlatformBottom 2
+    3301408: Level_8:PlatformBottom 3
+    3301410: Level_8:PlatformBottom 4
+    3301412: Level_8:PlatformBottom 5
+    3301414: Level_8:PlatformBottom 6
+    3301416: Level_8:PlatformBottom 7
+    3301418: Level_8:PlatformBottom 8
+    3301420: Level_8:PlatformBottom 9
+    3301422: Level_8:PlatformBottom1
+    3301424: Level_8:PlatformBottom2
+    3301426: Level_8:PlatformBottom3
+    3301428: Level_8:PlatformBottom4
+    3301430: Level_8:PlatformBottom5
+    3301432: Level_8:PlatformBranch
+    3301434: Level_8:PlatformGround
+    3301436: Level_8:PlatformGround 1
+    3301438: Level_8:PlatformGround 2
+    3301440: Level_8:PlatformGround 3
+    3301442: Level_8:PlatformGround 4
+    3301444: Level_8:PlatformGround 5
+    3301446: Level_8:PlatformGround 6
+    3301448: Level_8:PlatformGround 7
+    3301450: Level_8:PlatformGround1
+    3301452: Level_8:PlatformGround2
+    3301454: Level_8:PlatformGround3
+    3301456: Level_8:PlatformGround4
+    3301458: Level_8:PlatformGround5
+    3301460: Level_8:PlatformTop
+    3301462: Level_8:PlatformTop 1
+    3301464: Level_8:PlatformTop 2
+    3301466: Level_8:PlatformTop 3
+    3301468: Level_8:PlatfprmGround
+    3301470: Level_8:polySurface1000
+    3301472: Level_8:polySurface1001
+    3301474: Level_8:polySurface1002
+    3301476: Level_8:polySurface1003
+    3301478: Level_8:polySurface1004
+    3301480: Level_8:polySurface1005
+    3301482: Level_8:polySurface1006
+    3301484: Level_8:polySurface1008
+    3301486: Level_8:polySurface1009
+    3301488: Level_8:polySurface1010
+    3301490: Level_8:polySurface116
+    3301492: Level_8:polySurface441
+    3301494: Level_8:polySurface448
+    3301496: Level_8:polySurface477
+    3301498: Level_8:polySurface478
+    3301500: Level_8:polySurface796
+    3301502: Level_8:polySurface80
+    3301504: Level_8:polySurface800
+    3301506: Level_8:polySurface801
+    3301508: Level_8:polySurface804
+    3301510: Level_8:polySurface807
+    3301512: Level_8:polySurface842
+    3301514: Level_8:polySurface843
+    3301516: Level_8:polySurface87
+    3301518: Level_8:polySurface880
+    3301520: Level_8:polySurface880 1
+    3301522: Level_8:polySurface880 2
+    3301524: Level_8:polySurface881
+    3301526: Level_8:polySurface881 1
+    3301528: Level_8:polySurface882
+    3301530: Level_8:polySurface882 1
+    3301532: Level_8:polySurface883
+    3301534: Level_8:polySurface883 1
+    3301536: Level_8:polySurface884
+    3301538: Level_8:polySurface891
+    3301540: Level_8:polySurface893
+    3301542: Level_8:polySurface895
+    3301544: Level_8:polySurface897
+    3301546: Level_8:polySurface898
+    3301548: Level_8:polySurface900
+    3301550: Level_8:polySurface901
+    3301552: Level_8:polySurface928
+    3301554: Level_8:polySurface936
+    3301556: Level_8:polySurface937
+    3301558: Level_8:polySurface938
+    3301560: Level_8:polySurface939
+    3301562: Level_8:polySurface940
+    3301564: Level_8:polySurface941
+    3301566: Level_8:polySurface942
+    3301568: Level_8:polySurface943
+    3301570: Level_8:polySurface944
+    3301572: Level_8:polySurface945
+    3301574: Level_8:polySurface946
+    3301576: Level_8:polySurface947
+    3301578: Level_8:polySurface948
+    3301580: Level_8:polySurface949
+    3301582: Level_8:polySurface950
+    3301584: Level_8:polySurface951
+    3301586: Level_8:polySurface952
+    3301588: Level_8:polySurface953
+    3301590: Level_8:polySurface954
+    3301592: Level_8:polySurface955
+    3301594: Level_8:polySurface956
+    3301596: Level_8:polySurface957
+    3301598: Level_8:polySurface958
+    3301600: Level_8:polySurface959
+    3301602: Level_8:polySurface960
+    3301604: Level_8:polySurface961
+    3301606: Level_8:polySurface962
+    3301608: Level_8:polySurface963
+    3301610: Level_8:polySurface964
+    3301612: Level_8:polySurface975
+    3301614: Level_8:polySurface976
+    3301616: Level_8:polySurface977
+    3301618: Level_8:polySurface978
+    3301620: Level_8:polySurface979
+    3301622: Level_8:polySurface980
+    3301624: Level_8:polySurface981
+    3301626: Level_8:polySurface982
+    3301628: Level_8:polySurface985
+    3301630: Level_8:polySurface987
+    3301632: Level_8:polySurface987 1
+    3301634: Level_8:polySurface987 10
+    3301636: Level_8:polySurface987 11
+    3301638: Level_8:polySurface987 12
+    3301640: Level_8:polySurface987 13
+    3301642: Level_8:polySurface987 14
+    3301644: Level_8:polySurface987 2
+    3301646: Level_8:polySurface987 3
+    3301648: Level_8:polySurface987 4
+    3301650: Level_8:polySurface987 5
+    3301652: Level_8:polySurface987 6
+    3301654: Level_8:polySurface987 7
+    3301656: Level_8:polySurface987 8
+    3301658: Level_8:polySurface987 9
+    3301660: Level_8:polySurface988
+    3301662: Level_8:polySurface988 1
+    3301664: Level_8:polySurface988 10
+    3301666: Level_8:polySurface988 11
+    3301668: Level_8:polySurface988 12
+    3301670: Level_8:polySurface988 13
+    3301672: Level_8:polySurface988 14
+    3301674: Level_8:polySurface988 2
+    3301676: Level_8:polySurface988 3
+    3301678: Level_8:polySurface988 4
+    3301680: Level_8:polySurface988 5
+    3301682: Level_8:polySurface988 6
+    3301684: Level_8:polySurface988 7
+    3301686: Level_8:polySurface988 8
+    3301688: Level_8:polySurface988 9
+    3301690: Level_8:polySurface989
+    3301692: Level_8:polySurface989 1
+    3301694: Level_8:polySurface989 10
+    3301696: Level_8:polySurface989 11
+    3301698: Level_8:polySurface989 12
+    3301700: Level_8:polySurface989 13
+    3301702: Level_8:polySurface989 14
+    3301704: Level_8:polySurface989 2
+    3301706: Level_8:polySurface989 3
+    3301708: Level_8:polySurface989 4
+    3301710: Level_8:polySurface989 5
+    3301712: Level_8:polySurface989 6
+    3301714: Level_8:polySurface989 7
+    3301716: Level_8:polySurface989 8
+    3301718: Level_8:polySurface989 9
+    3301720: Level_8:polySurface990
+    3301722: Level_8:polySurface990 1
+    3301724: Level_8:polySurface990 10
+    3301726: Level_8:polySurface990 11
+    3301728: Level_8:polySurface990 12
+    3301730: Level_8:polySurface990 13
+    3301732: Level_8:polySurface990 14
+    3301734: Level_8:polySurface990 2
+    3301736: Level_8:polySurface990 3
+    3301738: Level_8:polySurface990 4
+    3301740: Level_8:polySurface990 5
+    3301742: Level_8:polySurface990 6
+    3301744: Level_8:polySurface990 7
+    3301746: Level_8:polySurface990 8
+    3301748: Level_8:polySurface990 9
+    3301750: Level_8:polySurface991
+    3301752: Level_8:polySurface991 1
+    3301754: Level_8:polySurface991 10
+    3301756: Level_8:polySurface991 11
+    3301758: Level_8:polySurface991 12
+    3301760: Level_8:polySurface991 13
+    3301762: Level_8:polySurface991 14
+    3301764: Level_8:polySurface991 2
+    3301766: Level_8:polySurface991 3
+    3301768: Level_8:polySurface991 4
+    3301770: Level_8:polySurface991 5
+    3301772: Level_8:polySurface991 6
+    3301774: Level_8:polySurface991 7
+    3301776: Level_8:polySurface991 8
+    3301778: Level_8:polySurface991 9
+    3301780: Level_8:polySurface992
+    3301782: Level_8:polySurface993
+    3301784: Level_8:polySurface994
+    3301786: Level_8:polySurface995
+    3301788: Level_8:polySurface996
+    3301790: Level_8:polySurface997
+    3301792: Level_8:polySurface998
+    3301794: Level_8:polySurface999
+    3301796: Level_8:Rock
+    3301798: Level_8:Rock 1
+    3301800: Level_8:Rock 2
+    3301802: Level_8:Rock 3
+    3301804: Level_8:Rock 4
+    3301806: Level_8:Rock 5
+    3301808: Level_8:Rocks
+    3301810: Level_8:Rocks 1
+    3301812: Level_8:Rocks 2
+    3301814: Level_8:Rocks 3
+    3301816: Level_8:Rocks1
+    3301818: Level_8:Rocks10
+    3301820: Level_8:Rocks11
+    3301822: Level_8:Rocks12
+    3301824: Level_8:Rocks13
+    3301826: Level_8:Rocks14
+    3301828: Level_8:Rocks15
+    3301830: Level_8:Rocks16
+    3301832: Level_8:Rocks17
+    3301834: Level_8:Rocks18
+    3301836: Level_8:Rocks19
+    3301838: Level_8:Rocks2
+    3301840: Level_8:Rocks20
+    3301842: Level_8:Rocks21
+    3301844: Level_8:Rocks22
+    3301846: Level_8:Rocks23
+    3301848: Level_8:Rocks24
+    3301850: Level_8:Rocks25
+    3301852: Level_8:Rocks26
+    3301854: Level_8:Rocks27
+    3301856: Level_8:Rocks28
+    3301858: Level_8:Rocks29
+    3301860: Level_8:Rocks3
+    3301862: Level_8:Rocks30
+    3301864: Level_8:Rocks31
+    3301866: Level_8:Rocks32
+    3301868: Level_8:Rocks33
+    3301870: Level_8:Rocks34
+    3301872: Level_8:Rocks35
+    3301874: Level_8:Rocks36
+    3301876: Level_8:Rocks4
+    3301878: Level_8:Rocks5
+    3301880: Level_8:Rocks6
+    3301882: Level_8:Rocks7
+    3301884: Level_8:Rocks8
+    3301886: Level_8:Rocks9
+    3301888: Level_8:RomanGroundPlane
+    3301890: Level_8:RomanWaterPlane
+    3301892: Level_8:Root
+    3301894: Level_8:Root1
+    3301896: Level_8:Root2
+    3301898: Level_8:Root3
+    3301900: Level_8:Root4
+    3301902: Level_8:SlideLog
+    3301904: Level_8:SuzieMesh1
+    3301906: Level_8:Trunk
+    3301908: Level_8:Vines
+    3301910: Level_8:Wall 1
+    3301912: Level_8:Waterfall
+    3301914: Level_8:WaterRocks
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -2664,6 +4918,492 @@ ModelImporter:
     4300936: PlatformGround3
     4300938: ClimbingWallSurface
     4300940: Rock
+    4300942: polySurface1008
+    4300944: polySurface1009
+    4300946: polySurface1010
+    4300948: polySurface1005
+    4300950: polySurface1006
+    4300952: Crystals96
+    4300954: Crystals97
+    4300956: Crystals98
+    4300958: Crystals99
+    4300960: Crystals100
+    4300962: polySurface1001
+    4300964: polySurface1002
+    4300966: CliffWall3
+    4300968: CliffGround5
+    4300970: polySurface1003
+    4300972: polySurface1004
+    4300974: Crystals95
+    4300976: Plants24
+    4300978: Plants25
+    4300980: CliffWall4
+    4300982: CliffGround6
+    4300984: CliffWall5
+    4300986: CliffGround7
+    4300988: CliffWall6
+    4300990: CliffGround8
+    4300992: Crystals94
+    4300994: CliffWall1
+    4300996: CliffGround3
+    4300998: CliffWall2
+    4301000: CliffGround4
+    4301002: Plants23
+    4301004: Rocks33
+    4301006: Rocks34
+    4301008: Rocks35
+    4301010: Rocks36
+    4301012: PlatformBottom5
+    4301014: PlatformGround5
+    4301016: PlatformGround4
+    4301018: PlatformBottom4
+    4301020: Level_8:Grass2
+    4301022: Level_8:Wall
+    4301024: Level_8:Log
+    4301026: Level_8:LogVine1
+    4301028: Level_8:Crystals33
+    4301030: Level_8:Crystals34
+    4301032: Level_8:Crystals80
+    4301034: Level_8:Crystals81
+    4301036: Level_8:Crystals93
+    4301038: Level_8:Platform
+    4301040: Level_8:Platform5
+    4301042: Level_8:Branch
+    4301044: Level_8:Platform
+    4301046: Level_8:Branch
+    4301048: Level_8:Platform
+    4301050: Level_8:Platform6
+    4301052: Level_8:Platform
+    4301054: Level_8:Platform4
+    4301056: Level_8:PlatformBranch
+    4301058: Level_8:polySurface884
+    4301060: Level_8:GrassWalkWay
+    4301062: Level_8:GrassWalkWay
+    4301064: Level_8:GrassWalkWay
+    4301066: Level_8:polySurface891
+    4301068: Level_8:polySurface893
+    4301070: Level_8:polySurface895
+    4301072: Level_8:polySurface897
+    4301074: Level_8:polySurface898
+    4301076: Level_8:polySurface900
+    4301078: Level_8:polySurface901
+    4301080: Level_8:polySurface1008
+    4301082: Level_8:Root
+    4301084: Level_8:Root2
+    4301086: Level_8:Trunk
+    4301088: Level_8:FoilagePlatform
+    4301090: Level_8:Foilage
+    4301092: Level_8:Foilage1
+    4301094: Level_8:Foilage2
+    4301096: Level_8:Foilage3
+    4301098: Level_8:FoilagePlatform
+    4301100: Level_8:FoilagePlatform1
+    4301102: Level_8:FoilagePlatform2
+    4301104: Level_8:FoilagePlatform3
+    4301106: Level_8:FoilagePlatform4
+    4301108: Level_8:FoilagePlatform5
+    4301110: Level_8:FoilagePlatform6
+    4301112: Level_8:Rocks1
+    4301114: Level_8:Rocks
+    4301116: Level_8:Plants4
+    4301118: Level_8:polySurface880
+    4301120: Level_8:polySurface881
+    4301122: Level_8:polySurface882
+    4301124: Level_8:polySurface883
+    4301126: Level_8:polySurface995
+    4301128: Level_8:polySurface996
+    4301130: Level_8:polySurface999
+    4301132: Level_8:polySurface1000
+    4301134: Level_8:polySurface1009
+    4301136: Level_8:polySurface1010
+    4301138: Level_8:polySurface477
+    4301140: Level_8:polySurface478
+    4301142: Level_8:polySurface441
+    4301144: Level_8:polySurface448
+    4301146: Level_8:polySurface804
+    4301148: Level_8:polySurface796
+    4301150: Level_8:polySurface116
+    4301152: Level_8:polySurface1005
+    4301154: Level_8:polySurface1006
+    4301156: Level_8:polySurface80
+    4301158: Level_8:polySurface87
+    4301160: Level_8:polySurface880
+    4301162: Level_8:polySurface881
+    4301164: Level_8:polySurface882
+    4301166: Level_8:polySurface883
+    4301168: Level_8:Root1
+    4301170: Level_8:Rocks27
+    4301172: Level_8:Rocks28
+    4301174: Level_8:Rocks29
+    4301176: Level_8:Rocks30
+    4301178: Level_8:Root3
+    4301180: Level_8:Root4
+    4301182: Level_8:Rocks31
+    4301184: Level_8:Rocks32
+    4301186: Level_8:polySurface957
+    4301188: Level_8:polySurface958
+    4301190: Level_8:polySurface959
+    4301192: Level_8:polySurface960
+    4301194: Level_8:polySurface961
+    4301196: Level_8:polySurface962
+    4301198: Level_8:polySurface963
+    4301200: Level_8:polySurface964
+    4301202: Level_8:polySurface955
+    4301204: Level_8:polySurface956
+    4301206: Level_8:polySurface952
+    4301208: Level_8:polySurface953
+    4301210: Level_8:polySurface954
+    4301212: Level_8:polySurface950
+    4301214: Level_8:polySurface951
+    4301216: Level_8:polySurface942
+    4301218: Level_8:polySurface943
+    4301220: Level_8:CliffTop
+    4301222: Level_8:Crystals36
+    4301224: Level_8:Crystals37
+    4301226: Level_8:Crystals38
+    4301228: Level_8:Crystals39
+    4301230: Level_8:polySurface981
+    4301232: Level_8:polySurface982
+    4301234: Level_8:polySurface979
+    4301236: Level_8:polySurface980
+    4301238: Level_8:Plants1
+    4301240: Level_8:CliffBase
+    4301242: Level_8:Crystals77
+    4301244: Level_8:Crystals78
+    4301246: Level_8:Crystals79
+    4301248: Level_8:Crystals89
+    4301250: Level_8:Crystals90
+    4301252: Level_8:Crystals91
+    4301254: Level_8:Crystals92
+    4301256: Level_8:Crystals96
+    4301258: Level_8:Crystals97
+    4301260: Level_8:Crystals98
+    4301262: Level_8:Crystals99
+    4301264: Level_8:Crystals100
+    4301266: Level_8:PlatformTop
+    4301268: Level_8:PlatformBottom
+    4301270: Level_8:Crystals50
+    4301272: Level_8:PlatformTop
+    4301274: Level_8:PlatformBottom
+    4301276: Level_8:Crystals19
+    4301278: Level_8:PlatformBottom
+    4301280: Level_8:PlatformTop
+    4301282: Level_8:polySurface1001
+    4301284: Level_8:polySurface1002
+    4301286: Level_8:CliffGround
+    4301288: Level_8:CliffWall
+    4301290: Level_8:PlatformTop
+    4301292: Level_8:PlatformBottom
+    4301294: Level_8:Crystals18
+    4301296: Level_8:CliffWall3
+    4301298: Level_8:CliffGround5
+    4301300: Level_8:Mushroom2
+    4301302: Level_8:polySurface842
+    4301304: Level_8:polySurface843
+    4301306: Level_8:polySurface1003
+    4301308: Level_8:polySurface1004
+    4301310: Level_8:Plants10
+    4301312: Level_8:Crystals16
+    4301314: Level_8:Crystals17
+    4301316: Level_8:Crystals44
+    4301318: Level_8:Crystals46
+    4301320: Level_8:Crystals47
+    4301322: Level_8:Crystals48
+    4301324: Level_8:Crystals4
+    4301326: Level_8:Crystals6
+    4301328: Level_8:Crystals5
+    4301330: Level_8:Crystals41
+    4301332: Level_8:Crystals75
+    4301334: Level_8:Crystals76
+    4301336: Level_8:Crystals85
+    4301338: Level_8:Crystals86
+    4301340: Level_8:Crystals87
+    4301342: Level_8:Crystals95
+    4301344: Level_8:Plants24
+    4301346: Level_8:Plants25
+    4301348: Level_8:CliffWall4
+    4301350: Level_8:CliffGround6
+    4301352: Level_8:CliffWall5
+    4301354: Level_8:CliffGround7
+    4301356: Level_8:CliffWall6
+    4301358: Level_8:CliffGround8
+    4301360: Level_8:IslandGround
+    4301362: Level_8:Crystals53
+    4301364: Level_8:Crystals88
+    4301366: Level_8:IslandWall
+    4301368: Level_8:CliffGround
+    4301370: Level_8:CliffWall
+    4301372: Level_8:ClimbingWallSurface
+    4301374: Level_8:Rock
+    4301376: Level_8:Crystals8
+    4301378: Level_8:pCube1
+    4301380: Level_8:pCube2
+    4301382: Level_8:PlatformGround
+    4301384: Level_8:PlatformBottom
+    4301386: Level_8:Crystals2
+    4301388: Level_8:Crystals3
+    4301390: Level_8:PlatformGround
+    4301392: Level_8:PlatformBottom
+    4301394: Level_8:Crystals1
+    4301396: Level_8:PlatformGround
+    4301398: Level_8:PlatformBottom
+    4301400: Level_8:Crystals
+    4301402: Level_8:PlatformBottom
+    4301404: Level_8:PlatfprmGround
+    4301406: Level_8:Crystals51
+    4301408: Level_8:Crystals54
+    4301410: Level_8:PlatformGround
+    4301412: Level_8:PlatformBottom
+    4301414: Level_8:WaterRocks
+    4301416: Level_8:Rock
+    4301418: Level_8:Head
+    4301420: Level_8:Body
+    4301422: Level_8:polySurface941
+    4301424: Level_8:polySurface939
+    4301426: Level_8:polySurface940
+    4301428: Level_8:polySurface801
+    4301430: Level_8:polySurface800
+    4301432: Level_8:CliffGround
+    4301434: Level_8:CliffWall
+    4301436: Level_8:Crystals9
+    4301438: Level_8:Crystals94
+    4301440: Level_8:ArchwayGround
+    4301442: Level_8:ArchwayWall
+    4301444: Level_8:Crystals10
+    4301446: Level_8:Crystals
+    4301448: Level_8:Crystals11
+    4301450: Level_8:Crystals10
+    4301452: Level_8:Crystals
+    4301454: Level_8:Crystals11
+    4301456: Level_8:IslandGround
+    4301458: Level_8:IslandGround1
+    4301460: Level_8:Plants2
+    4301462: Level_8:Platform3
+    4301464: Level_8:Vines
+    4301466: Level_8:Plants9
+    4301468: Level_8:CliffWall
+    4301470: Level_8:CliffGround1
+    4301472: Level_8:CliffGround
+    4301474: Level_8:polySurface807
+    4301476: Level_8:polySurface938
+    4301478: Level_8:polySurface937
+    4301480: Level_8:polySurface928
+    4301482: Level_8:polySurface936
+    4301484: Level_8:polySurface997
+    4301486: Level_8:polySurface998
+    4301488: Level_8:CliffWall
+    4301490: Level_8:CliffGround
+    4301492: Level_8:CliffWall1
+    4301494: Level_8:CliffGround3
+    4301496: Level_8:CliffWall2
+    4301498: Level_8:CliffGround4
+    4301500: Level_8:CliffGround
+    4301502: Level_8:CliffWall
+    4301504: Level_8:CliffGround
+    4301506: Level_8:CliffWall
+    4301508: Level_8:CliffGround
+    4301510: Level_8:CliffWall
+    4301512: Level_8:CliffGround
+    4301514: Level_8:CliffGround2
+    4301516: Level_8:CliffWall
+    4301518: Level_8:SlideLog
+    4301520: Level_8:Branch
+    4301522: Level_8:Platform7
+    4301524: Level_8:Platform
+    4301526: Level_8:Crystals14
+    4301528: Level_8:Rocks2
+    4301530: Level_8:Ground
+    4301532: Level_8:Rock
+    4301534: Level_8:polySurface880
+    4301536: Level_8:Rocks
+    4301538: Level_8:Plants11
+    4301540: Level_8:Plants12
+    4301542: Level_8:Plants13
+    4301544: Level_8:Plants15
+    4301546: Level_8:Plants16
+    4301548: Level_8:Plants17
+    4301550: Level_8:Plants18
+    4301552: Level_8:Plants19
+    4301554: Level_8:Plants20
+    4301556: Level_8:Plants21
+    4301558: Level_8:Plants22
+    4301560: Level_8:Plants23
+    4301562: Level_8:Rocks23
+    4301564: Level_8:Rocks24
+    4301566: Level_8:Rocks25
+    4301568: Level_8:Rocks26
+    4301570: Level_8:Rocks33
+    4301572: Level_8:Log
+    4301574: Level_8:LogVine
+    4301576: Level_8:Crystals29
+    4301578: Level_8:Crystals30
+    4301580: Level_8:Crystals31
+    4301582: Level_8:Crystals82
+    4301584: Level_8:Crystals83
+    4301586: Level_8:CliffGround
+    4301588: Level_8:CliffWall
+    4301590: Level_8:Rock
+    4301592: Level_8:Ground
+    4301594: Level_8:Rocks
+    4301596: Level_8:Rocks34
+    4301598: Level_8:Rocks35
+    4301600: Level_8:Rocks36
+    4301602: Level_8:polySurface985
+    4301604: Level_8:CliffGround
+    4301606: Level_8:CliffWall
+    4301608: Level_8:Rock
+    4301610: Level_8:PlatformGround
+    4301612: Level_8:PlatformBottom
+    4301614: Level_8:PlatformBottom5
+    4301616: Level_8:PlatformGround5
+    4301618: Level_8:FoilagePlatform
+    4301620: Level_8:Branch
+    4301622: Level_8:PlatformGround
+    4301624: Level_8:PlatformBottom
+    4301626: Level_8:PlatformBottom1
+    4301628: Level_8:PlatformGround1
+    4301630: Level_8:PlatformBottom2
+    4301632: Level_8:PlatformGround2
+    4301634: Level_8:PlatformBottom3
+    4301636: Level_8:PlatformGround3
+    4301638: Level_8:CliffGround
+    4301640: Level_8:CliffWall
+    4301642: Level_8:Rock
+    4301644: Level_8:CliffGround
+    4301646: Level_8:CliffWall
+    4301648: Level_8:PlatformGround
+    4301650: Level_8:PlatformBottom
+    4301652: Level_8:PlatformGround4
+    4301654: Level_8:PlatformBottom4
+    4301656: Level_8:PlatformGround
+    4301658: Level_8:PlatformBottom
+    4301660: Level_8:Plants3
+    4301662: Level_8:Bush
+    4301664: Level_8:Crystals32
+    4301666: Level_8:Rocks
+    4301668: Level_8:SuzieMesh1
+    4301670: Level_8:Mushroom
+    4301672: Level_8:CliffGround
+    4301674: Level_8:CliffWall
+    4301676: Level_8:polySurface991
+    4301678: Level_8:polySurface990
+    4301680: Level_8:polySurface989
+    4301682: Level_8:polySurface987
+    4301684: Level_8:polySurface988
+    4301686: Level_8:polySurface992
+    4301688: Level_8:polySurface991
+    4301690: Level_8:polySurface990
+    4301692: Level_8:polySurface989
+    4301694: Level_8:polySurface987
+    4301696: Level_8:polySurface988
+    4301698: Level_8:polySurface991
+    4301700: Level_8:polySurface990
+    4301702: Level_8:polySurface989
+    4301704: Level_8:polySurface987
+    4301706: Level_8:polySurface988
+    4301708: Level_8:polySurface993
+    4301710: Level_8:polySurface994
+    4301712: Level_8:polySurface991
+    4301714: Level_8:polySurface990
+    4301716: Level_8:polySurface989
+    4301718: Level_8:polySurface987
+    4301720: Level_8:polySurface988
+    4301722: Level_8:polySurface991
+    4301724: Level_8:polySurface990
+    4301726: Level_8:polySurface989
+    4301728: Level_8:polySurface987
+    4301730: Level_8:polySurface988
+    4301732: Level_8:polySurface991
+    4301734: Level_8:polySurface990
+    4301736: Level_8:polySurface989
+    4301738: Level_8:polySurface987
+    4301740: Level_8:polySurface988
+    4301742: Level_8:polySurface991
+    4301744: Level_8:polySurface990
+    4301746: Level_8:polySurface989
+    4301748: Level_8:polySurface987
+    4301750: Level_8:polySurface988
+    4301752: Level_8:polySurface991
+    4301754: Level_8:polySurface990
+    4301756: Level_8:polySurface989
+    4301758: Level_8:polySurface987
+    4301760: Level_8:polySurface988
+    4301762: Level_8:polySurface991
+    4301764: Level_8:polySurface990
+    4301766: Level_8:polySurface989
+    4301768: Level_8:polySurface987
+    4301770: Level_8:polySurface988
+    4301772: Level_8:polySurface991
+    4301774: Level_8:polySurface990
+    4301776: Level_8:polySurface989
+    4301778: Level_8:polySurface987
+    4301780: Level_8:polySurface988
+    4301782: Level_8:polySurface991
+    4301784: Level_8:polySurface990
+    4301786: Level_8:polySurface989
+    4301788: Level_8:polySurface987
+    4301790: Level_8:polySurface988
+    4301792: Level_8:polySurface991
+    4301794: Level_8:polySurface990
+    4301796: Level_8:polySurface989
+    4301798: Level_8:polySurface987
+    4301800: Level_8:polySurface988
+    4301802: Level_8:polySurface991
+    4301804: Level_8:polySurface990
+    4301806: Level_8:polySurface989
+    4301808: Level_8:polySurface987
+    4301810: Level_8:polySurface988
+    4301812: Level_8:polySurface991
+    4301814: Level_8:polySurface990
+    4301816: Level_8:polySurface989
+    4301818: Level_8:polySurface987
+    4301820: Level_8:polySurface988
+    4301822: Level_8:Rocks3
+    4301824: Level_8:Rocks4
+    4301826: Level_8:Rocks5
+    4301828: Level_8:Rocks6
+    4301830: Level_8:Rocks7
+    4301832: Level_8:Rocks8
+    4301834: Level_8:Rocks9
+    4301836: Level_8:Rocks10
+    4301838: Level_8:Rocks11
+    4301840: Level_8:Rocks12
+    4301842: Level_8:Rocks13
+    4301844: Level_8:Rocks14
+    4301846: Level_8:Rocks15
+    4301848: Level_8:polySurface991
+    4301850: Level_8:polySurface990
+    4301852: Level_8:polySurface989
+    4301854: Level_8:polySurface987
+    4301856: Level_8:polySurface988
+    4301858: Level_8:Rocks16
+    4301860: Level_8:Rocks17
+    4301862: Level_8:Rocks18
+    4301864: Level_8:Rocks19
+    4301866: Level_8:Rocks20
+    4301868: Level_8:Rocks21
+    4301870: Level_8:Rocks22
+    4301872: Level_8:Crystals74
+    4301874: Level_8:pCube1
+    4301876: Level_8:pCube2
+    4301878: Level_8:RomanWaterPlane
+    4301880: Level_8:polySurface946
+    4301882: Level_8:polySurface947
+    4301884: Level_8:polySurface977
+    4301886: Level_8:polySurface978
+    4301888: Level_8:Waterfall
+    4301890: Level_8:polySurface944
+    4301892: Level_8:polySurface945
+    4301894: Level_8:polySurface948
+    4301896: Level_8:polySurface949
+    4301898: Level_8:polySurface975
+    4301900: Level_8:polySurface976
+    4301902: Level_8:CliffGround
+    4301904: Level_8:CliffWall
+    4301906: Level_8:Crystals55
+    4301908: Level_8:Log1
+    4301910: Level_8:Plants
+    4301912: Level_8:RomanGroundPlane
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -3136,6 +5876,492 @@ ModelImporter:
     6400938: Root4
     6400940: ClimbingWallSurface
     6400942: Rock 5
+    6400944: CliffGround3
+    6400946: CliffGround4
+    6400948: CliffGround5
+    6400950: CliffGround6
+    6400952: CliffGround7
+    6400954: CliffGround8
+    6400956: CliffWall1
+    6400958: CliffWall2
+    6400960: CliffWall3
+    6400962: CliffWall4
+    6400964: CliffWall5
+    6400966: CliffWall6
+    6400968: Crystals100
+    6400970: Crystals94
+    6400972: Crystals95
+    6400974: Crystals96
+    6400976: Crystals97
+    6400978: Crystals98
+    6400980: Crystals99
+    6400982: Plants23
+    6400984: Plants24
+    6400986: Plants25
+    6400988: PlatformBottom4
+    6400990: PlatformBottom5
+    6400992: PlatformGround4
+    6400994: PlatformGround5
+    6400996: polySurface1001
+    6400998: polySurface1002
+    6401000: polySurface1003
+    6401002: polySurface1004
+    6401004: polySurface1005
+    6401006: polySurface1006
+    6401008: polySurface1008
+    6401010: polySurface1009
+    6401012: polySurface1010
+    6401014: Rocks33
+    6401016: Rocks34
+    6401018: Rocks35
+    6401020: Rocks36
+    6401022: Level_8:ArchwayGround
+    6401024: Level_8:ArchwayWall
+    6401026: Level_8:Body
+    6401028: Level_8:Branch
+    6401030: Level_8:Branch 1
+    6401032: Level_8:Branch 2
+    6401034: Level_8:Branch 3
+    6401036: Level_8:Bush 1
+    6401038: Level_8:CliffBase
+    6401040: Level_8:CliffGround
+    6401042: Level_8:CliffGround 1
+    6401044: Level_8:CliffGround 10
+    6401046: Level_8:CliffGround 11
+    6401048: Level_8:CliffGround 12
+    6401050: Level_8:CliffGround 13
+    6401052: Level_8:CliffGround 14
+    6401054: Level_8:CliffGround 15
+    6401056: Level_8:CliffGround 2
+    6401058: Level_8:CliffGround 3
+    6401060: Level_8:CliffGround 5
+    6401062: Level_8:CliffGround 6
+    6401064: Level_8:CliffGround 7
+    6401066: Level_8:CliffGround 8
+    6401068: Level_8:CliffGround 9
+    6401070: Level_8:CliffGround1
+    6401072: Level_8:CliffGround2
+    6401074: Level_8:CliffGround3
+    6401076: Level_8:CliffGround4
+    6401078: Level_8:CliffGround5
+    6401080: Level_8:CliffGround6
+    6401082: Level_8:CliffGround7
+    6401084: Level_8:CliffGround8
+    6401086: Level_8:CliffTop
+    6401088: Level_8:CliffWall 1
+    6401090: Level_8:CliffWall 10
+    6401092: Level_8:CliffWall 11
+    6401094: Level_8:CliffWall 12
+    6401096: Level_8:CliffWall 13
+    6401098: Level_8:CliffWall 14
+    6401100: Level_8:CliffWall 15
+    6401102: Level_8:CliffWall 16
+    6401104: Level_8:CliffWall 3
+    6401106: Level_8:CliffWall 4
+    6401108: Level_8:CliffWall 5
+    6401110: Level_8:CliffWall 6
+    6401112: Level_8:CliffWall 7
+    6401114: Level_8:CliffWall 8
+    6401116: Level_8:CliffWall 9
+    6401118: Level_8:CliffWall1
+    6401120: Level_8:CliffWall2
+    6401122: Level_8:CliffWall3
+    6401124: Level_8:CliffWall4
+    6401126: Level_8:CliffWall5
+    6401128: Level_8:CliffWall6
+    6401130: Level_8:ClimbingWallSurface
+    6401132: Level_8:Crystals
+    6401134: Level_8:Crystals 1
+    6401136: Level_8:Crystals 2
+    6401138: Level_8:Crystals1
+    6401140: Level_8:Crystals10
+    6401142: Level_8:Crystals10 1
+    6401144: Level_8:Crystals100
+    6401146: Level_8:Crystals11
+    6401148: Level_8:Crystals11 1
+    6401150: Level_8:Crystals14
+    6401152: Level_8:Crystals16
+    6401154: Level_8:Crystals17
+    6401156: Level_8:Crystals18
+    6401158: Level_8:Crystals19
+    6401160: Level_8:Crystals2
+    6401162: Level_8:Crystals29
+    6401164: Level_8:Crystals3
+    6401166: Level_8:Crystals30
+    6401168: Level_8:Crystals31
+    6401170: Level_8:Crystals32
+    6401172: Level_8:Crystals33
+    6401174: Level_8:Crystals34
+    6401176: Level_8:Crystals36
+    6401178: Level_8:Crystals37
+    6401180: Level_8:Crystals38
+    6401182: Level_8:Crystals39
+    6401184: Level_8:Crystals4
+    6401186: Level_8:Crystals41
+    6401188: Level_8:Crystals44
+    6401190: Level_8:Crystals46
+    6401192: Level_8:Crystals47
+    6401194: Level_8:Crystals48
+    6401196: Level_8:Crystals5
+    6401198: Level_8:Crystals50
+    6401200: Level_8:Crystals51
+    6401202: Level_8:Crystals53
+    6401204: Level_8:Crystals54
+    6401206: Level_8:Crystals55
+    6401208: Level_8:Crystals6
+    6401210: Level_8:Crystals74
+    6401212: Level_8:Crystals75
+    6401214: Level_8:Crystals76
+    6401216: Level_8:Crystals77
+    6401218: Level_8:Crystals78
+    6401220: Level_8:Crystals79
+    6401222: Level_8:Crystals8
+    6401224: Level_8:Crystals80
+    6401226: Level_8:Crystals81
+    6401228: Level_8:Crystals82
+    6401230: Level_8:Crystals83
+    6401232: Level_8:Crystals85
+    6401234: Level_8:Crystals86
+    6401236: Level_8:Crystals87
+    6401238: Level_8:Crystals88
+    6401240: Level_8:Crystals89
+    6401242: Level_8:Crystals9
+    6401244: Level_8:Crystals90
+    6401246: Level_8:Crystals91
+    6401248: Level_8:Crystals92
+    6401250: Level_8:Crystals93
+    6401252: Level_8:Crystals94
+    6401254: Level_8:Crystals95
+    6401256: Level_8:Crystals96
+    6401258: Level_8:Crystals97
+    6401260: Level_8:Crystals98
+    6401262: Level_8:Crystals99
+    6401264: Level_8:Foilage
+    6401266: Level_8:Foilage1
+    6401268: Level_8:Foilage2
+    6401270: Level_8:Foilage3
+    6401272: Level_8:FoilagePlatform 1
+    6401274: Level_8:FoilagePlatform 2
+    6401276: Level_8:FoilagePlatform 3
+    6401278: Level_8:FoilagePlatform1
+    6401280: Level_8:FoilagePlatform2
+    6401282: Level_8:FoilagePlatform3
+    6401284: Level_8:FoilagePlatform4
+    6401286: Level_8:FoilagePlatform5
+    6401288: Level_8:FoilagePlatform6
+    6401290: Level_8:Grass2
+    6401292: Level_8:GrassWalkWay
+    6401294: Level_8:GrassWalkWay 1
+    6401296: Level_8:GrassWalkWay 2
+    6401298: Level_8:Ground 1
+    6401300: Level_8:Ground 2
+    6401302: Level_8:Head
+    6401304: Level_8:IslandGround 1
+    6401306: Level_8:IslandGround 3
+    6401308: Level_8:IslandGround1
+    6401310: Level_8:IslandWall
+    6401312: Level_8:Log
+    6401314: Level_8:Log 1
+    6401316: Level_8:Log1
+    6401318: Level_8:LogVine
+    6401320: Level_8:LogVine1
+    6401322: Level_8:Mushroom
+    6401324: Level_8:Mushroom2
+    6401326: Level_8:pCube1
+    6401328: Level_8:pCube1 1
+    6401330: Level_8:pCube2
+    6401332: Level_8:pCube2 1
+    6401334: Level_8:Plants
+    6401336: Level_8:Plants1
+    6401338: Level_8:Plants10
+    6401340: Level_8:Plants11
+    6401342: Level_8:Plants12
+    6401344: Level_8:Plants13
+    6401346: Level_8:Plants15
+    6401348: Level_8:Plants16
+    6401350: Level_8:Plants17
+    6401352: Level_8:Plants18
+    6401354: Level_8:Plants19
+    6401356: Level_8:Plants2
+    6401358: Level_8:Plants20
+    6401360: Level_8:Plants21
+    6401362: Level_8:Plants22
+    6401364: Level_8:Plants23
+    6401366: Level_8:Plants24
+    6401368: Level_8:Plants25
+    6401370: Level_8:Plants3
+    6401372: Level_8:Plants4
+    6401374: Level_8:Plants9
+    6401376: Level_8:Platform 5
+    6401378: Level_8:Platform 6
+    6401380: Level_8:Platform 7
+    6401382: Level_8:Platform 8
+    6401384: Level_8:Platform 9
+    6401386: Level_8:Platform3
+    6401388: Level_8:Platform4
+    6401390: Level_8:Platform5
+    6401392: Level_8:Platform6
+    6401394: Level_8:Platform7
+    6401396: Level_8:PlatformBottom
+    6401398: Level_8:PlatformBottom 1
+    6401400: Level_8:PlatformBottom 11
+    6401402: Level_8:PlatformBottom 12
+    6401404: Level_8:PlatformBottom 13
+    6401406: Level_8:PlatformBottom 2
+    6401408: Level_8:PlatformBottom 3
+    6401410: Level_8:PlatformBottom 4
+    6401412: Level_8:PlatformBottom 5
+    6401414: Level_8:PlatformBottom 6
+    6401416: Level_8:PlatformBottom 7
+    6401418: Level_8:PlatformBottom 8
+    6401420: Level_8:PlatformBottom 9
+    6401422: Level_8:PlatformBottom1
+    6401424: Level_8:PlatformBottom2
+    6401426: Level_8:PlatformBottom3
+    6401428: Level_8:PlatformBottom4
+    6401430: Level_8:PlatformBottom5
+    6401432: Level_8:PlatformBranch
+    6401434: Level_8:PlatformGround
+    6401436: Level_8:PlatformGround 1
+    6401438: Level_8:PlatformGround 2
+    6401440: Level_8:PlatformGround 3
+    6401442: Level_8:PlatformGround 4
+    6401444: Level_8:PlatformGround 5
+    6401446: Level_8:PlatformGround 6
+    6401448: Level_8:PlatformGround 7
+    6401450: Level_8:PlatformGround1
+    6401452: Level_8:PlatformGround2
+    6401454: Level_8:PlatformGround3
+    6401456: Level_8:PlatformGround4
+    6401458: Level_8:PlatformGround5
+    6401460: Level_8:PlatformTop
+    6401462: Level_8:PlatformTop 1
+    6401464: Level_8:PlatformTop 2
+    6401466: Level_8:PlatformTop 3
+    6401468: Level_8:PlatfprmGround
+    6401470: Level_8:polySurface1000
+    6401472: Level_8:polySurface1001
+    6401474: Level_8:polySurface1002
+    6401476: Level_8:polySurface1003
+    6401478: Level_8:polySurface1004
+    6401480: Level_8:polySurface1005
+    6401482: Level_8:polySurface1006
+    6401484: Level_8:polySurface1008
+    6401486: Level_8:polySurface1009
+    6401488: Level_8:polySurface1010
+    6401490: Level_8:polySurface116
+    6401492: Level_8:polySurface441
+    6401494: Level_8:polySurface448
+    6401496: Level_8:polySurface477
+    6401498: Level_8:polySurface478
+    6401500: Level_8:polySurface796
+    6401502: Level_8:polySurface80
+    6401504: Level_8:polySurface800
+    6401506: Level_8:polySurface801
+    6401508: Level_8:polySurface804
+    6401510: Level_8:polySurface807
+    6401512: Level_8:polySurface842
+    6401514: Level_8:polySurface843
+    6401516: Level_8:polySurface87
+    6401518: Level_8:polySurface880
+    6401520: Level_8:polySurface880 1
+    6401522: Level_8:polySurface880 2
+    6401524: Level_8:polySurface881
+    6401526: Level_8:polySurface881 1
+    6401528: Level_8:polySurface882
+    6401530: Level_8:polySurface882 1
+    6401532: Level_8:polySurface883
+    6401534: Level_8:polySurface883 1
+    6401536: Level_8:polySurface884
+    6401538: Level_8:polySurface891
+    6401540: Level_8:polySurface893
+    6401542: Level_8:polySurface895
+    6401544: Level_8:polySurface897
+    6401546: Level_8:polySurface898
+    6401548: Level_8:polySurface900
+    6401550: Level_8:polySurface901
+    6401552: Level_8:polySurface928
+    6401554: Level_8:polySurface936
+    6401556: Level_8:polySurface937
+    6401558: Level_8:polySurface938
+    6401560: Level_8:polySurface939
+    6401562: Level_8:polySurface940
+    6401564: Level_8:polySurface941
+    6401566: Level_8:polySurface942
+    6401568: Level_8:polySurface943
+    6401570: Level_8:polySurface944
+    6401572: Level_8:polySurface945
+    6401574: Level_8:polySurface946
+    6401576: Level_8:polySurface947
+    6401578: Level_8:polySurface948
+    6401580: Level_8:polySurface949
+    6401582: Level_8:polySurface950
+    6401584: Level_8:polySurface951
+    6401586: Level_8:polySurface952
+    6401588: Level_8:polySurface953
+    6401590: Level_8:polySurface954
+    6401592: Level_8:polySurface955
+    6401594: Level_8:polySurface956
+    6401596: Level_8:polySurface957
+    6401598: Level_8:polySurface958
+    6401600: Level_8:polySurface959
+    6401602: Level_8:polySurface960
+    6401604: Level_8:polySurface961
+    6401606: Level_8:polySurface962
+    6401608: Level_8:polySurface963
+    6401610: Level_8:polySurface964
+    6401612: Level_8:polySurface975
+    6401614: Level_8:polySurface976
+    6401616: Level_8:polySurface977
+    6401618: Level_8:polySurface978
+    6401620: Level_8:polySurface979
+    6401622: Level_8:polySurface980
+    6401624: Level_8:polySurface981
+    6401626: Level_8:polySurface982
+    6401628: Level_8:polySurface985
+    6401630: Level_8:polySurface987
+    6401632: Level_8:polySurface987 1
+    6401634: Level_8:polySurface987 10
+    6401636: Level_8:polySurface987 11
+    6401638: Level_8:polySurface987 12
+    6401640: Level_8:polySurface987 13
+    6401642: Level_8:polySurface987 14
+    6401644: Level_8:polySurface987 2
+    6401646: Level_8:polySurface987 3
+    6401648: Level_8:polySurface987 4
+    6401650: Level_8:polySurface987 5
+    6401652: Level_8:polySurface987 6
+    6401654: Level_8:polySurface987 7
+    6401656: Level_8:polySurface987 8
+    6401658: Level_8:polySurface987 9
+    6401660: Level_8:polySurface988
+    6401662: Level_8:polySurface988 1
+    6401664: Level_8:polySurface988 10
+    6401666: Level_8:polySurface988 11
+    6401668: Level_8:polySurface988 12
+    6401670: Level_8:polySurface988 13
+    6401672: Level_8:polySurface988 14
+    6401674: Level_8:polySurface988 2
+    6401676: Level_8:polySurface988 3
+    6401678: Level_8:polySurface988 4
+    6401680: Level_8:polySurface988 5
+    6401682: Level_8:polySurface988 6
+    6401684: Level_8:polySurface988 7
+    6401686: Level_8:polySurface988 8
+    6401688: Level_8:polySurface988 9
+    6401690: Level_8:polySurface989
+    6401692: Level_8:polySurface989 1
+    6401694: Level_8:polySurface989 10
+    6401696: Level_8:polySurface989 11
+    6401698: Level_8:polySurface989 12
+    6401700: Level_8:polySurface989 13
+    6401702: Level_8:polySurface989 14
+    6401704: Level_8:polySurface989 2
+    6401706: Level_8:polySurface989 3
+    6401708: Level_8:polySurface989 4
+    6401710: Level_8:polySurface989 5
+    6401712: Level_8:polySurface989 6
+    6401714: Level_8:polySurface989 7
+    6401716: Level_8:polySurface989 8
+    6401718: Level_8:polySurface989 9
+    6401720: Level_8:polySurface990
+    6401722: Level_8:polySurface990 1
+    6401724: Level_8:polySurface990 10
+    6401726: Level_8:polySurface990 11
+    6401728: Level_8:polySurface990 12
+    6401730: Level_8:polySurface990 13
+    6401732: Level_8:polySurface990 14
+    6401734: Level_8:polySurface990 2
+    6401736: Level_8:polySurface990 3
+    6401738: Level_8:polySurface990 4
+    6401740: Level_8:polySurface990 5
+    6401742: Level_8:polySurface990 6
+    6401744: Level_8:polySurface990 7
+    6401746: Level_8:polySurface990 8
+    6401748: Level_8:polySurface990 9
+    6401750: Level_8:polySurface991
+    6401752: Level_8:polySurface991 1
+    6401754: Level_8:polySurface991 10
+    6401756: Level_8:polySurface991 11
+    6401758: Level_8:polySurface991 12
+    6401760: Level_8:polySurface991 13
+    6401762: Level_8:polySurface991 14
+    6401764: Level_8:polySurface991 2
+    6401766: Level_8:polySurface991 3
+    6401768: Level_8:polySurface991 4
+    6401770: Level_8:polySurface991 5
+    6401772: Level_8:polySurface991 6
+    6401774: Level_8:polySurface991 7
+    6401776: Level_8:polySurface991 8
+    6401778: Level_8:polySurface991 9
+    6401780: Level_8:polySurface992
+    6401782: Level_8:polySurface993
+    6401784: Level_8:polySurface994
+    6401786: Level_8:polySurface995
+    6401788: Level_8:polySurface996
+    6401790: Level_8:polySurface997
+    6401792: Level_8:polySurface998
+    6401794: Level_8:polySurface999
+    6401796: Level_8:Rock
+    6401798: Level_8:Rock 1
+    6401800: Level_8:Rock 2
+    6401802: Level_8:Rock 3
+    6401804: Level_8:Rock 4
+    6401806: Level_8:Rock 5
+    6401808: Level_8:Rocks
+    6401810: Level_8:Rocks 1
+    6401812: Level_8:Rocks 2
+    6401814: Level_8:Rocks 3
+    6401816: Level_8:Rocks1
+    6401818: Level_8:Rocks10
+    6401820: Level_8:Rocks11
+    6401822: Level_8:Rocks12
+    6401824: Level_8:Rocks13
+    6401826: Level_8:Rocks14
+    6401828: Level_8:Rocks15
+    6401830: Level_8:Rocks16
+    6401832: Level_8:Rocks17
+    6401834: Level_8:Rocks18
+    6401836: Level_8:Rocks19
+    6401838: Level_8:Rocks2
+    6401840: Level_8:Rocks20
+    6401842: Level_8:Rocks21
+    6401844: Level_8:Rocks22
+    6401846: Level_8:Rocks23
+    6401848: Level_8:Rocks24
+    6401850: Level_8:Rocks25
+    6401852: Level_8:Rocks26
+    6401854: Level_8:Rocks27
+    6401856: Level_8:Rocks28
+    6401858: Level_8:Rocks29
+    6401860: Level_8:Rocks3
+    6401862: Level_8:Rocks30
+    6401864: Level_8:Rocks31
+    6401866: Level_8:Rocks32
+    6401868: Level_8:Rocks33
+    6401870: Level_8:Rocks34
+    6401872: Level_8:Rocks35
+    6401874: Level_8:Rocks36
+    6401876: Level_8:Rocks4
+    6401878: Level_8:Rocks5
+    6401880: Level_8:Rocks6
+    6401882: Level_8:Rocks7
+    6401884: Level_8:Rocks8
+    6401886: Level_8:Rocks9
+    6401888: Level_8:RomanGroundPlane
+    6401890: Level_8:RomanWaterPlane
+    6401892: Level_8:Root
+    6401894: Level_8:Root1
+    6401896: Level_8:Root2
+    6401898: Level_8:Root3
+    6401900: Level_8:Root4
+    6401902: Level_8:SlideLog
+    6401904: Level_8:SuzieMesh1
+    6401906: Level_8:Trunk
+    6401908: Level_8:Vines
+    6401910: Level_8:Wall 1
+    6401912: Level_8:Waterfall
+    6401914: Level_8:WaterRocks
   materials:
     importMaterials: 1
     materialName: 0
@@ -3161,7 +6387,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 100
-    meshCompression: 3
+    meshCompression: 2
     addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
