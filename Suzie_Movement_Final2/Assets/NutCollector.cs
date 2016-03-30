@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class NutCollector : MonoBehaviour 
 {
+	public Text nutCountText;
+
+	public static NutCollector Instance;
+
 	[Range(0,10)]
 	public float scaleTime = 2.0f;
 
@@ -15,13 +21,47 @@ public class NutCollector : MonoBehaviour
 	public Vector3 scaleUpVector = new Vector3(1.2f, 1.4f, 1.2f); 
 	private Vector3 moveVel;
 
+
+	[HideInInspector]
+	public List<GameObject> totalNuts = new List<GameObject>();
+
+	[HideInInspector]
+	public List<GameObject> collectedNuts = new List<GameObject>();
+
+	void Awake()
+	{
+		if (Instance == null)
+			Instance = this;
+		else Destroy(this);
+
+		if (nutCountText == null)
+			Debug.LogError("Nut count text not defined");
+	}
+
+	void Start ()
+	{
+		GameObject[] Nuts = GameObject.FindGameObjectsWithTag("CrystalNut");
+
+		foreach(GameObject nut in Nuts)
+			totalNuts.Add(nut);
+
+		nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
+	}
+
+	public void RegisterNut (GameObject nut)
+	{
+		totalNuts.Add(nut);
+	}
+
 	private void OnTriggerStay (Collider col)
 	{
 		if (col.gameObject.layer == 15)
 		{
 			GameObject pickup = col.gameObject;
+			CollectNut(pickup);
 
 			print("nut triggered");
+
 			// Switch pickup to a layer that ignores all player collisions
 			pickup.layer = 16;
 			float yOffset = 1.3f;
@@ -38,5 +78,11 @@ public class NutCollector : MonoBehaviour
 				});
 			});
 		}
+	}
+
+	private void CollectNut(GameObject pickup)
+	{
+		collectedNuts.Add(pickup);
+		nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
 	}
 }

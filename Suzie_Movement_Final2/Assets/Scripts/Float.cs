@@ -8,9 +8,10 @@ public class Float : MonoBehaviour {
 	private float toDegrees = Mathf.PI/180;      // radians to degrees
  	private MeshRenderer rend;
 
- 	private void Start()
+ 	private void Awake()
  	{
  		rend = GetComponent<MeshRenderer>();
+ 		//NutCollector.Instance.RegisterNut(gameObject);
  	}	
 
 	void Update()

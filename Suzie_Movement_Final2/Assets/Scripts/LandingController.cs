@@ -132,9 +132,9 @@ public class LandingController : MonoBehaviour {
 	private void OnCollisionExit ()
 	{
 		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
-		if (charState.IsIdleOrRunning() && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.5f))
+		if (charState.IsIdleOrRunning() && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.6f))
 		{	
-			Debug.DrawRay(startPos, Vector3.down * 0.5f, Color.blue);
+			Debug.DrawRay(startPos, Vector3.down * 0.6f, Color.blue);
 			//Debug.Break();
 			animator.SetTrigger (anim_Falling);
 		}
