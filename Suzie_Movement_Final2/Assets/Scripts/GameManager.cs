@@ -55,10 +55,16 @@ public class GameManager : MonoBehaviour {
 		currentChar = charController.transform;
 	}
 
-	#if UNITY_EDITOR
+	//#if UNITY_EDITOR
 	
 	private void OnGUI ()
 	{
+		if (GUI.Button(new Rect(0, yPos[4] + 50, 170, 30), "Wall Climb"))
+		{
+			currentChar.position = GameObject.FindGameObjectWithTag("WallClimbSpot").transform.position;
+		}
+		if (GUI.Button(new Rect(0, yPos[2] + 50, 170, 30), "Restart"))
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		if (debug)
 		{
 			GUI.Button(new Rect(Screen.width - 150, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());
@@ -79,19 +85,15 @@ public class GameManager : MonoBehaviour {
 			if (GUI.Button(new Rect(0, yPos[1], 170, 30), "Quit"))
 				Application.Quit();
 
-			if (GUI.Button(new Rect(0, yPos[2], 170, 30), "Restart"))
-				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	
 			
 			if (GUI.Button(new Rect(0, yPos[3], 170, 30), "Sprint"))
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("SprintSpawnSpot").transform.position;
 			
-			if (GUI.Button(new Rect(0, yPos[4], 170, 30), "Wall Climb"))
-			{
-				currentChar.position = GameObject.FindGameObjectWithTag("WallClimbSpot").transform.position;
-			}
+
 		}
 	}
 	
-	#endif
+	//#endif
 	
 }

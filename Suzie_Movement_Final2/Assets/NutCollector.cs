@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class NutCollector : MonoBehaviour 
 {
 	public Text nutCountText;
+	public Animator panelAnimator;
+	public Text gameOverText;
 
 	public static NutCollector Instance;
 
@@ -80,9 +82,25 @@ public class NutCollector : MonoBehaviour
 		}
 	}
 
+	private void Update ()
+	{
+		if (Input.GetKeyDown(KeyCode.G))
+			GameOver();
+	}
 	private void CollectNut(GameObject pickup)
 	{
 		collectedNuts.Add(pickup);
 		nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
+
+		if (collectedNuts.Count == totalNuts.Count)
+		{
+			GameOver();
+		}
+	}
+
+	private void GameOver()
+	{
+		panelAnimator.SetTrigger("FadeIn");
+		gameOverText.gameObject.SetActive(true);
 	}
 }
