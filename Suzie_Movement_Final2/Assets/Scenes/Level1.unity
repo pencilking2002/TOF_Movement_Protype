@@ -1792,7 +1792,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 260750664}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 142b20886d6d24c9d8e877fc2db0797a, type: 3}
@@ -1848,7 +1848,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2841,6 +2841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea57de649ac5f4c47a522b6f52ef2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4194304
   groundMaterial: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
   wallMaterial: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   runningMaterial: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
@@ -3007,9 +3010,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583654ee45cac41d493871c1d1a6eb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4290772991
+  rayLength: 1.5
   colliding: 0
+  onSloap: 0
   cColliderFrontTransf: {fileID: 1613414380}
-  jumpWallLimitRayLength: 0.5
+  jumpWallLimitRayLength: 0.7
   runWallLimitRayLength: 0.2
   sideRayAngle: 0.15
 --- !u!1 &517343231
@@ -6053,7 +6061,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 27
 --- !u!1001 &1001960811
 Prefab:
   m_ObjectHideFlags: 0
@@ -15169,6 +15177,67 @@ Prefab:
     - target: {fileID: 6401440, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102182, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 102138, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101446, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 102178, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 102144, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 102140, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 102506, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101476, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101470, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101794, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101328, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 101458, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401616, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
+        type: 2}
+    - target: {fileID: 101804, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 102478, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}
+      propertyPath: m_Layer
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400608, guid: a1a118c6c23324def802f910a1ec27f2, type: 3}

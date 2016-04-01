@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 */
 public class PhysicMaterialHandler : MonoBehaviour {
+	public LayerMask layerMask;
 
 	public PhysicMaterial groundMaterial;
 	public PhysicMaterial wallMaterial;
@@ -48,13 +49,21 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		});
 	}
 
-//	private void FixedUpdate ()
-//	{
-//		if (charState.IsRunning() && AntiWallSlideController.Instance.colliding)
-//		{
-//			cCollider.sharedMaterial = runningMaterial;
-//		}
-//	}
+	private void FixedUpdate ()
+	{
+		if (charState.IsRunningOrSprinting ())
+		{
+			ray = new Ray (transform.position + Vector3.up * 0.1f, transform.forward);
+			Debug.DrawRay(ray.origin, ray.direction * wallRayLength, Color.green);
+
+			if (Physics.Raycast (ray, out hit, wallRayLength, layerMask))
+				cCollider.sharedMaterial = wallMaterial;
+			
+			else if (cCollider.sharedMaterial == wallMaterial)
+				cCollider.sharedMaterial = groundMaterial;
+		}
+
+	}
 	private void OnEnable () 
 	{ 
 
@@ -65,22 +74,21 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	{ 
 		EventManager.onCharEvent -= SetPhysicMaterial;
 	}
-
-	/// <summary>
-	/// When the character lands, set the mesh underneath to a ground physics material
-	/// </summary>
-	/// <param name="gEvent">G event.</param>
+//
+//	/// <summary>
+//	/// When the character lands, set the mesh underneath to a ground physics material
+//	/// </summary>
+//	/// <param name="gEvent">G event.</param>
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.Jump || 
-		   (gEvent == GameEvent.StartRunning && !AntiWallSlideController.Instance.colliding) ||
-			gEvent == GameEvent.StartSprinting)
+		if (gEvent == GameEvent.Jump) { /*|| 
+////		   (gEvent == GameEvent.StartRunning && !AntiWallSlideController.Instance.colliding) ||
+////			gEvent == GameEvent.StartSprinting)*/
 			cCollider.sharedMaterial = wallMaterial;
+		}
 
 		else if (gEvent == GameEvent.Land || gEvent == GameEvent.IsIdle)
 			cCollider.sharedMaterial = groundMaterial;
-		
-
 	}
 
 }

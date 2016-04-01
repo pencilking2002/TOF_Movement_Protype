@@ -125,7 +125,7 @@ public class RomanCharController : MonoBehaviour {
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
-				if (!charState.IsIdle() && !AntiWallSlideController.Instance.colliding)
+				if (!charState.IsIdle() && !AntiWallSlideController.Instance.onSloap)
 					animator.ApplyBuiltinRootMotion();
 
 				//print("In OnAnimatormMove");
@@ -212,7 +212,8 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.IsIdle)
 		{
-			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
+			rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+			//rb.constraints = RigidbodyConstraints.FreezeAll;
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
 		}
@@ -222,6 +223,8 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.ExitIdle)
 		{
+			print ("exit idle");
+			//rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 
 		}
 	}

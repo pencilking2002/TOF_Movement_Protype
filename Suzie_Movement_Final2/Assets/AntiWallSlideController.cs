@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AntiWallSlideController : MonoBehaviour {
 
 	public static AntiWallSlideController Instance;
+	public LayerMask layerMask;
+	public float rayLength = 0.5f;
 
 	[HideInInspector]
 	public bool colliding = false;
+
+	[HideInInspector]
+	public bool onSloap = false;
+
 	public Transform cColliderFrontTransf;
 
 	[Range(0,2)]
@@ -21,6 +28,9 @@ public class AntiWallSlideController : MonoBehaviour {
 	private Vector3 origin;
 	private Vector3 direction;
 	private RomanCharState charState;
+	private RaycastHit hit;
+	private Ray ray;
+	private float offset;
 
 	void Awake ()
 	{
@@ -36,46 +46,45 @@ public class AntiWallSlideController : MonoBehaviour {
 			Debug.LogWarning("cColliderFrontTransf not defined");
 
 		charState = GetComponent<RomanCharState>();
+
+
+		ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
+
+			{ GameEvent.StartClimbing, false },
+			{ GameEvent.StopClimbing, true }
+
+		});
 	
 	}
 
 	void FixedUpdate ()
 	{
-		if (charState.IsRunning())
-			colliding = CastRunRays();
-		else if (charState.IsInAnyJumpingState())
-			colliding = CastJumpRays();
+		CheckSloap ();
 	}
 
-	private bool CastRunRays()
+	private void CheckSloap()
 	{
-		// If jumping against a surface and pressing forward, eliminate forward velocity
-		origin = cColliderFrontTransf.position - transform.forward * 0.2f;
-		direction = transform.forward * jumpWallLimitRayLength;
-		rayCenter = new Ray(origin, direction);
-
-		Debug.DrawRay(rayCenter.origin, rayCenter.direction * jumpWallLimitRayLength, Color.black);
-
-		return Physics.Raycast(rayCenter, jumpWallLimitRayLength);
+		if (charState.IsRunning ())
+			offset = 0.2f;
+		else if (charState.IsSprinting ())
+			offset = 0.4f;
+		else
+			offset = 0;
 		
-	}
+		origin = transform.position + new Vector3 (0, 0.1f, 0) + transform.forward * offset;
+		ray = new Ray (origin, Vector3.down);
 
-	private bool CastJumpRays ()
-	{
-		// If jumping against a surface and pressing forward, eliminate forward velocity
-		origin = cColliderFrontTransf.position - transform.forward * 0.2f;
-		direction = transform.forward * jumpWallLimitRayLength;
+		Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
 
-		rayLeft = new Ray(origin, direction - transform.right * sideRayAngle);
-		rayCenter = new Ray(origin, direction);
-		rayRight = new Ray(origin, direction + transform.right * sideRayAngle);
+		if (Physics.Raycast (ray, out hit, rayLength, layerMask)) 
+		{
+			float dot = Vector3.Dot (Vector3.up, hit.normal);
+			//print (dot);
 
-		Debug.DrawRay(rayLeft.origin, rayLeft.direction *jumpWallLimitRayLength, Color.black);
-		Debug.DrawRay(rayCenter.origin, rayCenter.direction * jumpWallLimitRayLength, Color.black);
-		Debug.DrawRay(rayRight.origin, rayRight.direction * jumpWallLimitRayLength, Color.black);
+			onSloap = (dot < 0.7f);
+			return;
+		}
 
-		return	Physics.Raycast(rayLeft, jumpWallLimitRayLength) || 
-				Physics.Raycast(rayCenter, jumpWallLimitRayLength) ||
-				Physics.Raycast(rayRight, jumpWallLimitRayLength);
+		onSloap = false;
 	}
 }

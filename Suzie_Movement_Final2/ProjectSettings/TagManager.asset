@@ -50,8 +50,8 @@ TagManager:
   - CamAvoidance
   - SpherePickupCollider
   - Log
-  - 
-  - 
+  - Wall
+  - IgnoreSloap
   - 
   - 
   - 

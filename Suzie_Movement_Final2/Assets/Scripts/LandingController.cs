@@ -23,9 +23,11 @@ public class LandingController : MonoBehaviour {
 	private int anim_Falling = Animator.StringToHash("Falling");
 //	private int anim_Idle = Animator.StringToHash("Idle");
 
-	[HideInInspector]
-	private float jumpTime = 0.0f;
+
 	private float lastYPos;
+	private Ray ray;
+	private RaycastHit hit;
+
 	/*----------------------------------------------------------|
 	| UNITY METHODS	      		    	                        |
 	|----------------------------------------------------------*/
@@ -70,12 +72,14 @@ public class LandingController : MonoBehaviour {
 		if (charState.IsFalling() || charState.IsLanding())
 		{
 			origin = transform.position + new Vector3(0, 0.2f, 0);
-			endPoint = origin;
-			endPoint.y -= lineLength;
+//			endPoint = origin;
+//			endPoint.y -= lineLength;
+			ray = new Ray(origin, Vector3.down);
 
-			Debug.DrawLine(origin, endPoint, Color.red);
+			Debug.DrawRay(ray.origin, ray.direction * lineLength, Color.red);
 			//Debug.Break();
-			if (Physics.Linecast(origin, endPoint))
+			//if (Physics.Linecast(origin, endPoint))
+			if (Physics.Raycast(ray, out hit, lineLength))
 			{
 				//print(rb.GetRelativePointVelocity(hit.point));
 				//if (rb.velocity.y <= 0)
@@ -85,9 +89,11 @@ public class LandingController : MonoBehaviour {
 					// brings another bug where the character immidiately goes into landing animation when 
 					// they jump
 
-					if (charState.IsFalling() && TimePassedSinceJump(0.2f))
+				//float (Vector3.Dot(Vector3.down, 
+
+				if (charState.IsFalling() && JumpController.TimePassedSinceJump(0.2f) && !AntiWallSlideController.Instance.onSloap)
 					{
-						print("landing triggered");
+						//print("landing triggered");
 						animator.SetTrigger(anim_land);
 						EventManager.OnCharEvent(GameEvent.Land);
 					}
@@ -103,27 +109,22 @@ public class LandingController : MonoBehaviour {
 
 }
 
-	void OnEnable ()
-	{
-		EventManager.onCharEvent += RecordJumpTime;
-	}
-	void OnDisable()
-	{
-		EventManager.onCharEvent -= RecordJumpTime;
-	}
-
-	void RecordJumpTime(GameEvent gEvent)
-	{
-		if (gEvent == GameEvent.Jump)
-		{
-			jumpTime = Time.time;
-		}
-	}
-
-	bool TimePassedSinceJump(float t)
-	{
-		return Time.time > jumpTime + t;
-	}
+//	void OnEnable ()
+//	{
+//		EventManager.onCharEvent += RecordJumpTime;
+//	}
+//	void OnDisable()
+//	{
+//		EventManager.onCharEvent -= RecordJumpTime;
+//	}
+//
+//	void RecordJumpTime(GameEvent gEvent)
+//	{
+//		if (gEvent == GameEvent.Jump)
+//		{
+//			jumpTime = Time.time;
+//		}
+//	}
 
 	/// <summary>
 	/// Force animator to trigger the falling animation 

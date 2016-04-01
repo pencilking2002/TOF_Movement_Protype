@@ -232,8 +232,13 @@ public class RomanCharState : MonoBehaviour {
 	/// <param name="_state">State.</param>
 	private void TriggerEvents(State _state)
 	{
+		if (state == State.Idle) 
+		{
+			EventManager.OnCharEvent(GameEvent.ExitIdle);
+		}
+
 		// If previous state is sprinting, fire StopSprinting event
-		if (IsSprinting())
+		else if (IsSprinting())
 		{
 			EventManager.OnCharEvent(GameEvent.StopSprinting);
 		}

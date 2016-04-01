@@ -67,7 +67,7 @@ public class JumpController : MonoBehaviour {
 	private Ray wallJumpRayLeft, wallJumpRayRight;
 	private RaycastHit hit;
 
-	private float lastJumpTime;								//Time stamp of the last time the char jumped
+	private static float lastJumpTime;								//Time stamp of the last time the char jumped
 	// Use this for initialization
 	void Start () 
 	{
@@ -142,11 +142,18 @@ public class JumpController : MonoBehaviour {
 
 	private void RotateAndMoveJump()
 	{
+//		if (AntiWallSlideController.Instance.colliding) 
+//		{
+//		}
 		if (charController.moveDirectionRaw != Vector3.zero)
 		{
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
-			forwardVel = transform.forward * GetForwardSpeed() * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
-			forwardVel.y = rb.velocity.y;
+			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
+
+			if (AntiWallSlideController.Instance.onSloap && TimePassedSinceJump(0.5f))
+				forwardVel.y -= 10;
+			else
+				forwardVel.y = rb.velocity.y;
 
 			rb.velocity = forwardVel;
 		}
@@ -155,13 +162,13 @@ public class JumpController : MonoBehaviour {
 	// Check if character is colliding with wall
 	// and that its less than 2 seconds since the jump
 	// if so zero out the forward speed
-	private float GetForwardSpeed ()
-	{
-		if (AntiWallSlideController.Instance.colliding && Time.time > lastJumpTime + 1.0f)
-			 return 0;
-		else 
-			return forwardSpeed;	
-	}
+//	private float GetForwardSpeed ()
+//	{
+//		if (AntiWallSlideController.Instance.colliding && Time.time > lastJumpTime + 1.0f)
+//			 return 0;
+//		else 
+//			return forwardSpeed;	
+//	}
 
 	/// <summary>
 	/// This method is called jumping animation events
@@ -245,7 +252,7 @@ public class JumpController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
-			print("JumpController:LAND");
+			//print("JumpController:LAND");
 			hasDoubleJumped = false;
 			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
 			InputController.jumpReleased = false;
@@ -254,6 +261,11 @@ public class JumpController : MonoBehaviour {
 		{
 			InputController.jumpReleased = false;
 		}
+	}
+
+	public static bool TimePassedSinceJump(float t)
+	{
+		return Time.time > lastJumpTime + t;
 	}
 
 //	private void OnCollisionStay (Collision Collision)

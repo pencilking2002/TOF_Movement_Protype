@@ -146,6 +146,8 @@ public class WallClimbController : MonoBehaviour {
 			InputController.h = 0;
 			cController.enabled = true;
 			EventManager.OnCharEvent(GameEvent.StartWallClimbing);
+			EventManager.OnCharEvent(GameEvent.StartClimbing);
+			rb.velocity = Vector3.zero;
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			rb.isKinematic = true;
