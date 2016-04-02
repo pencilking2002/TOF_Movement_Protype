@@ -15,18 +15,21 @@ public class JumpController : MonoBehaviour {
 	// Idle Jumping --------------------------
 	[Range(0,100)] 
 	public float idleJumpUpForce = 11.0f;				// Maximum Y force to Apply to Rigidbody when idle jumping
+
 	[Range(0,400)]
 	public float idleJumpForwardSpeed = 10f;		    // Speed modifier of the character's Z movement wheile jumping
 
 	// Running Jumping --------------------------
 	[Range(0,100)] 
 	public float runningJumpUpForce = 11.0f;			    // Maximum Y force to Apply to Rigidbody when jumping
-	[Range(0,100)] 
+
+	[Range(0,400)] 
 	public float runningJumpForwardSpeed = 11.0f;	    // Maximum Y force to Apply to Rigidbody when jumping
 
 	// Sprint Jumping --------------------------
 	[Range(0,100)] 
 	public float sprintJumpUpForce = 11.0f;				// Y force to Apply to Rigidbody when sprint jumping
+
 	[Range(0,400)]
 	public float sprintJumpForwardSpeed = 40f;
 
