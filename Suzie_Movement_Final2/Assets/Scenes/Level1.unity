@@ -2878,7 +2878,7 @@ MonoBehaviour:
   runningJumpUpForce: 11
   runningJumpForwardSpeed: 240
   sprintJumpUpForce: 11
-  sprintJumpForwardSpeed: 353
+  sprintJumpForwardSpeed: 500
   doubleJumpForce: 12
   allJumpTurnSpeed: 30.56
   maxDownwardForce: -6

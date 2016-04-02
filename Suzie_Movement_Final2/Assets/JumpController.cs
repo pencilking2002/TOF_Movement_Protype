@@ -30,7 +30,7 @@ public class JumpController : MonoBehaviour {
 	[Range(0,100)] 
 	public float sprintJumpUpForce = 11.0f;				// Y force to Apply to Rigidbody when sprint jumping
 
-	[Range(0,400)]
+	[Range(0,700)]
 	public float sprintJumpForwardSpeed = 40f;
 
 	[Range(0,100)]
