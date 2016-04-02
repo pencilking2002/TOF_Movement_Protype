@@ -21,6 +21,7 @@ public class LandingController : MonoBehaviour {
 
 	private int anim_land = Animator.StringToHash("Land");
 	private int anim_Falling = Animator.StringToHash("Falling");
+	private int anim_SprintJump = Animator.StringToHash("SprintJump");
 //	private int anim_Idle = Animator.StringToHash("Idle");
 
 
@@ -132,12 +133,20 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	private void OnCollisionExit ()
 	{
-		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
-		if (charState.IsIdleOrRunning() && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.6f))
-		{	
-			Debug.DrawRay(startPos, Vector3.down * 0.6f, Color.blue);
-			//Debug.Break();
-			animator.SetTrigger (anim_Falling);
+		if (charState.IsIdleOrMoving() && rb.velocity.y < 0)
+		{
+			origin = transform.position + new Vector3(0, 0.2f, 0);
+			ray = new Ray(origin, Vector3.down);
+
+			if (!Physics.Raycast (ray, 0.6f))
+			{	
+				Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
+				//Debug.Break();
+				if (charState.IsSprinting())
+					animator.SetTrigger (anim_SprintJump);
+				else
+					animator.SetTrigger (anim_Falling);
+			}
 		}
 
 	}
