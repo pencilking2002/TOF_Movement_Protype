@@ -66,6 +66,7 @@ public class JumpController : MonoBehaviour {
 	// wallJumpLimiting
 	private Ray wallJumpRayLeft, wallJumpRayRight;
 	private RaycastHit hit;
+	private float smoothDownvel;
 
 	private static float lastJumpTime;								//Time stamp of the last time the char jumped
 	// Use this for initialization
@@ -130,15 +131,6 @@ public class JumpController : MonoBehaviour {
   
 		
 	}
-//	private void OnCollisionStay (Collision coll)
-//	{
-//		//Debug.DrawRay(cColliderFrontTransf.position - transform.forward * 0.1f, transform.forward * 0.2f, Color.white);
-//		//Debug.DrawRay(cColliderFrontTransf.position, coll.contacts[0].point - cColliderFrontTransf.position, Color.white);
-//		//Debug.DrawRay(cColliderFrontTransf.position + Vector3.up, coll.contacts[0].point - cColliderFrontTransf.position, Color.white);
-//
-//	}
-
-
 
 	private void RotateAndMoveJump()
 	{
@@ -151,8 +143,8 @@ public class JumpController : MonoBehaviour {
 			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 
 			if (AntiWallSlideController.Instance.onSloap && TimePassedSinceJump (0.5f)) {
-				forwardVel.y = Mathf.Lerp(forwardVel.y, -200, 10 * Time.fixedDeltaTime);
-				print ("less");
+				//forwardVel.y = Mathf.SmoothDamp(forwardVel.y, -200, ref smoothDownvel, 0.5f);
+				rb.AddForce(0,-500, 0);
 			}
 			else
 				forwardVel.y = rb.velocity.y;
