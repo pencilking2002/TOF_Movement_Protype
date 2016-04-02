@@ -73,39 +73,19 @@ public class LandingController : MonoBehaviour {
 		if (charState.IsFalling() || charState.IsLanding())
 		{
 			origin = transform.position + new Vector3(0, 0.2f, 0);
-//			endPoint = origin;
-//			endPoint.y -= lineLength;
 			ray = new Ray(origin, Vector3.down);
 
-			Debug.DrawRay(ray.origin, ray.direction * lineLength, Color.red);
+			//Debug.DrawRay(ray.origin, ray.direction * lineLength, Color.red);
 			//Debug.Break();
-			//if (Physics.Linecast(origin, endPoint))
-			if (Physics.Raycast(ray, out hit, lineLength))
+
+			if (JumpController.TimePassedSinceJump(0.2f) && Physics.Raycast(ray, out hit, lineLength) && 
+				charState.IsFalling() && !AntiWallSlideController.Instance.onSloap)
 			{
-				//print(rb.GetRelativePointVelocity(hit.point));
-				//if (rb.velocity.y <= 0)
-				//{
-					//animator.SetTrigger(anim_land);
-					// TODO: Not checking the Y velocity fixes the prolongued langing bug but also makes
-					// brings another bug where the character immidiately goes into landing animation when 
-					// they jump
-
-				//float (Vector3.Dot(Vector3.down, 
-
-				if (charState.IsFalling() && JumpController.TimePassedSinceJump(0.2f) && !AntiWallSlideController.Instance.onSloap)
-					{
-						//print("landing triggered");
-						animator.SetTrigger(anim_land);
-						EventManager.OnCharEvent(GameEvent.Land);
-					}
-//					else if (charState.IsLanding())
-//					{
-//						animator.SetTrigger(anim_Idle);
-//						print("Triggered idle animation from Landing Controller");
-//					}
-				//}
-								
+				animator.SetTrigger(anim_land);
+				EventManager.OnCharEvent(GameEvent.Land);
 			}
+						
+			
 		}
 
 }
@@ -133,19 +113,34 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	private void OnCollisionExit ()
 	{
-		if (charState.IsIdleOrMoving() && rb.velocity.y < 0)
+		if (rb.velocity.y > 0)
+			return;
+
+		if (charState.IsIdleOrRunning())
 		{
 			origin = transform.position + new Vector3(0, 0.2f, 0);
 			ray = new Ray(origin, Vector3.down);
 
 			if (!Physics.Raycast (ray, 0.6f))
 			{	
-				Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
+				//Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
 				//Debug.Break();
 				if (charState.IsSprinting())
 					animator.SetTrigger (anim_SprintJump);
 				else
 					animator.SetTrigger (anim_Falling);
+			}
+		}
+		else if (charState.IsSprinting())
+		{
+			origin = transform.position + new Vector3(0, 0.2f, 0) + transform.forward * 0.4f;
+			ray = new Ray(origin, Vector3.down);
+
+			if (!Physics.Raycast (ray, 0.6f))
+			{	
+				//Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
+				//Debug.Break();
+				animator.SetTrigger (anim_SprintJump);
 			}
 		}
 
