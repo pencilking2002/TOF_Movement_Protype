@@ -59,14 +59,13 @@ public class PhysicMaterialHandler : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, wallRayLength, layerMask))
 				cCollider.sharedMaterial = wallMaterial;
 			
-			else if (cCollider.sharedMaterial == wallMaterial)
-				cCollider.sharedMaterial = groundMaterial;
+			//else if (cCollider.sharedMaterial == wallMaterial)
+				//cCollider.sharedMaterial = groundMaterial;
 		}
 
 	}
 	private void OnEnable () 
 	{ 
-
 		EventManager.onCharEvent += SetPhysicMaterial;
 	}
 	
@@ -81,13 +80,10 @@ public class PhysicMaterialHandler : MonoBehaviour {
 //	/// <param name="gEvent">G event.</param>
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.Jump) { /*|| 
-////		   (gEvent == GameEvent.StartRunning && !AntiWallSlideController.Instance.colliding) ||
-////			gEvent == GameEvent.StartSprinting)*/
+		if (gEvent == GameEvent.Jump) 
 			cCollider.sharedMaterial = wallMaterial;
-		}
 
-		else if (gEvent == GameEvent.Land || gEvent == GameEvent.IsIdle)
+		else if (gEvent == GameEvent.IsIdle || gEvent == GameEvent.StartRunning)
 			cCollider.sharedMaterial = groundMaterial;
 	}
 
