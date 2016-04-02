@@ -150,8 +150,10 @@ public class JumpController : MonoBehaviour {
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
 			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 
-			if (AntiWallSlideController.Instance.onSloap && TimePassedSinceJump(0.5f))
-				forwardVel.y -= 10;
+			if (AntiWallSlideController.Instance.onSloap && TimePassedSinceJump (0.5f)) {
+				forwardVel.y = Mathf.Lerp(forwardVel.y, -200, 10 * Time.fixedDeltaTime);
+				print ("less");
+			}
 			else
 				forwardVel.y = rb.velocity.y;
 
