@@ -4,30 +4,29 @@ using System.Collections.Generic;
 
 public class LandingController : MonoBehaviour {
 
+	public float rayLength = 0.5f;
+
 	/*----------------------------------------------------------|
 	| PRIVATE VARIABLES	             	                        |
 	|----------------------------------------------------------*/
 
-	public float lineLength = 0.2f;
-
 	private RomanCharState charState;
 	private Animator animator;
 	private Rigidbody rb;
-//	private RomanCharController charController;
+	private CapsuleCollider cCollider;
+	private SphereCollider sCollider;
 
-//	private RaycastHit hit;
 	private Vector3 origin, endPoint;
-	//private int layerMask = 1 << 9;						// Mask out every layer except the ground layer
-
-	private int anim_land = Animator.StringToHash("Land");
-	private int anim_Falling = Animator.StringToHash("Falling");
-	private int anim_SprintJump = Animator.StringToHash("SprintJump");
-//	private int anim_Idle = Animator.StringToHash("Idle");
-
-
 	private float lastYPos;
 	private Ray ray;
 	private RaycastHit hit;
+
+	private int anim_land = Animator.StringToHash("Land");
+	private int anim_Falling = Animator.StringToHash("Falling");
+	private int anim_IdleFalling = Animator.StringToHash("IdleFalling");
+	private int anim_SprintJump = Animator.StringToHash("SprintJump");
+	private int anim_Idle = Animator.StringToHash("Idle");
+
 
 	/*----------------------------------------------------------|
 	| UNITY METHODS	      		    	                        |
@@ -39,73 +38,27 @@ public class LandingController : MonoBehaviour {
 //		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+		cCollider = GetComponent<CapsuleCollider>();
+		sCollider = GetComponent<SphereCollider>();
 	}
 
 	private void Start ()
 	{
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
-
-//			{ GameEvent.StartEdgeClimbing, false },
-//			{ GameEvent.StartWallClimbing, false },
-//			{ GameEvent.StartVineClimbing, false },
-
+			{ GameEvent.StartClimbing, false },
 			{ GameEvent.StopClimbing, true }
 
 		});
 	}
 
-	private void Update() 
+	private void FixedUpdate() 
 	{
-		LandCharacter();
-
+//		if (charState.IsFalling())
+//			LandChar(GameEvent.Land, anim_land);
+//		
+//		else if (charState.IsLanding())
+//			LandChar(GameEvent.EnterIdle, anim_Idle);
 	}
-
-	/*----------------------------------------------------------|
-	| CUSTOM METHODS	      		    	                    |
-	|----------------------------------------------------------*/
-
-	/// <summary>
-	/// When the character is falling, linecast downward to look for the ground
-	/// If the ground is found then perform a landing animation
-	/// </summary>
-	private void LandCharacter ()
-	{
-		if (charState.IsFalling() || charState.IsLanding())
-		{
-			origin = transform.position + new Vector3(0, 0.2f, 0);
-			ray = new Ray(origin, Vector3.down);
-
-			//Debug.DrawRay(ray.origin, ray.direction * lineLength, Color.red);
-			//Debug.Break();
-
-			if (JumpController.TimePassedSinceJump(0.2f) && Physics.Raycast(ray, out hit, lineLength) && 
-				charState.IsFalling() && !AntiWallSlideController.Instance.onSloap)
-			{
-				animator.SetTrigger(anim_land);
-				EventManager.OnCharEvent(GameEvent.Land);
-			}
-						
-			
-		}
-
-}
-
-//	void OnEnable ()
-//	{
-//		EventManager.onCharEvent += RecordJumpTime;
-//	}
-//	void OnDisable()
-//	{
-//		EventManager.onCharEvent -= RecordJumpTime;
-//	}
-//
-//	void RecordJumpTime(GameEvent gEvent)
-//	{
-//		if (gEvent == GameEvent.Jump)
-//		{
-//			jumpTime = Time.time;
-//		}
-//	}
 
 	/// <summary>
 	/// Force animator to trigger the falling animation 
@@ -146,6 +99,16 @@ public class LandingController : MonoBehaviour {
 
 	}
 
+	// if the character is sprint falling and they colliding with something
+	// go into idle falling
+	void OnCollisionStay()
+	{
+		if (charState.IsSprintFalling())
+		{
+			print("sprint falling");
+			animator.SetTrigger(anim_IdleFalling);
+		}
+	}
 	/// <summary>
 	/// If char is landing, send trigger the idle animation ( used in sprint landing state)
 	/// in the animator. the animator also checks for other variables like speed before going to idle
@@ -153,10 +116,71 @@ public class LandingController : MonoBehaviour {
 	/// <param name="other">Other.</param>
 //	private void OnCollisionEnter (Collision other)
 //	{
-//		if (other.gameObject.layer == 9 && charState.IsLanding() && charController.speed < 0.1f)
+//		if (charState.IsLanding())
 //		{
-//			animator.SetTrigger(anim_Idle);
+//			//Vector3 origin = transform.position + Vector3.up * 0.3f;
+////			Debug.DrawRay(origin, (other.contacts[0].point  - origin).normalized  * 5, Color.black);
+////			Debug.Break();
+//			origin = transform.position + Vector3.up * 0.1f;
+//			ray = new Ray(origin, Vector3.down);
+//
+////			GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+////			sphere.transform.position = ray.origin;
+////			sphere.transform.localScale = Vector3.one * 0.3f;
+//			
+//
+//			if (Physics.SphereCast(ray, 0.5f, 0.4f))
+//			{
+//				Debug.DrawRay(ray.origin, ray.direction * 0.2f, Color.blue);
+//				animator.SetTrigger(anim_Idle);
+//				print("Spherecast landing");
+//			}
 //		}
-//		
+		
 //	}
+
+//	private void LandChar(GameEvent gEvent, int animHash)
+//	{
+//		//origin = transform.position + new Vector3(0, 0.2f, 0);
+//			origin = new Vector3(cCollider.bounds.center.x, cCollider.bounds.center.y - cCollider.bounds.extents.y + 0.3f, cCollider.bounds.center.z);
+//			ray = new Ray(origin, Vector3.down);
+//
+//			Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
+//			//Debug.Break();
+//
+//			if (JumpController.TimePassedSinceJump(0.2f) && 
+//				//Physics.Raycast(ray, out hit, rayLength) &&
+//				Physics.SphereCast(ray, 0.5f, rayLength) &&  
+//				!AntiWallSlideController.Instance.onSloap)
+//			{
+//				animator.SetTrigger(animHash);
+//				EventManager.OnCharEvent(gEvent);
+//			}
+//	}
+
+	private void LandChar(int animHash, GameEvent gEvent)
+	{
+		origin = new Vector3(cCollider.bounds.center.x, cCollider.bounds.center.y - cCollider.bounds.extents.y + 0.3f, cCollider.bounds.center.z);
+		ray = new Ray(origin, Vector3.down);
+		Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
+
+		if (Physics.Raycast(ray, rayLength))
+		{
+			animator.SetTrigger(animHash);
+			EventManager.OnCharEvent(gEvent);
+		}
+	}
+
+	void OnTriggerStay ()
+	{
+		if (JumpController.TimePassedSinceJump(0.2f) && !SloapDetector.Instance.onSloap)
+		{
+			if (charState.IsFalling())
+				LandChar(anim_land, GameEvent.Land);
+
+			else if (charState.IsLanding())
+				LandChar(anim_Idle, GameEvent.EnterIdle);
+		}
+
+	}
 }
