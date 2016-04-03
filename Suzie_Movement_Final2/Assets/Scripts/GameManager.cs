@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	private VineClimbController2 vineClimbCollider;
 	private RomanCharController charController;
 	public TunnelObserver tunnelObserver;
-	public AntiWallSlideController antiWallSlideController;
+	public SloapDetector antiWallSlideController;
 
 	private int[] yPos = new int[]
 	{
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
 		charController = GameObject.FindObjectOfType<RomanCharController>();
 		tunnelObserver = GameObject.FindObjectOfType<TunnelObserver>();
-		antiWallSlideController = GameObject.FindObjectOfType<AntiWallSlideController>();
+		antiWallSlideController = GameObject.FindObjectOfType<SloapDetector>();
 
 		//cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TestCam>();
 

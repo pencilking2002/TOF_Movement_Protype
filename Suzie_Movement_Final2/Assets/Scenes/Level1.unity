@@ -2552,7 +2552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 490753415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e84e47ca63c1d411392a852aba006044, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f2478cb9b16f48e9a033a431309fd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1433918706}
@@ -2657,6 +2657,7 @@ GameObject:
   - 114: {fileID: 511196683}
   - 114: {fileID: 511196700}
   - 114: {fileID: 511196701}
+  - 135: {fileID: 511196702}
   m_Layer: 8
   m_Name: Suzie
   m_TagString: Player
@@ -2843,10 +2844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 4194304
+    m_Bits: 4290772991
   groundMaterial: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
   wallMaterial: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
-  runningMaterial: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
   wallRayLength: 0.4
 --- !u!114 &511196692
 MonoBehaviour:
@@ -2860,7 +2860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92136ff4672be4616b6611fc3a6eecb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineLength: 0.5
+  rayLength: 0.4
 --- !u!114 &511196693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3007,19 +3007,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 511196681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583654ee45cac41d493871c1d1a6eb86, type: 3}
+  m_Script: {fileID: 11500000, guid: c6890383df1c84dc29e3d8fc59fca4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 4290772991
+    m_Bits: 4289724415
   rayLength: 1.5
   colliding: 0
   onSloap: 0
-  cColliderFrontTransf: {fileID: 1613414380}
   jumpWallLimitRayLength: 0.7
   runWallLimitRayLength: 0.2
   sideRayAngle: 0.15
+--- !u!135 &511196702
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 511196681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.16
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!1 &517343231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4867,7 +4878,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11417626, guid: e0a0fda072c1f4d00948e558bfb6cf8b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e0a0fda072c1f4d00948e558bfb6cf8b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &741488058

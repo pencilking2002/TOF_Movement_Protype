@@ -145,7 +145,7 @@ public class JumpController : MonoBehaviour {
 			rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(charController.moveDirectionRaw), allJumpTurnSpeed * Time.deltaTime));
 			forwardVel = transform.forward * forwardSpeed * Mathf.Clamp01(charController.moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 
-			if (AntiWallSlideController.Instance.onSloap && TimePassedSinceJump (0.5f)) {
+			if (SloapDetector.Instance.onSloap && TimePassedSinceJump (0.5f)) {
 				//forwardVel.y = Mathf.SmoothDamp(forwardVel.y, -200, ref smoothDownvel, 0.5f);
 				rb.AddForce(0,-500, 0);
 			}

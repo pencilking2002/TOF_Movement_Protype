@@ -31,15 +31,13 @@ public class PlaceNuts : MonoBehaviour {
 		float pct = 0.0f;
 		//float portion = 1.0f/Nuts.Length + 0.1f;
 		float portion = 1.0f / Nuts.Length;
-		print("portion:" + portion);
+		//print("portion:" + portion);
 		for (int i = 0; i < Nuts.Length; i++)
 		{
 			//float pct = 0.1f * i * (10 / Nuts.Length);
-			print(pct);
+			//print(pct);
 			nutPath.place(Nuts[i], pct);
 			pct += portion;
-
-
 
 		}
 	}

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TunnelObserver : MonoBehaviour {
 
+	public  static TunnelObserver Instance;
+
 	[HideInInspector]
 	public BoxCollider tunnelCollider;
 
@@ -31,6 +33,14 @@ public class TunnelObserver : MonoBehaviour {
 	}
 
 	private bool InTunnel;
+
+	void Awake ()
+	{
+		if (Instance == null)
+			Instance = this;
+		else 
+			Destroy(this);
+	}
 
 	private void OnTriggerEnter(Collider col)
 	{

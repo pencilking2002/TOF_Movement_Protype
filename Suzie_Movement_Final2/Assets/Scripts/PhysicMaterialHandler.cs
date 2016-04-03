@@ -1,30 +1,33 @@
-﻿using UnityEngine;
+﻿
+/*-----------------------------------------------------------------------------------\ 
+| @class PhysicMaterialHandler													      |
+|-------------------------------------------------------------------------------------|
+| -- DESCRITION -- 																	  |
+  Responsible for changing the PhysicMaterial of the char's capsule collider based    |
+| on the state of the character.													  |
+|------------------------------------------------------------------------------------ |
+| -- WALL COLLISIONS ---															  |
+| When the character is running, this script looks for walls in front of the char.	  |
+| If a wall is in the way of the char, a frictionless material is used so that the    |
+| character doesn't get stuck on the wall but instead "slides" around it			  |										
+\------------------------------------------------------------------------------------*/
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-/* 
-	Class responsible for changing the PhysicMaterials of the colliders the player interacts with
-	Shoots rays from middle of the bottom and from the bottom of the body. The Rays are cast using 
-	the char's forward direction
-
-*/
 public class PhysicMaterialHandler : MonoBehaviour {
-	public LayerMask layerMask;
 
+	public LayerMask layerMask;
 	public PhysicMaterial groundMaterial;
 	public PhysicMaterial wallMaterial;
-	public PhysicMaterial runningMaterial;
-
-//	public float groundRayLenth = 0.1f;
 	public float wallRayLength = 0.5f;
 
 	private CapsuleCollider cCollider;
 
 	// Temp raycasting vars
 	private Vector3 origin;
-//	private Vector3 bottomOrigin;
 	private Ray ray;
-//	private Ray rayFromBottom;
 	private RomanCharState charState;
 
 	private RaycastHit hit;
@@ -58,9 +61,6 @@ public class PhysicMaterialHandler : MonoBehaviour {
 
 			if (Physics.Raycast (ray, out hit, wallRayLength, layerMask))
 				cCollider.sharedMaterial = wallMaterial;
-			
-			//else if (cCollider.sharedMaterial == wallMaterial)
-				//cCollider.sharedMaterial = groundMaterial;
 		}
 
 	}
