@@ -62,7 +62,7 @@ public class NutCollector : MonoBehaviour
 			GameObject pickup = col.gameObject;
 			CollectNut(pickup);
 
-			print("nut triggered");
+			//print("nut triggered");
 
 			// Switch pickup to a layer that ignores all player collisions
 			pickup.layer = 16;

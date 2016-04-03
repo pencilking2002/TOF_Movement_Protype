@@ -14,7 +14,6 @@ public class LandingController : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody rb;
 	private CapsuleCollider cCollider;
-	private SphereCollider sCollider;
 
 	private Vector3 origin, endPoint;
 	private float lastYPos;
@@ -35,11 +34,9 @@ public class LandingController : MonoBehaviour {
 	private void Awake ()
 	{
 		charState = GetComponent<RomanCharState>();
-//		charController = GetComponent<RomanCharController>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cCollider = GetComponent<CapsuleCollider>();
-		sCollider = GetComponent<SphereCollider>();
 	}
 
 	private void Start ()
@@ -49,15 +46,6 @@ public class LandingController : MonoBehaviour {
 			{ GameEvent.StopClimbing, true }
 
 		});
-	}
-
-	private void FixedUpdate() 
-	{
-//		if (charState.IsFalling())
-//			LandChar(GameEvent.Land, anim_land);
-//		
-//		else if (charState.IsLanding())
-//			LandChar(GameEvent.EnterIdle, anim_Idle);
 	}
 
 	/// <summary>
@@ -78,10 +66,7 @@ public class LandingController : MonoBehaviour {
 			{	
 				//Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
 				//Debug.Break();
-				if (charState.IsSprinting())
-					animator.SetTrigger (anim_SprintJump);
-				else
-					animator.SetTrigger (anim_Falling);
+				animator.SetTrigger (anim_Falling);
 			}
 		}
 		else if (charState.IsSprinting())
@@ -99,66 +84,21 @@ public class LandingController : MonoBehaviour {
 
 	}
 
-	// if the character is sprint falling and they colliding with something
+	// if the character is sprint falling and colliding with something
 	// go into idle falling
 	void OnCollisionStay()
 	{
 		if (charState.IsSprintFalling())
-		{
-			print("sprint falling");
 			animator.SetTrigger(anim_IdleFalling);
-		}
-	}
-	/// <summary>
-	/// If char is landing, send trigger the idle animation ( used in sprint landing state)
-	/// in the animator. the animator also checks for other variables like speed before going to idle
-	/// </summary>
-	/// <param name="other">Other.</param>
-//	private void OnCollisionEnter (Collision other)
-//	{
-//		if (charState.IsLanding())
-//		{
-//			//Vector3 origin = transform.position + Vector3.up * 0.3f;
-////			Debug.DrawRay(origin, (other.contacts[0].point  - origin).normalized  * 5, Color.black);
-////			Debug.Break();
-//			origin = transform.position + Vector3.up * 0.1f;
-//			ray = new Ray(origin, Vector3.down);
-//
-////			GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-////			sphere.transform.position = ray.origin;
-////			sphere.transform.localScale = Vector3.one * 0.3f;
-//			
-//
-//			if (Physics.SphereCast(ray, 0.5f, 0.4f))
-//			{
-//				Debug.DrawRay(ray.origin, ray.direction * 0.2f, Color.blue);
-//				animator.SetTrigger(anim_Idle);
-//				print("Spherecast landing");
-//			}
-//		}
 		
-//	}
+	}
 
-//	private void LandChar(GameEvent gEvent, int animHash)
-//	{
-//		//origin = transform.position + new Vector3(0, 0.2f, 0);
-//			origin = new Vector3(cCollider.bounds.center.x, cCollider.bounds.center.y - cCollider.bounds.extents.y + 0.3f, cCollider.bounds.center.z);
-//			ray = new Ray(origin, Vector3.down);
-//
-//			Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
-//			//Debug.Break();
-//
-//			if (JumpController.TimePassedSinceJump(0.2f) && 
-//				//Physics.Raycast(ray, out hit, rayLength) &&
-//				Physics.SphereCast(ray, 0.5f, rayLength) &&  
-//				!AntiWallSlideController.Instance.onSloap)
-//			{
-//				animator.SetTrigger(animHash);
-//				EventManager.OnCharEvent(gEvent);
-//			}
-//	}
-
-	private void LandChar(int animHash, GameEvent gEvent)
+	/// <summary>
+	/// Lands or makes the char go into idle if raycast returns true
+	/// </summary>
+	/// <param name="animHash">Animation hash.</param>
+	/// <param name="gEvent">G event.</param>
+	void LandChar(int animHash, GameEvent gEvent)
 	{
 		origin = new Vector3(cCollider.bounds.center.x, cCollider.bounds.center.y - cCollider.bounds.extents.y + 0.3f, cCollider.bounds.center.z);
 		ray = new Ray(origin, Vector3.down);
@@ -171,6 +111,9 @@ public class LandingController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// If not on a sloap then land the character
+	/// </summary>
 	void OnTriggerStay ()
 	{
 		if (JumpController.TimePassedSinceJump(0.2f) && !SloapDetector.Instance.onSloap)
