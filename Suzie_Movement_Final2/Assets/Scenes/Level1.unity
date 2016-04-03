@@ -3013,12 +3013,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 4289724415
-  rayLength: 1.5
+  rayLength: 1.6
   colliding: 0
   onSloap: 0
   jumpWallLimitRayLength: 0.7
   runWallLimitRayLength: 0.2
-  sideRayAngle: 0.15
 --- !u!135 &511196702
 SphereCollider:
   m_ObjectHideFlags: 0

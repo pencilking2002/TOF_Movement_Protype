@@ -16,7 +16,6 @@ public class LandingController : MonoBehaviour {
 	private CapsuleCollider cCollider;
 
 	private Vector3 origin, endPoint;
-	private float lastYPos;
 	private Ray ray;
 	private RaycastHit hit;
 
@@ -78,7 +77,8 @@ public class LandingController : MonoBehaviour {
 			{	
 				//Debug.DrawRay(ray.origin, ray.direction * 0.6f, Color.blue);
 				//Debug.Break();
-				animator.SetTrigger (anim_SprintJump);
+				//Force a sprint jump
+				EventManager.OnInputEvent(GameEvent.Jump);
 			}
 		}
 
