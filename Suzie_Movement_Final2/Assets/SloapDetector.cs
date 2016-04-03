@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AntiWallSlideController : MonoBehaviour {
+public class SloapDetector : MonoBehaviour {
 
-	public static AntiWallSlideController Instance;
+	public static SloapDetector Instance;
 	public LayerMask layerMask;
 	public float rayLength = 0.5f;
 
@@ -13,8 +13,6 @@ public class AntiWallSlideController : MonoBehaviour {
 
 	[HideInInspector]
 	public bool onSloap = false;
-
-	public Transform cColliderFrontTransf;
 
 	[Range(0,2)]
 	public float jumpWallLimitRayLength = 0.3f;
@@ -42,11 +40,7 @@ public class AntiWallSlideController : MonoBehaviour {
 
 	void Start ()
 	{
-		if (cColliderFrontTransf == null)
-			Debug.LogWarning("cColliderFrontTransf not defined");
-
 		charState = GetComponent<RomanCharState>();
-
 
 		ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
@@ -54,7 +48,6 @@ public class AntiWallSlideController : MonoBehaviour {
 			{ GameEvent.StopClimbing, true }
 
 		});
-	
 	}
 
 	void FixedUpdate ()
@@ -62,14 +55,20 @@ public class AntiWallSlideController : MonoBehaviour {
 		CheckSloap ();
 	}
 
+	/// <summary>
+	/// Check if character is on a surfaces that's too steep
+	/// Uses the char's forward instead of Vector3.down because that way
+	/// we cna ignore steep hills
+	/// </summary>
 	private void CheckSloap()
 	{
-		if (charState.IsRunning ())
-			offset = 0.2f;
-		else if (charState.IsSprinting ())
+		if (TunnelObserver.Instance.inTunnel)
+			return;
+
+		if (charState.IsSprinting ())
 			offset = 0.4f;
 		else
-			offset = 0;
+			offset = 0.2f;
 		
 		origin = transform.position + new Vector3 (0, 0.1f, 0) + transform.forward * offset;
 		ray = new Ray (origin, Vector3.down);
@@ -78,10 +77,8 @@ public class AntiWallSlideController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hit, rayLength, layerMask)) 
 		{
-			float dot = Vector3.Dot (Vector3.up, hit.normal);
-			//print (dot);
-
-			onSloap = (dot < 0.7f);
+			float dot = Vector3.Dot (transform.forward, hit.normal);
+			onSloap = (dot < -0.7f);
 			return;
 		}
 
