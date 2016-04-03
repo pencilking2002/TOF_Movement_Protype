@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Panel : MonoBehaviour {
+public class PanelActivation : MonoBehaviour {
 
 	public Image panel;
 
@@ -10,10 +10,5 @@ public class Panel : MonoBehaviour {
 	void Awake () 
 	{
 		panel.gameObject.SetActive(true);
-	}
-		
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
