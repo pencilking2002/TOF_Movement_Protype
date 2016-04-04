@@ -60,11 +60,14 @@ public class GameManager : MonoBehaviour {
 	private void OnGUI ()
 	{
 		if (GUI.Button(new Rect(0, yPos[4] + 50, 170, 30), "Wall Climb"))
-		{
 			currentChar.position = GameObject.FindGameObjectWithTag("WallClimbSpot").transform.position;
-		}
-		if (GUI.Button(new Rect(0, yPos[2] + 50, 170, 30), "Restart"))
+		
+		if (GUI.Button(new Rect(0, yPos[5] + 50, 170, 30), "Restart"))
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+		if (GUI.Button(new Rect(0, yPos[6] + 50, 170, 30), "Top of Climb Cliff"))
+			currentChar.position = GameObject.FindGameObjectWithTag("ClimbCliffTop").transform.position;
+
 		if (debug)
 		{
 			GUI.Button(new Rect(Screen.width - 150, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());

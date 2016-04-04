@@ -28,6 +28,7 @@ TagManager:
   - Squirrel
   - EdgeClimbSpot
   - WallClimbSpot
+  - ClimbCliffTop
   layers:
   - Default
   - TransparentFX
