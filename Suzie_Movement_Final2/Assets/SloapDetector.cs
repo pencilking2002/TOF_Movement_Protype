@@ -43,7 +43,8 @@ public class SloapDetector : MonoBehaviour {
 		ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
 			{ GameEvent.StartClimbing, false },
-			{ GameEvent.StopClimbing, true }
+			{ GameEvent.StopClimbing, true },
+			{ GameEvent.EnterIdle, true }
 
 		});
 	}
@@ -63,11 +64,14 @@ public class SloapDetector : MonoBehaviour {
 		if (TunnelObserver.Instance.inTunnel || charState.IsClimbing())
 			return;
 
-		if (charState.IsSprinting ())
+		if (charState.IsSprinting () || charState.IsSprintJumping())
 		{
-			origin = transform.position + new Vector3 (0, 0.4f, 0) + transform.forward * 0.4f;
+			origin = transform.position + new Vector3 (0, 0.4f, 0) + transform.forward * 0.5f;
 			ray1 = new Ray (origin, Vector3.down);
 			Debug.DrawRay(ray1.origin, ray1.direction * rayLength, Color.red);
+
+			//if (charState.IsSprintJumping())
+				//Debug.Break();
 
 			if (charState.IsFalling() && JumpController.TimePassedSinceJump(2f))
 			{

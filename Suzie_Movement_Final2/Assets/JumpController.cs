@@ -65,6 +65,7 @@ public class JumpController : MonoBehaviour {
 	private Rigidbody rb;
 	private RomanCharController charController;
 	private RomanCharState charState;
+	private CapsuleCollider cCollider;
 
 	// wallJumpLimiting
 	private Ray wallJumpRayLeft, wallJumpRayRight;
@@ -79,6 +80,7 @@ public class JumpController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		charController = GetComponent<RomanCharController>();
 		charState = GetComponent<RomanCharState>();
+		cCollider = GetComponent<CapsuleCollider>();
 
 		if (cColliderFrontTransf == null)
 			Debug.LogError("collider front point not defined");
@@ -213,13 +215,7 @@ public class JumpController : MonoBehaviour {
 
 	private void Jump (GameEvent gameEvent)
 	{
-		//print (gameEvent);
-		if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunningJumping() && !hasDoubleJumped)
-		{
-			animator.SetTrigger(anim_doubleJump);
-		}
-
-		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrMoving()) 
+		if (gameEvent == GameEvent.Jump && charState.IsIdleOrMoving()) 
 		{				
 			EventManager.OnCharEvent(GameEvent.Jump);
 			InputController.jumpReleased = false;
@@ -240,9 +236,18 @@ public class JumpController : MonoBehaviour {
 			else if (charState.IsSprinting())
 			{
 				animator.SetBool (anim_sprintJump, true);
-				charController.OrientCapsuleCollider(false);
+				RSUtil.OrientCapsuleCollider(cCollider, false);
+				//Debug.Break();
 			}
 		}
+
+		//print (gameEvent);
+		else if (gameEvent == GameEvent.Jump && charState.IsIdleOrRunningJumping() && !hasDoubleJumped)
+		{
+			animator.SetTrigger(anim_doubleJump);
+		}
+
+
 	}
 
 	private void CharLanded (GameEvent gEvent)

@@ -1268,6 +1268,17 @@ ModelImporter:
     102520: Level_8:WaterElements_grp
     102522: Level_8:Waterfall
     102524: Level_8:WaterRocks
+    102526: Platform 10
+    102528: Platform19
+    102530: Platform20
+    102532: Platform21
+    102534: Platform22
+    102536: polySurface1011
+    102538: polySurface1012
+    102540: transform205
+    102542: transform206
+    102544: transform207
+    102546: WaterFall1
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -2531,6 +2542,17 @@ ModelImporter:
     402520: Level_8:WaterElements_grp
     402522: Level_8:Waterfall
     402524: Level_8:WaterRocks
+    402526: Platform 10
+    402528: Platform19
+    402530: Platform20
+    402532: Platform21
+    402534: Platform22
+    402536: polySurface1011
+    402538: polySurface1012
+    402540: transform205
+    402542: transform206
+    402544: transform207
+    402546: WaterFall1
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -3489,6 +3511,13 @@ ModelImporter:
     2301910: Level_8:Wall 1
     2301912: Level_8:Waterfall
     2301914: Level_8:WaterRocks
+    2301916: Platform
+    2301918: Platform 10
+    2301920: Platform19
+    2301922: Platform20
+    2301924: Platform21
+    2301926: Platform22
+    2301928: WaterFall1
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -4447,6 +4476,13 @@ ModelImporter:
     3301910: Level_8:Wall 1
     3301912: Level_8:Waterfall
     3301914: Level_8:WaterRocks
+    3301916: Platform
+    3301918: Platform 10
+    3301920: Platform19
+    3301922: Platform20
+    3301924: Platform21
+    3301926: Platform22
+    3301928: WaterFall1
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -5404,6 +5440,12 @@ ModelImporter:
     4301908: Level_8:Log1
     4301910: Level_8:Plants
     4301912: Level_8:RomanGroundPlane
+    4301914: Platform19
+    4301916: Platform20
+    4301918: Platform21
+    4301920: Platform22
+    4301922: Platform
+    4301924: WaterFall1
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -6362,6 +6404,13 @@ ModelImporter:
     6401910: Level_8:Wall 1
     6401912: Level_8:Waterfall
     6401914: Level_8:WaterRocks
+    6401916: Platform
+    6401918: Platform 10
+    6401920: Platform19
+    6401922: Platform20
+    6401924: Platform21
+    6401926: Platform22
+    6401928: WaterFall1
   materials:
     importMaterials: 1
     materialName: 0

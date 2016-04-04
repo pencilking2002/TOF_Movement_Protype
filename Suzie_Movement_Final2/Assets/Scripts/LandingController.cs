@@ -89,8 +89,10 @@ public class LandingController : MonoBehaviour {
 	void OnCollisionStay()
 	{
 		if (charState.IsSprintFalling())
+		{
 			animator.SetTrigger(anim_IdleFalling);
-		
+			RSUtil.OrientCapsuleCollider(cCollider, true);
+		}
 	}
 
 	/// <summary>

@@ -202,10 +202,10 @@ public class RomanCharController : MonoBehaviour {
 	private void Sprint (GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.StartSprinting)
-			OrientCapsuleCollider(false);
+			RSUtil.OrientCapsuleCollider(cCollider, false);
 		
 		else if (gEvent == GameEvent.StopSprinting)
-			OrientCapsuleCollider(true);
+			RSUtil.OrientCapsuleCollider(cCollider, true);
 	}
 
 	private void EnterIdle (GameEvent gEvent)
@@ -215,7 +215,7 @@ public class RomanCharController : MonoBehaviour {
 			rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
 			//rb.constraints = RigidbodyConstraints.FreezeAll;
 			rb.velocity = Vector3.zero;
-			OrientCapsuleCollider(true);
+			RSUtil.OrientCapsuleCollider(cCollider, true);
 		}
 	}
 	
@@ -233,7 +233,7 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
-			OrientCapsuleCollider(true);
+			RSUtil.OrientCapsuleCollider(cCollider, true);
 			ResetYRotation();
 		
 			if (!charState.IsFalling())
@@ -258,26 +258,6 @@ public class RomanCharController : MonoBehaviour {
 	public void ApplyRootMotion (bool apply)
 	{
 		animator.applyRootMotion = apply;
-	}
-	
-	/// <summary>
-	/// Orient the capsule collider based on what the character is doing
-	/// So when the character is sprinting or sprint jumping, make the collider
-	/// Horizontal
-	/// </summary>
-	public void OrientCapsuleCollider (bool upright)
-	{
-		if (upright)
-		{
-			cCollider.direction = 1;
-			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
-		}
-		else
-		{
-			// Adjust the collider during sprinting
-			cCollider.direction = 2;
-			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
-		}
 	}
 
 	/*----------------------------------------------------------|

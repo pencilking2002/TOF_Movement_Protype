@@ -89,5 +89,24 @@ public class RSUtil : MonoBehaviour {
 		return Mathf.PingPong(val, aMax-aMin) + aMin;
 	}
 
+	/// <summary>
+	/// Orient the capsule collider based on what the character is doing
+	/// So when the character is sprinting or sprint jumping, make the collider
+	/// Horizontal
+	/// </summary>
+	public static void OrientCapsuleCollider (CapsuleCollider cCollider, bool upright)
+	{
+		if (upright)
+		{
+			cCollider.direction = 1;
+			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+		}
+		else
+		{
+			// Adjust the collider during sprinting
+			cCollider.direction = 2;
+			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
+		}
+	}
 
 }

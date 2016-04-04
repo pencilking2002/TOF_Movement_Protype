@@ -238,7 +238,7 @@ public class RomanCharState : MonoBehaviour {
 		}
 
 		// If previous state is sprinting, fire StopSprinting event
-		else if (IsSprinting())
+		else if (IsSprinting() && _state != State.SprintJumping)
 		{
 			EventManager.OnCharEvent(GameEvent.StopSprinting);
 		}
