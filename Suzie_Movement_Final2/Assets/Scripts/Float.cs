@@ -2,26 +2,37 @@
 using System.Collections;
 
 public class Float : MonoBehaviour {
+
 	public float maxUpAndDown = 1;               // amount of meters going up and down
 	public float speed = 200;            	     // up and down speed
-	public float angle = 0;           			 // angle to determin the height by using the sinus
+	private float angle = 0;           			 // angle to determin the height by using the sinus
+	private float addRandomSpeed;
+
 	private float toDegrees = Mathf.PI/180;      // radians to degrees
  	private MeshRenderer rend;
 
- 	private void Awake()
+ 	private bool initialized = false;
+ 	private Vector3 startingPos;
+
+ 
+ 	IEnumerator Start()
  	{
- 		rend = GetComponent<MeshRenderer>();
- 		//NutCollector.Instance.RegisterNut(gameObject);
+		addRandomSpeed = Random.Range(-10, 10);
+ 		speed += addRandomSpeed;
+		rend = GetComponent<MeshRenderer>();
+		startingPos = transform.position;
+
+ 		yield return new WaitForSeconds(Random.Range(0.0f, 4.0f));
+		initialized = true;
  	}	
 
 	void Update()
 	{
-		if (rend.isVisible)
+		if (initialized && rend.isVisible)
 		{
 			angle += speed * Time.deltaTime;
+			transform.position = new Vector3(startingPos.x, transform.position.y + maxUpAndDown * Mathf.Sin(angle * toDegrees), startingPos.z);
 
-			if (angle > 360) angle -= 360;
-				transform.position = new Vector3(transform.position.x, transform.position.y + maxUpAndDown * Mathf.Sin(angle * toDegrees), transform.position.z);
 		}
 	}
 

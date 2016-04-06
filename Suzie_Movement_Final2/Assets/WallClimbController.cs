@@ -205,6 +205,7 @@ public class WallClimbController : MonoBehaviour {
 							cController.enabled = false;
 							rb.isKinematic = false;
 							rb.useGravity = true;
+							EventManager.OnCharEvent(GameEvent.FinishClimbOver);
 							EventManager.OnCharEvent(GameEvent.IsIdle);
 						});
 				});

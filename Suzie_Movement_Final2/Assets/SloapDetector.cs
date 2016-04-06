@@ -44,7 +44,7 @@ public class SloapDetector : MonoBehaviour {
 
 			{ GameEvent.StartClimbing, false },
 			{ GameEvent.StopClimbing, true },
-			{ GameEvent.EnterIdle, true }
+			{ GameEvent.FinishClimbOver, true }
 
 		});
 	}
