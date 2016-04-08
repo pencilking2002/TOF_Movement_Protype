@@ -1279,6 +1279,14 @@ ModelImporter:
     102542: transform206
     102544: transform207
     102546: WaterFall1
+    102548: polySurface1013
+    102550: polySurface1014
+    102552: polySurface1015
+    102554: polySurface1016
+    102556: transform208
+    102558: transform209
+    102560: transform210
+    102562: CaveWall
     400000: Archway
     400002: ArchwayGround
     400004: ArchwayWall
@@ -2553,6 +2561,14 @@ ModelImporter:
     402542: transform206
     402544: transform207
     402546: WaterFall1
+    402548: polySurface1013
+    402550: polySurface1014
+    402552: polySurface1015
+    402554: polySurface1016
+    402556: transform208
+    402558: transform209
+    402560: transform210
+    402562: CaveWall
     2300000: ArchwayGround
     2300002: ArchwayWall
     2300004: Body
@@ -3518,6 +3534,9 @@ ModelImporter:
     2301924: Platform21
     2301926: Platform22
     2301928: WaterFall1
+    2301930: polySurface1013
+    2301932: polySurface1014
+    2301934: CaveWall
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -4483,6 +4502,9 @@ ModelImporter:
     3301924: Platform21
     3301926: Platform22
     3301928: WaterFall1
+    3301930: polySurface1013
+    3301932: polySurface1014
+    3301934: CaveWall
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -5446,6 +5468,9 @@ ModelImporter:
     4301920: Platform22
     4301922: Platform
     4301924: WaterFall1
+    4301926: polySurface1013
+    4301928: polySurface1014
+    4301930: CaveWall
     6400000: ArchwayGround
     6400002: ArchwayWall
     6400004: Body
@@ -6411,6 +6436,9 @@ ModelImporter:
     6401924: Platform21
     6401926: Platform22
     6401928: WaterFall1
+    6401930: polySurface1013
+    6401932: polySurface1014
+    6401934: CaveWall
   materials:
     importMaterials: 1
     materialName: 0
