@@ -47,16 +47,20 @@ public class EdgeClimbController : MonoBehaviour
 		animator = GetComponent<Animator>();
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.EdgeClimbColliderDetected, true},
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.StartWallClimbing, false },
-			{ GameEvent.StopEdgeClimbing, false },
-			{ GameEvent.FinishClimbOver, false },
-			{ GameEvent.Land, false }
+				{ GameEvent.EdgeClimbColliderDetected, true },
 
-		});
+				{ GameEvent.StartWallClimbing, false },
+				{ GameEvent.StopEdgeClimbing, false },
+				{ GameEvent.FinishClimbOver, false },
+				{ GameEvent.Land, false }
+
+			});
+		}
 	}
 	
 	private void Update ()

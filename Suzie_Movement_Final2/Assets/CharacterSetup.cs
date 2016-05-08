@@ -11,8 +11,11 @@ public class CharacterSetup : MonoBehaviour {
 
 	void Awake()
 	{
-		cam.SetParent(null);
-		follow.SetParent(null);
+		if (cam != null)
+			cam.SetParent(null);
+
+		if (follow != null)
+			follow.SetParent(null);
 	}
 
 	// Use this for initialization

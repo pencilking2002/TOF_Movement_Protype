@@ -37,19 +37,22 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		cCollider = GetComponent<CapsuleCollider>();
 		charState = GetComponent<RomanCharState>();
 
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.Jump, true },
-			{ GameEvent.StopVineClimbing, true },
-			{ GameEvent.StopEdgeClimbing, true },
-			{ GameEvent.StopWallClimbing, true },
-			{ GameEvent.ClimbOverEdge, true },
+				{ GameEvent.Jump, true },
+				{ GameEvent.StopVineClimbing, true },
+				{ GameEvent.StopEdgeClimbing, true },
+				{ GameEvent.StopWallClimbing, true },
+				{ GameEvent.ClimbOverEdge, true },
 
-			{ GameEvent.StartVineClimbing, false },
-			{ GameEvent.StartEdgeClimbing, false },
-			{ GameEvent.StartWallClimbing, false }, 
+				{ GameEvent.StartVineClimbing, false },
+				{ GameEvent.StartEdgeClimbing, false },
+				{ GameEvent.StartWallClimbing, false }, 
 
-		});
+			});
+		}
 	}
 
 	private void FixedUpdate ()

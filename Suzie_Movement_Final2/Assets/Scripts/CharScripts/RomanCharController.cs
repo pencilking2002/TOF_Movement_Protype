@@ -46,19 +46,22 @@ public class RomanCharController : MonoBehaviour {
 
 	void Start ()
 	{
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
-			//{ GameEvent.Land, true },
-			{ GameEvent.ClimbOverEdge, true },
-			{ GameEvent.StopClimbing, true },
-			{ GameEvent.FinishClimbOver, true },
+				//{ GameEvent.Land, true },
+				{ GameEvent.ClimbOverEdge, true },
+				{ GameEvent.StopClimbing, true },
+				{ GameEvent.FinishClimbOver, true },
 
-			//{ GameEvent.LandedFirstTime, false },
-			{ GameEvent.StartVineClimbing, false }, 
-			{ GameEvent.StartEdgeClimbing, false },
-			{ GameEvent.StartWallClimbing, false }
+				//{ GameEvent.LandedFirstTime, false },
+				{ GameEvent.StartVineClimbing, false }, 
+				{ GameEvent.StartEdgeClimbing, false },
+				{ GameEvent.StartWallClimbing, false }
 
-		});
+			});
+		}
 
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();

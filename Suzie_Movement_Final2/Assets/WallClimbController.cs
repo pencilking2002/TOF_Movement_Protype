@@ -46,15 +46,18 @@ public class WallClimbController : MonoBehaviour {
 		charState = GetComponent<RomanCharState>();
 		cCollider = GetComponent<CapsuleCollider>();
 
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.WallClimbColliderDetected, true},
+				{ GameEvent.WallClimbColliderDetected, true },
 
-			//{ GameEvent.StopClimbing, false },
-			{ GameEvent.FinishClimbOver, false },
-			{ GameEvent.Land, false }
+				//{ GameEvent.StopClimbing, false },
+				{ GameEvent.FinishClimbOver, false },
+				{ GameEvent.Land, false }
 
-		});
+			});
+		}
 	}
 	
 	// Update is called once per frame

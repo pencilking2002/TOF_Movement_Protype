@@ -32,15 +32,18 @@ public class ClimbDetector : MonoBehaviour {
 
 	private void Start ()
 	{
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> {
 
-			{ GameEvent.Jump, true },
+				{ GameEvent.Jump, true },
 
-			{ GameEvent.StartEdgeClimbing, false },
-			{ GameEvent.StartWallClimbing, false },
-			{ GameEvent.StartVineClimbing, false }
+				{ GameEvent.StartEdgeClimbing, false },
+				{ GameEvent.StartWallClimbing, false },
+				{ GameEvent.StartVineClimbing, false }
 
-		});
+			});
+		}
 
 		cCollider = GetComponent<CapsuleCollider>();
 		climbOverEdge = GetComponent<ClimbOverEdge>();

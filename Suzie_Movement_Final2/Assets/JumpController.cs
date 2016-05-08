@@ -83,7 +83,7 @@ public class JumpController : MonoBehaviour {
 		cCollider = GetComponent<CapsuleCollider>();
 
 		if (cColliderFrontTransf == null)
-			Debug.LogError("collider front point not defined");
+			Debug.Log("collider front point not defined");
 
 //		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
 //			{ GameEvent.StartWallClimbing, false }

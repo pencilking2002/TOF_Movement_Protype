@@ -39,14 +39,16 @@ public class SloapDetector : MonoBehaviour {
 	void Start ()
 	{
 		charState = GetComponent<RomanCharState>();
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
 
-		ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> { 
+				{ GameEvent.StartClimbing, false },
+				{ GameEvent.StopClimbing, true },
+				{ GameEvent.FinishClimbOver, true }
 
-			{ GameEvent.StartClimbing, false },
-			{ GameEvent.StopClimbing, true },
-			{ GameEvent.FinishClimbOver, true }
-
-		});
+			});
+		}
 	}
 
 	void FixedUpdate ()

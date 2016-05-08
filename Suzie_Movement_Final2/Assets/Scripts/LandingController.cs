@@ -40,11 +40,14 @@ public class LandingController : MonoBehaviour {
 
 	private void Start ()
 	{
-		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
-			{ GameEvent.StartClimbing, false },
-			{ GameEvent.StopClimbing, true }
+		if (GameManager.componentActivatorOn) 
+		{
+			ComponentActivator.Instance.Register (this, new Dictionary<GameEvent, bool> {
+				{ GameEvent.StartClimbing, false },
+				{ GameEvent.StopClimbing, true }
 
-		});
+			});
+		}
 	}
 
 	/// <summary>
@@ -118,6 +121,7 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	void OnTriggerStay ()
 	{
+		//print ("in on trigger stay");
 		if (JumpController.TimePassedSinceJump(0.2f) && !SloapDetector.Instance.onSloap)
 		{
 			if (charState.IsFalling())

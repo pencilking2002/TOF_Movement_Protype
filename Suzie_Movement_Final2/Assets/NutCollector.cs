@@ -37,7 +37,7 @@ public class NutCollector : MonoBehaviour
 		else Destroy(this);
 
 		if (nutCountText == null)
-			Debug.LogError("Nut count text not defined");
+			Debug.Log("Nut count text not defined");
 	}
 
 	void Start ()
@@ -47,7 +47,8 @@ public class NutCollector : MonoBehaviour
 		foreach(GameObject nut in Nuts)
 			totalNuts.Add(nut);
 
-		nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
+		if (nutCountText != null)
+			nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
 	}
 
 	public void RegisterNut (GameObject nut)
@@ -90,7 +91,9 @@ public class NutCollector : MonoBehaviour
 	private void CollectNut(GameObject pickup)
 	{
 		collectedNuts.Add(pickup);
-		nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
+
+		if (nutCountText != null)
+			nutCountText.text = collectedNuts.Count + " / " + totalNuts.Count;
 
 		if (collectedNuts.Count == totalNuts.Count)
 		{
