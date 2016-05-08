@@ -66,11 +66,12 @@ public class WallClimbController : MonoBehaviour {
 		//Debug.DrawRay(cCollider.bounds.center, transform.forward * 0.5f, Color.blue);
 		//Debug.Break ();
 		//cast the ray 5 units at the specified direction  	
+		//print ("wall climbing");
 		if(charState.IsWallClimbing () && 
-		   Physics.Raycast(cColliderFrontTransf.position, transform.forward, out hit, 0.7f, layerMask) &&
+		   Physics.Raycast(cColliderFrontTransf.position, transform.forward, out hit, 1f, layerMask) &&
 		   cController.enabled)
 		{ 
-
+			
 			// Get the vertical center of the Squirrel
 //			Vector3 center = cCollider.bounds.center;
 //			center = center + transform.forward * cCollider.radius;
@@ -102,8 +103,8 @@ public class WallClimbController : MonoBehaviour {
 
 			cController.Move(moveDirection);
 
-			animator.SetFloat(anim_hWallClimbSpeed, InputController.rawH, 0.02f, Time.deltaTime);
-			animator.SetFloat(anim_vWallClimbSpeed, InputController.rawV, 0.02f, Time.deltaTime);
+			animator.SetFloat(anim_hWallClimbSpeed, Input.GetAxisRaw("Horizontal"), 0.02f, Time.deltaTime);
+			animator.SetFloat(anim_vWallClimbSpeed, Input.GetAxisRaw("Vertical"), 0.02f, Time.deltaTime);
 
 			if (cColliderFrontTransf.position.y > RSUtil.GetTopColliderTopYPoint(hit.collider))
 			{

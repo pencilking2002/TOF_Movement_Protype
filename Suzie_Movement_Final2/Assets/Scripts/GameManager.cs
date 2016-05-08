@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;
 	public bool debug = false;			// Toggle debug mode
-	public static bool componentActivatorOn = false;
+	public static bool componentActivatorOn = true;
 	[HideInInspector]
 	public RomanCharController charController;
 	//public TestCam cam;

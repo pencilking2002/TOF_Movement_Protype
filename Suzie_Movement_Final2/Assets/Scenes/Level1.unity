@@ -506,7 +506,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -11014,14 +11014,6 @@ Prefab:
     - target: {fileID: 447108, guid: 54019a381e250431caa3a98fe7cc1d3a, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11416720, guid: 54019a381e250431caa3a98fe7cc1d3a, type: 2}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 1684577982}
-    - target: {fileID: 11416720, guid: 54019a381e250431caa3a98fe7cc1d3a, type: 2}
-      propertyPath: debug
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54019a381e250431caa3a98fe7cc1d3a, type: 2}

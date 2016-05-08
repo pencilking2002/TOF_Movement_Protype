@@ -213,9 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 1
-  cam: {fileID: 0}
+  charController: {fileID: 0}
+  simpleRpgCam: {fileID: 0}
   charState: {fileID: 0}
   tunnelObserver: {fileID: 0}
+  antiWallSlideController: {fileID: 0}
 --- !u!114 &11425086
 MonoBehaviour:
   m_ObjectHideFlags: 1
