@@ -1624,6 +1624,7 @@ GameObject:
   - 33: {fileID: 616191580}
   - 65: {fileID: 616191579}
   - 23: {fileID: 616191578}
+  - 114: {fileID: 616191582}
   m_Layer: 21
   m_Name: Wall
   m_TagString: Untagged
@@ -1688,6 +1689,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2067768510}
   m_RootOrder: 0
+--- !u!114 &616191582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616191577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411536dd197204e45bbaf4a8f03f34ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTransparent: 0
 --- !u!1 &616218553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,6 +2695,7 @@ GameObject:
   - 33: {fileID: 1088509909}
   - 65: {fileID: 1088509908}
   - 23: {fileID: 1088509907}
+  - 114: {fileID: 1088509910}
   m_Layer: 11
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -2746,6 +2760,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1088509905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1088509910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088509905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411536dd197204e45bbaf4a8f03f34ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTransparent: 0
 --- !u!1 &1098783218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3851,7 @@ GameObject:
   - 81: {fileID: 1497517747}
   - 114: {fileID: 1497517746}
   - 114: {fileID: 1497517751}
+  - 114: {fileID: 1497517752}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4079,6 +4106,21 @@ MonoBehaviour:
   mobileZoomSpeed: 0.25
   autoRotate: 0
   autoRotateSpeed: 40
+--- !u!114 &1497517752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497517744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38d90b822d9c634b9d20a717b91ca95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Squirrel: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294934239
 --- !u!1 &1505823359
 GameObject:
   m_ObjectHideFlags: 0
