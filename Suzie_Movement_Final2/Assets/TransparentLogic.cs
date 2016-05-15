@@ -22,21 +22,19 @@ public class TransparentLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!rend.isVisible)
-			return;
-			
-		if (isTransparent) {
-			ChangeOpacity (transparentColor);
-		} 
-		else 
+		if (rend.isVisible) 
 		{
-			ChangeOpacity (oldColor);
+			if (isTransparent)
+				ChangeOpacity (0.5f);
+			else
+				ChangeOpacity (1.0f);
 		}
 			
 	}
 
-	void ChangeOpacity (Color color)
+	void ChangeOpacity (float val)
 	{
-		rend.sharedMaterial.SetColor ("_Color", color);
+		LeanTween.alpha (gameObject, val, 0.1f);
+		//rend.sharedMaterial.SetColor ("_Color", color);
 	}
 }
