@@ -4020,9 +4020,9 @@ MonoBehaviour:
   keyMoveRight: 100
   showEdges: 0
   edgeTexture: {fileID: 0}
-  allowRotation: 0
+  allowRotation: 1
   mouseHorizontalAxis: Mouse X
-  mouseVerticalAxis: Mouse Y
+  mouseVerticalAxis: ddd
   invertRotationX: 0
   invertRotationY: 0
   mouseLook: 1

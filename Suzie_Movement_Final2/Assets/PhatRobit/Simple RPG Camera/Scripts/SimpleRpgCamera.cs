@@ -453,13 +453,13 @@ namespace PhatRobit
 								  (allowRotationRight && Input.GetMouseButton(1)))
 					{
 						// Roman check character needs to be auto-rotated
-						if (GameManager.Instance.charState.IsRunningOrSprinting() && Mathf.Abs(InputController.h) == 1)
-							autoRotate = true;
-						else 
-							autoRotate = false;
+//						if (GameManager.Instance.charState.IsRunningOrSprinting() && Mathf.Abs(InputController.h) == 1)
+//							autoRotate = true;
+//						else 
+//							autoRotate = false;
 						
 						inputX = InputController.orbitH * rotationSensitivity.x;
-						inputY = InputController.orbitV * rotationSensitivity.y;
+						//inputY = InputController.orbitV * rotationSensitivity.y;
 					}
 				}
 
