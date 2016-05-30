@@ -222,6 +222,7 @@ public class RomanCharController : MonoBehaviour {
 			//rb.constraints = RigidbodyConstraints.FreezeAll;
 
 			rb.velocity = Vector3.zero;
+			transform.up = Vector3.up;
 			RSUtil.OrientCapsuleCollider(cCollider, true);
 
 			//print ("ENTER IDLE"); 

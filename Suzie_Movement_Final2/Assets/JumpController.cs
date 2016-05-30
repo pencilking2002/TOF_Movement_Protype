@@ -301,45 +301,20 @@ public class JumpController : MonoBehaviour {
 	{
 		if (e == GameEvent.WallBounce) 
 		{
-			//print ("Recieved wall bounce event"); 
-			//animator.SetBool ("WallBounce", true);
-			//transform.eulerAngles = t.eulerAngles;
-//			Debug.Break ();
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
 
-			//rb.velocity = Vector3.zero;
-			//rb.angularVelocity = Vector3.zero;
-		
-			//BounceOffWall ();
-			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-			rb.AddRelativeForce (new Vector3 (0, doubleJumpForce, 0), ForceMode.Impulse);
+			transform.forward = t.up;
+
+			Vector3 dir = Quaternion.AngleAxis(-25, t.right) * t.up;
+
+			rb.AddForce(dir * wallBounce);
+			//Debug.DrawRay (t.position, dir, Color.blue);
+			//Debug.Break ();
+
 			animator.SetTrigger(anim_doubleJump);
 
 		}
 	}
-
-//	private void BounceOffWall()
-//	{
-//		Vector3 dir = -transform.up;
-//		Vector3 origin = transform.position + dir * -0.1f;
-//
-//		float length =  0.3f;
-//
-//		Debug.DrawRay (origin, dir * length, Color.black);
-//		//Debug.Break ();
-//		
-//		if (Physics.Raycast(origin, dir, length, wallBounceLayerMask))
-//		{
-//			
-//			rb.AddForce (-dir * wallBounce);
-//			print ("JumpController: Apply jump off force");
-//		}
-//
-//
-//	}
-//	
-//	private void OnCollisionStay (Collision Collision)
-//	{
-//		//Debug.DrawRay(cColliderFrontTransf.position, transform.forward * 0.3f, Color.white);
-//	}
 
 }

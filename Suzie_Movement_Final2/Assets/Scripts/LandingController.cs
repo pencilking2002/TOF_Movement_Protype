@@ -124,23 +124,21 @@ public class LandingController : MonoBehaviour {
 	void OnTriggerStay (Collider col)
 	{
 		//print ("in on trigger stay");
-		if (JumpController.TimePassedSinceJump(0.2f) && !SloapDetector.Instance.onSloap)
+		if (JumpController.TimePassedSinceJump(0.2f))
 		{
 			if (charState.IsFalling ()) 
 			{
-				
 				if (col.gameObject.layer == 23) 
 				{
 					InitWallBounce (col.transform);
 					//Debug.Break ();
-				} else 
+				} 
+				else if (!SloapDetector.Instance.onSloap)
 				{
 					// If hitting a wall bounce, send event for the jump controller to handle
 					LandChar (anim_land, GameEvent.Land);
 				}
-
-				//print ("land char: " + col.name);
-			}
+			} 
 			else if (charState.IsLanding ()) 
 			{
 				if (col.gameObject.layer == 23) 
@@ -148,15 +146,14 @@ public class LandingController : MonoBehaviour {
 					InitWallBounce (col.transform);
 					//Debug.Break ();
 				} 
-				else 
+				else if (!SloapDetector.Instance.onSloap)
 				{
 					LandChar (anim_Idle, GameEvent.EnterIdle);
 				}
-
-//				if (col.gameObject.layer == 23) {
-//					EventManager.OnCharEvent (GameEvent.WallBounce, col.transform);
-//				}
-
+			} 
+			else if (charState.IsIdle () && col.gameObject.layer == 23) 
+			{
+				InitWallBounce (col.transform);
 			}
 		}
 
