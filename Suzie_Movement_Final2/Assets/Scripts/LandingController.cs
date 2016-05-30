@@ -113,23 +113,60 @@ public class LandingController : MonoBehaviour {
 		{
 			animator.SetTrigger(animHash);
 			EventManager.OnCharEvent(gEvent);
+
+			//print ("land char"); 
 		}
 	}
 
 	/// <summary>
 	/// If not on a sloap then land the character
 	/// </summary>
-	void OnTriggerStay ()
+	void OnTriggerStay (Collider col)
 	{
 		//print ("in on trigger stay");
 		if (JumpController.TimePassedSinceJump(0.2f) && !SloapDetector.Instance.onSloap)
 		{
-			if (charState.IsFalling())
-				LandChar(anim_land, GameEvent.Land);
+			if (charState.IsFalling ()) 
+			{
+				
+				if (col.gameObject.layer == 23) 
+				{
+					InitWallBounce (col.transform);
+					//Debug.Break ();
+				} else 
+				{
+					// If hitting a wall bounce, send event for the jump controller to handle
+					LandChar (anim_land, GameEvent.Land);
+				}
 
-			else if (charState.IsLanding())
-				LandChar(anim_Idle, GameEvent.EnterIdle);
+				//print ("land char: " + col.name);
+			}
+			else if (charState.IsLanding ()) 
+			{
+				if (col.gameObject.layer == 23) 
+				{
+					InitWallBounce (col.transform);
+					//Debug.Break ();
+				} 
+				else 
+				{
+					LandChar (anim_Idle, GameEvent.EnterIdle);
+				}
+
+//				if (col.gameObject.layer == 23) {
+//					EventManager.OnCharEvent (GameEvent.WallBounce, col.transform);
+//				}
+
+			}
 		}
 
+	}
+
+	void InitWallBounce(Transform t)
+	{
+		animator.SetBool ("WallBounce", true);
+		print ("RomanCharController: sending jump event");
+		charState.SetState (RomanCharState.State.WallBouncing);
+		EventManager.OnCharEvent (GameEvent.WallBounce, t);
 	}
 }

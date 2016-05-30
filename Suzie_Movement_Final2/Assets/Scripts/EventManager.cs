@@ -52,7 +52,9 @@ public enum GameEvent
 	WallClimbColliderDetected,
 	EnterIdle,
 	EnterTunnel,
-	ExitTunnel
+	ExitTunnel,
+	WallBounce,
+	BounceOffWall
 	
 }
 
@@ -63,7 +65,11 @@ public class EventManager : MonoBehaviour
 	//---------------------------------------------------------------------------------------------------------------------------
 	public delegate void CharEvent(GameEvent gameEvent);
 	public static CharEvent onCharEvent;
-	
+
+	// For excepting a vec3 as an arg
+	public delegate void CharEvent2(GameEvent gameEvent, Transform t);
+	public static CharEvent2 onCharEvent2;
+
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Input events 
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -80,6 +86,13 @@ public class EventManager : MonoBehaviour
 	{
 		if (onCharEvent != null)
 			onCharEvent(gameEvent);
+	}
+
+	// Overload of OnCharEvent that can handle a vector3 a sa 2nd arg 
+	public static void OnCharEvent (GameEvent gameEvent, Transform t)
+	{
+		if (onCharEvent2 != null)
+			onCharEvent2(gameEvent, t);
 	}
 	
 	public static void OnInputEvent (GameEvent gameEvent)

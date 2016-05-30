@@ -43,6 +43,8 @@ public class RomanCharController : MonoBehaviour {
 	int anim_Speed = Animator.StringToHash("Speed");
 	int anim_Falling = Animator.StringToHash("Falling");
 	int anim_sprintModDown = Animator.StringToHash("SprintModDown");
+	int anim_WallBounce = Animator.StringToHash("WallBounce");
+
 
 	void Start ()
 	{
@@ -212,13 +214,18 @@ public class RomanCharController : MonoBehaviour {
 	}
 
 	private void EnterIdle (GameEvent gEvent)
-	{
+	{		
+
 		if (gEvent == GameEvent.IsIdle)
 		{
 			rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
 			//rb.constraints = RigidbodyConstraints.FreezeAll;
+
 			rb.velocity = Vector3.zero;
 			RSUtil.OrientCapsuleCollider(cCollider, true);
+
+			//print ("ENTER IDLE"); 
+					
 		}
 	}
 	

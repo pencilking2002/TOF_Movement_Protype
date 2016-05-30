@@ -45,6 +45,9 @@ public class JumpController : MonoBehaviour {
 	public Transform cColliderFrontTransf;
 	public float jumpWallLimitRayLength = 0.3f;
 
+	[Header("Wall Bouncing")]
+	public float wallBounce = 200.0f;
+	public LayerMask wallBounceLayerMask;
 	// PRIVATE vars -----------------------
 
 	private float forwardSpeed; 					// Temp var for forward speed
@@ -74,6 +77,9 @@ public class JumpController : MonoBehaviour {
 
 	private static float lastJumpTime;								//Time stamp of the last time the char jumped
 	// Use this for initialization
+
+	//private Vector3 bounceDirection;
+
 	void Start () 
 	{
 		animator = GetComponent<Animator>();
@@ -96,6 +102,8 @@ public class JumpController : MonoBehaviour {
 	{
 		EventManager.onInputEvent += Jump;
 		EventManager.onCharEvent += CharLanded;
+		EventManager.onCharEvent2 += OnWallBounce;
+		//EventManager.onCharEvent += BounceOffWall;
 	}
 
 	private void OnDisable () 
@@ -103,6 +111,9 @@ public class JumpController : MonoBehaviour {
 		//print("char disable");	
 		EventManager.onInputEvent -= Jump;
 		EventManager.onCharEvent -= CharLanded;
+		EventManager.onCharEvent2 -= OnWallBounce;
+		//EventManager.onCharEvent -= BounceOffWall;
+
 	}
 
 	// Update is called once per frame
@@ -216,7 +227,9 @@ public class JumpController : MonoBehaviour {
 	private void Jump (GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.Jump && charState.IsIdleOrMoving()) 
-		{				
+		{		
+			animator.SetBool ("WallBounce", false);
+
 			EventManager.OnCharEvent(GameEvent.Jump);
 			InputController.jumpReleased = false;
 
@@ -257,11 +270,13 @@ public class JumpController : MonoBehaviour {
 			//print("JumpController:LAND");
 			hasDoubleJumped = false;
 			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
+			animator.ResetTrigger (anim_doubleJump);
 			InputController.jumpReleased = false;
 		}
 		else if (gEvent == GameEvent.IsIdle)
 		{
 			InputController.jumpReleased = false;
+			//BounceOffWall ();
 		}
 	}
 
@@ -270,6 +285,58 @@ public class JumpController : MonoBehaviour {
 		return Time.time > lastJumpTime + t;
 	}
 
+	void OnCollisionEnter(Collision coll)
+	{
+//		if (coll.gameObject.layer == 23) 
+//		{
+//			//print ("wall collision: " + coll.gameObject.name); 
+//			//Debug.DrawRay (coll.transform.position, coll.transform.up * 10, Color.blue);
+//			EventManager.OnCharEvent (GameEvent.WallBounce, coll.transform.right);
+//
+//		}
+	}
+
+
+	void OnWallBounce (GameEvent e, Transform t)
+	{
+		if (e == GameEvent.WallBounce) 
+		{
+			//print ("Recieved wall bounce event"); 
+			//animator.SetBool ("WallBounce", true);
+			//transform.eulerAngles = t.eulerAngles;
+//			Debug.Break ();
+
+			//rb.velocity = Vector3.zero;
+			//rb.angularVelocity = Vector3.zero;
+		
+			//BounceOffWall ();
+			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+			rb.AddRelativeForce (new Vector3 (0, doubleJumpForce, 0), ForceMode.Impulse);
+			animator.SetTrigger(anim_doubleJump);
+
+		}
+	}
+
+//	private void BounceOffWall()
+//	{
+//		Vector3 dir = -transform.up;
+//		Vector3 origin = transform.position + dir * -0.1f;
+//
+//		float length =  0.3f;
+//
+//		Debug.DrawRay (origin, dir * length, Color.black);
+//		//Debug.Break ();
+//		
+//		if (Physics.Raycast(origin, dir, length, wallBounceLayerMask))
+//		{
+//			
+//			rb.AddForce (-dir * wallBounce);
+//			print ("JumpController: Apply jump off force");
+//		}
+//
+//
+//	}
+//	
 //	private void OnCollisionStay (Collision Collision)
 //	{
 //		//Debug.DrawRay(cColliderFrontTransf.position, transform.forward * 0.3f, Color.white);

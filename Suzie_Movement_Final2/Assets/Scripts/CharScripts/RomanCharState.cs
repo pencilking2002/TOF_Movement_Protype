@@ -30,7 +30,8 @@ public class RomanCharState : MonoBehaviour {
 		VineClimbing,
 		VineAttaching,
 		RunningDoubleJumping,
-		IdleDoubleJumping
+		IdleDoubleJumping,
+		WallBouncing
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
