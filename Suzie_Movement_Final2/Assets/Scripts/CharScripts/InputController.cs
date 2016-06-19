@@ -133,8 +133,15 @@ public class InputController : MonoBehaviour {
 		
 		if (inputDevice.RightBumper.WasReleased)
 			EventManager.OnInputEvent(GameEvent.RecenterCam);	
-		
-		
+
+		//----------------------------------------------------------------------------------------------------------------------
+		// Combat
+		//----------------------------------------------------------------------------------------------------------------------
+
+		if (inputDevice.Action3.WasPressed || Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown (0)) 
+		{
+			EventManager.OnInputEvent (GameEvent.Punch);
+		}
 		//----------------------------------------------------------------------------------------------------------------------
 		// Camera Orbiting
 		//----------------------------------------------------------------------------------------------------------------------

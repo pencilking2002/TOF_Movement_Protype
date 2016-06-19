@@ -32,7 +32,7 @@ public class RomanCharController : MonoBehaviour {
 	private CapsuleCollider cCollider;
 	[HideInInspector]
 	public TunnelObserver tunnelObserver;
-		
+	public CombatController combatController;	
 	//public bool inTube = false;
 
 	// Character rotation -------------
@@ -73,6 +73,7 @@ public class RomanCharController : MonoBehaviour {
 		cCollider = GetComponent<CapsuleCollider>();
 		vineClimbCollider = GetComponent<VineClimbController2>();
 		tunnelObserver = GameManager.Instance.tunnelObserver;
+		combatController = GetComponent<CombatController> ();
 	}
 
 
@@ -123,16 +124,22 @@ public class RomanCharController : MonoBehaviour {
 	/// </summary>
 	private void OnAnimatorMove ()
 	{
-		// If is idle or isrunning and not sprinting)
+		// If is idle or is running and not sprinting)
 		if (charState.IsIdleOrMoving())
 		{
-			if (moveDirectionRaw != Vector3.zero)
+			if (combatController.state == CombatController.SquirrelCombatState.Punching || charState.IsIdle()) 
+			{
+				animator.ApplyBuiltinRootMotion ();
+				//print ("In combat state"); 
+			}
+			else if (moveDirectionRaw != Vector3.zero)
 			{
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
 				if (!charState.IsIdle() && !SloapDetector.Instance.onSloap)
 					animator.ApplyBuiltinRootMotion();
-
+				//else if (charState.IsIdle())
+					//transform.rotation = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z));
 				//print("In OnAnimatormMove");
 			}
 			// Character has stopped, do a lerp
@@ -219,14 +226,10 @@ public class RomanCharController : MonoBehaviour {
 		if (gEvent == GameEvent.IsIdle)
 		{
 			rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
-			//rb.constraints = RigidbodyConstraints.FreezeAll;
-
 			rb.velocity = Vector3.zero;
-			transform.up = Vector3.up;
-			RSUtil.OrientCapsuleCollider(cCollider, true);
 
-			//print ("ENTER IDLE"); 
-					
+			//transform.up = Vector3.up;
+			RSUtil.OrientCapsuleCollider(cCollider, true);
 		}
 	}
 	
@@ -249,6 +252,8 @@ public class RomanCharController : MonoBehaviour {
 		
 			if (!charState.IsFalling())
 				animator.SetBool (anim_sprintModDown, false);					// Reset sprint modifer trigger, Sometimes it gets stuck
+
+
 		}
 	}
 	

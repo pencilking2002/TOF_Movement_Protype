@@ -63,7 +63,7 @@ public class SloapDetector : MonoBehaviour {
 	/// </summary>
 	private void CheckSloap()
 	{
-		if (TunnelObserver.Instance.inTunnel || charState.IsClimbing())
+		if (TunnelObserver.Instance == null || TunnelObserver.Instance.inTunnel || charState.IsClimbing())
 			return;
 
 		if (charState.IsSprinting () || charState.IsSprintJumping())

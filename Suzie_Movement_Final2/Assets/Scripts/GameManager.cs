@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public RomanCharController charController;
 	//public TestCam cam;
+	public CombatController combatController;
 
 	public PhatRobit.SimpleRpgCamera simpleRpgCam;
 
@@ -78,6 +79,8 @@ public class GameManager : MonoBehaviour {
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
 			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + tunnelObserver.inTunnel);
 			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "rawH: " + InputController.rawH);
+			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CombatState: " + combatController.state);
+
 //			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamPlayer pos: " + simpleRpgCam.GetSignedDirection());
 //			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam auto rot: " + simpleRpgCam.autoRotate);
 //			GUI.Button(new Rect(Screen.width - 150, yPos[7], 170, 30), "At player pos: " + follow.followAtPlayerPos);

@@ -54,7 +54,9 @@ public enum GameEvent
 	EnterTunnel,
 	ExitTunnel,
 	WallBounce,
-	BounceOffWall
+	BounceOffWall,
+	Punch,
+	WallHit
 	
 }
 
