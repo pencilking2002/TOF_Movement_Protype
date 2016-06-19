@@ -7,6 +7,7 @@ public class BreakableWall : MonoBehaviour {
 	public int forceAmount = 100;
 	private Vector3 force;
 
+	//private Transform[] = 
 	// Use this for initialization
 	void Start () {
 	
@@ -17,43 +18,47 @@ public class BreakableWall : MonoBehaviour {
 	
 	}
 
-	public void OnEnable()
+	public void Hit()
 	{
-		EventManager.onCharEvent += Hit;
-	}
+		health--;
 
-	public void OnDisable()
-	{
-		EventManager.onCharEvent -= Hit;
-	}
-
-	void Hit(GameEvent gEvent)
-	{
-		if (gEvent == GameEvent.WallHit) 
+		if (health > 1) 
 		{
-			if (health > 1) 
-			{
-				print ("wall health: " + health); 
-				health--;
-			}
-			else
-			{
-				print ("wall crumble"); 
-				foreach (Transform brick in transform) 
-				{
-					health--;
-					Rigidbody rb = brick.GetComponent <Rigidbody> ();
-					rb.isKinematic = false;
-				}
+			print ("wall health: " + health); 
+			GameObject b = transform.GetChild (0).gameObject;
+			Color color = b.GetComponent<MeshRenderer> ().material.color;
 
-				foreach (Transform brick in transform) 
-				{
-					Rigidbody rb = brick.GetComponent <Rigidbody> ();
-					rb.AddExplosionForce (forceAmount, brick.position, 1.0f);
-				}
-			
 
+			foreach (Transform brick in transform)
+			{	
+				GameObject theBrick = brick.gameObject;
+				LeanTween.color(theBrick, Color.red, 0.1f)
+					.setOnComplete (() => {
+						LeanTween.color(theBrick, color, 0.1f);
+					});
 			}
+
 		}
+		else
+		{
+			print ("wall crumble"); 
+			force = GameManager.Instance.charController.transform.forward * forceAmount;
+			foreach (Transform brick in transform) 
+			{
+				Rigidbody rb = brick.GetComponent <Rigidbody> ();
+				rb.isKinematic = false;
+				//rb.AddExplosionForce (forceAmount, brick.position, 1.0f, 5.0f);
+				rb.AddForceAtPosition (force, brick.position);
+			}
+
+//				foreach (Transform brick in transform) 
+//				{
+//					Rigidbody rb = brick.GetComponent <Rigidbody> ();
+//					//rb.AddExplosionForce (forceAmount, brick.position, 1.0f, 5.0f);
+//				}
+		
+
+		}
+
 	}
 }
