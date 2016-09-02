@@ -56,6 +56,7 @@ public class RomanCharController : MonoBehaviour {
 				{ GameEvent.ClimbOverEdge, true },
 				{ GameEvent.StopClimbing, true },
 				{ GameEvent.FinishClimbOver, true },
+				//{ GameEvent.Land, true },
 
 				//{ GameEvent.LandedFirstTime, false },
 				{ GameEvent.StartVineClimbing, false }, 
@@ -125,30 +126,33 @@ public class RomanCharController : MonoBehaviour {
 	private void OnAnimatorMove ()
 	{
 		// If is idle or is running and not sprinting)
-		if (charState.IsIdleOrMoving())
-		{
-			if (combatController.state == CombatController.SquirrelCombatState.Punching || charState.IsIdle()) 
+		if (charState.IsIdleOrMoving ()) {
+			//print ("is moving"); 
+			/*if (combatController.state == CombatController.SquirrelCombatState.Punching || charState.IsIdle()) 
 			{
 				animator.ApplyBuiltinRootMotion ();
 				//print ("In combat state"); 
 			}
-			else if (moveDirectionRaw != Vector3.zero)
-			{
-				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
+			else*/
+			if (moveDirectionRaw != Vector3.zero) {
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 
-				if (!charState.IsIdle() && !SloapDetector.Instance.onSloap)
-					animator.ApplyBuiltinRootMotion();
+				if (!charState.IsIdle () && !SloapDetector.Instance.onSloap)
+					animator.ApplyBuiltinRootMotion ();
 				//else if (charState.IsIdle())
-					//transform.rotation = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z));
+				//transform.rotation = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z));
 				//print("In OnAnimatormMove");
 			}
 			// Character has stopped, do a lerp
-			else
-			{
-				rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, stopRunningSmoothingSpeed * Time.deltaTime);
+			else {
+				rb.velocity = Vector3.Lerp (rb.velocity, Vector3.zero, stopRunningSmoothingSpeed * Time.deltaTime);
 			}
 				
-		}   
+		} 
+//		else 
+//		{
+//			print ("squirrel not moving. state: " + charState.GetState ()); 	
+//		}
     }
 
 	/*----------------------------------------------------------|

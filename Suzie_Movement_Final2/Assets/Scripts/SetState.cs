@@ -10,7 +10,10 @@ public class SetState : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
-		GameManager.Instance.charState.SetState(characterState);			
+		GameManager.Instance.charState.SetState(characterState);
+//		RSUtil.Instance.DelayedAction (() => {
+//			GameManager.Instance.charState.SetState(characterState);
+//		}, 0.2f);
 	}
 	
 }

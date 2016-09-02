@@ -124,7 +124,7 @@ public class LandingController : MonoBehaviour {
 	void OnTriggerStay (Collider col)
 	{
 		//print ("in on trigger stay");
-		if (JumpController.TimePassedSinceJump(0.2f))
+		if (JumpController.TimePassedSinceJump(0.3f))
 		{
 			if (charState.IsFalling ()) 
 			{
@@ -137,6 +137,8 @@ public class LandingController : MonoBehaviour {
 				{
 					// If hitting a wall bounce, send event for the jump controller to handle
 					LandChar (anim_land, GameEvent.Land);
+
+					EventManager.OnCharEvent (GameEvent.CollderLand);
 				}
 			} 
 			else if (charState.IsLanding ()) 

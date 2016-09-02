@@ -7,195 +7,157 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Wood
-  m_Shader: {fileID: 4800000, guid: dd496457a855aa341b0d7b7b475a7a3a, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_RAMPTEXT TCP2_RIMDIR TCP2_ZSMOOTH_ON _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: ccfc7d68845db8341944b3091b59be55, type: 3}
+  m_ShaderKeywords: TCP2_BUMP TCP2_RAMPTEXT TCP2_RIMDIR TCP2_ZSMOOTH_ON _NORMALMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: ca4db435c7b064daa8ad545c85536b34, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 2800000, guid: 9dbbad0d331c446328a6f745c4b5ab47, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _OcclusionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _EmissionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailMask
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailAlbedoMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Ramp
-        second:
-          m_Texture: {fileID: 2800000, guid: a2daa9b606711a643808bebed4c59a0c, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 9dbbad0d331c446328a6f745c4b5ab47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailAlbedoMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailMask
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: ca4db435c7b064daa8ad545c85536b34, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MetallicGlossMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _OcclusionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ParallaxMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Ramp
+      second:
+        m_Texture: {fileID: 2800000, guid: a2daa9b606711a643808bebed4c59a0c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _SrcBlend
-        second: 1
-      data:
-        first:
-          name: _DstBlend
-        second: 0
-      data:
-        first:
-          name: _Cutoff
-        second: 0.5
-      data:
-        first:
-          name: _ZWrite
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0.188
-      data:
-        first:
-          name: _BumpScale
-        second: 1.48
-      data:
-        first:
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
-          name: _OcclusionStrength
-        second: 1
-      data:
-        first:
-          name: _DetailNormalMapScale
-        second: 1
-      data:
-        first:
-          name: _UVSec
-        second: 0
-      data:
-        first:
-          name: _Mode
-        second: 0
-      data:
-        first:
-          name: _RampThreshold
-        second: 0.5
-      data:
-        first:
-          name: _RampSmooth
-        second: 0.1
-      data:
-        first:
-          name: _Outline
-        second: 2
-      data:
-        first:
-          name: _TexLod
-        second: 5
-      data:
-        first:
-          name: _ZSmooth
-        second: -0.5
-      data:
-        first:
-          name: _Offset1
-        second: 0
-      data:
-        first:
-          name: _Offset2
-        second: 0
-      data:
-        first:
-          name: _RimMin
-        second: 0.909
-      data:
-        first:
-          name: _RimMax
-        second: 0.945
+    - first:
+        name: _BumpScale
+      second: 1.48
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _DetailNormalMapScale
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 0
+    - first:
+        name: _Glossiness
+      second: 0
+    - first:
+        name: _Metallic
+      second: 0.188
+    - first:
+        name: _Mode
+      second: 0
+    - first:
+        name: _OcclusionStrength
+      second: 1
+    - first:
+        name: _Offset1
+      second: 0
+    - first:
+        name: _Offset2
+      second: 0
+    - first:
+        name: _Outline
+      second: 2
+    - first:
+        name: _Parallax
+      second: 0.02
+    - first:
+        name: _RampSmooth
+      second: 0.1
+    - first:
+        name: _RampThreshold
+      second: 0.5
+    - first:
+        name: _RimMax
+      second: 0.945
+    - first:
+        name: _RimMin
+      second: 0.909
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TexLod
+      second: 5
+    - first:
+        name: _UVSec
+      second: 0
+    - first:
+        name: _ZSmooth
+      second: -0.5
+    - first:
+        name: _ZWrite
+      second: 1
     m_Colors:
-      data:
-        first:
-          name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _Color
-        second: {r: 0.9485294, g: 0.9485294, b: 0.9485294, a: 0}
-      data:
-        first:
-          name: _HColor
-        second: {r: 0.9191176, g: 0.9191176, b: 0.9191176, a: 1}
-      data:
-        first:
-          name: _SColor
-        second: {r: 0.16176468, g: 0.003568342, b: 0.003568342, a: 1}
-      data:
-        first:
-          name: _OutlineColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _RimColor
-        second: {r: 0.29411763, g: 0.18864095, b: 0, a: 0.6}
-      data:
-        first:
-          name: _RimDir
-        second: {r: 0, g: 0, b: 1, a: 0}
+    - first:
+        name: _Color
+      second: {r: 0.9485294, g: 0.9485294, b: 0.9485294, a: 0}
+    - first:
+        name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _HColor
+      second: {r: 0.9191176, g: 0.9191176, b: 0.9191176, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _RimColor
+      second: {r: 0.29411763, g: 0.18864095, b: 0, a: 0.6}
+    - first:
+        name: _RimDir
+      second: {r: 0, g: 0, b: 1, a: 0}
+    - first:
+        name: _SColor
+      second: {r: 0.16176468, g: 0.003568342, b: 0.003568342, a: 1}

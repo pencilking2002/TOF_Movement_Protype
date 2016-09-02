@@ -459,7 +459,7 @@ namespace PhatRobit
 //							autoRotate = false;
 						
 						inputX = InputController.orbitH * rotationSensitivity.x;
-						//inputY = InputController.orbitV * rotationSensitivity.y;
+						inputY = InputController.orbitV * rotationSensitivity.y;
 					}
 				}
 

@@ -152,7 +152,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -192,7 +192,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.10929019
+        functionName: PlayFootstep
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a7a4bbcd3d0e1f47a875358937a7d22,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3424721
+        functionName: PlayFootstep
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a7a4bbcd3d0e1f47a875358937a7d22,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

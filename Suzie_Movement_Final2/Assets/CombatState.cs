@@ -25,8 +25,8 @@ public class CombatState : StateMachineBehaviour {
 
 			if (startCombat)
 				combatController.state = CombatController.SquirrelCombatState.Punching;
-			else
-				combatController.state = CombatController.SquirrelCombatState.None;
+			//else
+				//combatController.state = CombatController.SquirrelCombatState.None;
 		}
 	}
 

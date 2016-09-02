@@ -74,12 +74,12 @@ public class GameManager : MonoBehaviour {
 
 		if (debug)
 		{
-			GUI.Button(new Rect(Screen.width - 150, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());
+			GUI.Button(new Rect(Screen.width - 190, yPos[0], 170, 30), "Squirrel State: " + charState.GetState());
 			GUI.Button(new Rect(Screen.width - 150, yPos[1], 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
 			GUI.Button(new Rect(Screen.width - 150, yPos[2], 170, 30), "Detached: " + vineClimbCollider.detached);
 			GUI.Button(new Rect(Screen.width - 150, yPos[3], 170, 30), "In Tube: " + tunnelObserver.inTunnel);
 			GUI.Button(new Rect(Screen.width - 150, yPos[4], 170, 30), "rawH: " + InputController.rawH);
-			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CombatState: " + combatController.state);
+			//GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CombatState: " + combatController.state);
 
 //			GUI.Button(new Rect(Screen.width - 150, yPos[5], 170, 30), "CamPlayer pos: " + simpleRpgCam.GetSignedDirection());
 //			GUI.Button(new Rect(Screen.width - 150, yPos[6], 170, 30), "Cam auto rot: " + simpleRpgCam.autoRotate);

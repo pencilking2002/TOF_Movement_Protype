@@ -1,4 +1,7 @@
-﻿
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+
 Shader "Hidden/FogVolume"
 {
     CGINCLUDE  
@@ -117,12 +120,12 @@ Shader "Hidden/FogVolume"
     {
         v2f o;
         o.SampleCoordinates = mul(UNITY_MATRIX_MVP, i.vertex);
-        o.Wpos = mul((float4x4)_Object2World, float4(i.vertex.xyz, 1)).xyz;
+        o.Wpos = mul((float4x4)unity_ObjectToWorld, float4(i.vertex.xyz, 1)).xyz;
         o.ScreenUVs = ComputeScreenPos(o.SampleCoordinates);
         o.ViewPos = mul((float4x4)UNITY_MATRIX_MV, float4(i.vertex.xyz, 1)).xyz;
         o.LocalPos = i.vertex.xyz;
-        o.LocalEyePos = mul((float4x4)_World2Object, (float4(_WorldSpaceCameraPos, 1))).xyz;
-        o.LightLocalDir =  mul((float4x4)_World2Object, (float4(L.xyz, 1))).xyz;
+        o.LocalEyePos = mul((float4x4)unity_WorldToObject, (float4(_WorldSpaceCameraPos, 1))).xyz;
+        o.LightLocalDir =  mul((float4x4)unity_WorldToObject, (float4(L.xyz, 1))).xyz;
         return o;
     }
 
@@ -204,7 +207,7 @@ Shader "Hidden/FogVolume"
         float4 FinalNoise = 0;
         float4 Gradient = 1;
 		//cloud fade
-		float4 objPos = mul ( _Object2World, float4(0,0,0,1) );
+		float4 objPos = mul ( unity_ObjectToWorld, float4(0,0,0,1) );
 		
 		//return CloudFade;
         //CloudFade *= Volume;
@@ -212,7 +215,7 @@ Shader "Hidden/FogVolume"
         for(int s = 0; s < STEP_COUNT && Ray > 0.0; s++, SampleCoordinates += step, Ray -= _RayStep)
          {
 
-		 float CloudFade = distance(mul(SampleCoordinates, _Object2World), float3(.0, 0,0)) / FadeDistance;
+		 float CloudFade = distance(mul(SampleCoordinates, unity_ObjectToWorld), float3(.0, 0,0)) / FadeDistance;
 		
         CloudFade = min(1,  exp( -CloudFade ));
 		

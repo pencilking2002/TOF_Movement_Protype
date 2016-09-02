@@ -56,7 +56,10 @@ public enum GameEvent
 	WallBounce,
 	BounceOffWall,
 	Punch,
-	WallHit
+	WallHit,
+	CollectNut,
+	Footstep,
+	CollderLand
 	
 }
 

@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
 
 // Toony Colors Pro+Mobile 2
 // (c) 2014,2015 Jean Moreno
@@ -118,7 +120,7 @@ Shader "Hidden/Toony Colors Pro 2/Variants/Mobile Matcap RimOutline Outline"
 			
 	#if TCP2_MC || TCP2_MCMASK
 			//MATCAP
-			float3 worldNorm = normalize(_World2Object[0].xyz * v.normal.x + _World2Object[1].xyz * v.normal.y + _World2Object[2].xyz * v.normal.z);
+			float3 worldNorm = normalize(unity_WorldToObject[0].xyz * v.normal.x + unity_WorldToObject[1].xyz * v.normal.y + unity_WorldToObject[2].xyz * v.normal.z);
 			worldNorm = mul((float3x3)UNITY_MATRIX_V, worldNorm);
 			o.matcap.xy = worldNorm.xy * 0.5 + 0.5;
 	#endif

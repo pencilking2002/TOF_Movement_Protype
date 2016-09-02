@@ -38,6 +38,7 @@ public class NutCollector : MonoBehaviour
 
 		if (nutCountText == null)
 			Debug.Log("Nut count text not defined");
+
 	}
 
 	void Start ()
@@ -90,6 +91,8 @@ public class NutCollector : MonoBehaviour
 	}
 	private void CollectNut(GameObject pickup)
 	{
+		EventManager.OnCharEvent (GameEvent.CollectNut);
+
 		collectedNuts.Add(pickup);
 
 		if (nutCountText != null)
