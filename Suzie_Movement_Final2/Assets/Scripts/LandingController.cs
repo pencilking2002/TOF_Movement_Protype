@@ -25,6 +25,7 @@ public class LandingController : MonoBehaviour {
 	private int anim_SprintJump = Animator.StringToHash("SprintJump");
 	private int anim_Idle = Animator.StringToHash("Idle");
 
+	public bool touchingWater = false;
 
 	/*----------------------------------------------------------|
 	| UNITY METHODS	      		    	                        |
@@ -123,7 +124,8 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	void OnTriggerStay (Collider col)
 	{
-		//print ("in on trigger stay");
+		touchingWater = (col.gameObject.layer == 25);
+
 		if (JumpController.TimePassedSinceJump(0.3f))
 		{
 			if (charState.IsFalling ()) 
@@ -138,7 +140,10 @@ public class LandingController : MonoBehaviour {
 					// If hitting a wall bounce, send event for the jump controller to handle
 					LandChar (anim_land, GameEvent.Land);
 
-					EventManager.OnCharEvent (GameEvent.CollderLand);
+					if (touchingWater)
+						EventManager.OnCharEvent (GameEvent.WaterColliderLanding);
+					else
+						EventManager.OnCharEvent (GameEvent.ColliderLand);
 				}
 			} 
 			else if (charState.IsLanding ()) 

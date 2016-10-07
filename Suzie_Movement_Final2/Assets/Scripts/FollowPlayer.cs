@@ -78,7 +78,9 @@ public class FollowPlayer : MonoBehaviour {
 			followAtPlayerPos = false;
 		
 		targetRot.y = Mathf.SmoothDampAngle(transform.eulerAngles.y, player.eulerAngles.y, ref climbSpeedSmoothVel, _damping);
-		transform.eulerAngles = targetRot;
+
+		if (targetRot != Vector3.zero)
+			transform.eulerAngles = targetRot;
 			
 	}
 	

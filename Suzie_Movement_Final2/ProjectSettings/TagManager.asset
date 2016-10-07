@@ -55,8 +55,8 @@ TagManager:
   - IgnoreSloap
   - WallJump
   - Breakable
-  - 
-  - 
+  - WaterCollider
+  - SprintHint
   - 
   - 
   - 

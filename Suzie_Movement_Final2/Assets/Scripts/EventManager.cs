@@ -59,7 +59,8 @@ public enum GameEvent
 	WallHit,
 	CollectNut,
 	Footstep,
-	CollderLand
+	ColliderLand,
+	WaterColliderLanding
 	
 }
 

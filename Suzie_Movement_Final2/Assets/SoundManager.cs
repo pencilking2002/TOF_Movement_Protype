@@ -14,9 +14,14 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip footStep;
 	public AudioClip[] nutCollect;
 	public AudioClip charLand;
+	public AudioClip charWaterLand;
 	public AudioClip charJump;
+	public AudioClip footstepSplash;
 
 	public static SoundManager Instance;
+	public float timeLanded;
+
+	public LandingController landingController;
 
 	void Awake()
 	{
@@ -58,9 +63,18 @@ public class SoundManager : MonoBehaviour {
 	public void PlayFootstep()
 	{
 		//if (e == GameEvent.Footstep)
-		footstepsAS.volume = Random.Range (0.5f, 0.8f);
-		footstepsAS.pitch = Random.Range (1.0f, 1.3f);
-		footstepsAS.PlayOneShot (footStep); //print ("Footstep Sound"); 
+		if (landingController.touchingWater) {
+			footstepsAS.volume = Random.Range (0.5f, 0.8f);
+			footstepsAS.pitch = Random.Range (1.0f, 1.3f);
+			footstepsAS.PlayOneShot (footstepSplash); //print ("Footstep Sound");
+		} 
+		else 
+		{
+			footstepsAS.volume = Random.Range (0.5f, 0.8f);
+			footstepsAS.pitch = Random.Range (1.0f, 1.3f);
+			footstepsAS.PlayOneShot (footStep); //print ("Footstep Sound");
+		}
+			
 	}
 
 	void PlayNutCollect(GameEvent e)
@@ -74,12 +88,20 @@ public class SoundManager : MonoBehaviour {
 
 	void PlayLand(GameEvent e)
 	{
-		if (e == GameEvent.CollderLand)
+		if (Time.time > timeLanded + 0.3f) 
 		{
-			landAS.PlayOneShot (charLand);//print ("Land sound");
+			if (e == GameEvent.ColliderLand) 
+			{
+				landAS.PlayOneShot (charLand);//print ("Land sound");
+				timeLanded = Time.time;
+			} 
+			else if (e == GameEvent.WaterColliderLanding) 
+			{
+				landAS.PlayOneShot (charWaterLand);
+				timeLanded = Time.time;
+			}
 		}
 	}
-
 
 
 	void PlayJump(GameEvent e)
