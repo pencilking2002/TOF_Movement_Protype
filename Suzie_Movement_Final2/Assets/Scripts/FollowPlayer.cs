@@ -84,19 +84,19 @@ public class FollowPlayer : MonoBehaviour {
 			
 	}
 	
-	private void OnEnable() 
-	{ 
-//		EventManager.onCharEvent += AttachFollow;
-//		EventManager.onInputEvent += AttachFollow; 
-		//EventManager.onInputEvent += Test;
-	}
-
-	private void OnDisable() 
-	{ 
-//		EventManager.onCharEvent -= AttachFollow;
-//		EventManager.onInputEvent -= AttachFollow; 
-		//EventManager.onInputEvent -= Test;
-	}
+//	private void OnEnable() 
+//	{ 
+////		EventManager.onCharEvent += AttachFollow;
+////		EventManager.onInputEvent += AttachFollow; 
+//		//EventManager.onInputEvent += Test;
+//	}
+//
+//	private void OnDisable() 
+//	{ 
+////		EventManager.onCharEvent -= AttachFollow;
+////		EventManager.onInputEvent -= AttachFollow; 
+//		//EventManager.onInputEvent -= Test;
+//	}
 
 //	private void Test (GameEvent e)
 //	{

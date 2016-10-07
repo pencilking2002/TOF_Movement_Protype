@@ -57,7 +57,7 @@ public class FadeInPanel : MonoBehaviour {
 
 	public void FadeOut()
 	{
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
 		LeanTween.alpha (rt, 0.0f, 0.1f);
 		LeanTween.alpha (restartRT, 0, 0.1f).setOnComplete (() => { restartBtn.gameObject.SetActive(false); });
 		LeanTween.alpha (quitRT, 0, 0.1f).setOnComplete (() => { quitBtn.gameObject.SetActive(false); });
@@ -66,25 +66,36 @@ public class FadeInPanel : MonoBehaviour {
 
 	public void PauseGame()
 	{
-		Time.timeScale = 0.0f;
+		//Time.timeScale = 0.0f;
 	}
 
 	public void ResumeGame()
 	{
-		Time.timeScale = 1.0f;
+		//Time.timeScale = 1.0f;
 	}
 
 
 	public void RestartClick()
 	{
+		Time.timeScale = 1;
 		int scene = SceneManager.GetActiveScene().buildIndex;
-		SceneManager.LoadScene(0, LoadSceneMode.Single);
+		SceneManager.LoadScene(scene, LoadSceneMode.Single);
 	}
 
 	public void QuitClick()
 	{
 		Time.timeScale = 1;
 		Resources.UnloadUnusedAssets ();
+		System.GC.Collect();
+
+		EventManager.onCharEvent = null;
+		EventManager.onInputEvent = null;
+		EventManager.onDetectEvent = null;
+		EventManager.onCharEvent2 = null;
+
+		Destroy (Camera.main.gameObject);
+		Destroy (GameObject.FindGameObjectWithTag ("EventManager"));
+		//TOFCamAdjuster = null;
 		Application.Quit ();
 	}
 
