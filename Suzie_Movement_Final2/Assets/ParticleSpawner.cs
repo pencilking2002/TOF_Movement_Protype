@@ -67,7 +67,7 @@ public class ParticleSpawner : MonoBehaviour {
             }
             
                
-            smokeInstance.transform.localPosition = Vector3.zero;
+            smokeInstance.transform.position = transform.parent.transform.position;
         }
     }
 
@@ -91,14 +91,14 @@ public class ParticleSpawner : MonoBehaviour {
             {
                 print ("step puff");
                 stepPuffInstance = CFX_SpawnSystem.GetNextObject(stepPuff);
-                stepPuffInstance.transform.parent = null;
-                stepPuffInstance.transform.position = transform.parent.transform.position;
+                //stepPuffInstance.transform.parent = null;
+                stepPuffInstance.transform.position = transform.parent.transform.position + transform.parent.transform.forward * 0.5f;
                 //stepPuffInstance.transform.position = transform.parent.transform.position + transform.parent.transform.forward * -0.2f;
             }
             else
             {
                 stepSplashInstance = CFX_SpawnSystem.GetNextObject(stepSplash);
-                stepSplashInstance.transform.parent = null;
+                //stepSplashInstance.transform.parent = null;
                 stepSplashInstance.transform.position = transform.parent.transform.position  + transform.parent.transform.forward * 0.5f;
             }
         }

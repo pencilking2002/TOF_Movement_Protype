@@ -1837,7 +1837,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 510e87c8f71a7a643870ecf0c39dae2b, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -4573,9 +4573,9 @@ MonoBehaviour:
   - {fileID: 100002, guid: 0335ac9c6b697e54494e51a7abf8b161, type: 2}
   - {fileID: 1000011880887728, guid: 624a0f053b9fcf743b78f51345f0d9c6, type: 2}
   - {fileID: 100010, guid: cee5f0c785dd47d40b4bd7b8ba480076, type: 2}
-  objectsToPreloadTimes: 0300000003000000030000001400000014000000
+  objectsToPreloadTimes: 0500000005000000140000002800000028000000
   hideObjectsInHierarchy: 0
-  spawnAsChildren: 1
+  spawnAsChildren: 0
   onlyGetInactiveObjects: 1
   instantiateIfNeeded: 0
 --- !u!114 &694596447
