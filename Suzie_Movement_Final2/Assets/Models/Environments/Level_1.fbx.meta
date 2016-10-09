@@ -3537,6 +3537,7 @@ ModelImporter:
     2301930: polySurface1013
     2301932: polySurface1014
     2301934: CaveWall
+    2301936: Bush
     3300000: ArchwayGround
     3300002: ArchwayWall
     3300004: Body
@@ -4505,6 +4506,7 @@ ModelImporter:
     3301930: polySurface1013
     3301932: polySurface1014
     3301934: CaveWall
+    3301936: Bush
     4300000: Grass2
     4300002: Wall
     4300004: Log
@@ -6439,6 +6441,7 @@ ModelImporter:
     6401930: polySurface1013
     6401932: polySurface1014
     6401934: CaveWall
+    6401936: Bush
   materials:
     importMaterials: 1
     materialName: 0
@@ -6446,7 +6449,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
