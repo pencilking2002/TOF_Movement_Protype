@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// Class that controls the options button
 public class Options : MonoBehaviour {
 	public Image fadeInPanel;
 	private FadeInPanel panelScript;
@@ -40,11 +41,11 @@ public class Options : MonoBehaviour {
 		}
 	}
 
-//	void OnGUI()
-//	{
-//		GUI.Button (new Rect (100, 100, 100, 50), "Options Open:" + optionsOpen);
-//	}
-//
+	void OnGUI()
+	{
+		GUI.Button (new Rect (100, 100, 100, 50), "Options Open:" + optionsOpen);
+	}
+
 	public void MouseOver()
 	{
 		image.color = fullColor;
@@ -85,6 +86,7 @@ public class Options : MonoBehaviour {
 		} 
 		else
 		{
+            print ("options should fade out");
 			optionsOpen = false;
 			panelScript.FadeOut ();
 		}

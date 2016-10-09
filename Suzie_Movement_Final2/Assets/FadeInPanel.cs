@@ -45,7 +45,7 @@ public class FadeInPanel : MonoBehaviour {
 	{
 		
 		//anim.SetTrigger ("DisplayOptions");
-		LeanTween.alpha(rt, 0.6f, 0.1f).setOnComplete(() => { Time.timeScale = 0; });
+		LeanTween.alpha(rt, 0.8f, 0.1f).setOnComplete(() => { Time.timeScale = 0; });
 
 		restartBtn.gameObject.SetActive (true);
 		quitBtn.gameObject.SetActive (true);
@@ -57,7 +57,7 @@ public class FadeInPanel : MonoBehaviour {
 
 	public void FadeOut()
 	{
-		//Time.timeScale = 1;
+		Time.timeScale = 1;
 		LeanTween.alpha (rt, 0.0f, 0.1f);
 		LeanTween.alpha (restartRT, 0, 0.1f).setOnComplete (() => { restartBtn.gameObject.SetActive(false); });
 		LeanTween.alpha (quitRT, 0, 0.1f).setOnComplete (() => { quitBtn.gameObject.SetActive(false); });

@@ -13,38 +13,5 @@ public class TOFCamAdjuster : MonoBehaviour {
 		rpgCam = GetComponent<PhatRobit.SimpleRpgCamera>();
 		origTargetOffset = rpgCam.targetOffset;
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		//if (
-	}
 
-//	void OnEnable()
-//	{
-//		EventManager.onCharEvent += TunnelCam;
-//	}
-//
-//	void OnDisable()
-//	{
-//		EventManager.onCharEvent -= TunnelCam;
-//	}
-//
-//	void TunnelCam (GameEvent gEvent)
-//	{
-////		if (gEvent == GameEvent.EnterTunnel)
-////		{
-////			rpgCam.allowRotation = false;
-////			//rpgCam.stayBehindTarget = true;
-////			rpgCam.targetOffset = tunnelTargetOffset;
-////			print("enter tunnel");
-////		}
-////		else if (gEvent == GameEvent.ExitTunnel)
-////		{
-////			rpgCam.allowRotation = true;
-////			//rpgCam.stayBehindTarget = false;
-////			rpgCam.targetOffset = origTargetOffset;
-////
-////		}
-//	}
 }
