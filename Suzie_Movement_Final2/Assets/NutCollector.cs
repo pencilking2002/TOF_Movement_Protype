@@ -30,6 +30,8 @@ public class NutCollector : MonoBehaviour
 	[HideInInspector]
 	public List<GameObject> collectedNuts = new List<GameObject>();
 
+    public Vector3 lastCollectedNutPos;
+
 	void Awake()
 	{
 		if (Instance == null)
@@ -62,8 +64,9 @@ public class NutCollector : MonoBehaviour
 		if (col.gameObject.layer == 15)
 		{
 			GameObject pickup = col.gameObject;
+            lastCollectedNutPos = pickup.transform.position;
 			CollectNut(pickup);
-
+           
 			//print("nut triggered");
 
 			// Switch pickup to a layer that ignores all player collisions

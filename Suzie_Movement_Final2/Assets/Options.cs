@@ -39,41 +39,48 @@ public class Options : MonoBehaviour {
 		{
 			MouseClick ();
 		}
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            MouseUp();
+        }
+                
 	}
 
-	void OnGUI()
-	{
-		GUI.Button (new Rect (100, 100, 100, 50), "Options Open:" + optionsOpen);
-	}
-
+//	void OnGUI()
+//	{
+//		GUI.Button (new Rect (100, 100, 100, 50), "Options Open:" + optionsOpen);
+//	}
+//
 	public void MouseOver()
 	{
 		image.color = fullColor;
-		LeanTween.scale (rt, Vector3.one * 1.2f, 0.2f);
-		float offset = getRotationAmount (rt, -90);
-		LeanTween.rotate (rt, offset, 0.2f);
+        LeanTween.scale (rt, Vector3.one * 1.3f, 0.1f)
+            .setEase(LeanTweenType.easeOutBounce);
+		//float offset = getRotationAmount (rt, -90);
+		//LeanTween.rotate (rt, offset, 0.2f);
 	}
 
 	public void MouseExit()
 	{
 		image.color = transpColor;
-		LeanTween.scale (rt, Vector3.one, 0.2f);
+		LeanTween.scale (rt, Vector3.one, 0.2f)
+            .setEase(LeanTweenType.easeOutBounce);
 
-		float offset = getRotationAmount (rt, 0);
-		LeanTween.rotate (rt, offset, 0.2f);
+		//float offset = getRotationAmount (rt, 0);
+		//LeanTween.rotate (rt, offset, 0.2f);
 	}
 
 	public void MouseClick()
 	{
 		image.color = darkColor;
-		LeanTween.scale (rt, Vector3.one * 1.3f, 0.2f);
+		LeanTween.scale (rt, Vector3.one * 1.4f, 0.2f);
 		ToggleOptions ();
 	}
 
 	public void MouseUp()
 	{
 		image.color = transpColor;
-		LeanTween.scale (rt, Vector3.one * 1.2f, 0.2f);
+		LeanTween.scale (rt, Vector3.one * 1.3f, 0.2f);
 	}
 
 	private void ToggleOptions()

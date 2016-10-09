@@ -31,17 +31,10 @@ public class SoundManager : MonoBehaviour {
 			Destroy (gameObject);
 	}
 
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+      void OnGUI()
+      {
+            GUI.Button (new Rect (100, 100, 200, 50), "On land:" + !landingController.touchingWater);
+      }
 
 	void OnEnable()
 	{

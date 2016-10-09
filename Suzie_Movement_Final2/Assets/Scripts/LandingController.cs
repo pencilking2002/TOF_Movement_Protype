@@ -19,6 +19,11 @@ public class LandingController : MonoBehaviour {
 	private Ray ray;
 	private RaycastHit hit;
 
+    // water/land detection
+    private Vector3 dOrigin, dDirection;
+    public float dRayLength = 1.3f;
+    public LayerMask dLayerMask;
+
 	private int anim_land = Animator.StringToHash("Land");
 	private int anim_Falling = Animator.StringToHash("Falling");
 	private int anim_IdleFalling = Animator.StringToHash("IdleFalling");
@@ -50,6 +55,18 @@ public class LandingController : MonoBehaviour {
 			});
 		}
 	}
+
+    private void FixedUpdate()
+    {
+        dOrigin = transform.position + new Vector3(0, 1.2f, 0);
+        dDirection = Vector3.down * dRayLength;
+
+        Debug.DrawRay(dOrigin, dDirection, Color.black);
+
+        // Detect if character is currently touching water
+        touchingWater = Physics.Raycast (dOrigin, Vector3.down, dRayLength, dLayerMask);
+   
+    }
 
 	/// <summary>
 	/// Force animator to trigger the falling animation 
@@ -124,7 +141,7 @@ public class LandingController : MonoBehaviour {
 	/// </summary>
 	void OnTriggerStay (Collider col)
 	{
-		touchingWater = (col.gameObject.layer == 25);
+		//touchingWater = (col.gameObject.layer == 25);
 
 		if (JumpController.TimePassedSinceJump(0.3f))
 		{
