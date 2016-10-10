@@ -31,10 +31,10 @@ public class SoundManager : MonoBehaviour {
 			Destroy (gameObject);
 	}
 
-      void OnGUI()
-      {
-            GUI.Button (new Rect (100, 100, 200, 50), "On land:" + !landingController.touchingWater);
-      }
+//      void OnGUI()
+//      {
+//            GUI.Button (new Rect (100, 100, 200, 50), "On land:" + !landingController.touchingWater);
+//      }
 
 	void OnEnable()
 	{
